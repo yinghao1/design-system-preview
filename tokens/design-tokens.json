@@ -1,0 +1,539 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "name": "RUNDA Design System",
+    "version": "2.6.0",
+    "description": "RUNDA Clinical Data X — Design Tokens (含 EMR 工作台模式 + P0 组件补充)",
+    "updated": "2026-05-22"
+  },
+
+  "color": {
+    "ink": {
+      "50":  { "value": "#FAFAFA", "desc": "页面背景" },
+      "100": { "value": "#F4F4F5", "desc": "★卡片外描边/次级背景/内部分隔线" },
+      "200": { "value": "#E4E4E7", "desc": "主要边框（输入框/表头底/强分隔线）" },
+      "300": { "value": "#D4D4D8", "desc": "弱分割线/禁用" },
+      "400": { "value": "#A1A1AA", "desc": "辅助文字/placeholder" },
+      "500": { "value": "#71717A", "desc": "次要正文" },
+      "600": { "value": "#52525B", "desc": "标签文字" },
+      "700": { "value": "#3F3F46", "desc": "正文强调" },
+      "800": { "value": "#27272A", "desc": "表格正文" },
+      "900": { "value": "#18181B", "desc": "标题/主按钮/核心数字" },
+      "950": { "value": "#09090B", "desc": "极深黑" }
+    },
+    "cdx": {
+      "50":  { "value": "#F0F7F8", "desc": "hover/active 浅色" },
+      "100": { "value": "#D9EBED", "desc": "badge 背景" },
+      "200": { "value": "#B0D6DB", "desc": "中边框/图表辅助" },
+      "300": { "value": "#7FBAC2" },
+      "400": { "value": "#4D9CA7" },
+      "500": { "value": "#2A7F8B", "desc": "渐变起点" },
+      "600": { "value": "#1D6571", "desc": "品牌圆点/次级图标" },
+      "700": { "value": "#185058", "desc": "★核心强调色 — KPI/链接/active" },
+      "800": { "value": "#143F47" },
+      "900": { "value": "#0F2F35" },
+      "950": { "value": "#081B1F" }
+    },
+    "warm": {
+      "50":  { "value": "#FBF9F4", "desc": "暖色背景" },
+      "100": { "value": "#F5F0E4" },
+      "200": { "value": "#E8DCC1" },
+      "300": { "value": "#D6C396" },
+      "400": { "value": "#C2A968" },
+      "500": { "value": "#A88B4A" },
+      "600": { "value": "#8A6F38" },
+      "700": { "value": "#6E582C", "desc": "暖色强调文字/KPI" }
+    },
+    "hl": {
+      "deep":       { "value": "#92400E", "desc": "命中深色文字" },
+      "border":     { "value": "#C28A2C", "desc": "命中边框/下划线" },
+      "bg":         { "value": "#FEF3C7", "desc": "命中背景" },
+      "bg-soft":    { "value": "#FDE68A", "desc": "强调高亮" },
+      "bg-lite":    { "value": "#FFFBF0", "desc": "可映射浅黄" },
+      "bg-hover":   { "value": "#FFF4D6", "desc": "映射 hover" },
+      "bg-active":  { "value": "#FFE9B8", "desc": "映射激活" },
+      "bg-fade":    { "value": "#FFFBEB", "desc": "动画衰减终点" },
+      "warm":       { "value": "#FFF3CC", "desc": "mark 标签背景" }
+    },
+    "status": {
+      "success": { "value": "#3F8F5C" },
+      "warning": { "value": "#C28A2C" },
+      "danger":  { "value": "#A8453B" },
+      "error":   { "value": "#DC2626" }
+    },
+    "segment": {
+      "active": { "value": "#165DFF", "desc": "对账段控件激活蓝" },
+      "bg":     { "value": "#F4F5F7" },
+      "text":   { "value": "#4E5969" }
+    },
+    "live": {
+      "green": { "value": "#15803D", "desc": "脉冲活跃绿" },
+      "amber": { "value": "#E59C0F", "desc": "重试琥珀" },
+      "blue":  { "value": "#1D5CFF", "desc": "运行中蓝" }
+    },
+    "recon": {
+      "border":    { "value": "#E5E6EB", "desc": "对账边框" },
+      "border-2":  { "value": "#F2F3F5", "desc": "对账浅边框" },
+      "ink":       { "value": "#1D2129", "desc": "对账文字黑" },
+      "muted":     { "value": "#86909C", "desc": "对账图标灰" },
+      "header":    { "value": "#F7F8FA", "desc": "表头底" }
+    },
+    "concept": {
+      "anatomy":   { "value": "#6D28D9", "desc": "解剖" },
+      "symptom":   { "value": "#BE185D", "desc": "症状" },
+      "diagnosis": { "value": "#185058", "desc": "诊断" },
+      "exam":      { "value": "#6366F1", "desc": "检查" },
+      "lab":       { "value": "#6E582C", "desc": "检验" }
+    },
+    "modality": {
+      "lab":   { "bg": "#F0F7F8", "fg": "#185058" },
+      "exam":  { "bg": "#EFF6FF", "fg": "#1E40AF" },
+      "path":  { "bg": "#FEF2F2", "fg": "#991B1B" },
+      "dx":    { "bg": "#F5F3FF", "fg": "#5B21B6" },
+      "drug":  { "bg": "#ECFDF5", "fg": "#065F46" },
+      "surg":  { "bg": "#FFF7ED", "fg": "#9A3412" },
+      "emr":   { "bg": "#F8FAFC", "fg": "#334155" },
+      "gene":  { "bg": "#FDF4FF", "fg": "#86198F" }
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "sans":    { "value": "\"PingFang SC\", \"Noto Sans SC\", \"Inter\", system-ui, -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif" },
+      "display": { "value": "\"Inter\", \"PingFang SC\", \"Helvetica Neue\", sans-serif" },
+      "mono":    { "value": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, monospace" }
+    },
+    "fontSize": {
+      "hero":    { "size": "clamp(4rem, 6.5vw, 6.5rem)", "lh": 1.08, "weight": 400, "tracking": "-0.035em" },
+      "kpi":     { "size": "clamp(3.5rem, 5.5vw, 5.5rem)", "lh": 1.0, "weight": 500, "tracking": "-0.025em" },
+      "h1":      { "size": "clamp(2.5rem, 4vw, 3.75rem)", "lh": 1.15, "weight": 500, "tracking": "-0.025em" },
+      "h2":      { "size": "clamp(1.75rem, 2.4vw, 2.25rem)", "lh": 1.25, "weight": 600, "tracking": "-0.015em" },
+      "h3":      { "size": "1.375rem", "lh": 1.45, "weight": 600 },
+      "lead":    { "size": "1.083rem", "lh": 1.7, "weight": 400 },
+      "body":    { "size": "1.0625rem", "lh": 1.75, "weight": 400 },
+      "caption": { "size": "0.9375rem", "lh": 1.6, "weight": 500, "tracking": "0.005em" },
+      "eyebrow": { "size": "0.8125rem", "lh": 1.4, "weight": 600, "tracking": "0.16em", "transform": "uppercase" },
+      "page-h1": { "size": "1.833rem", "lh": 1.2, "weight": 500, "desc": "page-level H1 标题（act1~act7 统一）" },
+      "code":    { "size": "14px", "lh": 1.6, "weight": 400, "family": "mono", "desc": "代码片段、ID 编号" },
+      "button":  { "size": "14px", "lh": 1.0, "weight": 500, "desc": "按钮文字" },
+      "button-sm": { "size": "12px", "lh": 1.0, "weight": 500, "desc": "小按钮" },
+      "button-cta": { "size": "13px", "lh": 1.0, "weight": 600, "tracking": "0.16em", "transform": "uppercase", "desc": "CTA 主按钮" },
+      "nav-link": { "size": "14px", "lh": 1.4, "weight": 500, "desc": "导航链接" },
+      "nav-link-sm": { "size": "13px", "lh": 1.4, "weight": 500, "desc": "侧边栏菜单项" },
+      "caption-uppercase": { "size": "12px", "lh": 1.4, "weight": 500, "tracking": "0.12em", "transform": "uppercase", "desc": "大写标注" },
+      "table-header": { "size": "12px", "lh": 1.4, "weight": 600, "tracking": "0.04em", "desc": "表头文字" },
+      "badge":   { "size": "11px", "lh": 1.4, "weight": 600, "tracking": "0.04em", "family": "mono", "desc": "徽章标签" },
+      "tooltip": { "size": "12px", "lh": 1.6, "weight": 400, "desc": "提示浮层" },
+      "brand-name-en": { "size": "13px", "lh": 1.4, "weight": 600, "tracking": "0.16em", "transform": "uppercase", "desc": "侧边栏英文/缩写品牌名（≤4字符）" },
+      "brand-name-cn": { "size": "14px", "lh": 1.4, "weight": 700, "tracking": "0.02em", "desc": "侧边栏中文全称品牌名（≥4字符），不大写" },
+      "patient-name":  { "size": "15px", "lh": 1.4, "weight": 600, "desc": "工作台 Header 患者姓名" },
+      "patient-tag":   { "size": "11px", "lh": 1.4, "weight": 500, "tracking": "0.04em", "family": "mono", "desc": "工作台 Header 患者模态徽章（床号/医保性质）" }
+    },
+    "settings": {
+      "font-feature-settings": "\"ss01\",\"cv11\"",
+      "antialiased": true,
+      "numeric-kpi": "tabular-nums"
+    }
+  },
+
+  "spacing": {
+    "container": {
+      "narrow":  "720px",
+      "reading": "880px",
+      "wide":    "1280px",
+      "ultra":   "1440px"
+    },
+    "custom": {
+      "18": "4.5rem",
+      "22": "5.5rem",
+      "30": "7.5rem",
+      "36": "9rem"
+    },
+    "padding": {
+      "card-primary":   "28px",
+      "card-section":   "40px",
+      "card-hero":      "64px",
+      "card-login":     "40px 36px",
+      "card-secondary": "20px",
+      "table-cell":     "14px 16px",
+      "table-cell-compact": "8px 10px"
+    },
+    "page-layout": {
+      "main": "max-w-ultra mx-auto px-12 pt-20 pb-20",
+      "section-gap": "mt-10 ~ mt-20",
+      "title-body-gap": "mt-5 ~ mt-6"
+    },
+    "workstation": {
+      "content-padding": "20px",
+      "content-gap": "10px",
+      "query-card-width": "260px",
+      "header-height": "56px",
+      "sidebar-width": "240px",
+      "desc": "B 端管理型 + EMR 工作台统一布局：content padding 20px / gap 10px（v2.6 起 §3.3 与 §30.2 已统一）"
+    },
+    "management": {
+      "main-content-padding": "20px",
+      "main-content-gap": "10px",
+      "header-height": "56px",
+      "sidebar-width": "240px",
+      "desc": "B 端管理型页面布局（§3.3）— 与工作台统一"
+    }
+  },
+
+  "radius": {
+    "xs":      { "value": "2px", "usage": "锐利徽章/对账组件" },
+    "sm":      { "value": "4px", "usage": "tag/小按钮/段控件内项" },
+    "default": { "value": "6px", "usage": "按钮/输入框/卡片" },
+    "md":      { "value": "8px", "usage": "中等卡片/弹层" },
+    "modality":{ "value": "14px", "usage": "模态卡片专属" },
+    "lg":      { "value": "12px", "usage": "大卡片/登录卡" },
+    "xl":      { "value": "16px", "usage": "特大容器" },
+    "filter-pill": { "value": "10px", "usage": "过滤 pill/pipeline 容器" },
+    "full":    { "value": "999px", "usage": "pill/avatar/badge" },
+    "circle":  { "value": "50%", "usage": "圆点/徽章" }
+  },
+
+  "shadow": {
+    "subtle":     { "value": "0 1px 2px rgba(15, 23, 42, 0.04)" },
+    "soft":       { "value": "0 4px 16px rgba(15, 23, 42, 0.06)" },
+    "lift":       { "value": "0 12px 40px rgba(15, 23, 42, 0.08)" },
+    "card-hover": { "value": "0 12px 28px rgba(24, 80, 88, 0.08)" },
+    "drawer":     { "value": "-16px 0 48px rgba(15, 23, 42, 0.12)" },
+    "drawer-recon": { "value": "-12px 0 32px rgba(0, 0, 0, 0.12)" },
+    "tooltip":    { "value": "0 8px 24px rgba(0, 0, 0, 0.18)" },
+    "dropdown":   { "value": "0 12px 40px rgba(15, 23, 42, 0.10)" },
+    "dropdown-soft": { "value": "0 8px 24px rgba(0, 0, 0, 0.10)" },
+    "login":      { "value": "0 1px 0 rgba(0, 0, 0, 0.02), 0 24px 60px -20px rgba(15, 23, 42, 0.10)" },
+    "concept-hit":{ "value": "0 4px 14px rgba(194, 138, 44, 0.18)" },
+    "focus-ink":  { "value": "0 0 0 3px rgba(24, 24, 27, 0.06)", "usage": "输入框 focus" },
+    "focus-error":{ "value": "0 0 0 3px rgba(220, 38, 38, 0.08)", "usage": "输入框 error" },
+    "focus-cdx":  { "value": "0 0 0 1px rgba(24, 80, 88, 0.12)", "usage": "filter-pill hover" },
+    "focus-cdx-open": { "value": "0 0 0 2px rgba(24, 80, 88, 0.15)", "usage": "filter-pill open" },
+    "hl-ring":    { "value": "0 0 0 2px #FEF3C7", "usage": "命中外圈" },
+    "hl-active":  { "value": "0 0 0 3px rgba(194, 138, 44, 0.15)", "usage": "映射激活" },
+    "inset-layer-active": { "value": "inset 0 -3px 0 #185058", "usage": "layer-tab active" },
+    "inset-hl-left":      { "value": "inset 3px 0 0 #C28A2C", "usage": "命中行左侧条" },
+    "inset-cdx-left":     { "value": "inset 3px 0 0 #185058", "usage": "规则行激活左条" }
+  },
+
+  "gradient": {
+    "warm":      { "value": "linear-gradient(135deg, #FBF9F4 0%, #F5F0E4 100%)" },
+    "cdx":       { "value": "linear-gradient(135deg, #2A7F8B 0%, #185058 100%)" },
+    "fade":      { "value": "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(250,250,250,1) 100%)" },
+    "modality":  { "value": "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,248,250,1) 100%)" },
+    "pipeline-active": { "value": "linear-gradient(90deg, rgba(42,127,139,0.03) 0%, rgba(42,127,139,0.08) 50%, rgba(42,127,139,0.03) 100%)" },
+    "radial-light": { "value": "radial-gradient(circle, rgba(24,80,88,0.10) 0%, rgba(24,80,88,0) 72%)", "usage": "modality card 右上角光晕" },
+    "stripe": { "value": "repeating-linear-gradient(135deg, rgba(255,255,255,0) 0 10px, rgba(255,255,255,.45) 10px 14px, rgba(255,255,255,0) 14px 22px)", "usage": "sync-bar 流动条纹" }
+  },
+
+  "motion": {
+    "easing": {
+      "expo-out":  { "value": "cubic-bezier(0.16, 1, 0.3, 1)", "desc": "★全局主缓动" },
+      "ease-out":  { "value": "cubic-bezier(0.4, 0, 0.2, 1)", "desc": "loading 等少数场景" }
+    },
+    "duration": {
+      "instant":      "150ms",
+      "fast":         "200ms",
+      "normal":       "250ms",
+      "smooth":       "300ms",
+      "deliberate":   "350ms",
+      "panel":        "420ms",
+      "card-hover":   "450ms",
+      "button":       "500ms",
+      "entrance":     "800ms",
+      "countup":      "1600ms",
+      "chart":        "1200ms",
+      "loading-bar":  "1400ms",
+      "pulse-ring":   "1600ms",
+      "flow-sweep":   "2400ms",
+      "pulse-soft":   "4000ms"
+    },
+    "entrance": {
+      "cdx-fade": {
+        "initial": { "opacity": 0, "transform": "translateY(12px)" },
+        "final":   { "opacity": 1, "transform": "translateY(0)" },
+        "duration": 800,
+        "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "stagger": { "base": 80, "step": 90 }
+      }
+    }
+  },
+
+  "border": {
+    "default": { "value": "1px solid #E4E4E7", "usage": "主要边框（输入框/表头底/强分隔）" },
+    "card":    { "value": "1px solid #F4F4F5", "usage": "★卡片外描边（所有 card/stat-card/card-wrap/form-card）" },
+    "subtle":  { "value": "1px solid #F4F4F5", "usage": "极轻边框（与 card 同色，用于内部分隔）" },
+    "dashed":  { "value": "1px dashed #D4D4D8", "usage": "虚线边框" },
+    "recon":   { "value": "1px solid #E5E6EB", "usage": "对账模块专用" },
+    "cdx":     { "value": "1px solid #185058", "usage": "激活/选中态" },
+    "hl":      { "value": "1px solid #C28A2C", "usage": "命中高亮" }
+  },
+
+  "layout": {
+    "z-index": {
+      "content":   1,
+      "nav":       40,
+      "dropdown":  50,
+      "drawer":    70,
+      "mask":      60,
+      "tooltip":   10,
+      "message":   2000,
+      "datepicker": 1000
+    },
+    "grid": {
+      "columns": 24,
+      "gutter": { "xs": "8px", "sm": "12px", "md": "16px", "lg": "20px", "xl": "24px" },
+      "breakpoints": {
+        "xs": "0",
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "xxl": "1536px"
+      }
+    },
+    "container": {
+      "header-height": "56px",
+      "footer-height": "48px",
+      "sider-width": "240px",
+      "sider-collapsed-width": "64px",
+      "sider-collapse-duration": "300ms"
+    },
+    "nav": {
+      "top": {
+        "position": "fixed top-0 left-0 right-0",
+        "z-index": 40,
+        "padding": "px-6 lg:px-10 py-5",
+        "opacity-default": 0.30,
+        "opacity-hover": 1.00,
+        "transition": "opacity 500ms"
+      },
+      "bottom": {
+        "position": "fixed bottom-0 left-0 right-0",
+        "z-index": 40,
+        "padding": "px-10 py-4",
+        "opacity-default": 0.25,
+        "opacity-hover": 0.90,
+        "transition": "opacity 500ms"
+      }
+    }
+  },
+
+  "icon": {
+    "style": "linear-stroke",
+    "stroke-width": {
+      "thin":   1.5,
+      "normal": 1.8,
+      "bold":   2,
+      "strong": 2.2
+    },
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    "sizes": {
+      "xs":  "12px",
+      "sm":  "14px",
+      "md":  "16px",
+      "lg":  "20px",
+      "xl":  "24px",
+      "2xl": "32px",
+      "3xl": "48px",
+      "4xl": "56px"
+    }
+  },
+
+  "effect": {
+    "grain": {
+      "dot":  "rgba(0,0,0,0.018)",
+      "size": "3px 3px",
+      "pattern": "radial-gradient(rgba(0,0,0,0.018) 1px, transparent 1px)",
+      "method": "body-background",
+      "attachment": "fixed"
+    }
+  },
+
+  "i18n": {
+    "languages": ["zh", "en", "pt", "es"],
+    "default": "zh",
+    "storage": "localStorage['cdx-lang']",
+    "attrs": ["data-i18n", "data-i18n-html", "data-i18n-placeholder", "data-i18n-skip"]
+  },
+
+  "components": {
+    "tabs": {
+      "height": "40px",
+      "padding": "10px 16px",
+      "font-size": "14px",
+      "font-weight": 500,
+      "active-color": "#185058",
+      "active-border": "2px solid #185058",
+      "active-bg-card": "#fff",
+      "inactive-color": "#71717A",
+      "disabled-opacity": 0.6,
+      "transition": "200ms cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    "collapse": {
+      "border": "1px solid #E4E4E7",
+      "border-radius": "6px",
+      "header-padding": "12px 16px",
+      "body-padding": "16px",
+      "icon-size": "16px",
+      "icon-rotate": "180deg",
+      "transition": "300ms cubic-bezier(0.16, 1, 0.3, 1)",
+      "hover-bg": "#F0F7F8"
+    },
+    "descriptions": {
+      "label-width": "120px",
+      "label-font-size": "13px",
+      "label-font-weight": 600,
+      "label-color": "#71717A",
+      "label-letter-spacing": "0.02em",
+      "label-bg": "#FAFAFA",
+      "content-font-size": "14px",
+      "content-color": "#18181B",
+      "border": "1px solid #E4E4E7",
+      "border-radius": "6px",
+      "columns": { "sm": 1, "md": 2, "lg": 3, "xl": 4 }
+    },
+    "form": {
+      "label-width": "120px",
+      "label-font-size": "14px",
+      "label-font-weight": 500,
+      "label-color": "#3F3F46",
+      "item-margin-bottom": "20px",
+      "help-font-size": "12px",
+      "help-color": "#71717A",
+      "error-color": "#DC2626",
+      "required-color": "#DC2626"
+    },
+    "datepicker": {
+      "input-padding": "8px 32px 8px 12px",
+      "panel-min-width": "280px",
+      "panel-padding": "12px",
+      "panel-shadow": "0 8px 24px rgba(0, 0, 0, 0.08)",
+      "day-size": "32px",
+      "day-border-radius": "4px",
+      "day-selected-bg": "#185058",
+      "day-selected-color": "#fff",
+      "day-today-border": "1px solid #185058",
+      "day-hover-bg": "#F0F7F8",
+      "day-disabled-color": "#D4D4D8"
+    },
+    "upload": {
+      "btn-border": "1px dashed #D4D4D8",
+      "btn-border-hover": "1px dashed #185058",
+      "dragger-border": "2px dashed #E4E4E7",
+      "dragger-border-hover": "2px dashed #185058",
+      "dragger-bg-hover": "#F0F7F8",
+      "dragger-padding": "40px 20px",
+      "list-item-padding": "8px 12px",
+      "list-item-border": "1px solid #E4E4E7",
+      "list-item-border-radius": "4px"
+    },
+    "message": {
+      "top-offset": "24px",
+      "padding": "12px 20px",
+      "border-radius": "6px",
+      "shadow": "0 4px 12px rgba(0, 0, 0, 0.12)",
+      "font-size": "14px",
+      "icon-size": "16px",
+      "gap": "10px",
+      "stack-gap": "12px",
+      "auto-close": "3000ms",
+      "animation": "200ms cubic-bezier(0.16, 1, 0.3, 1)",
+      "colors": {
+        "success": "#3F8F5C",
+        "warning": "#C28A2C",
+        "error": "#DC2626",
+        "info": "#185058"
+      }
+    },
+    "avatar": {
+      "sizes": {
+        "xs": "24px",
+        "sm": "32px",
+        "md": "40px",
+        "lg": "56px",
+        "xl": "80px"
+      },
+      "font-sizes": {
+        "xs": "11px",
+        "sm": "13px",
+        "md": "15px",
+        "lg": "20px",
+        "xl": "28px"
+      },
+      "border-radius": "50%",
+      "border-radius-square": "6px",
+      "default-bg": "#F0F7F8",
+      "default-border": "1px solid #B0D6DB",
+      "default-icon-color": "#185058",
+      "text-bg": "#185058",
+      "text-color": "#fff",
+      "image-border": "1px solid #F4F4F5",
+      "group-overlap": "-8px",
+      "group-border": "2px solid #fff",
+      "status-size": "10px",
+      "status-border": "2px solid #fff",
+      "status-colors": {
+        "online": "#3F8F5C",
+        "offline": "#D4D4D8",
+        "busy": "#DC2626"
+      },
+      "upload-overlay-bg": "rgba(0, 0, 0, 0.5)",
+      "upload-transition": "200ms cubic-bezier(0.16, 1, 0.3, 1)",
+      "error-border": "2px solid #DC2626"
+    },
+    "chat": {
+      "container-bg": "#FAFAFA",
+      "header-height": "56px",
+      "messages-padding": "20px",
+      "messages-gap": "24px",
+      "input-padding": "8px 12px",
+      "input-border-radius": "10px",
+      "input-border": "1px solid #E4E4E7",
+      "input-focus-border": "1px solid #185058",
+      "input-focus-shadow": "0 0 0 3px rgba(24, 80, 88, 0.08)",
+      "send-btn-size": "36px",
+      "send-btn-bg": "#185058",
+      "send-btn-hover-bg": "#1D6571",
+      "message-border-radius": "6px",
+      "message-padding": "16px 20px",
+      "message-ai-bg": "#fff",
+      "message-ai-border": "1px solid #F4F4F5",
+      "message-user-bg": "#F0F7F8",
+      "message-user-border": "1px solid #B0D6DB",
+      "message-system-color": "#A1A1AA",
+      "sender-ai-color": "#185058",
+      "sender-user-color": "#18181B",
+      "sender-tag-bg": "#D9EBED",
+      "sender-tag-color": "#185058",
+      "thinking-bg": "#F0F7F8",
+      "thinking-border": "1px solid #D9EBED",
+      "thinking-dot-color": "#4D9CA7",
+      "thinking-dot-size": "6px",
+      "thinking-animation": "1.4s ease-in-out infinite",
+      "thinking-chain-bg": "#FAFAFA",
+      "thinking-chain-border": "1px solid #F4F4F5",
+      "thinking-chain-transition": "300ms cubic-bezier(0.16, 1, 0.3, 1)",
+      "risk-card-border-radius": "6px",
+      "risk-card-bar-width": "4px",
+      "risk-colors": {
+        "high": "#DC2626",
+        "high-bg": "#FEE2E2",
+        "medium": "#C28A2C",
+        "medium-bg": "#FEF3C7",
+        "low": "#3F8F5C",
+        "low-bg": "#DCFCE7"
+      },
+      "consensus-header-gradient": "linear-gradient(135deg, #185058 0%, #0F2F35 100%)",
+      "consensus-border-radius": "10px",
+      "reference-card-border": "1px solid #F4F4F5",
+      "reference-badge-bg": "#185058",
+      "reference-badge-color": "#fff",
+      "expert-panel-border": "1px solid #F4F4F5",
+      "message-entry-animation": "200ms cubic-bezier(0.16, 1, 0.3, 1)",
+      "actions-opacity-default": 0,
+      "actions-opacity-hover": 1
+    }
+  }
+}
