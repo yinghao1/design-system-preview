@@ -3,6 +3,10 @@
 > RUNDA Clinical Data X 设计系统完整产出包。  
 > 新项目开发时，以本目录为设计源头，确保 UI 视觉样式与交互风格 100% 一致。
 
+## 在线预览
+
+本项目的公开预览页面：<https://yinghao1.github.io/design-system-preview/>
+
 ---
 
 ## AI 使用规则（必读）
@@ -164,6 +168,8 @@ html, body {
 ```
 
 ### 3. 查看预览
+
+在线查看：<https://yinghao1.github.io/design-system-preview/>
 
 ```bash
 # 启动本地服务器
