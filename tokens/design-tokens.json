@@ -116,7 +116,7 @@
       "page-h1": { "size": "1.833rem", "lh": 1.2, "weight": 500, "desc": "page-level H1 标题（act1~act7 统一）" },
       "code":    { "size": "14px", "lh": 1.6, "weight": 400, "family": "mono", "desc": "代码片段、ID 编号" },
       "button":  { "size": "14px", "lh": 1.0, "weight": 500, "desc": "按钮文字" },
-      "button-sm": { "size": "12px", "lh": 1.0, "weight": 500, "desc": "小按钮" },
+      "button-sm": { "size": "13px", "lh": 1.0, "weight": 500, "desc": "小按钮（含表格操作栏，不低于 13px）" },
       "button-cta": { "size": "13px", "lh": 1.0, "weight": 600, "tracking": "0.16em", "transform": "uppercase", "desc": "CTA 主按钮" },
       "nav-link": { "size": "14px", "lh": 1.4, "weight": 500, "desc": "导航链接" },
       "nav-link-sm": { "size": "13px", "lh": 1.4, "weight": 500, "desc": "侧边栏菜单项" },

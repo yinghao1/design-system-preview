@@ -345,7 +345,7 @@ B 端特殊字号：`text-[1.833rem]`（页面 H1）、`text-[7.2rem]`（Hero �
 |-------|------|------|------|------|------|------|
 | `code` | 14px | 1.6 | 400 | — | font-mono | 代码片段、ID 编号、技术标识 |
 | `button` | 14px | 1.0 | 500 | — | font-sans | 按钮文字（常规尺寸） |
-| `button-sm` | 12px | 1.0 | 500 | — | font-sans | 小按钮、操作链接 |
+| `button-sm` | 13px | 1.0 | 500 | — | font-sans | 小按钮、操作链接（含表格操作栏，不低于 13px） |
 | `button-cta` | 13px | 1.0 | 600 | 0.16em | font-sans | CTA 主按钮（uppercase） |
 | `nav-link` | 14px | 1.4 | 500 | — | font-sans | 导航链接、菜单项 |
 | `nav-link-sm` | 13px | 1.4 | 500 | — | font-sans | 侧边栏菜单项 |
@@ -358,7 +358,7 @@ B 端特殊字号：`text-[1.833rem]`（页面 H1）、`text-[7.2rem]`（Hero �
 /* 功能性字号 */
 .text-code { font-family: var(--font-mono); font-size: 14px; line-height: 1.6; }
 .text-button { font-size: 14px; font-weight: 500; line-height: 1.0; }
-.text-button-sm { font-size: 12px; font-weight: 500; line-height: 1.0; }
+.text-button-sm { font-size: 13px; font-weight: 500; line-height: 1.0; }
 .text-button-cta { font-size: 13px; font-weight: 600; line-height: 1.0; letter-spacing: 0.16em; text-transform: uppercase; }
 .text-nav-link { font-size: 14px; font-weight: 500; line-height: 1.4; }
 .text-nav-link-sm { font-size: 13px; font-weight: 500; line-height: 1.4; }
@@ -1252,7 +1252,7 @@ html, body {
 ```css
 .btn-mini {
   padding: 3px 8px;
-  font-size: 12px;
+  font-size: 13px;
   border-radius: 3px;
   line-height: 1.4;
 }
@@ -2396,6 +2396,7 @@ html, body {
 /* 不折行工具类 */
 .data-table .col-name   { white-space: nowrap; }
 .data-table .col-action { white-space: nowrap; }
+.data-table .col-action button { font-size: 13px; }
 
 /* 操作栏 sticky 固定 */
 .data-table .col-fixed {
@@ -2525,8 +2526,12 @@ tr:hover .row-actions {
 }
 .row-actions .btn-mini {
   color: var(--cdx-700);
+  /* 与表格正文保持一致，操作按钮不得低于 13px */
+  font-size: 13px;
 }
 ```
+
+**字号规则**：操作栏中的查看、编辑、删除、详情等按钮统一使用 **13px**，与表格单元格文字保持一致；不得使用低于 13px 的字号。
 
 ### 12.9 Descriptions 描述列表 [通用]
 
@@ -6755,10 +6760,11 @@ AI 输出通常包含 Markdown 格式内容，需要在消息体内正确渲染�
 
 ---
 
-*RUNDA Design System v2.6 · Unified Specification (C + B + EMR Workstation + AI Chat)*  
-*Last Updated: 2026-05-22*
+*RUNDA Design System v2.6.1 · Unified Specification (C + B + EMR Workstation + AI Chat)*<br>
+*Last Updated: 2026-08-17*
 
 **版本变更记录**：
+- v2.6.1 · 2026-08-17 · 表格操作栏按钮字号统一为 13px，与表格单元格文字一致，不低于 13px；同步更新 `button-sm` 令牌与预览示例
 - v2.6 · 2026-05-22 · P0/P1 核心组件补充 + §31 AI 对话系统规范（ChatContainer/MessageBubble/ThinkingState/StructuredOutput/ChatInput/ConsensusCard/ExpertPanel/ReferenceCard/RiskBadge/Markdown渲染/消息操作栏）；Avatar 头像组件（§10.10）；§3.3 基础 B 端布局 main-content padding 由 24px 调整为 **20px**、内卡片 gap 由 16-20px 调整为 **10px**，与 §30.2 工作台规范统一
 
 **版本变更记录**：

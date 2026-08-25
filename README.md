@@ -303,7 +303,7 @@ JSON 结构：
 - 数字：JetBrains Mono（tabular-nums）
 - 标签：13px / 600 / uppercase / letter-spacing 0.16em
 - 代码/ID：14px / mono
-- 按钮：14px / 500（CTA: 13px / 600 / 0.16em / uppercase）
+- 按钮：14px / 500（CTA: 13px / 600 / 0.16em / uppercase）；表格操作栏按钮：13px / 500，不得低于 13px
 - 导航：14px / 500
 
 ### 动效
@@ -377,6 +377,7 @@ JSON 结构：
 
 | 版本 | 日期 | 说明 |
 |------|------|------|
+| v2.6.1 | 2026-08-17 | 表格操作栏按钮字号统一为 **13px**，与表格单元格文字一致且不得低于 13px；同步更新 `button-sm` 令牌与预览示例 |
 | v2.6 | 2026-05-22 | **P0/P1 核心组件补充**：P0 已集成 — Form 表单容器（§9.15）/ DatePicker 日期选择器（§13.11）/ Upload 上传（§12.11）/ Message 全局提示（§13.10）/ Table 高级功能（§12.10，树形/可编辑/固定列）/ Tabs 标签页（§14.10）/ Collapse 折叠面板（§14.11）/ Descriptions 描述列表（§12.9）/ Layout 布局容器（§3.7）/ Grid 栅格系统（§3.8）；P1 规范完成 — Tree 树形控件 / Transfer 穿梭框 / Space 间距 / TimePicker 时间选择器 / Cascader 级联选择 / Notification 通知提醒 / Progress 增强（环形/仪表盘/步骤）/ Statistic 统计数值；preview 扩展至 27 章节（含 Avatar 头像 + AI 对话系统）；design-tokens.json 新增 components 节点（含 avatar + chat）；§3.3 基础 B 端布局 main-content padding 24px→**20px**、内卡片 gap 16-20px→**10px**，与 §30.2 工作台规范统一；搜索框背景由 warm-50 改为 ink-50 |
 | v2.5 | 2026-05-18 | 增补 §30：EMR 医生工作台模式 — 中文 Logo（14px/700/0.02em） / 紧凑布局（content padding 20px / gap 10px / overflow:hidden 单屏） / Header 患者主信息条（姓名+模态徽章+元信息分隔符） / QueryCard（标题装饰条+下划线 Tab+底部统计） / StatRow 状态点统计 / TableCard 紧凑表格 / 选中行 cdx-50+inset 左条；新增 token：`workstation` spacing、`brand-name-cn/en`/`patient-name`/`patient-tag` 字号 token；preview 新增第 16 章节；screenshots 新增 1 张页面图 + 4 张状态图 + 1 张交互图 |
 | v2.3 | 2026-05-13 | 增补 §29：B 端顶部双栏等高（menu-head ≡ header-wrapper ≡ 68px）/ 下拉箭头统一右 12px / Header 标题与释义同行；配套覆盖文件 `design-system-overrides/07-business-inhospital.css` |
@@ -387,4 +388,4 @@ JSON 结构：
 
 ---
 
-*RUNDA Design System v2.6 · Maintained by RUNDA Clinical Data X Team*
+*RUNDA Design System v2.6.1 · Maintained by RUNDA Clinical Data X Team*

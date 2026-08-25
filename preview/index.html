@@ -131,6 +131,7 @@ mark.cdx{background:#D9EBED;color:#143F47}
 .data-table tbody tr:hover{background:#F0F7F8}
 .data-table tbody tr.is-selected{background:#F0F7F8}
 .data-table tbody tr:last-child td{border-bottom:none}
+.data-table .col-action button{font-size:13px}
 .th-sortable{cursor:pointer;user-select:none}
 .th-sortable::after{content:" ↕";color:#D4D4D8;font-size:10px;margin-left:4px}
 .th-sortable.asc::after{content:" ↑";color:#185058}
@@ -294,7 +295,7 @@ mark.cdx{background:#D9EBED;color:#143F47}
     <a href="#avatar" class="preview-nav-link">26 头像</a>
     <a href="#chat" class="preview-nav-link">27 AI 对话</a>
   </div>
-  <span class="preview-nav-version">v2.6 unified</span>
+  <span class="preview-nav-version">v2.6.1 unified</span>
 </nav>
 
 <main class="preview-main">
@@ -458,9 +459,9 @@ mark.cdx{background:#D9EBED;color:#143F47}
       </div>
       <div class="demo-sub">Mini · Page · Button Group</div>
       <div class="flex flex-wrap gap-3 items-center">
-        <button class="px-2 py-1 text-[12px] border border-ink-200 bg-white rounded hover:border-cdx-700 hover:text-cdx-700">查看</button>
-        <button class="px-2 py-1 text-[12px] border border-ink-200 bg-white rounded hover:border-cdx-700 hover:text-cdx-700">编辑</button>
-        <button class="px-2 py-1 text-[12px] bg-[#A8453B] text-white rounded">删除</button>
+        <button class="px-2 py-1 text-[13px] border border-ink-200 bg-white rounded hover:border-cdx-700 hover:text-cdx-700">查看</button>
+        <button class="px-2 py-1 text-[13px] border border-ink-200 bg-white rounded hover:border-cdx-700 hover:text-cdx-700">编辑</button>
+        <button class="px-2 py-1 text-[13px] bg-[#A8453B] text-white rounded">删除</button>
         <span class="text-ink-300 mx-2">|</span>
         <div class="flex items-center gap-1">
           <button class="w-7 h-7 border border-ink-200 rounded text-ink-500 text-[12px]">‹</button>
@@ -693,7 +694,7 @@ mark.cdx{background:#D9EBED;color:#143F47}
             <th>主诊断</th>
             <th class="th-sortable">入院日期</th>
             <th>状态</th>
-            <th>操作</th>
+            <th class="col-action">操作</th>
           </tr>
         </thead>
         <tbody>
@@ -705,7 +706,7 @@ mark.cdx{background:#D9EBED;color:#143F47}
             <td><span class="inline-block px-2 py-0.5 text-[11px] bg-cdx-50 text-cdx-700 rounded">冠心病</span></td>
             <td class="font-mono text-[12px]">2026-03-15</td>
             <td><span class="pulse-dot"></span><span class="text-[12px] text-[#15803D]">在院</span></td>
-            <td><button class="px-2 py-0.5 text-[11px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
+            <td class="col-action"><button class="px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
           </tr>
           <tr class="is-selected">
             <td><label class="checkbox" style="gap:0"><input type="checkbox" checked><span class="checkbox-box"></span></label></td>
@@ -715,7 +716,7 @@ mark.cdx{background:#D9EBED;color:#143F47}
             <td><span class="inline-block px-2 py-0.5 text-[11px] bg-[#FEF3C7] text-[#92400E] rounded">高血压 III 级</span></td>
             <td class="font-mono text-[12px]">2026-03-12</td>
             <td><span class="text-[12px] text-ink-500">已出院</span></td>
-            <td><button class="px-2 py-0.5 text-[11px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
+            <td class="col-action"><button class="px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
           </tr>
           <tr>
             <td><label class="checkbox" style="gap:0"><input type="checkbox"><span class="checkbox-box"></span></label></td>
@@ -725,7 +726,7 @@ mark.cdx{background:#D9EBED;color:#143F47}
             <td><span class="inline-block px-2 py-0.5 text-[11px] bg-[#FEF2F2] text-[#991B1B] rounded">肺腺癌 T2N1</span></td>
             <td class="font-mono text-[12px]">2026-03-10</td>
             <td><span class="pulse-dot"></span><span class="text-[12px] text-[#15803D]">在院</span></td>
-            <td><button class="px-2 py-0.5 text-[11px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
+            <td class="col-action"><button class="px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
           </tr>
         </tbody>
       </table>
@@ -2107,7 +2108,7 @@ mark.cdx{background:#D9EBED;color:#143F47}
     <div class="flex items-center justify-between">
       <div>
         <div class="text-[11px] font-bold tracking-[0.16em] uppercase text-cdx-700 mb-1">RUNDA Design System</div>
-        <div class="text-[12px] text-ink-500">v2.6 Unified · B 端 + EMR 工作台 + AI Chat · 2026-05-22</div>
+        <div class="text-[12px] text-ink-500">v2.6.1 Unified · B 端 + EMR 工作台 + AI Chat · 2026-08-17</div>
       </div>
       <div class="text-[11px] text-ink-400 font-mono">27 sections · all components</div>
     </div>
