@@ -4280,6 +4280,8 @@ const countUpConfig = {
 
 ### 18.7 Empty State [通用]
 
+空状态必须使用 RUNDA 标准插画 `assets/icons/empty-state.svg`。默认显示尺寸为 **160 × 160px**；紧凑容器可等比缩放至 **120 × 120px**，但不得修改 `viewBox="0 0 160 160"`、图形比例或颜色。标准配色为：圆形背景 `cdx-50 #F0F7F8`、白色主体、主轮廓 `cdx-700 #185058`、辅助线 `cdx-200 #B0D6DB`。禁止替换为蓝色、灰色单色图标或其他插画风格。
+
 ```css
 .empty-state {
   display: flex;
@@ -4289,23 +4291,34 @@ const countUpConfig = {
   padding: 48px 24px;
   text-align: center;
 }
-.empty-state__icon {
-  width: 48px;
-  height: 48px;
-  color: var(--ink-300);
+.empty-state__illustration {
+  display: block;
+  width: 160px;
+  height: 160px;
+  flex: 0 0 auto;
   margin-bottom: 16px;
 }
 .empty-state__title {
   font-size: 15px;
-  font-weight: 500;
-  color: var(--ink-700);
+  font-weight: 600;
+  color: var(--ink-500);
   margin-bottom: 4px;
 }
 .empty-state__desc {
   font-size: 13px;
-  color: var(--ink-500);
-  max-width: 320px;
+  color: var(--ink-400);
+  max-width: 360px;
+  line-height: 1.7;
 }
+```
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" fill="none">
+  <circle cx="80" cy="78" r="58" fill="#F0F7F8"/>
+  <path d="M51 66 60 50h40l9 16v35a5 5 0 0 1-5 5H56a5 5 0 0 1-5-5V66Z" fill="#FFFFFF" stroke="#185058" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51 78h17l4 8h16l4-8h17" stroke="#185058" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M67 60h26M71 68h18" stroke="#B0D6DB" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
 ```
 
 ### 18.8 Steps Indicator [B 端]
@@ -6760,10 +6773,11 @@ AI 输出通常包含 Markdown 格式内容，需要在消息体内正确渲染�
 
 ---
 
-*RUNDA Design System v2.6.1 · Unified Specification (C + B + EMR Workstation + AI Chat)*<br>
-*Last Updated: 2026-08-17*
+*RUNDA Design System v2.6.2 · Unified Specification (C + B + EMR Workstation + AI Chat)*<br>
+*Last Updated: 2026-08-28*
 
 **版本变更记录**：
+- v2.6.2 · 2026-08-28 · 新增 RUNDA 标准空状态插画资产，统一 160px 尺寸、cdx 青绿色配色、文字层级及紧凑场景缩放规则
 - v2.6.1 · 2026-08-17 · 表格操作栏按钮字号统一为 13px，与表格单元格文字一致，不低于 13px；同步更新 `button-sm` 令牌与预览示例
 - v2.6 · 2026-05-22 · P0/P1 核心组件补充 + §31 AI 对话系统规范（ChatContainer/MessageBubble/ThinkingState/StructuredOutput/ChatInput/ConsensusCard/ExpertPanel/ReferenceCard/RiskBadge/Markdown渲染/消息操作栏）；Avatar 头像组件（§10.10）；§3.3 基础 B 端布局 main-content padding 由 24px 调整为 **20px**、内卡片 gap 由 16-20px 调整为 **10px**，与 §30.2 工作台规范统一
 
