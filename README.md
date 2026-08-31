@@ -379,6 +379,7 @@ JSON 结构：
 
 | 版本 | 日期 | 说明 |
 |------|------|------|
+| v2.6.3 | 2026-08-31 | 主按钮默认背景/边框统一为 `cdx-700 #185058`，Hover 状态统一为 `cdx-800 #143F47` |
 | v2.6.2 | 2026-08-28 | 新增 RUNDA 标准空状态 SVG，统一 160px 尺寸、cdx 青绿色配色、紧凑缩放和文字层级规则 |
 | v2.6.1 | 2026-08-17 | 表格操作栏按钮字号统一为 **13px**，与表格单元格文字一致且不得低于 13px；同步更新 `button-sm` 令牌与预览示例 |
 | v2.6 | 2026-05-22 | **P0/P1 核心组件补充**：P0 已集成 — Form 表单容器（§9.15）/ DatePicker 日期选择器（§13.11）/ Upload 上传（§12.11）/ Message 全局提示（§13.10）/ Table 高级功能（§12.10，树形/可编辑/固定列）/ Tabs 标签页（§14.10）/ Collapse 折叠面板（§14.11）/ Descriptions 描述列表（§12.9）/ Layout 布局容器（§3.7）/ Grid 栅格系统（§3.8）；P1 规范完成 — Tree 树形控件 / Transfer 穿梭框 / Space 间距 / TimePicker 时间选择器 / Cascader 级联选择 / Notification 通知提醒 / Progress 增强（环形/仪表盘/步骤）/ Statistic 统计数值；preview 扩展至 27 章节（含 Avatar 头像 + AI 对话系统）；design-tokens.json 新增 components 节点（含 avatar + chat）；§3.3 基础 B 端布局 main-content padding 24px→**20px**、内卡片 gap 16-20px→**10px**，与 §30.2 工作台规范统一；搜索框背景由 warm-50 改为 ink-50 |
@@ -391,4 +392,4 @@ JSON 结构：
 
 ---
 
-*RUNDA Design System v2.6.2 · Maintained by RUNDA Clinical Data X Team*
+*RUNDA Design System v2.6.3 · Maintained by RUNDA Clinical Data X Team*

@@ -1131,8 +1131,8 @@ html, body {
   font-size: 13px;
   font-weight: 500;
   border-radius: 4px;
-  border: 1px solid var(--ink-900);
-  background: var(--ink-900);
+  border: 1px solid var(--cdx-700);
+  background: var(--cdx-700);
   color: #fff;
   cursor: pointer;
   transition: all 200ms var(--ease-expo);
@@ -1140,8 +1140,8 @@ html, body {
   line-height: 1.4;
 }
 .btn-primary:hover {
-  background: var(--cdx-700);
-  border-color: var(--cdx-700);
+  background: var(--cdx-800);
+  border-color: var(--cdx-800);
 }
 ```
 
@@ -6773,10 +6773,11 @@ AI 输出通常包含 Markdown 格式内容，需要在消息体内正确渲染�
 
 ---
 
-*RUNDA Design System v2.6.2 · Unified Specification (C + B + EMR Workstation + AI Chat)*<br>
-*Last Updated: 2026-08-28*
+*RUNDA Design System v2.6.3 · Unified Specification (C + B + EMR Workstation + AI Chat)*<br>
+*Last Updated: 2026-08-31*
 
 **版本变更记录**：
+- v2.6.3 · 2026-08-31 · 主按钮默认背景/边框统一为 cdx-700（#185058），Hover 状态统一为 cdx-800（#143F47）
 - v2.6.2 · 2026-08-28 · 新增 RUNDA 标准空状态插画资产，统一 160px 尺寸、cdx 青绿色配色、文字层级及紧凑场景缩放规则
 - v2.6.1 · 2026-08-17 · 表格操作栏按钮字号统一为 13px，与表格单元格文字一致，不低于 13px；同步更新 `button-sm` 令牌与预览示例
 - v2.6 · 2026-05-22 · P0/P1 核心组件补充 + §31 AI 对话系统规范（ChatContainer/MessageBubble/ThinkingState/StructuredOutput/ChatInput/ConsensusCard/ExpertPanel/ReferenceCard/RiskBadge/Markdown渲染/消息操作栏）；Avatar 头像组件（§10.10）；§3.3 基础 B 端布局 main-content padding 由 24px 调整为 **20px**、内卡片 gap 由 16-20px 调整为 **10px**，与 §30.2 工作台规范统一
