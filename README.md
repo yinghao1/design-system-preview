@@ -379,6 +379,7 @@ JSON 结构：
 
 | 版本 | 日期 | 说明 |
 |------|------|------|
+| v2.6.4 | 2026-08-31 | 主按钮 Hover 背景/边框调整为 `cdx-600 #1D6571` |
 | v2.6.3 | 2026-08-31 | 主按钮默认背景/边框统一为 `cdx-700 #185058`，Hover 状态统一为 `cdx-800 #143F47` |
 | v2.6.2 | 2026-08-28 | 新增 RUNDA 标准空状态 SVG，统一 160px 尺寸、cdx 青绿色配色、紧凑缩放和文字层级规则 |
 | v2.6.1 | 2026-08-17 | 表格操作栏按钮字号统一为 **13px**，与表格单元格文字一致且不得低于 13px；同步更新 `button-sm` 令牌与预览示例 |
@@ -392,4 +393,4 @@ JSON 结构：
 
 ---
 
-*RUNDA Design System v2.6.3 · Maintained by RUNDA Clinical Data X Team*
+*RUNDA Design System v2.6.4 · Maintained by RUNDA Clinical Data X Team*
