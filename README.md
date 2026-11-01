@@ -5,7 +5,11 @@
 
 ## 在线预览
 
-本项目的公开预览页面：<https://yinghao1.github.io/design-system-preview/>
+[![RUNDA Design System 首页：组件库](screenshots/preview-home.png)](https://yinghao1.github.io/design-system-preview/preview/index.html)
+
+**[打开在线预览 →](https://yinghao1.github.io/design-system-preview/preview/index.html)** · 支持明暗主题、⌘K 搜索与 27 个组件详情页
+
+> GitHub 不支持在 README 中嵌入 iframe，这里以首页截图作为入口；点击图片或上方链接可打开可交互的在线站点。
 
 ---
 
@@ -134,6 +138,7 @@ design-system/
 │   ├── icons/empty-state.svg          ← RUNDA 标准空状态插画
 │   └── fonts/                         ← Cal Sans / Urbanist Medium 字体源文件
 └── screenshots/
+    ├── preview-home.png               ← README 首页预览截图（可点击进入在线站点）
     ├── pages/                         ← 全部页面完整截图（11 张）
     ├── states/                        ← 不同状态截图（6 张）
     └── interactions/                  ← 交互状态截图（3 张）
@@ -388,6 +393,12 @@ Preview / Code 双 Tab、安装与使用说明。全站支持 ⌘K 搜索、明�
 ---
 
 ## 截图索引
+
+### 预览站
+
+| 页面 | 文件 |
+|------|------|
+| 组件库首页（README 在线预览封面） | [preview-home.png](screenshots/preview-home.png) |
 
 ### 页面截图（默认状态）
 
