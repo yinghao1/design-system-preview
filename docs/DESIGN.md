@@ -79,7 +79,7 @@
 
 1. **克制优先**：90% 界面用灰阶，强调色仅用于关键数据
 2. **留白胜过装饰**：宁少勿多，靠空间而非装饰分层
-3. **数据第一**：KPI 用巨字号 + mono 字体，让数字说话
+3. **数据第一**：KPI 用巨字号 + Urbanist Medium（`font-num`）数字字体，让数字说话
 4. **白盒可溯**：每一个结论都带来源，每一次交互都有反馈
 5. **动效有意义**：用动效表达状态变化与逻辑流转，绝不为动而动
 
@@ -104,6 +104,20 @@
 - ❌ 禁止紫渐蓝默认配色
 - ❌ 禁止无意义滚动动画
 - ❌ 禁止大圆角（最大 16px，主组件 6-12px）
+
+### 0.5 医疗行业使用约定 [B 端管理型]
+
+本设计系统主要服务于医疗软件与医疗信息系统。在上述通用原则之外，医疗项目还必须遵守以下约定；
+完整的执行级别、业务规则与验收条目见预览站「概述 → 设计规范」（`preview/docs/components/guidelines.html`）。
+
+- **患者安全优先**：业务需求与规范冲突时，以患者安全和数据可读性为最高优先级。
+- **身份双要素核对**：开医嘱、给药、采血、手术等关键操作前，至少展示姓名 + 住院号 / 门诊号 / 身份证后四位。
+- **危急值三重编码**：红色 + 图标 + 文字同时出现，确认签收并留痕；禁止只靠颜色表达异常。
+- **单位与参考区间**：检验值、剂量、生命体征必须带单位；检验值展示参考区间，异常值用 ↑ / ↓ 标记。
+- **审计留痕**：病历、医嘱、护理记录的修改保留原始记录，展示修改人、时间与内容。
+- **隐私脱敏**：列表默认脱敏，查看完整信息需再次授权；导出、截图、打印提示数据范围。
+- **不可逆操作**：使用危险样式 + 二次确认 + 原因记录，禁止静默完成。
+- **规范级别**：每条规则标注「必须 / 应当 / 建议」，违反「必须」项视为缺陷。
 
 ---
 
@@ -300,10 +314,19 @@ font-family-sans: "PingFang SC", "Noto Sans SC", "Inter",
 /* 标题（大字号场景） */
 font-family-display: "Inter", "PingFang SC", "Helvetica Neue", sans-serif;
 
-/* 数字 / 代码 / 编号 */
+/* 大数字展示（KPI / Hero Number，Urbanist Medium 统一字形） */
+font-family-numeric: "Urbanist", "PingFang SC", "Inter", sans-serif;
+
+/* 代码 / 编号 / ID */
 font-family-mono: "JetBrains Mono", ui-monospace,
                    SFMono-Regular, Menlo, monospace;
 ```
+
+> **大数字字体（Urbanist Medium）**
+> 所有 KPI、Hero Number、卡片主数值等大字号数字统一使用 `font-num`（`--font-numeric`），
+> 并开启 `tabular-nums`，保证多行数字纵向对齐。字族声明 400–700，任意字重均按 Medium 字形渲染（无伪粗体）。字体文件位于 `assets/fonts/Urbanist-Medium.ttf`
+> （预览站为 `preview/assets/fonts/Urbanist-Medium.ttf`），已在 `design-system.css` 顶部通过
+> `@font-face` 内嵌，无需额外引入。等宽字体只用于代码、ID 与技术标识，不再用于大数字。
 
 ### 2.2 B 端展示型字号阶梯（9 级）[B 端]
 
@@ -378,7 +401,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.countup, .font-mono {
+.countup, .font-num, .font-mono {
   font-variant-numeric: tabular-nums;
 }
 ```
@@ -400,7 +423,7 @@ body {
 ### 2.7 排版铁律 [通用]
 
 - 标题用负字距（-0.015em ~ -0.035em）
-- 数字永远用 `font-mono` + `tabular-nums`
+- 大数字（KPI / Hero / 卡片主数值）一律用 `font-num`（Urbanist Medium）+ `tabular-nums`；代码、ID、编号才用 `font-mono`
 - eyebrow 字距固定 0.16em，不可减小
 - 大字号（>40px）行高 ≤ 1.15
 
@@ -1756,7 +1779,7 @@ html, body {
 
 **使用规则**：
 - `border-radius: 2px`（非圆角），与 B 端 pill 形 badge 区分
-- 字体强制 `font-mono`，保证数字等宽对齐
+- 小号数值徽章用 `font-mono` 保证等宽对齐；大字号数字改用 `font-num`（Urbanist Medium）
 - 5 种语义变体覆盖所有业务状态，禁止自定义颜色
 - 表格状态列、指标类型标注、扣除逻辑标注均使用本组件
 
@@ -5200,6 +5223,10 @@ tailwind.config = {
 };
 ```
 
+> 接入方式见预览站「概述 → 使用说明」（`preview/docs/components/usage.html`）：推荐先用
+> `node bin/rundad.js init` 生成 `design-system/`（样式 / 字体 / token / 示例页），再用
+> `add <组件...>` 添加片段；也可复制 HTML、接入 Tailwind 工程或直接消费 JSON Token。
+
 ---
 
 ## 25. 国际化 [通用]
@@ -5277,7 +5304,7 @@ tailwind.config = {
 ### 28.3 字体
 
 - [ ] 标签用 eyebrow（13px/600/uppercase/0.16em）
-- [ ] 数字用 `font-mono` + `tabular-nums`
+- [ ] 大数字用 `font-num`（Urbanist Medium）+ `tabular-nums`；代码 / ID / 等宽数值用 `font-mono`
 - [ ] 标题负字距
 
 ### 28.4 组件
@@ -5310,6 +5337,16 @@ tailwind.config = {
 - [ ] 无外链字体
 - [ ] 无图标字体
 - [ ] 无滚动触发动画
+
+### 28.8 医疗场景专项（详见预览站「概述 → 设计规范」）
+
+- [ ] 关键操作前完成患者身份双要素核对
+- [ ] 危急值使用红色 + 图标 + 文字三重编码，并支持确认签收与留痕
+- [ ] 检验值、剂量、生命体征均带单位；检验值带参考区间与 ↑ / ↓ 标记
+- [ ] 病历、医嘱、护理记录修改保留原始记录与操作人 / 时间
+- [ ] 列表默认脱敏，查看完整信息需授权
+- [ ] 不可逆操作使用危险样式 + 二次确认 + 原因记录
+- [ ] 状态不只用颜色传达；对比度 ≥ 4.5:1；键盘全流程可达
 
 ---
 

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-prefix="../../">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>设计规范 · RUNDA Design System</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4E4E7',300:'#D4D4D8',400:'#A1A1AA',500:'#71717A',600:'#52525B',700:'#3F3F46',800:'#27272A',900:'#18181B',950:'#09090B'},cdx:{50:'#F0F7F8',100:'#D9EBED',200:'#B0D6DB',300:'#7FBAC2',400:'#4D9CA7',500:'#2A7F8B',600:'#1D6571',700:'#185058',800:'#143F47',900:'#0F2F35'},warm:{50:'#FBF9F4',100:'#F5F0E4',200:'#E8DCC1',300:'#D6C396',700:'#6E582C'}},fontFamily:{sans:['"PingFang SC"','"Noto Sans SC"','"Inter"','system-ui','sans-serif'],display:['"Inter"','"PingFang SC"','sans-serif'],numeric:['"Urbanist"','"PingFang SC"','sans-serif'],mono:['"JetBrains Mono"','ui-monospace','Menlo','monospace']},fontSize:{'eyebrow':['0.8125rem',{lineHeight:'1.4',fontWeight:'600',letterSpacing:'0.16em'}]},maxWidth:{ultra:'1440px'}}}};
+</script>
+<link rel="stylesheet" href="../../assets/coss.css" />
+<link rel="stylesheet" href="../../assets/design-system.css" />
+
+</head>
+<body class="site-body" data-slug="guidelines">
+<div class="frame">
+  <span class="corner left" aria-hidden="true"></span>
+  <span class="corner right" aria-hidden="true"></span>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../../index.html"><span>RUNDA</span><span class="logo-dim">DS</span></a>
+    <nav class="header-nav" aria-label="主导航">
+      <a class="nav-link" href="colors.html">组件</a>
+      <a class="nav-link" href="../../changelog.html">更新日志</a>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索组件">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        <span class="search-label">搜索</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <a class="github-link" href="https://github.com/yinghao1/design-system-preview" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="切换明暗主题">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-drawer-open aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="docs-layout">
+  <aside class="sidebar" id="ds-sidebar" aria-label="组件导航"></aside>
+
+  <div class="docs-main">
+    <article class="doc-card doc">
+      <h1>设计规范</h1>
+      <p class="doc-lead">本页是 RUNDA DS 在医疗项目中的执行规则。凡是使用本设计系统的医疗软件，都应按下列级别落实；当业务需求与规范冲突时，以患者安全与数据可读性为最高优先级。</p>
+
+      <div class="doc-actions">
+        <a class="btn btn-sm btn-outline" href="introduction.html">系统介绍</a>
+        <a class="btn btn-sm btn-outline" href="colors.html">浏览组件</a>
+        <a class="btn btn-sm btn-outline" href="../../index.html">返回组件库</a>
+      </div>
+
+      <section class="doc-section" id="levels">
+        <h2>规范级别</h2>
+        <p>为避免“规范写了但没人执行”，每条规则都标注级别。代码评审与设计走查按级别判定问题。</p>
+        <div class="doc-table">
+          <table class="data-table">
+            <thead>
+              <tr><th style="width:110px">级别</th><th>含义</th><th style="width:210px">处理方式</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>必须</strong></td><td>涉及患者安全、数据准确性、合规或核心一致性</td><td>违反即视为缺陷，必须修复</td></tr>
+              <tr><td><strong>应当</strong></td><td>默认做法，已覆盖大多数业务场景</td><td>偏离需在评审中说明理由</td></tr>
+              <tr><td><strong>建议</strong></td><td>优化项，不影响正确性与安全性</td><td>视排期采纳</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="doc-section" id="color">
+        <h2>色彩规范</h2>
+        <p><strong>必须：</strong>界面 90% 由 ink 灰阶构成，品牌深青 cdx 只用于需要被注意的元素。状态色只表达状态，不参与装饰。</p>
+        <div class="doc-table">
+          <table class="data-table">
+            <thead>
+              <tr><th style="width:130px">用途</th><th style="width:180px">Token</th><th>规则</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>正文与标题</td><td><code>ink-900</code> / <code>ink-950</code></td><td>正文用 ink-900；大标题可用 ink-950；辅助文字用 ink-500/600，不得低于 4.5:1</td></tr>
+              <tr><td>主操作与链接</td><td><code>cdx-700</code></td><td>主按钮、链接、激活态、关键数值；同一屏不要出现两个主色动作</td></tr>
+              <tr><td>浅色强调底</td><td><code>cdx-50</code></td><td>选中行、当前导航、提示块；禁止用于大面积背景</td></tr>
+              <tr><td>成功</td><td><code>success #3F8F5C</code></td><td>仅用于已完成、正常、已签收等正向结果</td></tr>
+              <tr><td>警告</td><td><code>warning #C28A2C</code></td><td>用于需关注但未构成危急的情况，如待复核、临界值</td></tr>
+              <tr><td>危险 / 危急</td><td><code>danger #A8453B</code> / <code>error #DC2626</code></td><td>仅用于危急值、不可逆操作、系统错误；不得用作普通强调色</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>必须：</strong>危急状态不得只靠颜色表达，需同时使用图标与文字（例如“危急 · 血钾 6.8 mmol/L”）。</p>
+        <p><strong>应当：</strong>暗色模式下通过 token 覆盖背景与文字色，不在组件里写死十六进制值。</p>
+      </section>
+
+      <section class="doc-section" id="typography">
+        <h2>排版规范</h2>
+        <div class="doc-table">
+          <table class="data-table">
+            <thead>
+              <tr><th style="width:150px">层级</th><th style="width:130px">字号 / 行高</th><th>使用规则</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>页面标题</td><td>24–28px / 1.3</td><td>一个页面只有一个；与面包屑、页面操作同一区域</td></tr>
+              <tr><td>区块标题</td><td>16–18px / 1.4</td><td>用于卡片标题、表单分组、弹窗标题</td></tr>
+              <tr><td>正文</td><td>14px / 1.7</td><td>病历、说明、表格内容默认字号</td></tr>
+              <tr><td>辅助文字</td><td>12–13px / 1.5</td><td>标签、时间、单位、帮助说明；不得用于关键临床信息</td></tr>
+              <tr><td>大数字</td><td>24px 及以上</td><td>KPI、看板主数值使用 Urbanist Medium + <code>tabular-nums</code></td></tr>
+              <tr><td>等宽数值</td><td>12–13px</td><td>患者 ID、检验值、剂量、代码使用 <code>font-mono</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>必须：</strong>大数字统一使用 <code>.font-num</code>（Urbanist Medium）。不要对数字使用伪粗体，也不要用等宽字体展示看板大指标，否则位宽与字形会破坏视觉一致性。</p>
+        <p><strong>必须：</strong>临床关键信息不得使用 12px 以下字号；不得用全大写英文代替中文标签。</p>
+      </section>
+
+      <section class="doc-section" id="spacing">
+        <h2>间距、圆角与布局</h2>
+        <ul>
+          <li><strong>间距：</strong>以 4px 为基准。控件内边距 8/12px，卡片内边距 20/24px，区块间距 24/32px。</li>
+          <li><strong>圆角：</strong>输入框与按钮 6px，卡片 8–12px，文档与弹层 12–16px；同一页面不要混用超过两档。</li>
+          <li><strong>阴影：</strong>仅用于浮层与悬停抬升，静态卡片使用 1px 边框，避免多层阴影叠加。</li>
+          <li><strong>管理端布局：</strong>Header 56px，Sider 240px（收起 64px），Content 内边距 20px；移动端侧边栏自动收起。</li>
+          <li><strong>密度：</strong>表格行高 40–44px；床旁与移动端触控目标不小于 44×44px。</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="components">
+        <h2>组件使用规则</h2>
+        <h3>按钮</h3>
+        <ul>
+          <li><strong>必须：</strong>同一区域只允许一个主按钮；其余操作使用次按钮或文字按钮。</li>
+          <li><strong>必须：</strong>删除、作废、撤销签收等不可逆操作使用危险样式，并二次确认、记录原因。</li>
+          <li><strong>应当：</strong>按钮文案使用“动词 + 对象”，如“保存病历”“提交医嘱”，避免“确定”“提交”这类无上下文措辞。</li>
+          <li><strong>应当：</strong>禁用按钮必须就近说明原因（如“需先选择患者”），不能只变灰。</li>
+        </ul>
+        <h3>表单</h3>
+        <ul>
+          <li><strong>必须：</strong>标签常驻，不得用 placeholder 代替标签；必填项标记 <code>*</code> 并在提交前校验。</li>
+          <li><strong>必须：</strong>检验、剂量、生命体征等字段必须带单位；单位不可隐藏在 placeholder 中。</li>
+          <li><strong>必须：</strong>错误提示显示在对应字段下方，说明“错在哪、怎么改”，不能只显示“输入有误”。</li>
+          <li><strong>应当：</strong>不要用默认值覆盖真实数据；预填值需明确标识来源。</li>
+        </ul>
+        <h3>表格</h3>
+        <ul>
+          <li><strong>应当：</strong>整行可点击时提供 hover 与焦点态；操作列不超过 3 个直接操作，其余收进“更多”。</li>
+          <li><strong>必须：</strong>批量操作前显示已选数量与影响范围；分页、排序、筛选条件在操作后保留。</li>
+          <li><strong>应当：</strong>长文本截断并提供查看完整内容的方式，不在表格单元格里堆放大段病历。</li>
+        </ul>
+        <h3>弹层与提示</h3>
+        <ul>
+          <li><strong>应当：</strong>阻断式弹窗只用于确认、强制填写与高风险操作；普通编辑优先使用抽屉或页面。</li>
+          <li><strong>必须：</strong>关闭弹窗不得丢失已填数据（除用户明确放弃）；ESC 可关闭非强制弹窗。</li>
+          <li><strong>应当：</strong>成功提示 3 秒后自动消失；错误提示需手动关闭，并提供处理方式或重试入口。</li>
+          <li><strong>必须：</strong>不得弹窗套弹窗；需要多步时改用分步页面或抽屉。</li>
+        </ul>
+        <h3>日期与时间</h3>
+        <ul>
+          <li><strong>必须：</strong>日期使用选择器，不允许自由文本输入；时间使用 24 小时制，精确到分钟。</li>
+          <li><strong>应当：</strong>列表同时提供相对时间与绝对时间，如“3 分钟前 · 14:22”，避免跨天误读。</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="medical">
+        <h2>医疗业务规则</h2>
+        <p>本节规则优先于通用组件默认行为。任何医疗项目上线前必须逐条确认。</p>
+        <h3>患者身份核对</h3>
+        <ul>
+          <li><strong>必须：</strong>开医嘱、给药、采血、手术等关键操作前，展示至少两项身份信息（姓名 + 住院号 / 门诊号 / 身份证后四位）。</li>
+          <li><strong>必须：</strong>同名患者必须在列表与详情中提供额外区分信息（性别、年龄、床号、住院号）。</li>
+        </ul>
+        <h3>危急值与异常</h3>
+        <ul>
+          <li><strong>必须：</strong>危急值使用红色 + 图标 + 文本三重编码，并置于视野首位；确认签收后留痕。</li>
+          <li><strong>必须：</strong>检验值展示单位与参考区间；异常值使用 ↑ / ↓ 标记，不能只靠颜色。</li>
+          <li><strong>应当：</strong>临界值使用警告色并提示复查，不与危急值混用同一视觉级别。</li>
+        </ul>
+        <h3>记录与审计</h3>
+        <ul>
+          <li><strong>必须：</strong>病历、医嘱、护理记录等修改需保留原始记录，展示修改人、修改时间与修改内容。</li>
+          <li><strong>必须：</strong>签名、签收、作废等动作不可静默完成，必须有明确的确认与结果反馈。</li>
+          <li><strong>应当：</strong>关键操作在界面中提供“操作记录 / 溯源”入口，能被快速查到。</li>
+        </ul>
+        <h3>隐私与数据</h3>
+        <ul>
+          <li><strong>必须：</strong>列表默认脱敏（如“张*”“138****5678”“110***********1234”）；查看完整信息需再次授权并留痕。</li>
+          <li><strong>必须：</strong>截图、导出、打印等外发操作需提示数据范围与责任。</li>
+          <li><strong>应当：</strong>空状态说明“为什么为空 + 下一步做什么”，不使用空白页或仅一句“暂无数据”。</li>
+          <li><strong>应当：</strong>加载超过 300ms 使用骨架屏，保持布局稳定，避免内容跳动导致误点。</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="interaction">
+        <h2>交互与状态</h2>
+        <ul>
+          <li><strong>必须：</strong>所有可交互元素覆盖 default、hover、active、focus-visible、disabled、loading 六种状态。</li>
+          <li><strong>必须：</strong>键盘焦点环清晰可见（2px，cdx 色），不得用 <code>outline: none</code> 取消后不补替代样式。</li>
+          <li><strong>必须：</strong>异步操作期间按钮进入 loading 且禁止重复提交；成功后给出明确结果。</li>
+          <li><strong>应当：</strong>动画时长 150–300ms，使用标准缓动；尊重 <code>prefers-reduced-motion</code>。</li>
+          <li><strong>应当：</strong>同一页面内导航不整页刷新；筛选、分页、排序保持滚动位置。</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="a11y">
+        <h2>可访问性与合规</h2>
+        <ul>
+          <li><strong>必须：</strong>正文文字对比度不低于 4.5:1，大字号不低于 3:1。</li>
+          <li><strong>必须：</strong>信息不能只通过颜色传达；状态需同时提供文字或图标。</li>
+          <li><strong>必须：</strong>所有图标按钮提供 <code>aria-label</code>；表单控件与标签正确关联。</li>
+          <li><strong>必须：</strong>支持 200% 缩放而不丢失内容；触控目标不小于 44×44px。</li>
+          <li><strong>应当：</strong>遵循电子病历、网络安全等级保护与医院信息互联互通相关要求，涉及患者数据的页面在评审时同步合规同事。</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="anti-patterns">
+        <h2>反模式（禁止）</h2>
+        <ul>
+          <li>用成功 / 警告 / 危险色做装饰或区分普通分类。</li>
+          <li>一个页面出现多个同等权重的主按钮。</li>
+          <li>用 placeholder 代替字段标签，或隐藏必填项。</li>
+          <li>仅用颜色表达危急值、异常值或选中状态。</li>
+          <li>在表格单元格里塞入大段病历文本。</li>
+          <li>自动跳转、自动刷新打断正在录入的病历。</li>
+          <li>弹窗套弹窗，或在弹窗中承载需要长时间填写的表单。</li>
+          <li>用等宽字体或伪粗体展示看板大数字。</li>
+          <li>关闭确认弹窗后丢失已填数据且无提示。</li>
+          <li>未经授权展示患者完整姓名、证件号或联系方式。</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="checklist">
+        <h2>验收清单</h2>
+        <p>页面交付前逐项勾选。任一项为“必须”且未通过，不得进入验收。</p>
+        <ul>
+          <li>色彩：主色使用正确，状态色未滥用，对比度达标。</li>
+          <li>排版：字号来自规范阶梯，大数字使用 Urbanist Medium，关键信息不小于 12px。</li>
+          <li>组件：按钮层级清晰，表单标签常驻，表格操作不超过 3 个，弹层无嵌套。</li>
+          <li>状态：hover / active / focus / disabled / loading / empty / error 均已覆盖。</li>
+          <li>医疗规则：身份核对、危急值三重编码、单位与参考区间、审计留痕、隐私脱敏均已落实。</li>
+          <li>键盘：全流程可仅用键盘完成，焦点顺序合理。</li>
+          <li>响应式：1440px、1024px、500px 三档无横向滚动与内容裁切。</li>
+          <li>文档：组件变更已同步 DESIGN.md、COMPONENT-AUDIT.md 与 tokens。</li>
+        </ul>
+        <div class="doc-callout"><strong>记住：</strong>规范的目的不是限制设计，而是让医护在任何一个使用 RUNDA DS 的系统里，都能凭肌肉记忆完成关键操作，并把注意力留给患者。</div>
+      </section>
+    </article>
+  </div>
+
+  <nav class="toc" aria-label="本页目录">
+    <h4>本页目录</h4>
+    <a href="#levels">规范级别</a>
+    <a href="#color">色彩规范</a>
+    <a href="#typography">排版规范</a>
+    <a href="#spacing">间距与布局</a>
+    <a href="#components">组件规则</a>
+    <a href="#medical">医疗业务规则</a>
+    <a href="#interaction">交互与状态</a>
+    <a href="#a11y">可访问性</a>
+    <a href="#anti-patterns">反模式</a>
+    <a href="#checklist">验收清单</a>
+  </nav>
+</main>
+
+</div>
+<script src="../../assets/coss.js"></script>
+</body>
+</html>

@@ -535,7 +535,7 @@
 6. 反模式（禁止做法）
 
 ### 6.2 预览页更新
-- 每个新组件需在 preview/index.html 中添加实例
+- 每个新组件需在 `preview/docs/components/` 下新增详情页（或在现有详情页中补充实例），并在首页卡片网格中登记
 - 按章节组织，保持与 DESIGN.md 一致
 - 提供多种状态展示（默认/hover/active/disabled）
 
@@ -545,4 +545,81 @@
 
 ---
 
-*审计完成 · 2026-05-22*
+---
+
+## 七、交互状态覆盖（2026-11 补全）
+
+> 目标：预览页中每个可交互组件都能真实响应 hover / active / focus / disabled / 选中态，而不是静态贴图。
+> 实现：`preview/assets/design-system.css` 的状态层 + `preview/assets/coss.js` 的事件委托。
+
+### 7.1 按功能分类
+
+| 功能分类 | 组件 | 已覆盖状态 | 交互方式 |
+| --- | --- | --- | --- |
+| 操作触发 | 按钮（主/次/危险/虚线/链接/分页/迷你） | hover、active、focus-visible、disabled | 自动按底色识别并补 hover；按下位移 1px |
+| 选择录入 | Input、Select、Tag Input、Switch、Checkbox、Radio、Radio Button Group | focus 光环、错误态、禁用态、展开/收起、选中、回车新增标签、删除标签 | 点击 / 键盘 |
+| 标签选择 | Condition Tag、Filter Chip、Badge | hover、active、多选切换、组内单选 | 点击 |
+| 数据表格 | Data Table、分页、排序表头 | 行 hover、行选中、全选/反选、选中计数、升/降序、当前页 | 点击 |
+| 导航 | 侧边栏、面包屑、步骤条、Tabs、折叠面板 | hover、当前项高亮、步骤点击回退/前进、Tab 切换与关闭、手风琴展开 | 点击 |
+| 日期 | 日期选择器 | 日 hover、选中、非本月、快捷选项、上/下月切换并重算日历 | 点击 |
+| 上传 | 拖拽上传区、文件列表 | dropzone hover / dragover、删除文件 | 点击 / 拖拽 |
+| 反馈 | Toast、Alert、Modal | 点击关闭并自动恢复、弹窗打开/关闭、按钮 hover | 点击 |
+| AI 对话 | 思维链、引用卡片、发送按钮 | 折叠/展开、卡片 hover、发送按钮 hover / active | 点击 |
+| 数据展示 | 卡片、KPI、流水线、时间轴、头像、色板 | 卡片抬升、节点放大、流水线 hover、色板 hover + 点击复制反馈 | hover / 点击 |
+| 页面示例 | 页面结构、EMR 工作台 | 侧边栏 hover / 激活、列表行 hover、checkbox 选中 | hover / 点击 |
+
+### 7.2 统一规则
+
+- hover：浅色底（`#F4F4F5` / cdx-50）+ 文字转 `cdx-700`，过渡 150–200ms
+- active：位移 1px 或缩放 0.94–0.98，仅用于可点击元素
+- focus-visible：`outline: 2px solid #185058` + 2px offset，键盘可见、鼠标不显示
+- disabled：`opacity: .45` + `cursor: not-allowed`，不响应 hover
+- 选中：`is-active` / `is-selected` / `is-current` 三种状态类，颜色和边框只引用 token
+
+---
+
+## 八、概述文档与导航（2026-11 新增）
+
+> 目的：组件详情页在此之前只有组件本身，没有“为什么用这套系统”和“医疗项目必须遵守什么”的入口。
+> 现在左侧导航最顶部新增「概述」模块，与组件章节并列。
+
+### 8.1 页面清单
+
+| 页面 | 路径 | 内容 | 交互 |
+| --- | --- | --- | --- |
+| 介绍 | `preview/docs/components/introduction.html` | 医疗软件定位、系统构成、适用范围、6 条设计原则、如何开始、版本与维护 | 纯文档，无 Preview / Code Tab |
+| 使用说明 | `preview/docs/components/usage.html` | CLI 初始化（bun / npm / pnpm / yarn 命令切换）、三种接入方式（复制 HTML / Tailwind 工程 / JSON Token）、可运行的最小页面、组件复制示例、交互组件分类、文件说明、FAQ | 纯文档，命令与代码可复制 |
+| 设计规范 | `preview/docs/components/guidelines.html` | 规范级别、色彩 / 排版 / 间距 / 组件规则、医疗业务规则、交互状态、可访问性、反模式、验收清单 | 纯文档，右侧 TOC 锚点跳转 |
+| 更新日志 | `preview/changelog.html` | 按版本倒序记录新增 / 修复 / 重构 / 规范调整，含版本号、日期、类型标签与条目 | 与首页同壳，支持主题切换与搜索 |
+
+### 8.2 导航规则
+
+- 侧边栏分组顺序：概述 → 设计基础 → 通用组件 → 数据展示 → 业务场景。
+- 「概述」内部顺序：介绍 → 使用说明 → 设计规范。
+- 「概述」条目同样进入 ⌘K 搜索结果，路径由 `docHref()` 统一生成。
+- 首页「开始使用」→ 首个组件详情页（`colors.html`）；「设计规范」→ `guidelines.html`。
+- 顶部「组件」导航与 Logo 行为保持不变：组件 → `colors.html`，Logo → 首页。
+- 顶部「更新日志」→ `preview/changelog.html`（首页用 `changelog.html`，详情页用 `../../changelog.html`）。
+
+### 8.3 维护约定
+
+- 修改 `preview/assets/coss.js` 中的 `ITEMS` / `GROUPS` 时，必须同步更新本表与 README 的目录说明。
+- 新增医疗业务规则时，同时更新 `guidelines.html`、`DESIGN.md §0.5 / §28.8` 与 README 版本记录。
+- 新增或重命名组件详情页时，同时检查 `bin/rundad.js` 的 `add` 能否提取 `<div class="preview-box">` 内的 `<section>`。
+
+### 8.4 CLI（v2.7.4）
+
+| 文件 | 说明 |
+| --- | --- |
+| `package.json` | 包名 `runda-design-system`，`bin.rundad → bin/rundad.js`，无第三方依赖 |
+| `bin/rundad.js` | `init [目录]` / `add <组件...> [--dir 目录]` / `list`；组件清单从 `preview/assets/coss.js` 读取 |
+| `preview/docs/components/usage.html` | 命令区块：bun / npm / pnpm / yarn 标签、复制按钮、新项目 / 已有项目两段命令、本地运行说明 |
+
+- `init` 生成 `design-system/{assets,tokens,components}` 与 `example.html` / `README.md`，已存在文件默认保留，`--force` 覆盖。
+- `add` 为每个组件生成 `<slug>.html`（片段）与 `<slug>.preview.html`（独立预览页），并刷新 `components/README.md`。
+- 预览站命令通过 GitHub 仓库执行（`npx github:yinghao1/design-system-preview ...`），需要仓库已推送；仓库内可直接运行 `node bin/rundad.js`。
+- 命令区块的标签切换与复制由 `preview/assets/coss.js` 的 `initCommandTabs()` 处理，样式在 `preview/assets/coss.css` 的 `.cmd-*`。
+
+---
+
+*审计完成 · 2026-05-22 · 交互状态补充 2026-11 · 概述文档补充 2026-11 · 使用说明与更新日志补充 2026-11 · CLI 补充 2026-11*

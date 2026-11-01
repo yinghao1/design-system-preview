@@ -54,6 +54,8 @@ tailwind.config = {
       fontFamily: {
         sans: ['"PingFang SC"', '"Noto Sans SC"', '"Inter"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', 'sans-serif'],
         display: ['"Inter"', '"PingFang SC"', '"Helvetica Neue"', 'sans-serif'],
+        // 大数字展示字体：KPI / Hero Number 统一使用 Urbanist Medium（字重 400-700）
+        numeric: ['"Urbanist"', '"PingFang SC"', '"Inter"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
       },
       fontSize: {

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-prefix="../../">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>使用说明 · RUNDA Design System</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4E4E7',300:'#D4D4D8',400:'#A1A1AA',500:'#71717A',600:'#52525B',700:'#3F3F46',800:'#27272A',900:'#18181B',950:'#09090B'},cdx:{50:'#F0F7F8',100:'#D9EBED',200:'#B0D6DB',300:'#7FBAC2',400:'#4D9CA7',500:'#2A7F8B',600:'#1D6571',700:'#185058',800:'#143F47',900:'#0F2F35'},warm:{50:'#FBF9F4',100:'#F5F0E4',200:'#E8DCC1',300:'#D6C396',700:'#6E582C'}},fontFamily:{sans:['"PingFang SC"','"Noto Sans SC"','"Inter"','system-ui','sans-serif'],display:['"Inter"','"PingFang SC"','sans-serif'],numeric:['"Urbanist"','"PingFang SC"','sans-serif'],mono:['"JetBrains Mono"','ui-monospace','Menlo','monospace']},fontSize:{'eyebrow':['0.8125rem',{lineHeight:'1.4',fontWeight:'600',letterSpacing:'0.16em'}]},maxWidth:{ultra:'1440px'}}}};
+</script>
+<link rel="stylesheet" href="../../assets/coss.css" />
+<link rel="stylesheet" href="../../assets/design-system.css" />
+
+</head>
+<body class="site-body" data-slug="usage">
+<div class="frame">
+  <span class="corner left" aria-hidden="true"></span>
+  <span class="corner right" aria-hidden="true"></span>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../../index.html"><span>RUNDA</span><span class="logo-dim">DS</span></a>
+    <nav class="header-nav" aria-label="主导航">
+      <a class="nav-link" href="colors.html">组件</a>
+      <a class="nav-link" href="../../changelog.html">更新日志</a>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索组件">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        <span class="search-label">搜索</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <a class="github-link" href="https://github.com/yinghao1/design-system-preview" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="切换明暗主题">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-drawer-open aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="docs-layout">
+  <aside class="sidebar" id="ds-sidebar" aria-label="组件导航"></aside>
+
+  <div class="docs-main">
+    <article class="doc-card doc">
+      <h1>使用说明</h1>
+      <p class="doc-lead">推荐先用 CLI 初始化，再按项目情况选择复制 HTML、接入 Tailwind 或消费 JSON token。四种方式共享同一份样式与 token，视觉与交互一致。</p>
+
+      <div class="doc-actions">
+        <a class="btn btn-sm btn-outline" href="#cli">CLI 命令</a>
+        <a class="btn btn-sm btn-outline" href="introduction.html">系统介绍</a>
+        <a class="btn btn-sm btn-outline" href="guidelines.html">设计规范</a>
+        <a class="btn btn-sm btn-outline" href="../../index.html">返回组件库</a>
+      </div>
+
+      <section class="doc-section" id="ways">
+        <h2>接入方式</h2>
+        <div class="doc-grid">
+          <div class="doc-grid-item">
+            <h4>01 · CLI 初始化（推荐）</h4>
+            <p>一条命令生成样式、字体、token 与示例页，再按需添加组件。<br><strong>适合：</strong>新项目、已有工程、需要快速验证。</p>
+          </div>
+          <div class="doc-grid-item">
+            <h4>02 · 复制 HTML</h4>
+            <p>在组件页的 Code 标签复制标记，放进任意页面。<br><strong>适合：</strong>原型、单页、已有样式体系的项目。</p>
+          </div>
+          <div class="doc-grid-item">
+            <h4>03 · Tailwind 工程</h4>
+            <p>把 token 并入项目 Tailwind 配置，用工具类组装页面。<br><strong>适合：</strong>React / Vue / 服务端渲染项目。</p>
+          </div>
+          <div class="doc-grid-item">
+            <h4>04 · 消费 Token</h4>
+            <p>读取 JSON token，同步到 Figma、移动端或其他技术栈。<br><strong>适合：</strong>多端协作、设计工具链。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="cli">
+        <h2>用 CLI 初始化</h2>
+        <p><code>rundad</code> 会读取当前仓库里的样式与 token，把 <code>design-system/</code> 写入你的项目。命令区分「新项目」和「已有项目」，选择对应的包管理器标签后复制执行即可。</p>
+
+        <div class="cmd-group">
+          <div class="cmd-group-head">
+            <div>
+              <span class="cmd-kicker">New Project Setup</span>
+              <h3>新项目</h3>
+              <p>在空目录或新工程根目录执行，生成完整的 <code>design-system/</code>，并附带一个可直接打开的 <code>example.html</code>。</p>
+            </div>
+            <span class="cmd-badge">NEW</span>
+          </div>
+          <div class="cmd-block" data-cmd-tabs>
+            <div class="cmd-head">
+              <span class="cmd-terminal" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m5 7 4 5-4 5"/><path d="M12 17h7"/></svg>
+              </span>
+              <div class="cmd-tabs" role="tablist" aria-label="选择包管理器">
+                <button class="cmd-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-cmd="bun" data-command="bunx github:yinghao1/design-system-preview init">bun</button>
+                <button class="cmd-tab is-active" type="button" role="tab" aria-selected="true" tabindex="0" data-cmd="npm" data-command="npx github:yinghao1/design-system-preview init">npm</button>
+                <button class="cmd-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-cmd="pnpm" data-command="pnpm dlx github:yinghao1/design-system-preview init">pnpm</button>
+                <button class="cmd-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-cmd="yarn" data-command="yarn dlx github:yinghao1/design-system-preview init">yarn</button>
+              </div>
+              <button class="cmd-copy" type="button" data-cmd-copy aria-label="复制命令">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <pre class="cmd-body"><code data-cmd-text>npx github:yinghao1/design-system-preview init</code></pre>
+          </div>
+          <p class="cmd-note">生成 <code>design-system/assets/</code>、<code>design-system/tokens/</code>、<code>components/</code> 与 <code>example.html</code>。已有文件默认保留，升级时加 <code>--force</code>。</p>
+        </div>
+
+        <div class="cmd-group">
+          <div class="cmd-group-head">
+            <div>
+              <span class="cmd-kicker">Existing Projects</span>
+              <h3>已有项目</h3>
+              <p>在项目根目录添加组件。每个组件会生成两份文件：可粘贴到业务页面的片段，以及可直接打开的独立预览页。</p>
+            </div>
+          </div>
+          <div class="cmd-block" data-cmd-tabs>
+            <div class="cmd-head">
+              <span class="cmd-terminal" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m5 7 4 5-4 5"/><path d="M12 17h7"/></svg>
+              </span>
+              <div class="cmd-tabs" role="tablist" aria-label="选择包管理器">
+                <button class="cmd-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-cmd="bun" data-command="bunx github:yinghao1/design-system-preview add buttons tables">bun</button>
+                <button class="cmd-tab is-active" type="button" role="tab" aria-selected="true" tabindex="0" data-cmd="npm" data-command="npx github:yinghao1/design-system-preview add buttons tables">npm</button>
+                <button class="cmd-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-cmd="pnpm" data-command="pnpm dlx github:yinghao1/design-system-preview add buttons tables">pnpm</button>
+                <button class="cmd-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-cmd="yarn" data-command="yarn dlx github:yinghao1/design-system-preview add buttons tables">yarn</button>
+              </div>
+              <button class="cmd-copy" type="button" data-cmd-copy aria-label="复制命令">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <pre class="cmd-body"><code data-cmd-text>npx github:yinghao1/design-system-preview add buttons tables</code></pre>
+          </div>
+          <p class="cmd-note">把 <code>buttons tables</code> 换成需要的组件：<code>forms</code>、<code>tables</code>、<code>overlays</code>、<code>kpi</code>、<code>upload</code>、<code>datepicker</code> 等。运行 <code>npx github:yinghao1/design-system-preview list</code> 查看全部。</p>
+        </div>
+
+        <div class="doc-callout"><strong>命令来源：</strong>上面的命令直接通过 GitHub 仓库运行，首次执行会拉取仓库，需要 Node.js ≥ 18 与本机 Git，并要求仓库已推送且当前网络可访问 GitHub。如果团队已在内网发布 npm 包，把仓库地址替换成包名即可；如果某个包管理器不支持 GitHub 地址，克隆仓库后使用下面的本地命令：</div>
+
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code># 在本仓库根目录执行
+node bin/rundad.js init ./my-app
+node bin/rundad.js add buttons tables --dir ./my-app
+node bin/rundad.js list</code></pre>
+        </div>
+      </section>
+
+      <section class="doc-section" id="quickstart">
+        <h2>静态 HTML（最快）</h2>
+        <p>按照下面的顺序引入资源，顺序不能颠倒：先加载 Tailwind CDN，再加载 token 配置，最后加载组件样式。</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;!-- 1. Tailwind CDN --&gt;
+&lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 2. 设计 token（颜色 / 字体 / 字号 / 动画） --&gt;
+&lt;script src=&quot;design-system/tokens/tailwind.config.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 3. 组件样式（表格、开关、数字字体、交互状态） --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;design-system/assets/design-system.css&quot; /&gt;</code></pre>
+        </div>
+        <p>下面是一个能直接运行的最小页面。保存为 <code>index.html</code>，与 <code>design-system/</code> 目录同级即可打开：</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+  &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;design-system/tokens/tailwind.config.js&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;design-system/assets/design-system.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-ink-50 text-ink-900 p-8&quot;&gt;
+  &lt;h1 class=&quot;text-[20px] font-semibold text-ink-900 mb-4&quot;&gt;患者列表&lt;/h1&gt;
+
+  &lt;button class=&quot;px-4 py-2 bg-cdx-700 text-white text-[13px] font-medium rounded hover:bg-cdx-800 transition&quot;&gt;
+    新建患者
+  &lt;/button&gt;
+
+  &lt;div class=&quot;mt-6 font-num text-[32px] font-medium text-cdx-700&quot;&gt;1,284&lt;/div&gt;
+  &lt;div class=&quot;text-[12px] text-ink-500 mt-1&quot;&gt;在院患者总数&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <div class="doc-callout"><strong>目录要求：</strong><code>design-system.css</code> 通过相对路径引用 <code>fonts/Urbanist-Medium.ttf</code>。移动文件时，请保持 <code>assets/design-system.css</code> 与 <code>assets/fonts/</code> 的相对位置不变，否则大数字会回退到系统字体。</div>
+      </section>
+
+      <section class="doc-section" id="tailwind">
+        <h2>接入 Tailwind 工程</h2>
+        <p>如果项目已经用 npm 安装 Tailwind，不需要加载 CDN。把 <code>tokens/tailwind.config.js</code> 中 <code>theme.extend</code> 的内容并入项目配置即可：</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>// tailwind.config.js
+module.exports = {
+  content: [&quot;./src/**/*.{html,js,ts,jsx,tsx,vue}&quot;],
+  theme: {
+    extend: {
+      colors: {
+        ink:  { 50: &quot;#FAFAFA&quot;, /* ... */ 900: &quot;#18181B&quot;, 950: &quot;#09090B&quot; },
+        cdx:  { 50: &quot;#F0F7F8&quot;, /* ... */ 700: &quot;#185058&quot; },
+        warm: { 50: &quot;#FBF9F4&quot;, /* ... */ 700: &quot;#6E582C&quot; }
+      },
+      fontFamily: {
+        sans:    [&quot;PingFang SC&quot;, &quot;Noto Sans SC&quot;, &quot;Inter&quot;, &quot;system-ui&quot;, &quot;sans-serif&quot;],
+        numeric: [&quot;Urbanist&quot;, &quot;PingFang SC&quot;, &quot;sans-serif&quot;],
+        mono:    [&quot;JetBrains Mono&quot;, &quot;ui-monospace&quot;, &quot;Menlo&quot;, &quot;monospace&quot;]
+      }
+    }
+  }
+};</code></pre>
+        </div>
+        <p class="muted">完整的颜色阶梯、字号、圆角、阴影与动画直接复制 <code>tokens/tailwind.config.js</code> 中的对象，避免手抄遗漏。组件样式仍引入 <code>design-system.css</code>，它负责表格、开关、选中态和 <code>font-num</code>。</p>
+      </section>
+
+      <section class="doc-section" id="tokens">
+        <h2>消费 JSON Token</h2>
+        <p><code>tokens/design-tokens.json</code> 用同一份数据描述颜色、字体、间距、圆角与组件规格，可被设计工具或代码生成器读取。</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>{
+  &quot;color&quot;: {
+    &quot;ink&quot;: { &quot;900&quot;: { &quot;value&quot;: &quot;#18181B&quot; }, &quot;950&quot;: { &quot;value&quot;: &quot;#09090B&quot; } },
+    &quot;cdx&quot;: { &quot;700&quot;: { &quot;value&quot;: &quot;#185058&quot; } }
+  },
+  &quot;typography&quot;: {
+    &quot;fontFamily&quot;: {
+      &quot;numeric&quot;: { &quot;value&quot;: &quot;\&quot;Urbanist\&quot;, \&quot;PingFang SC\&quot;, \&quot;Inter\&quot;, sans-serif&quot; }
+    }
+  }
+}</code></pre>
+        </div>
+        <p class="muted">在 Figma 中可使用 Tokens Studio 导入；在端侧项目里可写脚本把 JSON 转成 CSS 变量、Swift 或 Kotlin 常量。</p>
+      </section>
+
+      <section class="doc-section" id="copy">
+        <h2>组件复制示例</h2>
+        <h3>数据表格</h3>
+        <p>表格样式由 <code>design-system.css</code> 的 <code>.data-table</code> 提供，行 hover 与选中态已内置：</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;table class=&quot;data-table&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;患者&lt;/th&gt;&lt;th&gt;住院号&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;张*&lt;/td&gt;
+      &lt;td&gt;ZY20261101001&lt;/td&gt;
+      &lt;td&gt;在院&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+        <h3>KPI 大数字</h3>
+        <p>大数字使用 <code>font-num</code>（Urbanist Medium），并自动开启等宽数字：</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;div class=&quot;font-num text-[40px] font-medium text-cdx-700&quot;&gt;96.7%&lt;/div&gt;
+&lt;div class=&quot;text-[12px] text-ink-500 mt-1&quot;&gt;危急值 30 分钟处置率&lt;/div&gt;</code></pre>
+        </div>
+        <p>更多组件（按钮、表单、标签、弹层、日期选择、AI 对话）在左侧导航的对应页面中，Code 标签提供完整可复制的标记。</p>
+      </section>
+
+      <section class="doc-section" id="interactive">
+        <h2>交互组件说明</h2>
+        <p>组件分成两类，接入时请分别处理：</p>
+        <div class="doc-table">
+          <table class="data-table">
+            <thead>
+              <tr><th style="width:170px">类型</th><th>组件</th><th style="width:210px">接入方式</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>纯样式组件</strong></td>
+                <td>按钮、输入框、标签、徽章、卡片、表格、KPI、空状态、时间轴</td>
+                <td>复制 HTML + 引入 CSS 即可，无需 JS</td>
+              </tr>
+              <tr>
+                <td><strong>带状态组件</strong></td>
+                <td>Tabs、折叠面板、下拉选择、日期选择、上传、弹窗、步骤条、AI 思维链</td>
+                <td>需要自行绑定事件；可参考 <code>preview/assets/coss.js</code> 中的 <code>initDemos()</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="doc-callout"><strong>注意：</strong><code>coss.js</code> 是预览站的外壳脚本，包含导航、搜索、主题切换等站点逻辑。业务项目只应挑选其中的组件事件代码，不要整包引入。</div>
+      </section>
+
+      <section class="doc-section" id="files">
+        <h2>文件与目录</h2>
+        <div class="doc-table">
+          <table class="data-table">
+            <thead>
+              <tr><th style="width:260px">文件</th><th>作用</th><th style="width:150px">是否必需</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>design-system/tokens/design-tokens.json</code></td><td>唯一设计源：颜色、字体、间距、组件规格</td><td>设计 / 多端必需</td></tr>
+              <tr><td><code>design-system/tokens/tailwind.config.js</code></td><td>浏览器可直接加载的 Tailwind token 配置</td><td>使用 Tailwind 时必需</td></tr>
+              <tr><td><code>design-system/assets/design-system.css</code></td><td>组件样式、状态层、数字字体</td><td>必需</td></tr>
+              <tr><td><code>design-system/assets/fonts/Urbanist-Medium.ttf</code></td><td>大数字字体，必须与 CSS 保持相对位置</td><td>必需</td></tr>
+              <tr><td><code>design-system/components/</code></td><td><code>rundad add</code> 生成的组件片段与预览页</td><td>按需</td></tr>
+              <tr><td><code>preview/assets/coss.js</code></td><td>预览站交互脚本，可作为组件事件参考</td><td>仅预览站 / 参考</td></tr>
+              <tr><td><code>docs/DESIGN.md</code></td><td>完整设计规范与反模式</td><td>阅读即可</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="doc-section" id="faq">
+        <h2>常见问题</h2>
+        <h3>颜色类名不生效（如 bg-cdx-700）</h3>
+        <ul>
+          <li>确认 <code>tailwind.config.js</code> 在 Tailwind CDN 之后加载。</li>
+          <li>确认配置文件加载成功：控制台执行 <code>tailwind.config.theme.extend.colors.cdx[700]</code> 应返回 <code>#185058</code>。</li>
+          <li>使用构建版 Tailwind 时，确认 <code>content</code> 覆盖到所有模板文件。</li>
+        </ul>
+        <h3>大数字没有使用 Urbanist</h3>
+        <ul>
+          <li>确认元素带有 <code>font-num</code> 类，或使用 <code>font-family: var(--font-numeric)</code>。</li>
+          <li>确认 <code>assets/fonts/Urbanist-Medium.ttf</code> 存在，且与 <code>design-system.css</code> 的相对路径一致。</li>
+          <li>控制台执行 <code>document.fonts.check('16px "Urbanist"')</code> 应返回 <code>true</code>。</li>
+        </ul>
+        <h3>表格、开关样式缺失</h3>
+        <ul>
+          <li>这些样式不在 Tailwind 工具类里，必须引入 <code>design-system.css</code>。</li>
+        </ul>
+        <h3>CLI 命令无法执行</h3>
+        <ul>
+          <li>确认 Node.js ≥ 18 与 Git 可用：<code>node -v</code>、<code>git --version</code>。</li>
+          <li>通过 GitHub 仓库运行命令时，需要仓库已推送且本机能访问 GitHub；内网环境请先克隆仓库。</li>
+          <li>在仓库内开发时改用 <code>node bin/rundad.js init</code> 或 <code>node bin/rundad.js add buttons</code>。</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="next">
+        <h2>下一步</h2>
+        <ul>
+          <li><a href="guidelines.html"><u>设计规范</u></a>：落地前确认医疗业务规则与验收清单。</li>
+          <li><a href="colors.html"><u>色彩系统</u></a>：从第一个组件开始复制。</li>
+          <li><a href="../../changelog.html"><u>更新日志</u></a>：查看版本变化与破坏性调整。</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+
+  <nav class="toc" aria-label="本页目录">
+    <h4>本页目录</h4>
+    <a href="#ways">接入方式</a>
+    <a href="#cli">CLI 初始化</a>
+    <a href="#quickstart">静态 HTML</a>
+    <a href="#tailwind">Tailwind 工程</a>
+    <a href="#tokens">JSON Token</a>
+    <a href="#copy">组件复制示例</a>
+    <a href="#interactive">交互组件</a>
+    <a href="#files">文件与目录</a>
+    <a href="#faq">常见问题</a>
+    <a href="#next">下一步</a>
+  </nav>
+</main>
+
+</div>
+<script src="../../assets/coss.js"></script>
+</body>
+</html>

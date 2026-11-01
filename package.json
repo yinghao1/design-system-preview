@@ -1,0 +1,31 @@
+{
+  "name": "runda-design-system",
+  "version": "2.7.4",
+  "description": "RUNDA Design System · 医疗软件设计系统 CLI 与设计 token",
+  "bin": {
+    "rundad": "bin/rundad.js"
+  },
+  "files": [
+    "bin",
+    "preview/assets/design-system.css",
+    "preview/assets/fonts/Urbanist-Medium.ttf",
+    "preview/assets/coss.js",
+    "preview/docs/components",
+    "tokens",
+    "package.json"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinghao1/design-system-preview.git"
+  },
+  "keywords": [
+    "design-system",
+    "medical",
+    "tailwind",
+    "components"
+  ],
+  "license": "UNLICENSED"
+}

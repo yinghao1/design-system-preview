@@ -114,6 +114,8 @@ DESIGN.md 中的规范按适用范围标记：
 ```
 design-system/
 ├── README.md                          ← 本文件（规则入口 · AI 必读）
+├── package.json                       ← CLI 包定义（bin: rundad）
+├── bin/rundad.js                      ← 初始化 / 添加组件 / 组件清单
 ├── docs/
 │   ├── DESIGN.md                      ← 统一设计规范（B 端 · 30 章）
 │   ├── COMPONENT-AUDIT.md             ← 组件审计报告
@@ -124,9 +126,13 @@ design-system/
 │   ├── design-tokens.json             ← 设计令牌（JSON · 程序可消费）
 │   └── tailwind.config.js             ← Tailwind 配置（直接复用）
 ├── preview/
-│   └── index.html                     ← 统一组件预览（B 端 · 27 章节）
+│   ├── index.html                     ← 组件库首页（卡片网格 · 参考 coss.com/ui）
+│   ├── changelog.html                 ← 更新日志（站内页面 · 与首页同风格）
+│   ├── docs/components/               ← 30 个详情页（概述 3 篇 + 组件 27 篇）
+│   └── assets/                        ← 站点样式、交互脚本与字体
 ├── assets/
-│   └── icons/empty-state.svg          ← RUNDA 标准空状态插画
+│   ├── icons/empty-state.svg          ← RUNDA 标准空状态插画
+│   └── fonts/                         ← Cal Sans / Urbanist Medium 字体源文件
 └── screenshots/
     ├── pages/                         ← 全部页面完整截图（11 张）
     ├── states/                        ← 不同状态截图（6 张）
@@ -139,13 +145,34 @@ design-system/
 
 ### 1. 新项目初始化
 
-```bash
-# 复制 Tailwind 配置到新项目
-cp design-system/tokens/tailwind.config.js your-project/_tailwind.config.js
+推荐用 CLI 一次写入样式、Urbanist 字体、token 与示例页：
 
-# 或在 HTML 中引用
+```bash
+# 在仓库根目录
+node bin/rundad.js init ./my-app
+
+# 添加组件（生成可复制片段 + 独立预览页）
+node bin/rundad.js add buttons tables --dir ./my-app
+
+# 查看全部组件
+node bin/rundad.js list
+```
+
+仓库推送到 GitHub 后，也可通过包管理器运行：
+
+```bash
+npx github:yinghao1/design-system-preview init ./my-app
+npx github:yinghao1/design-system-preview add buttons tables --dir ./my-app
+```
+
+生成目录为 `my-app/design-system/`，其中 `assets/design-system.css` 与 `assets/fonts/` 必须保持相对位置。
+
+手工方式：复制 `tokens/tailwind.config.js` 到项目，并在 HTML 中按顺序引用：
+
+```html
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="_tailwind.config.js"></script>
+<script src="design-system/tokens/tailwind.config.js"></script>
+<link rel="stylesheet" href="design-system/assets/design-system.css" />
 ```
 
 ### 2. 必须的全局样式
@@ -192,7 +219,7 @@ python3 -m http.server 8080
 |------|------|----------|
 | §0 设计哲学 | 风格定位、核心原则、C/B 端差异 | 90/10 原则、克制优先 |
 | §1 色彩系统 | ink/cdx/warm/状态色/高亮色/模态色/图表色 | cdx-700 为核心强调色 |
-| §2 字体与排版 | 字体栈、B 端 9 级 + 6 级 + 功能性 10 级 | eyebrow 0.16em、数字用 mono |
+| §2 字体与排版 | 字体栈、B 端 9 级 + 6 级 + 功能性 10 级 | eyebrow 0.16em、大数字用 Urbanist Medium（font-num） |
 | §3 间距与布局 | 容器宽度、B 端布局、间距 token、Layout 容器、Grid 栅格 | B 端 max-w-ultra、流式、24 栅格系统 |
 | §4 圆角系统 | 7 级圆角阶梯 | 默认 6px |
 | §5 阴影系统 | 基础 3 层 + 场景阴影 + focus ring | 静态无阴影、hover 出现 |
@@ -253,9 +280,38 @@ JSON 结构：
 - `animation`：全部动画
 - `maxWidth`：容器宽度
 
-### preview/index.html — 组件实现参考
+### preview/ — 组件库站点
 
-27 个章节的完整 HTML + CSS 实现，可直接从中复制代码片段：
+`preview/index.html` 是参考 coss.com/ui 重构的组件库首页：顶部固定导航、Hero 区与 27 张组件卡片。
+Hero 的「开始使用」进入首个组件详情页（色彩系统），「设计规范」进入概述中的设计规范页。
+点击任意卡片进入 `preview/docs/components/<slug>.html` 详情页，页面包含左侧组件导航、右侧本页目录、
+Preview / Code 双 Tab、安装与使用说明。全站支持 ⌘K 搜索、明暗主题切换与移动端抽屉导航。
+
+详情页左侧导航顶部为「概述」模块：`introduction.html`（介绍，说明医疗场景与设计原则）、
+`usage.html`（使用说明，CLI + 三种接入方式、可运行示例与包管理器命令切换）与 `guidelines.html`
+（设计规范，面向医疗项目的必须 / 应当规则、业务约束与验收清单）。这三个页面只有文档内容，
+不提供 Preview / Code Tab。其余 27 个组件章节保持双 Tab 结构，完整 HTML + CSS 实现可直接复制：
+
+顶部导航「更新日志」进入 `preview/changelog.html`，按版本倒序记录新增、修复、重构与规范调整，
+不再跳转 Markdown 文件。
+
+### bin/ — CLI
+
+`bin/rundad.js` 是零依赖 Node.js CLI（Node ≥ 18），读取仓库内的样式、token 与组件页生成目标目录：
+
+| 命令 | 作用 |
+|------|------|
+| `rundad init [目录]` | 生成 `design-system/`（样式、字体、token、示例页与 README） |
+| `rundad add <组件...> [--dir 目录]` | 提取组件 `<section>`，生成可复制片段与独立预览页 |
+| `rundad list` | 按分组列出可用组件 |
+
+`rundad add` 的输出：
+
+- `design-system/components/<slug>.html`：可粘贴到业务页面的片段。
+- `design-system/components/<slug>.preview.html`：带 Tailwind CDN 与 token 的独立预览页。
+- `design-system/components/README.md`：已添加组件索引。
+
+`init` 默认保留已存在的文件，升级时使用 `--force`。通过 GitHub 执行的命令需要仓库已推送且本机可访问 GitHub。
 
 | 章节 | 包含组件 |
 |------|----------|
@@ -302,7 +358,8 @@ JSON 结构：
 ### 字体
 
 - 正文：PingFang SC + Inter
-- 数字：JetBrains Mono（tabular-nums）
+- 大数字（KPI / Hero / 卡片主数值）：Urbanist Medium（`font-num` + tabular-nums）
+- 等宽数字（表内 ID、耗时、代码）：JetBrains Mono
 - 标签：13px / 600 / uppercase / letter-spacing 0.16em
 - 代码/ID：14px / mono
 - 按钮：14px / 500（CTA: 13px / 600 / 0.16em / uppercase）；表格操作栏按钮：13px / 500，不得低于 13px
@@ -379,6 +436,11 @@ JSON 结构：
 
 | 版本 | 日期 | 说明 |
 |------|------|------|
+| v2.7.4 | 2026-11-01 | **CLI 接入**：新增零依赖 `bin/rundad.js` 与 `package.json`（`init` / `add` / `list`），`init` 生成样式、Urbanist 字体、token 与示例页，`add` 生成组件片段与独立预览页；使用说明新增 bun / npm / pnpm / yarn 命令切换、复制按钮与本地运行方式；组件页代码示例统一为 `design-system/assets/` 路径；README、COMPONENT-AUDIT、更新日志同步 |
+| v2.7.3 | 2026-11-01 | **使用说明与更新日志**：概述新增 `usage.html`（三种接入方式、可运行的最小页面、组件复制示例、交互组件说明、常见问题）；新增 `changelog.html` 更新日志页面（与首页同风格，按版本记录新增 / 修复 / 重构 / 规范）；顶部导航「更新日志」由 Markdown 改为站内页面；相关文档同步 |
+| v2.7.2 | 2026-11-01 | **概述与医疗规范**：详情页左侧导航顶部新增「概述」模块（介绍 / 设计规范）；新增 `introduction.html`（医疗软件定位、系统构成、适用范围与设计原则）与 `guidelines.html`（规范级别、色彩 / 排版 / 布局 / 组件规则、医疗业务规则、交互状态、可访问性、反模式与验收清单）；首页「开始使用」直达首个组件详情页，「设计规范」直达设计规范页；相关文档同步更新 |
+| v2.7.1 | 2026-11-01 | **预览站 8 项修复**：① 步骤条边框自适应内容；② 全组件补齐 hover/active/focus/禁用/选中交互状态（详见 `docs/COMPONENT-AUDIT.md` §7）；③ 同义词组箭头统一为 `→`；④ EMR 工作台完整页面改为 HTML 结构示例；⑤ AI 引用卡片标签禁止折行；⑥ 大数字统一为 Urbanist Medium（新增 `font-num` / `--font-numeric` / `numeric` 字族，字体文件内嵌）；⑦ 首页「组件」跳转至首个组件详情页、Logo 返回首页；⑧ 详情页侧栏与本页目录各自独立滚动 |
+| v2.7.0 | 2026-11-01 | **预览站重构**：首页改为参考 coss.com/ui 的卡片网格布局；新增 27 个组件详情页（左侧导航 / Preview·Code 双 Tab / 本页目录）；新增 ⌘K 搜索、明暗主题切换、移动端抽屉；组件实现与设计 token 未变 |
 | v2.6.4 | 2026-08-31 | 主按钮 Hover 背景/边框调整为 `cdx-600 #1D6571` |
 | v2.6.3 | 2026-08-31 | 主按钮默认背景/边框统一为 `cdx-700 #185058`，Hover 状态统一为 `cdx-800 #143F47` |
 | v2.6.2 | 2026-08-28 | 新增 RUNDA 标准空状态 SVG，统一 160px 尺寸、cdx 青绿色配色、紧凑缩放和文字层级规则 |
@@ -393,4 +455,4 @@ JSON 结构：
 
 ---
 
-*RUNDA Design System v2.6.4 · Maintained by RUNDA Clinical Data X Team*
+*RUNDA Design System v2.7.4 · Maintained by RUNDA Clinical Data X Team*

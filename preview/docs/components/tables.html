@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-prefix="../../">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>表格 · RUNDA Design System</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4E4E7',300:'#D4D4D8',400:'#A1A1AA',500:'#71717A',600:'#52525B',700:'#3F3F46',800:'#27272A',900:'#18181B',950:'#09090B'},cdx:{50:'#F0F7F8',100:'#D9EBED',200:'#B0D6DB',300:'#7FBAC2',400:'#4D9CA7',500:'#2A7F8B',600:'#1D6571',700:'#185058',800:'#143F47',900:'#0F2F35'},warm:{50:'#FBF9F4',100:'#F5F0E4',200:'#E8DCC1',300:'#D6C396',700:'#6E582C'}},fontFamily:{sans:['"PingFang SC"','"Noto Sans SC"','"Inter"','system-ui','sans-serif'],display:['"Inter"','"PingFang SC"','sans-serif'],numeric:['"Urbanist"','"PingFang SC"','sans-serif'],mono:['"JetBrains Mono"','ui-monospace','Menlo','monospace']},fontSize:{'eyebrow':['0.8125rem',{lineHeight:'1.4',fontWeight:'600',letterSpacing:'0.16em'}]},maxWidth:{ultra:'1440px'}}}};
+</script>
+<link rel="stylesheet" href="../../assets/coss.css" />
+<link rel="stylesheet" href="../../assets/design-system.css" />
+
+</head>
+<body class="site-body" data-slug="tables">
+<div class="frame">
+  <span class="corner left" aria-hidden="true"></span>
+  <span class="corner right" aria-hidden="true"></span>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../../index.html"><span>RUNDA</span><span class="logo-dim">DS</span></a>
+    <nav class="header-nav" aria-label="主导航">
+      <a class="nav-link" href="colors.html">组件</a>
+      <a class="nav-link" href="../../changelog.html">更新日志</a>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索组件">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        <span class="search-label">搜索</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <a class="github-link" href="https://github.com/yinghao1/design-system-preview" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="切换明暗主题">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-drawer-open aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="docs-layout">
+  <aside class="sidebar" id="ds-sidebar" aria-label="组件导航"></aside>
+
+  <div class="docs-main">
+    <article class="doc-card doc">
+      <h1>表格</h1>
+      <p class="doc-lead">表头使用 ink-50 背景与 12px 大写标签，行 hover 显示 cdx-50。行内操作按钮字号固定 13px，与单元格正文一致。</p>
+
+      <div class="doc-actions">
+        <button class="btn btn-sm btn-outline" type="button" data-goto-tab="preview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          预览
+        </button>
+        <button class="btn btn-sm btn-outline" type="button" data-goto-tab="code">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+          代码
+        </button>
+        <a class="btn btn-sm btn-outline" href="../../index.html">返回组件库</a>
+      </div>
+
+      <div class="doc-tabs" data-tabs>
+        <button class="doc-tab active" type="button" data-tab="preview">Preview</button>
+        <button class="doc-tab" type="button" data-tab="code">Code</button>
+      </div>
+
+      <div class="doc-pane active" data-pane="preview" id="preview">
+        <div class="preview-box">
+<section id="tables" class="section">
+    <div class="section-title">07 · TABLES · 表格</div>
+    <div class="demo-box" style="padding:0;overflow:hidden">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-ink-100">
+        <div class="flex items-center gap-3">
+          <span class="text-[14px] font-semibold text-ink-900">患者列表</span>
+          <span class="text-[12px] text-ink-400 font-mono">12,847 条</span>
+        </div>
+        <div class="flex gap-2">
+          <input class="px-3 py-1.5 text-[12px] border border-ink-200 rounded bg-ink-50" placeholder="搜索患者...">
+          <button class="px-3 py-1.5 text-[12px] border border-ink-200 rounded bg-white hover:border-cdx-700">筛选</button>
+        </div>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th><label class="checkbox" style="gap:0"><input type="checkbox"><span class="checkbox-box"></span></label></th>
+            <th class="th-sortable asc">患者 ID</th>
+            <th class="th-sortable">姓名</th>
+            <th>科室</th>
+            <th>主诊断</th>
+            <th class="th-sortable">入院日期</th>
+            <th>状态</th>
+            <th class="col-action">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><label class="checkbox" style="gap:0"><input type="checkbox"><span class="checkbox-box"></span></label></td>
+            <td class="font-mono text-[12px] text-cdx-700">P-20260001</td>
+            <td class="font-medium">张三</td>
+            <td>呼吸内科</td>
+            <td><span class="inline-block px-2 py-0.5 text-[11px] bg-cdx-50 text-cdx-700 rounded">冠心病</span></td>
+            <td class="font-mono text-[12px]">2026-03-15</td>
+            <td><span class="pulse-dot"></span><span class="text-[12px] text-[#15803D]">在院</span></td>
+            <td class="col-action"><button class="px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
+          </tr>
+          <tr class="is-selected">
+            <td><label class="checkbox" style="gap:0"><input type="checkbox" checked><span class="checkbox-box"></span></label></td>
+            <td class="font-mono text-[12px] text-cdx-700">P-20260002</td>
+            <td class="font-medium">李四</td>
+            <td>心血管内科</td>
+            <td><span class="inline-block px-2 py-0.5 text-[11px] bg-[#FEF3C7] text-[#92400E] rounded">高血压 III 级</span></td>
+            <td class="font-mono text-[12px]">2026-03-12</td>
+            <td><span class="text-[12px] text-ink-500">已出院</span></td>
+            <td class="col-action"><button class="px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
+          </tr>
+          <tr>
+            <td><label class="checkbox" style="gap:0"><input type="checkbox"><span class="checkbox-box"></span></label></td>
+            <td class="font-mono text-[12px] text-cdx-700">P-20260003</td>
+            <td class="font-medium">王五</td>
+            <td>肿瘤科</td>
+            <td><span class="inline-block px-2 py-0.5 text-[11px] bg-[#FEF2F2] text-[#991B1B] rounded">肺腺癌 T2N1</span></td>
+            <td class="font-mono text-[12px]">2026-03-10</td>
+            <td><span class="pulse-dot"></span><span class="text-[12px] text-[#15803D]">在院</span></td>
+            <td class="col-action"><button class="px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded">详情</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="flex items-center justify-between px-4 py-3 border-t border-ink-100 text-[12px] text-ink-500">
+        <span class="demo-table-count">已选 1 项 · 共 12,847 条</span>
+        <div class="demo-pager">
+          <button class="demo-page" type="button" data-page="prev" aria-label="上一页">‹</button>
+          <button class="demo-page is-current" type="button" data-page="1">1</button>
+          <button class="demo-page" type="button" data-page="2">2</button>
+          <button class="demo-page" type="button" data-page="3">3</button>
+          <button class="demo-page" type="button" data-page="next" aria-label="下一页">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+        </div>
+      </div>
+
+      <div class="doc-pane" data-pane="code" id="code">
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;section id=&quot;tables&quot; class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-title&quot;&gt;07 · TABLES · 表格&lt;/div&gt;
+    &lt;div class=&quot;demo-box&quot; style=&quot;padding:0;overflow:hidden&quot;&gt;
+      &lt;div class=&quot;flex items-center justify-between px-4 py-3 border-b border-ink-100&quot;&gt;
+        &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+          &lt;span class=&quot;text-[14px] font-semibold text-ink-900&quot;&gt;患者列表&lt;/span&gt;
+          &lt;span class=&quot;text-[12px] text-ink-400 font-mono&quot;&gt;12,847 条&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;flex gap-2&quot;&gt;
+          &lt;input class=&quot;px-3 py-1.5 text-[12px] border border-ink-200 rounded bg-ink-50&quot; placeholder=&quot;搜索患者...&quot;&gt;
+          &lt;button class=&quot;px-3 py-1.5 text-[12px] border border-ink-200 rounded bg-white hover:border-cdx-700&quot;&gt;筛选&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;table class=&quot;data-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;&lt;label class=&quot;checkbox&quot; style=&quot;gap:0&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span class=&quot;checkbox-box&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;/th&gt;
+            &lt;th class=&quot;th-sortable asc&quot;&gt;患者 ID&lt;/th&gt;
+            &lt;th class=&quot;th-sortable&quot;&gt;姓名&lt;/th&gt;
+            &lt;th&gt;科室&lt;/th&gt;
+            &lt;th&gt;主诊断&lt;/th&gt;
+            &lt;th class=&quot;th-sortable&quot;&gt;入院日期&lt;/th&gt;
+            &lt;th&gt;状态&lt;/th&gt;
+            &lt;th class=&quot;col-action&quot;&gt;操作&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;td&gt;&lt;label class=&quot;checkbox&quot; style=&quot;gap:0&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span class=&quot;checkbox-box&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+            &lt;td class=&quot;font-mono text-[12px] text-cdx-700&quot;&gt;P-20260001&lt;/td&gt;
+            &lt;td class=&quot;font-medium&quot;&gt;张三&lt;/td&gt;
+            &lt;td&gt;呼吸内科&lt;/td&gt;
+            &lt;td&gt;&lt;span class=&quot;inline-block px-2 py-0.5 text-[11px] bg-cdx-50 text-cdx-700 rounded&quot;&gt;冠心病&lt;/span&gt;&lt;/td&gt;
+            &lt;td class=&quot;font-mono text-[12px]&quot;&gt;2026-03-15&lt;/td&gt;
+            &lt;td&gt;&lt;span class=&quot;pulse-dot&quot;&gt;&lt;/span&gt;&lt;span class=&quot;text-[12px] text-[#15803D]&quot;&gt;在院&lt;/span&gt;&lt;/td&gt;
+            &lt;td class=&quot;col-action&quot;&gt;&lt;button class=&quot;px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded&quot;&gt;详情&lt;/button&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr class=&quot;is-selected&quot;&gt;
+            &lt;td&gt;&lt;label class=&quot;checkbox&quot; style=&quot;gap:0&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span class=&quot;checkbox-box&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+            &lt;td class=&quot;font-mono text-[12px] text-cdx-700&quot;&gt;P-20260002&lt;/td&gt;
+            &lt;td class=&quot;font-medium&quot;&gt;李四&lt;/td&gt;
+            &lt;td&gt;心血管内科&lt;/td&gt;
+            &lt;td&gt;&lt;span class=&quot;inline-block px-2 py-0.5 text-[11px] bg-[#FEF3C7] text-[#92400E] rounded&quot;&gt;高血压 III 级&lt;/span&gt;&lt;/td&gt;
+            &lt;td class=&quot;font-mono text-[12px]&quot;&gt;2026-03-12&lt;/td&gt;
+            &lt;td&gt;&lt;span class=&quot;text-[12px] text-ink-500&quot;&gt;已出院&lt;/span&gt;&lt;/td&gt;
+            &lt;td class=&quot;col-action&quot;&gt;&lt;button class=&quot;px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded&quot;&gt;详情&lt;/button&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;&lt;label class=&quot;checkbox&quot; style=&quot;gap:0&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span class=&quot;checkbox-box&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+            &lt;td class=&quot;font-mono text-[12px] text-cdx-700&quot;&gt;P-20260003&lt;/td&gt;
+            &lt;td class=&quot;font-medium&quot;&gt;王五&lt;/td&gt;
+            &lt;td&gt;肿瘤科&lt;/td&gt;
+            &lt;td&gt;&lt;span class=&quot;inline-block px-2 py-0.5 text-[11px] bg-[#FEF2F2] text-[#991B1B] rounded&quot;&gt;肺腺癌 T2N1&lt;/span&gt;&lt;/td&gt;
+            &lt;td class=&quot;font-mono text-[12px]&quot;&gt;2026-03-10&lt;/td&gt;
+            &lt;td&gt;&lt;span class=&quot;pulse-dot&quot;&gt;&lt;/span&gt;&lt;span class=&quot;text-[12px] text-[#15803D]&quot;&gt;在院&lt;/span&gt;&lt;/td&gt;
+            &lt;td class=&quot;col-action&quot;&gt;&lt;button class=&quot;px-2 py-0.5 text-[13px] text-cdx-700 hover:bg-cdx-50 rounded&quot;&gt;详情&lt;/button&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;div class=&quot;flex items-center justify-between px-4 py-3 border-t border-ink-100 text-[12px] text-ink-500&quot;&gt;
+        &lt;span class=&quot;demo-table-count&quot;&gt;已选 1 项 · 共 12,847 条&lt;/span&gt;
+        &lt;div class=&quot;demo-pager&quot;&gt;
+          &lt;button class=&quot;demo-page&quot; type=&quot;button&quot; data-page=&quot;prev&quot; aria-label=&quot;上一页&quot;&gt;‹&lt;/button&gt;
+          &lt;button class=&quot;demo-page is-current&quot; type=&quot;button&quot; data-page=&quot;1&quot;&gt;1&lt;/button&gt;
+          &lt;button class=&quot;demo-page&quot; type=&quot;button&quot; data-page=&quot;2&quot;&gt;2&lt;/button&gt;
+          &lt;button class=&quot;demo-page&quot; type=&quot;button&quot; data-page=&quot;3&quot;&gt;3&lt;/button&gt;
+          &lt;button class=&quot;demo-page&quot; type=&quot;button&quot; data-page=&quot;next&quot; aria-label=&quot;下一页&quot;&gt;›&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;</code></pre>
+        </div>
+      </div>
+
+      <section class="doc-section" id="installation">
+        <h2>安装</h2>
+        <p>在页面中引入组件样式与 Tailwind 配置即可。组件样式只包含组件本身，不包含站点外壳。</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;design-system/assets/design-system.css&quot; /&gt;
+&lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;design-system/tokens/tailwind.config.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </div>
+      </section>
+
+      <section class="doc-section" id="usage">
+        <h2>使用方式</h2>
+        <p>在 Code 标签页复制完整标记，替换其中的文案与数据即可。颜色、字号、圆角与阴影一律引用 <code>tokens/design-tokens.json</code> 中的 token，不要写入未定义的颜色值。</p>
+        <p class="muted">组件在浅色主题下设计；若页面启用暗色模式，请先用 token 覆盖背景与文字色，再复用组件结构。</p>
+      </section>
+
+      <section class="doc-section" id="spec">
+        <h2>设计规范</h2>
+        <p>完整的尺寸、状态与反模式说明见 <a href="../../../docs/DESIGN.md"><u>DESIGN.md</u></a>。开发完成后请按 §28 检查清单逐项核对。</p>
+      </section>
+    </article>
+  </div>
+
+  <nav class="toc" aria-label="本页目录">
+    <h4>本页目录</h4>
+    <a href="#preview">预览</a>
+    <a href="#code">代码</a>
+    <a href="#installation">安装</a>
+    <a href="#usage">使用方式</a>
+    <a href="#spec">设计规范</a>
+  </nav>
+</main>
+
+</div>
+<script src="../../assets/coss.js"></script>
+</body>
+</html>

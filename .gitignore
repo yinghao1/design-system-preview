@@ -1,3 +1,6 @@
 .DS_Store
 .claude/
 .spec-workflow/
+hhspec/
+node_modules/
+*.tgz

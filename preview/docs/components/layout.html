@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-prefix="../../">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>布局容器 · RUNDA Design System</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4E4E7',300:'#D4D4D8',400:'#A1A1AA',500:'#71717A',600:'#52525B',700:'#3F3F46',800:'#27272A',900:'#18181B',950:'#09090B'},cdx:{50:'#F0F7F8',100:'#D9EBED',200:'#B0D6DB',300:'#7FBAC2',400:'#4D9CA7',500:'#2A7F8B',600:'#1D6571',700:'#185058',800:'#143F47',900:'#0F2F35'},warm:{50:'#FBF9F4',100:'#F5F0E4',200:'#E8DCC1',300:'#D6C396',700:'#6E582C'}},fontFamily:{sans:['"PingFang SC"','"Noto Sans SC"','"Inter"','system-ui','sans-serif'],display:['"Inter"','"PingFang SC"','sans-serif'],numeric:['"Urbanist"','"PingFang SC"','sans-serif'],mono:['"JetBrains Mono"','ui-monospace','Menlo','monospace']},fontSize:{'eyebrow':['0.8125rem',{lineHeight:'1.4',fontWeight:'600',letterSpacing:'0.16em'}]},maxWidth:{ultra:'1440px'}}}};
+</script>
+<link rel="stylesheet" href="../../assets/coss.css" />
+<link rel="stylesheet" href="../../assets/design-system.css" />
+
+</head>
+<body class="site-body" data-slug="layout">
+<div class="frame">
+  <span class="corner left" aria-hidden="true"></span>
+  <span class="corner right" aria-hidden="true"></span>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../../index.html"><span>RUNDA</span><span class="logo-dim">DS</span></a>
+    <nav class="header-nav" aria-label="主导航">
+      <a class="nav-link" href="colors.html">组件</a>
+      <a class="nav-link" href="../../changelog.html">更新日志</a>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索组件">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        <span class="search-label">搜索</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <a class="github-link" href="https://github.com/yinghao1/design-system-preview" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="切换明暗主题">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-drawer-open aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="docs-layout">
+  <aside class="sidebar" id="ds-sidebar" aria-label="组件导航"></aside>
+
+  <div class="docs-main">
+    <article class="doc-card doc">
+      <h1>布局容器</h1>
+      <p class="doc-lead">管理端默认采用侧边栏 + 内容区结构：Sidebar 240px，Header 56px，Content 内边距 20px。移动端侧边栏自动收起。</p>
+
+      <div class="doc-actions">
+        <button class="btn btn-sm btn-outline" type="button" data-goto-tab="preview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          预览
+        </button>
+        <button class="btn btn-sm btn-outline" type="button" data-goto-tab="code">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+          代码
+        </button>
+        <a class="btn btn-sm btn-outline" href="../../index.html">返回组件库</a>
+      </div>
+
+      <div class="doc-tabs" data-tabs>
+        <button class="doc-tab active" type="button" data-tab="preview">Preview</button>
+        <button class="doc-tab" type="button" data-tab="code">Code</button>
+      </div>
+
+      <div class="doc-pane active" data-pane="preview" id="preview">
+        <div class="preview-box">
+<section id="layout" class="section">
+    <div class="section-title">20 · LAYOUT · 布局容器（§3.7）</div>
+
+    <div class="demo-sub">经典侧边栏布局</div>
+    <div class="demo-box" style="padding:0;overflow:hidden">
+      <div style="display:flex;height:280px;border:1px solid #E4E4E7;border-radius:6px;overflow:hidden">
+        <div style="width:200px;background:#fff;border-right:1px solid #E4E4E7;display:flex;flex-direction:column">
+          <div style="height:48px;padding:0 16px;display:flex;align-items:center;border-bottom:1px solid #E4E4E7">
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#185058">RUNDA</span>
+          </div>
+          <div style="flex:1;padding:12px 8px">
+            <div style="padding:8px 12px;font-size:13px;font-weight:500;color:#185058;background:#F0F7F8;border-radius:4px;border-left:2px solid #185058;margin-bottom:4px">数据总览</div>
+            <div style="padding:8px 12px;font-size:13px;color:#52525B;border-radius:4px;margin-bottom:4px">患者管理</div>
+            <div style="padding:8px 12px;font-size:13px;color:#52525B;border-radius:4px">系统设置</div>
+          </div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column">
+          <div style="height:48px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #E4E4E7">
+            <span style="font-size:14px;font-weight:500;color:#18181B">数据总览</span>
+            <div style="width:28px;height:28px;border-radius:50%;background:#F0F7F8;display:grid;place-items:center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#185058" stroke-width="2" stroke-linecap="round"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </div>
+          </div>
+          <div style="flex:1;background:#FAFAFA;padding:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-content:start">
+            <div style="background:#fff;border:1px solid #E4E4E7;border-radius:6px;padding:16px">
+              <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:#71717A;margin-bottom:8px">总患者数</div>
+              <div style="font-size:24px;font-weight:500;font-family:var(--font-numeric, 'Urbanist', 'PingFang SC', sans-serif);color:#18181B">1,284</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E4E4E7;border-radius:6px;padding:16px">
+              <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:#71717A;margin-bottom:8px">今日入院</div>
+              <div style="font-size:24px;font-weight:500;font-family:var(--font-numeric, 'Urbanist', 'PingFang SC', sans-serif);color:#185058">23</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E4E4E7;border-radius:6px;padding:16px">
+              <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:#71717A;margin-bottom:8px">待处理</div>
+              <div style="font-size:24px;font-weight:500;font-family:var(--font-numeric, 'Urbanist', 'PingFang SC', sans-serif);color:#C28A2C">7</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-sub">布局结构说明</div>
+    <div class="demo-box">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;font-size:12px">
+        <div style="padding:12px;background:#F0F7F8;border-radius:4px;text-align:center">
+          <div style="font-weight:600;color:#185058;margin-bottom:4px">Header</div>
+          <div style="color:#52525B;font-family:ui-monospace,monospace">56px 固定</div>
+        </div>
+        <div style="padding:12px;background:#F0F7F8;border-radius:4px;text-align:center">
+          <div style="font-weight:600;color:#185058;margin-bottom:4px">Sider</div>
+          <div style="color:#52525B;font-family:ui-monospace,monospace">240px / 64px</div>
+        </div>
+        <div style="padding:12px;background:#F0F7F8;border-radius:4px;text-align:center">
+          <div style="font-weight:600;color:#185058;margin-bottom:4px">Content</div>
+          <div style="color:#52525B;font-family:ui-monospace,monospace">flex-1 自适应</div>
+        </div>
+        <div style="padding:12px;background:#F0F7F8;border-radius:4px;text-align:center">
+          <div style="font-weight:600;color:#185058;margin-bottom:4px">Footer</div>
+          <div style="color:#52525B;font-family:ui-monospace,monospace">48px 固定</div>
+        </div>
+      </div>
+    </div>
+  </section>
+        </div>
+      </div>
+
+      <div class="doc-pane" data-pane="code" id="code">
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;section id=&quot;layout&quot; class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-title&quot;&gt;20 · LAYOUT · 布局容器（§3.7）&lt;/div&gt;
+
+    &lt;div class=&quot;demo-sub&quot;&gt;经典侧边栏布局&lt;/div&gt;
+    &lt;div class=&quot;demo-box&quot; style=&quot;padding:0;overflow:hidden&quot;&gt;
+      &lt;div style=&quot;display:flex;height:280px;border:1px solid #E4E4E7;border-radius:6px;overflow:hidden&quot;&gt;
+        &lt;div style=&quot;width:200px;background:#fff;border-right:1px solid #E4E4E7;display:flex;flex-direction:column&quot;&gt;
+          &lt;div style=&quot;height:48px;padding:0 16px;display:flex;align-items:center;border-bottom:1px solid #E4E4E7&quot;&gt;
+            &lt;span style=&quot;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#185058&quot;&gt;RUNDA&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div style=&quot;flex:1;padding:12px 8px&quot;&gt;
+            &lt;div style=&quot;padding:8px 12px;font-size:13px;font-weight:500;color:#185058;background:#F0F7F8;border-radius:4px;border-left:2px solid #185058;margin-bottom:4px&quot;&gt;数据总览&lt;/div&gt;
+            &lt;div style=&quot;padding:8px 12px;font-size:13px;color:#52525B;border-radius:4px;margin-bottom:4px&quot;&gt;患者管理&lt;/div&gt;
+            &lt;div style=&quot;padding:8px 12px;font-size:13px;color:#52525B;border-radius:4px&quot;&gt;系统设置&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;flex:1;display:flex;flex-direction:column&quot;&gt;
+          &lt;div style=&quot;height:48px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #E4E4E7&quot;&gt;
+            &lt;span style=&quot;font-size:14px;font-weight:500;color:#18181B&quot;&gt;数据总览&lt;/span&gt;
+            &lt;div style=&quot;width:28px;height:28px;border-radius:50%;background:#F0F7F8;display:grid;place-items:center&quot;&gt;
+              &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#185058&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div style=&quot;flex:1;background:#FAFAFA;padding:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-content:start&quot;&gt;
+            &lt;div style=&quot;background:#fff;border:1px solid #E4E4E7;border-radius:6px;padding:16px&quot;&gt;
+              &lt;div style=&quot;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:#71717A;margin-bottom:8px&quot;&gt;总患者数&lt;/div&gt;
+              &lt;div style=&quot;font-size:24px;font-weight:500;font-family:var(--font-numeric, &#x27;Urbanist&#x27;, &#x27;PingFang SC&#x27;, sans-serif);color:#18181B&quot;&gt;1,284&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div style=&quot;background:#fff;border:1px solid #E4E4E7;border-radius:6px;padding:16px&quot;&gt;
+              &lt;div style=&quot;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:#71717A;margin-bottom:8px&quot;&gt;今日入院&lt;/div&gt;
+              &lt;div style=&quot;font-size:24px;font-weight:500;font-family:var(--font-numeric, &#x27;Urbanist&#x27;, &#x27;PingFang SC&#x27;, sans-serif);color:#185058&quot;&gt;23&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div style=&quot;background:#fff;border:1px solid #E4E4E7;border-radius:6px;padding:16px&quot;&gt;
+              &lt;div style=&quot;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:#71717A;margin-bottom:8px&quot;&gt;待处理&lt;/div&gt;
+              &lt;div style=&quot;font-size:24px;font-weight:500;font-family:var(--font-numeric, &#x27;Urbanist&#x27;, &#x27;PingFang SC&#x27;, sans-serif);color:#C28A2C&quot;&gt;7&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;demo-sub&quot;&gt;布局结构说明&lt;/div&gt;
+    &lt;div class=&quot;demo-box&quot;&gt;
+      &lt;div style=&quot;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;font-size:12px&quot;&gt;
+        &lt;div style=&quot;padding:12px;background:#F0F7F8;border-radius:4px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-weight:600;color:#185058;margin-bottom:4px&quot;&gt;Header&lt;/div&gt;
+          &lt;div style=&quot;color:#52525B;font-family:ui-monospace,monospace&quot;&gt;56px 固定&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;padding:12px;background:#F0F7F8;border-radius:4px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-weight:600;color:#185058;margin-bottom:4px&quot;&gt;Sider&lt;/div&gt;
+          &lt;div style=&quot;color:#52525B;font-family:ui-monospace,monospace&quot;&gt;240px / 64px&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;padding:12px;background:#F0F7F8;border-radius:4px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-weight:600;color:#185058;margin-bottom:4px&quot;&gt;Content&lt;/div&gt;
+          &lt;div style=&quot;color:#52525B;font-family:ui-monospace,monospace&quot;&gt;flex-1 自适应&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;padding:12px;background:#F0F7F8;border-radius:4px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-weight:600;color:#185058;margin-bottom:4px&quot;&gt;Footer&lt;/div&gt;
+          &lt;div style=&quot;color:#52525B;font-family:ui-monospace,monospace&quot;&gt;48px 固定&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;</code></pre>
+        </div>
+      </div>
+
+      <section class="doc-section" id="installation">
+        <h2>安装</h2>
+        <p>在页面中引入组件样式与 Tailwind 配置即可。组件样式只包含组件本身，不包含站点外壳。</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;design-system/assets/design-system.css&quot; /&gt;
+&lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;design-system/tokens/tailwind.config.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </div>
+      </section>
+
+      <section class="doc-section" id="usage">
+        <h2>使用方式</h2>
+        <p>在 Code 标签页复制完整标记，替换其中的文案与数据即可。颜色、字号、圆角与阴影一律引用 <code>tokens/design-tokens.json</code> 中的 token，不要写入未定义的颜色值。</p>
+        <p class="muted">组件在浅色主题下设计；若页面启用暗色模式，请先用 token 覆盖背景与文字色，再复用组件结构。</p>
+      </section>
+
+      <section class="doc-section" id="spec">
+        <h2>设计规范</h2>
+        <p>完整的尺寸、状态与反模式说明见 <a href="../../../docs/DESIGN.md"><u>DESIGN.md</u></a>。开发完成后请按 §28 检查清单逐项核对。</p>
+      </section>
+    </article>
+  </div>
+
+  <nav class="toc" aria-label="本页目录">
+    <h4>本页目录</h4>
+    <a href="#preview">预览</a>
+    <a href="#code">代码</a>
+    <a href="#installation">安装</a>
+    <a href="#usage">使用方式</a>
+    <a href="#spec">设计规范</a>
+  </nav>
+</main>
+
+</div>
+<script src="../../assets/coss.js"></script>
+</body>
+</html>

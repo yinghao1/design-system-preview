@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-prefix="../../">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EMR 工作台 · RUNDA Design System</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4E4E7',300:'#D4D4D8',400:'#A1A1AA',500:'#71717A',600:'#52525B',700:'#3F3F46',800:'#27272A',900:'#18181B',950:'#09090B'},cdx:{50:'#F0F7F8',100:'#D9EBED',200:'#B0D6DB',300:'#7FBAC2',400:'#4D9CA7',500:'#2A7F8B',600:'#1D6571',700:'#185058',800:'#143F47',900:'#0F2F35'},warm:{50:'#FBF9F4',100:'#F5F0E4',200:'#E8DCC1',300:'#D6C396',700:'#6E582C'}},fontFamily:{sans:['"PingFang SC"','"Noto Sans SC"','"Inter"','system-ui','sans-serif'],display:['"Inter"','"PingFang SC"','sans-serif'],numeric:['"Urbanist"','"PingFang SC"','sans-serif'],mono:['"JetBrains Mono"','ui-monospace','Menlo','monospace']},fontSize:{'eyebrow':['0.8125rem',{lineHeight:'1.4',fontWeight:'600',letterSpacing:'0.16em'}]},maxWidth:{ultra:'1440px'}}}};
+</script>
+<link rel="stylesheet" href="../../assets/coss.css" />
+<link rel="stylesheet" href="../../assets/design-system.css" />
+
+</head>
+<body class="site-body" data-slug="workstation">
+<div class="frame">
+  <span class="corner left" aria-hidden="true"></span>
+  <span class="corner right" aria-hidden="true"></span>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../../index.html"><span>RUNDA</span><span class="logo-dim">DS</span></a>
+    <nav class="header-nav" aria-label="主导航">
+      <a class="nav-link" href="colors.html">组件</a>
+      <a class="nav-link" href="../../changelog.html">更新日志</a>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索组件">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        <span class="search-label">搜索</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <a class="github-link" href="https://github.com/yinghao1/design-system-preview" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="切换明暗主题">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-drawer-open aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="docs-layout">
+  <aside class="sidebar" id="ds-sidebar" aria-label="组件导航"></aside>
+
+  <div class="docs-main">
+    <article class="doc-card doc">
+      <h1>EMR 工作台</h1>
+      <p class="doc-lead">工作台模式面向临床医生，内容区 padding 20px、模块间距 10px，单屏不滚动。Header 固定展示患者姓名、模态徽章与元信息。</p>
+
+      <div class="doc-actions">
+        <button class="btn btn-sm btn-outline" type="button" data-goto-tab="preview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          预览
+        </button>
+        <button class="btn btn-sm btn-outline" type="button" data-goto-tab="code">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+          代码
+        </button>
+        <a class="btn btn-sm btn-outline" href="../../index.html">返回组件库</a>
+      </div>
+
+      <div class="doc-tabs" data-tabs>
+        <button class="doc-tab active" type="button" data-tab="preview">Preview</button>
+        <button class="doc-tab" type="button" data-tab="code">Code</button>
+      </div>
+
+      <div class="doc-pane active" data-pane="preview" id="preview">
+        <div class="preview-box">
+<section id="workstation" class="section">
+    <div class="section-title">16 · WORKSTATION · EMR 医生工作台模式（§30）</div>
+
+    <div class="demo-sub">§30.3 · 侧边栏 Logo 中英文规则对比</div>
+    <div class="demo-box">
+      <div class="flex gap-6">
+        <div class="flex-1 border border-ink-100 rounded overflow-hidden">
+          <div class="h-14 px-5 flex items-center gap-2.5 border-b border-ink-200">
+            <span class="w-2 h-2 rounded-full" style="background:#1D6571"></span>
+            <span style="font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#18181B">EMR</span>
+          </div>
+          <div class="p-3 text-[11px] text-ink-500 font-mono">英文/缩写：13px / 600 / 0.16em / uppercase</div>
+        </div>
+        <div class="flex-1 border border-ink-100 rounded overflow-hidden">
+          <div class="h-14 px-5 flex items-center gap-2.5 border-b border-ink-200">
+            <span class="w-2 h-2 rounded-full" style="background:#1D6571"></span>
+            <span style="font-size:14px;font-weight:700;letter-spacing:0.02em;color:#18181B">EMR电子病历系统</span>
+          </div>
+          <div class="p-3 text-[11px] text-ink-500 font-mono">中文全称：14px / 700 / 0.02em / 不大写</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-sub">§30.4 · Header 患者主信息条</div>
+    <div class="demo-box">
+      <div style="height:56px;background:#fff;border:1px solid #E4E4E7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;white-space:nowrap">
+        <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:#3F3F46">
+          <span style="font-size:14px;font-weight:600;color:#18181B">郑宗范</span>
+          <span style="display:inline-flex;padding:2px 6px;border-radius:2px;font-size:10px;font-weight:500;font-family:ui-monospace,monospace;letter-spacing:0.04em;background:#F0F7F8;color:#185058">02003床</span>
+          <span style="display:inline-flex;padding:2px 6px;border-radius:2px;font-size:10px;font-weight:500;font-family:ui-monospace,monospace;letter-spacing:0.04em;background:#FEF3C7;color:#92400E">医保(先)</span>
+          <span style="color:#A1A1AA">·</span>
+          <span>男 · 79岁</span>
+          <span style="color:#A1A1AA">·</span>
+          <span>主管: 刘姗姗</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#71717A">
+            <span>住院号</span><span style="font-family:ui-monospace,monospace;font-size:11px">1708569</span>
+            <span style="color:#D4D4D8">·</span>
+            <span>入院</span><span style="font-family:ui-monospace,monospace;font-size:11px">2017-02-23</span>
+          </div>
+          <div style="width:32px;height:32px;border-radius:50%;background:#F0F7F8;border:1px solid #B0D6DB;display:grid;place-items:center;color:#185058">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-sub">§30.5/30.6 · QueryCard 查询卡片 + StatRow 状态统计</div>
+    <div class="demo-box">
+      <div style="width:300px;background:#fff;border:1px solid #F4F4F5;border-radius:6px;overflow:hidden">
+        <div style="padding:14px 16px;border-bottom:1px solid #E4E4E7;display:flex;align-items:center;justify-content:space-between">
+          <span style="font-size:13px;font-weight:600;color:#18181B;display:flex;align-items:center;gap:8px"><span style="display:inline-block;width:3px;height:14px;background:#185058;border-radius:2px"></span>查询条件</span>
+          <span style="font-size:11px;font-family:ui-monospace,monospace;font-weight:600;padding:2px 8px;border-radius:2px;background:#F0F7F8;color:#185058">88</span>
+        </div>
+        <div style="display:flex;border-bottom:1px solid #F4F4F5;padding:0 4px">
+          <span style="flex:1;padding:8px 4px;font-size:12px;text-align:center;color:#185058;font-weight:600;border-bottom:2px solid #185058">我的患者</span>
+          <span style="flex:1;padding:8px 4px;font-size:12px;text-align:center;color:#71717A;border-bottom:2px solid transparent">会诊患者</span>
+          <span style="flex:1;padding:8px 4px;font-size:12px;text-align:center;color:#71717A;border-bottom:2px solid transparent">本科患者</span>
+          <span style="flex:1;padding:8px 4px;font-size:12px;text-align:center;color:#71717A;border-bottom:2px solid transparent">出院(72h)</span>
+        </div>
+        <div style="padding:16px">
+          <div style="margin-bottom:12px"><label style="display:block;font-size:12px;font-weight:500;color:#52525B;margin-bottom:4px">就诊科室</label><input style="width:100%;height:32px;padding:0 10px;font-size:13px;border:1px solid #E4E4E7;border-radius:4px" value="呼吸内科"></div>
+          <div style="margin-bottom:12px"><label style="display:block;font-size:12px;font-weight:500;color:#52525B;margin-bottom:4px">主管医生</label><input style="width:100%;height:32px;padding:0 10px;font-size:13px;border:1px solid #E4E4E7;border-radius:4px" placeholder="全部"></div>
+        </div>
+        <div style="padding:12px 16px;border-top:1px solid #F4F4F5;display:flex;gap:16px;background:#FAFAFA">
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#52525B"><span style="width:8px;height:8px;border-radius:50%;background:#A8453B"></span>危 <strong style="font-family:ui-monospace,monospace;color:#18181B">2</strong></div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#52525B"><span style="width:8px;height:8px;border-radius:50%;background:#C28A2C"></span>重 <strong style="font-family:ui-monospace,monospace;color:#18181B">5</strong></div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#52525B"><span style="width:8px;height:8px;border-radius:50%;background:#3F8F5C"></span>普通 <strong style="font-family:ui-monospace,monospace;color:#18181B">81</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-sub">§30.2 · 工作台紧凑布局对照（v2.6 已统一）</div>
+    <div class="demo-box">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="border border-ink-100 rounded p-4">
+          <div class="text-[12px] font-semibold text-ink-700 mb-2">基础 B 端 (§3.3)</div>
+          <div class="space-y-1.5 text-[12px]">
+            <div class="flex justify-between"><span class="text-ink-600">content padding</span><span class="font-mono text-cdx-700">20px</span></div>
+            <div class="flex justify-between"><span class="text-ink-600">内卡片 gap</span><span class="font-mono text-cdx-700">10px</span></div>
+            <div class="flex justify-between"><span class="text-ink-600">滚动行为</span><span class="font-mono text-cdx-700">min-height</span></div>
+            <div class="flex justify-between"><span class="text-ink-600">Logo</span><span class="font-mono text-cdx-700">英文 RUNDA</span></div>
+          </div>
+        </div>
+        <div class="border rounded p-4" style="border-color:#185058;background:#F0F7F8">
+          <div class="text-[12px] font-semibold mb-2" style="color:#185058">工作台 (§30.2)</div>
+          <div class="space-y-1.5 text-[12px]">
+            <div class="flex justify-between"><span class="text-ink-600">content padding</span><span class="font-mono" style="color:#185058">20px（一致）</span></div>
+            <div class="flex justify-between"><span class="text-ink-600">内卡片 gap</span><span class="font-mono" style="color:#185058">10px（一致）</span></div>
+            <div class="flex justify-between"><span class="text-ink-600">滚动行为</span><span class="font-mono font-semibold" style="color:#185058">overflow:hidden</span></div>
+            <div class="flex justify-between"><span class="text-ink-600">Logo</span><span class="font-mono font-semibold" style="color:#185058">中文 润达医疗</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3 text-[12px] text-ink-500" style="line-height:1.6">
+        v2.6 起 §3.3 基础 B 端布局的 <span class="font-mono">main-content padding</span> 与卡片 <span class="font-mono">gap</span> 已与工作台规范统一，避免双标准混乱。差异点收敛为 <strong class="text-ink-700">Logo 形式</strong> + <strong class="text-ink-700">滚动行为</strong> 两项。
+      </div>
+    </div>
+
+    <div class="demo-sub">完整页面参考</div>
+    <div class="demo-box" style="padding:0;overflow:hidden;background:#FAFAFA">
+      <div class="flex" style="min-height:430px">
+        <!-- 左侧导航 -->
+        <div style="width:150px;background:#fff;border-right:1px solid #E4E4E7;padding:12px 0;flex-shrink:0">
+          <div class="flex items-center gap-2 px-4 pb-3 mb-2 border-b border-ink-100">
+            <span class="w-2 h-2 rounded-full bg-cdx-600"></span>
+            <span style="font-size:10px;font-weight:700;color:#18181B">EMR电子病历系统</span>
+          </div>
+          <div class="px-2 space-y-0.5">
+            <div class="demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded">工作台</div>
+            <div class="demo-side-item is-active px-3 py-1.5 text-[11px] text-cdx-700 bg-cdx-50 rounded font-medium border-l-2 border-cdx-700">患者列表</div>
+            <div class="demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded">医嘱录入</div>
+            <div class="demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded">病历书写</div>
+            <div class="demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded">检验报告</div>
+          </div>
+          <div class="px-4 pt-3 pb-1 text-[9px] text-ink-400 tracking-[0.12em]">诊疗管理</div>
+          <div class="px-2 space-y-0.5">
+            <div class="demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded">诊断资料</div>
+            <div class="demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded">临床路径</div>
+          </div>
+          <div class="px-4 pt-3 pb-1 text-[9px] text-ink-400 tracking-[0.12em]">系统</div>
+          <div class="px-2">
+            <div class="demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded">系统设置</div>
+          </div>
+        </div>
+        <!-- 主内容 -->
+        <div class="flex-1 min-w-0">
+          <!-- 患者主信息条 -->
+          <div class="h-10 bg-white border-b border-ink-100 flex items-center justify-between px-3">
+            <div class="flex items-center gap-2" style="font-size:10px;color:#3F3F46">
+              <span style="font-size:12px;font-weight:600;color:#18181B">郑宗范</span>
+              <span class="px-1.5 py-0.5 rounded-sm" style="font-size:9px;background:#F0F7F8;color:#185058">02003床</span>
+              <span class="px-1.5 py-0.5 rounded-sm" style="font-size:9px;background:#FEF3C7;color:#92400E">医保(先)</span>
+              <span class="text-ink-300">·</span>
+              <span>男 · 79岁</span>
+              <span class="text-ink-300">·</span>
+              <span>主管: 刘姗姗</span>
+            </div>
+            <div class="flex items-center gap-2 text-[9px] text-ink-500">
+              <span>住院号 <span class="font-mono">1708569</span></span>
+              <span class="text-ink-300">·</span>
+              <span>入院 <span class="font-mono">2017-02-23</span></span>
+              <div class="w-5 h-5 rounded-full bg-cdx-100 flex items-center justify-center">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#185058" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-3 p-3">
+            <!-- 查询卡片 -->
+            <div style="width:152px;background:#fff;border:1px solid #E4E4E7;border-radius:4px;flex-shrink:0;display:flex;flex-direction:column">
+              <div class="px-2.5 py-2 border-b border-ink-100 flex items-center justify-between">
+                <span class="text-[10px] font-semibold text-ink-900">查询条件</span>
+                <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-sm bg-cdx-50 text-cdx-700">88</span>
+              </div>
+              <div class="flex border-b border-ink-50">
+                <span class="flex-1 text-center py-1.5 text-[9px] font-semibold text-cdx-700 border-b-2 border-cdx-700">我的患者</span>
+                <span class="flex-1 text-center py-1.5 text-[9px] text-ink-500">会诊患者</span>
+                <span class="flex-1 text-center py-1.5 text-[9px] text-ink-500">本科患者</span>
+              </div>
+              <div class="p-2.5 space-y-2">
+                <div>
+                  <div class="text-[9px] text-ink-500 mb-1">在院状态</div>
+                  <div class="flex gap-2 text-[9px] text-ink-600">
+                    <label class="checkbox" style="gap:4px"><input type="checkbox" checked><span class="checkbox-box" style="width:11px;height:11px"></span>在院</label>
+                    <label class="checkbox" style="gap:4px"><input type="checkbox"><span class="checkbox-box" style="width:11px;height:11px"></span>出院</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-ink-500 mb-1">就诊科室</div>
+                  <div class="border border-ink-200 rounded px-2 py-1 text-[10px] text-ink-800">呼吸内科</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-ink-500 mb-1">主管医生</div>
+                  <div class="border border-ink-200 rounded px-2 py-1 text-[10px] text-ink-400">全部</div>
+                </div>
+                <div>
+                  <div class="text-[9px] text-ink-500 mb-1">患者姓名</div>
+                  <div class="border border-ink-200 rounded px-2 py-1 text-[10px] text-ink-400">输入姓名搜索</div>
+                </div>
+                <div class="flex gap-1.5 pt-0.5">
+                  <button class="flex-1 py-1 text-[9px] bg-ink-900 text-white rounded">查询</button>
+                  <button class="flex-1 py-1 text-[9px] border border-ink-200 rounded bg-white text-ink-600">重置</button>
+                </div>
+              </div>
+              <div class="mt-auto px-2.5 py-1.5 border-t border-ink-100 bg-ink-50 flex gap-2 text-[9px] text-ink-600">
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full" style="background:#A8453B"></span>危 <strong class="font-num">2</strong></span>
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full" style="background:#C28A2C"></span>重 <strong class="font-num">5</strong></span>
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full" style="background:#3F8F5C"></span>普通 <strong class="font-num">81</strong></span>
+              </div>
+            </div>
+            <!-- 患者列表 -->
+            <div class="flex-1 min-w-0 bg-white border border-ink-100 rounded flex flex-col overflow-hidden">
+              <div class="px-2.5 py-2 flex items-center justify-between border-b border-ink-100">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[11px] font-semibold text-ink-900">患者列表</span>
+                  <span class="text-[9px] text-ink-400">共 88 人</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <div class="border border-ink-200 rounded px-1.5 py-0.5 text-[9px] text-ink-400">搜索患者...</div>
+                  <div class="border border-ink-200 rounded px-1.5 py-0.5 text-[9px] text-ink-600">筛选</div>
+                </div>
+              </div>
+              <div class="overflow-x:auto">
+                <div style="min-width:520px">
+                  <div class="grid grid-cols-7 gap-0 text-[9px] font-medium text-ink-500 bg-ink-50 px-2 py-1.5 border-b border-ink-100">
+                    <span>患者床号</span><span>患者姓名</span><span>性别</span><span>年龄</span><span>缺陷数量</span><span>入院日期</span><span>主诊医师</span>
+                  </div>
+                  <div class="demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5 border-b border-ink-50">
+                    <span class="font-mono text-ink-600">02001床</span><span>杜德芳</span><span>女</span><span>54</span><span>1</span><span class="font-mono">2017.02.14</span><span>张先先</span>
+                  </div>
+                  <div class="demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5 border-b border-ink-50">
+                    <span class="font-mono text-ink-600">02002床</span><span>郭成成</span><span>男</span><span>87</span><span>1</span><span class="font-mono">2017.02.14</span><span>张先先</span>
+                  </div>
+                  <div class="demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-900 px-2 py-1.5 border-b border-ink-50 bg-cdx-50" style="border-left:2px solid #185058">
+                    <span class="font-mono text-cdx-700 font-semibold">02003床</span><span class="font-semibold">郑宗范</span><span>男</span><span>79</span><span>1</span><span class="font-mono">2017.02.23</span><span>刘姗姗</span>
+                  </div>
+                  <div class="demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5 border-b border-ink-50">
+                    <span class="font-mono text-ink-600">02004床</span><span>王广连</span><span>男</span><span>67</span><span>1</span><span class="font-mono">2017.02.08</span><span>孙树喜</span>
+                  </div>
+                  <div class="demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5 border-b border-ink-50">
+                    <span class="font-mono text-ink-600">02005床</span><span>徐德群</span><span>男</span><span>64</span><span>1</span><span class="font-mono">2017.02.18</span><span>孙树喜</span>
+                  </div>
+                  <div class="demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5">
+                    <span class="font-mono text-ink-600">02006床</span><span>孟兆苓</span><span>女</span><span>71</span><span>1</span><span class="font-mono">2017.02.04</span><span>闫春章</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-auto px-2.5 py-1.5 border-t border-ink-100 flex items-center justify-between text-[9px] text-ink-500">
+                <span>显示 1–6 条</span>
+                <div class="flex items-center gap-1">
+                  <span class="w-5 h-5 border border-ink-200 rounded grid place-items-center">‹</span>
+                  <span class="w-5 h-5 rounded grid place-items-center bg-ink-900 text-white">1</span>
+                  <span class="w-5 h-5 border border-ink-200 rounded grid place-items-center">2</span>
+                  <span class="w-5 h-5 border border-ink-200 rounded grid place-items-center">3</span>
+                  <span class="w-5 h-5 border border-ink-200 rounded grid place-items-center">›</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+        </div>
+      </div>
+
+      <div class="doc-pane" data-pane="code" id="code">
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;section id=&quot;workstation&quot; class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-title&quot;&gt;16 · WORKSTATION · EMR 医生工作台模式（§30）&lt;/div&gt;
+
+    &lt;div class=&quot;demo-sub&quot;&gt;§30.3 · 侧边栏 Logo 中英文规则对比&lt;/div&gt;
+    &lt;div class=&quot;demo-box&quot;&gt;
+      &lt;div class=&quot;flex gap-6&quot;&gt;
+        &lt;div class=&quot;flex-1 border border-ink-100 rounded overflow-hidden&quot;&gt;
+          &lt;div class=&quot;h-14 px-5 flex items-center gap-2.5 border-b border-ink-200&quot;&gt;
+            &lt;span class=&quot;w-2 h-2 rounded-full&quot; style=&quot;background:#1D6571&quot;&gt;&lt;/span&gt;
+            &lt;span style=&quot;font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#18181B&quot;&gt;EMR&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;p-3 text-[11px] text-ink-500 font-mono&quot;&gt;英文/缩写：13px / 600 / 0.16em / uppercase&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;flex-1 border border-ink-100 rounded overflow-hidden&quot;&gt;
+          &lt;div class=&quot;h-14 px-5 flex items-center gap-2.5 border-b border-ink-200&quot;&gt;
+            &lt;span class=&quot;w-2 h-2 rounded-full&quot; style=&quot;background:#1D6571&quot;&gt;&lt;/span&gt;
+            &lt;span style=&quot;font-size:14px;font-weight:700;letter-spacing:0.02em;color:#18181B&quot;&gt;EMR电子病历系统&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;p-3 text-[11px] text-ink-500 font-mono&quot;&gt;中文全称：14px / 700 / 0.02em / 不大写&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;demo-sub&quot;&gt;§30.4 · Header 患者主信息条&lt;/div&gt;
+    &lt;div class=&quot;demo-box&quot;&gt;
+      &lt;div style=&quot;height:56px;background:#fff;border:1px solid #E4E4E7;border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;white-space:nowrap&quot;&gt;
+        &lt;div style=&quot;display:flex;align-items:center;gap:10px;font-size:12px;color:#3F3F46&quot;&gt;
+          &lt;span style=&quot;font-size:14px;font-weight:600;color:#18181B&quot;&gt;郑宗范&lt;/span&gt;
+          &lt;span style=&quot;display:inline-flex;padding:2px 6px;border-radius:2px;font-size:10px;font-weight:500;font-family:ui-monospace,monospace;letter-spacing:0.04em;background:#F0F7F8;color:#185058&quot;&gt;02003床&lt;/span&gt;
+          &lt;span style=&quot;display:inline-flex;padding:2px 6px;border-radius:2px;font-size:10px;font-weight:500;font-family:ui-monospace,monospace;letter-spacing:0.04em;background:#FEF3C7;color:#92400E&quot;&gt;医保(先)&lt;/span&gt;
+          &lt;span style=&quot;color:#A1A1AA&quot;&gt;·&lt;/span&gt;
+          &lt;span&gt;男 · 79岁&lt;/span&gt;
+          &lt;span style=&quot;color:#A1A1AA&quot;&gt;·&lt;/span&gt;
+          &lt;span&gt;主管: 刘姗姗&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;display:flex;align-items:center;gap:10px&quot;&gt;
+          &lt;div style=&quot;display:flex;align-items:center;gap:5px;font-size:11px;color:#71717A&quot;&gt;
+            &lt;span&gt;住院号&lt;/span&gt;&lt;span style=&quot;font-family:ui-monospace,monospace;font-size:11px&quot;&gt;1708569&lt;/span&gt;
+            &lt;span style=&quot;color:#D4D4D8&quot;&gt;·&lt;/span&gt;
+            &lt;span&gt;入院&lt;/span&gt;&lt;span style=&quot;font-family:ui-monospace,monospace;font-size:11px&quot;&gt;2017-02-23&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div style=&quot;width:32px;height:32px;border-radius:50%;background:#F0F7F8;border:1px solid #B0D6DB;display:grid;place-items:center;color:#185058&quot;&gt;
+            &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z&quot;/&gt;&lt;/svg&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;demo-sub&quot;&gt;§30.5/30.6 · QueryCard 查询卡片 + StatRow 状态统计&lt;/div&gt;
+    &lt;div class=&quot;demo-box&quot;&gt;
+      &lt;div style=&quot;width:300px;background:#fff;border:1px solid #F4F4F5;border-radius:6px;overflow:hidden&quot;&gt;
+        &lt;div style=&quot;padding:14px 16px;border-bottom:1px solid #E4E4E7;display:flex;align-items:center;justify-content:space-between&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:600;color:#18181B;display:flex;align-items:center;gap:8px&quot;&gt;&lt;span style=&quot;display:inline-block;width:3px;height:14px;background:#185058;border-radius:2px&quot;&gt;&lt;/span&gt;查询条件&lt;/span&gt;
+          &lt;span style=&quot;font-size:11px;font-family:ui-monospace,monospace;font-weight:600;padding:2px 8px;border-radius:2px;background:#F0F7F8;color:#185058&quot;&gt;88&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;display:flex;border-bottom:1px solid #F4F4F5;padding:0 4px&quot;&gt;
+          &lt;span style=&quot;flex:1;padding:8px 4px;font-size:12px;text-align:center;color:#185058;font-weight:600;border-bottom:2px solid #185058&quot;&gt;我的患者&lt;/span&gt;
+          &lt;span style=&quot;flex:1;padding:8px 4px;font-size:12px;text-align:center;color:#71717A;border-bottom:2px solid transparent&quot;&gt;会诊患者&lt;/span&gt;
+          &lt;span style=&quot;flex:1;padding:8px 4px;font-size:12px;text-align:center;color:#71717A;border-bottom:2px solid transparent&quot;&gt;本科患者&lt;/span&gt;
+          &lt;span style=&quot;flex:1;padding:8px 4px;font-size:12px;text-align:center;color:#71717A;border-bottom:2px solid transparent&quot;&gt;出院(72h)&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;padding:16px&quot;&gt;
+          &lt;div style=&quot;margin-bottom:12px&quot;&gt;&lt;label style=&quot;display:block;font-size:12px;font-weight:500;color:#52525B;margin-bottom:4px&quot;&gt;就诊科室&lt;/label&gt;&lt;input style=&quot;width:100%;height:32px;padding:0 10px;font-size:13px;border:1px solid #E4E4E7;border-radius:4px&quot; value=&quot;呼吸内科&quot;&gt;&lt;/div&gt;
+          &lt;div style=&quot;margin-bottom:12px&quot;&gt;&lt;label style=&quot;display:block;font-size:12px;font-weight:500;color:#52525B;margin-bottom:4px&quot;&gt;主管医生&lt;/label&gt;&lt;input style=&quot;width:100%;height:32px;padding:0 10px;font-size:13px;border:1px solid #E4E4E7;border-radius:4px&quot; placeholder=&quot;全部&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;padding:12px 16px;border-top:1px solid #F4F4F5;display:flex;gap:16px;background:#FAFAFA&quot;&gt;
+          &lt;div style=&quot;display:flex;align-items:center;gap:6px;font-size:12px;color:#52525B&quot;&gt;&lt;span style=&quot;width:8px;height:8px;border-radius:50%;background:#A8453B&quot;&gt;&lt;/span&gt;危 &lt;strong style=&quot;font-family:ui-monospace,monospace;color:#18181B&quot;&gt;2&lt;/strong&gt;&lt;/div&gt;
+          &lt;div style=&quot;display:flex;align-items:center;gap:6px;font-size:12px;color:#52525B&quot;&gt;&lt;span style=&quot;width:8px;height:8px;border-radius:50%;background:#C28A2C&quot;&gt;&lt;/span&gt;重 &lt;strong style=&quot;font-family:ui-monospace,monospace;color:#18181B&quot;&gt;5&lt;/strong&gt;&lt;/div&gt;
+          &lt;div style=&quot;display:flex;align-items:center;gap:6px;font-size:12px;color:#52525B&quot;&gt;&lt;span style=&quot;width:8px;height:8px;border-radius:50%;background:#3F8F5C&quot;&gt;&lt;/span&gt;普通 &lt;strong style=&quot;font-family:ui-monospace,monospace;color:#18181B&quot;&gt;81&lt;/strong&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;demo-sub&quot;&gt;§30.2 · 工作台紧凑布局对照（v2.6 已统一）&lt;/div&gt;
+    &lt;div class=&quot;demo-box&quot;&gt;
+      &lt;div class=&quot;grid grid-cols-2 gap-4&quot;&gt;
+        &lt;div class=&quot;border border-ink-100 rounded p-4&quot;&gt;
+          &lt;div class=&quot;text-[12px] font-semibold text-ink-700 mb-2&quot;&gt;基础 B 端 (§3.3)&lt;/div&gt;
+          &lt;div class=&quot;space-y-1.5 text-[12px]&quot;&gt;
+            &lt;div class=&quot;flex justify-between&quot;&gt;&lt;span class=&quot;text-ink-600&quot;&gt;content padding&lt;/span&gt;&lt;span class=&quot;font-mono text-cdx-700&quot;&gt;20px&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex justify-between&quot;&gt;&lt;span class=&quot;text-ink-600&quot;&gt;内卡片 gap&lt;/span&gt;&lt;span class=&quot;font-mono text-cdx-700&quot;&gt;10px&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex justify-between&quot;&gt;&lt;span class=&quot;text-ink-600&quot;&gt;滚动行为&lt;/span&gt;&lt;span class=&quot;font-mono text-cdx-700&quot;&gt;min-height&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex justify-between&quot;&gt;&lt;span class=&quot;text-ink-600&quot;&gt;Logo&lt;/span&gt;&lt;span class=&quot;font-mono text-cdx-700&quot;&gt;英文 RUNDA&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;border rounded p-4&quot; style=&quot;border-color:#185058;background:#F0F7F8&quot;&gt;
+          &lt;div class=&quot;text-[12px] font-semibold mb-2&quot; style=&quot;color:#185058&quot;&gt;工作台 (§30.2)&lt;/div&gt;
+          &lt;div class=&quot;space-y-1.5 text-[12px]&quot;&gt;
+            &lt;div class=&quot;flex justify-between&quot;&gt;&lt;span class=&quot;text-ink-600&quot;&gt;content padding&lt;/span&gt;&lt;span class=&quot;font-mono&quot; style=&quot;color:#185058&quot;&gt;20px（一致）&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex justify-between&quot;&gt;&lt;span class=&quot;text-ink-600&quot;&gt;内卡片 gap&lt;/span&gt;&lt;span class=&quot;font-mono&quot; style=&quot;color:#185058&quot;&gt;10px（一致）&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex justify-between&quot;&gt;&lt;span class=&quot;text-ink-600&quot;&gt;滚动行为&lt;/span&gt;&lt;span class=&quot;font-mono font-semibold&quot; style=&quot;color:#185058&quot;&gt;overflow:hidden&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex justify-between&quot;&gt;&lt;span class=&quot;text-ink-600&quot;&gt;Logo&lt;/span&gt;&lt;span class=&quot;font-mono font-semibold&quot; style=&quot;color:#185058&quot;&gt;中文 润达医疗&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;mt-3 text-[12px] text-ink-500&quot; style=&quot;line-height:1.6&quot;&gt;
+        v2.6 起 §3.3 基础 B 端布局的 &lt;span class=&quot;font-mono&quot;&gt;main-content padding&lt;/span&gt; 与卡片 &lt;span class=&quot;font-mono&quot;&gt;gap&lt;/span&gt; 已与工作台规范统一，避免双标准混乱。差异点收敛为 &lt;strong class=&quot;text-ink-700&quot;&gt;Logo 形式&lt;/strong&gt; + &lt;strong class=&quot;text-ink-700&quot;&gt;滚动行为&lt;/strong&gt; 两项。
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;demo-sub&quot;&gt;完整页面参考&lt;/div&gt;
+    &lt;div class=&quot;demo-box&quot; style=&quot;padding:0;overflow:hidden;background:#FAFAFA&quot;&gt;
+      &lt;div class=&quot;flex&quot; style=&quot;min-height:430px&quot;&gt;
+        &lt;!-- 左侧导航 --&gt;
+        &lt;div style=&quot;width:150px;background:#fff;border-right:1px solid #E4E4E7;padding:12px 0;flex-shrink:0&quot;&gt;
+          &lt;div class=&quot;flex items-center gap-2 px-4 pb-3 mb-2 border-b border-ink-100&quot;&gt;
+            &lt;span class=&quot;w-2 h-2 rounded-full bg-cdx-600&quot;&gt;&lt;/span&gt;
+            &lt;span style=&quot;font-size:10px;font-weight:700;color:#18181B&quot;&gt;EMR电子病历系统&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;px-2 space-y-0.5&quot;&gt;
+            &lt;div class=&quot;demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded&quot;&gt;工作台&lt;/div&gt;
+            &lt;div class=&quot;demo-side-item is-active px-3 py-1.5 text-[11px] text-cdx-700 bg-cdx-50 rounded font-medium border-l-2 border-cdx-700&quot;&gt;患者列表&lt;/div&gt;
+            &lt;div class=&quot;demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded&quot;&gt;医嘱录入&lt;/div&gt;
+            &lt;div class=&quot;demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded&quot;&gt;病历书写&lt;/div&gt;
+            &lt;div class=&quot;demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded&quot;&gt;检验报告&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;px-4 pt-3 pb-1 text-[9px] text-ink-400 tracking-[0.12em]&quot;&gt;诊疗管理&lt;/div&gt;
+          &lt;div class=&quot;px-2 space-y-0.5&quot;&gt;
+            &lt;div class=&quot;demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded&quot;&gt;诊断资料&lt;/div&gt;
+            &lt;div class=&quot;demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded&quot;&gt;临床路径&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;px-4 pt-3 pb-1 text-[9px] text-ink-400 tracking-[0.12em]&quot;&gt;系统&lt;/div&gt;
+          &lt;div class=&quot;px-2&quot;&gt;
+            &lt;div class=&quot;demo-side-item px-3 py-1.5 text-[11px] text-ink-500 rounded&quot;&gt;系统设置&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- 主内容 --&gt;
+        &lt;div class=&quot;flex-1 min-w-0&quot;&gt;
+          &lt;!-- 患者主信息条 --&gt;
+          &lt;div class=&quot;h-10 bg-white border-b border-ink-100 flex items-center justify-between px-3&quot;&gt;
+            &lt;div class=&quot;flex items-center gap-2&quot; style=&quot;font-size:10px;color:#3F3F46&quot;&gt;
+              &lt;span style=&quot;font-size:12px;font-weight:600;color:#18181B&quot;&gt;郑宗范&lt;/span&gt;
+              &lt;span class=&quot;px-1.5 py-0.5 rounded-sm&quot; style=&quot;font-size:9px;background:#F0F7F8;color:#185058&quot;&gt;02003床&lt;/span&gt;
+              &lt;span class=&quot;px-1.5 py-0.5 rounded-sm&quot; style=&quot;font-size:9px;background:#FEF3C7;color:#92400E&quot;&gt;医保(先)&lt;/span&gt;
+              &lt;span class=&quot;text-ink-300&quot;&gt;·&lt;/span&gt;
+              &lt;span&gt;男 · 79岁&lt;/span&gt;
+              &lt;span class=&quot;text-ink-300&quot;&gt;·&lt;/span&gt;
+              &lt;span&gt;主管: 刘姗姗&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;flex items-center gap-2 text-[9px] text-ink-500&quot;&gt;
+              &lt;span&gt;住院号 &lt;span class=&quot;font-mono&quot;&gt;1708569&lt;/span&gt;&lt;/span&gt;
+              &lt;span class=&quot;text-ink-300&quot;&gt;·&lt;/span&gt;
+              &lt;span&gt;入院 &lt;span class=&quot;font-mono&quot;&gt;2017-02-23&lt;/span&gt;&lt;/span&gt;
+              &lt;div class=&quot;w-5 h-5 rounded-full bg-cdx-100 flex items-center justify-center&quot;&gt;
+                &lt;svg width=&quot;10&quot; height=&quot;10&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#185058&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;7&quot; r=&quot;4&quot;/&gt;&lt;/svg&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;flex gap-3 p-3&quot;&gt;
+            &lt;!-- 查询卡片 --&gt;
+            &lt;div style=&quot;width:152px;background:#fff;border:1px solid #E4E4E7;border-radius:4px;flex-shrink:0;display:flex;flex-direction:column&quot;&gt;
+              &lt;div class=&quot;px-2.5 py-2 border-b border-ink-100 flex items-center justify-between&quot;&gt;
+                &lt;span class=&quot;text-[10px] font-semibold text-ink-900&quot;&gt;查询条件&lt;/span&gt;
+                &lt;span class=&quot;text-[9px] font-semibold px-1.5 py-0.5 rounded-sm bg-cdx-50 text-cdx-700&quot;&gt;88&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;flex border-b border-ink-50&quot;&gt;
+                &lt;span class=&quot;flex-1 text-center py-1.5 text-[9px] font-semibold text-cdx-700 border-b-2 border-cdx-700&quot;&gt;我的患者&lt;/span&gt;
+                &lt;span class=&quot;flex-1 text-center py-1.5 text-[9px] text-ink-500&quot;&gt;会诊患者&lt;/span&gt;
+                &lt;span class=&quot;flex-1 text-center py-1.5 text-[9px] text-ink-500&quot;&gt;本科患者&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;p-2.5 space-y-2&quot;&gt;
+                &lt;div&gt;
+                  &lt;div class=&quot;text-[9px] text-ink-500 mb-1&quot;&gt;在院状态&lt;/div&gt;
+                  &lt;div class=&quot;flex gap-2 text-[9px] text-ink-600&quot;&gt;
+                    &lt;label class=&quot;checkbox&quot; style=&quot;gap:4px&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span class=&quot;checkbox-box&quot; style=&quot;width:11px;height:11px&quot;&gt;&lt;/span&gt;在院&lt;/label&gt;
+                    &lt;label class=&quot;checkbox&quot; style=&quot;gap:4px&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span class=&quot;checkbox-box&quot; style=&quot;width:11px;height:11px&quot;&gt;&lt;/span&gt;出院&lt;/label&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                  &lt;div class=&quot;text-[9px] text-ink-500 mb-1&quot;&gt;就诊科室&lt;/div&gt;
+                  &lt;div class=&quot;border border-ink-200 rounded px-2 py-1 text-[10px] text-ink-800&quot;&gt;呼吸内科&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                  &lt;div class=&quot;text-[9px] text-ink-500 mb-1&quot;&gt;主管医生&lt;/div&gt;
+                  &lt;div class=&quot;border border-ink-200 rounded px-2 py-1 text-[10px] text-ink-400&quot;&gt;全部&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                  &lt;div class=&quot;text-[9px] text-ink-500 mb-1&quot;&gt;患者姓名&lt;/div&gt;
+                  &lt;div class=&quot;border border-ink-200 rounded px-2 py-1 text-[10px] text-ink-400&quot;&gt;输入姓名搜索&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;flex gap-1.5 pt-0.5&quot;&gt;
+                  &lt;button class=&quot;flex-1 py-1 text-[9px] bg-ink-900 text-white rounded&quot;&gt;查询&lt;/button&gt;
+                  &lt;button class=&quot;flex-1 py-1 text-[9px] border border-ink-200 rounded bg-white text-ink-600&quot;&gt;重置&lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;mt-auto px-2.5 py-1.5 border-t border-ink-100 bg-ink-50 flex gap-2 text-[9px] text-ink-600&quot;&gt;
+                &lt;span class=&quot;flex items-center gap-1&quot;&gt;&lt;span class=&quot;w-1.5 h-1.5 rounded-full&quot; style=&quot;background:#A8453B&quot;&gt;&lt;/span&gt;危 &lt;strong class=&quot;font-num&quot;&gt;2&lt;/strong&gt;&lt;/span&gt;
+                &lt;span class=&quot;flex items-center gap-1&quot;&gt;&lt;span class=&quot;w-1.5 h-1.5 rounded-full&quot; style=&quot;background:#C28A2C&quot;&gt;&lt;/span&gt;重 &lt;strong class=&quot;font-num&quot;&gt;5&lt;/strong&gt;&lt;/span&gt;
+                &lt;span class=&quot;flex items-center gap-1&quot;&gt;&lt;span class=&quot;w-1.5 h-1.5 rounded-full&quot; style=&quot;background:#3F8F5C&quot;&gt;&lt;/span&gt;普通 &lt;strong class=&quot;font-num&quot;&gt;81&lt;/strong&gt;&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- 患者列表 --&gt;
+            &lt;div class=&quot;flex-1 min-w-0 bg-white border border-ink-100 rounded flex flex-col overflow-hidden&quot;&gt;
+              &lt;div class=&quot;px-2.5 py-2 flex items-center justify-between border-b border-ink-100&quot;&gt;
+                &lt;div class=&quot;flex items-center gap-1.5&quot;&gt;
+                  &lt;span class=&quot;text-[11px] font-semibold text-ink-900&quot;&gt;患者列表&lt;/span&gt;
+                  &lt;span class=&quot;text-[9px] text-ink-400&quot;&gt;共 88 人&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;flex items-center gap-1&quot;&gt;
+                  &lt;div class=&quot;border border-ink-200 rounded px-1.5 py-0.5 text-[9px] text-ink-400&quot;&gt;搜索患者...&lt;/div&gt;
+                  &lt;div class=&quot;border border-ink-200 rounded px-1.5 py-0.5 text-[9px] text-ink-600&quot;&gt;筛选&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;overflow-x:auto&quot;&gt;
+                &lt;div style=&quot;min-width:520px&quot;&gt;
+                  &lt;div class=&quot;grid grid-cols-7 gap-0 text-[9px] font-medium text-ink-500 bg-ink-50 px-2 py-1.5 border-b border-ink-100&quot;&gt;
+                    &lt;span&gt;患者床号&lt;/span&gt;&lt;span&gt;患者姓名&lt;/span&gt;&lt;span&gt;性别&lt;/span&gt;&lt;span&gt;年龄&lt;/span&gt;&lt;span&gt;缺陷数量&lt;/span&gt;&lt;span&gt;入院日期&lt;/span&gt;&lt;span&gt;主诊医师&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5 border-b border-ink-50&quot;&gt;
+                    &lt;span class=&quot;font-mono text-ink-600&quot;&gt;02001床&lt;/span&gt;&lt;span&gt;杜德芳&lt;/span&gt;&lt;span&gt;女&lt;/span&gt;&lt;span&gt;54&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;span class=&quot;font-mono&quot;&gt;2017.02.14&lt;/span&gt;&lt;span&gt;张先先&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5 border-b border-ink-50&quot;&gt;
+                    &lt;span class=&quot;font-mono text-ink-600&quot;&gt;02002床&lt;/span&gt;&lt;span&gt;郭成成&lt;/span&gt;&lt;span&gt;男&lt;/span&gt;&lt;span&gt;87&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;span class=&quot;font-mono&quot;&gt;2017.02.14&lt;/span&gt;&lt;span&gt;张先先&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-900 px-2 py-1.5 border-b border-ink-50 bg-cdx-50&quot; style=&quot;border-left:2px solid #185058&quot;&gt;
+                    &lt;span class=&quot;font-mono text-cdx-700 font-semibold&quot;&gt;02003床&lt;/span&gt;&lt;span class=&quot;font-semibold&quot;&gt;郑宗范&lt;/span&gt;&lt;span&gt;男&lt;/span&gt;&lt;span&gt;79&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;span class=&quot;font-mono&quot;&gt;2017.02.23&lt;/span&gt;&lt;span&gt;刘姗姗&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5 border-b border-ink-50&quot;&gt;
+                    &lt;span class=&quot;font-mono text-ink-600&quot;&gt;02004床&lt;/span&gt;&lt;span&gt;王广连&lt;/span&gt;&lt;span&gt;男&lt;/span&gt;&lt;span&gt;67&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;span class=&quot;font-mono&quot;&gt;2017.02.08&lt;/span&gt;&lt;span&gt;孙树喜&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5 border-b border-ink-50&quot;&gt;
+                    &lt;span class=&quot;font-mono text-ink-600&quot;&gt;02005床&lt;/span&gt;&lt;span&gt;徐德群&lt;/span&gt;&lt;span&gt;男&lt;/span&gt;&lt;span&gt;64&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;span class=&quot;font-mono&quot;&gt;2017.02.18&lt;/span&gt;&lt;span&gt;孙树喜&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;demo-list-row grid grid-cols-7 gap-0 text-[9px] text-ink-700 px-2 py-1.5&quot;&gt;
+                    &lt;span class=&quot;font-mono text-ink-600&quot;&gt;02006床&lt;/span&gt;&lt;span&gt;孟兆苓&lt;/span&gt;&lt;span&gt;女&lt;/span&gt;&lt;span&gt;71&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;span class=&quot;font-mono&quot;&gt;2017.02.04&lt;/span&gt;&lt;span&gt;闫春章&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;mt-auto px-2.5 py-1.5 border-t border-ink-100 flex items-center justify-between text-[9px] text-ink-500&quot;&gt;
+                &lt;span&gt;显示 1–6 条&lt;/span&gt;
+                &lt;div class=&quot;flex items-center gap-1&quot;&gt;
+                  &lt;span class=&quot;w-5 h-5 border border-ink-200 rounded grid place-items-center&quot;&gt;‹&lt;/span&gt;
+                  &lt;span class=&quot;w-5 h-5 rounded grid place-items-center bg-ink-900 text-white&quot;&gt;1&lt;/span&gt;
+                  &lt;span class=&quot;w-5 h-5 border border-ink-200 rounded grid place-items-center&quot;&gt;2&lt;/span&gt;
+                  &lt;span class=&quot;w-5 h-5 border border-ink-200 rounded grid place-items-center&quot;&gt;3&lt;/span&gt;
+                  &lt;span class=&quot;w-5 h-5 border border-ink-200 rounded grid place-items-center&quot;&gt;›&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;</code></pre>
+        </div>
+      </div>
+
+      <section class="doc-section" id="installation">
+        <h2>安装</h2>
+        <p>在页面中引入组件样式与 Tailwind 配置即可。组件样式只包含组件本身，不包含站点外壳。</p>
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;design-system/assets/design-system.css&quot; /&gt;
+&lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;design-system/tokens/tailwind.config.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </div>
+      </section>
+
+      <section class="doc-section" id="usage">
+        <h2>使用方式</h2>
+        <p>在 Code 标签页复制完整标记，替换其中的文案与数据即可。颜色、字号、圆角与阴影一律引用 <code>tokens/design-tokens.json</code> 中的 token，不要写入未定义的颜色值。</p>
+        <p class="muted">组件在浅色主题下设计；若页面启用暗色模式，请先用 token 覆盖背景与文字色，再复用组件结构。</p>
+      </section>
+
+      <section class="doc-section" id="spec">
+        <h2>设计规范</h2>
+        <p>完整的尺寸、状态与反模式说明见 <a href="../../../docs/DESIGN.md"><u>DESIGN.md</u></a>。开发完成后请按 §28 检查清单逐项核对。</p>
+      </section>
+    </article>
+  </div>
+
+  <nav class="toc" aria-label="本页目录">
+    <h4>本页目录</h4>
+    <a href="#preview">预览</a>
+    <a href="#code">代码</a>
+    <a href="#installation">安装</a>
+    <a href="#usage">使用方式</a>
+    <a href="#spec">设计规范</a>
+  </nav>
+</main>
+
+</div>
+<script src="../../assets/coss.js"></script>
+</body>
+</html>
