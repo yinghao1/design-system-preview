@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container" id="components">
   <section class="hero">
     <h1>组件库</h1>
-    <p>为临床数据产品打造的统一界面语言。从介绍与设计规范，到色彩、排版、表格、工作台与 AI 对话，27 个组件章节覆盖医疗软件核心场景。</p>
+    <p>为临床数据产品打造的统一界面语言。从介绍与设计规范，到色彩、排版、表格、健康提醒、工作台与 AI 对话，28 个组件章节覆盖医疗软件核心场景。</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="docs/components/colors.html">开始使用</a>
       <a class="btn btn-outline" href="docs/components/guidelines.html">设计规范</a>
@@ -275,6 +275,19 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
       </div>
       <div class="card-preview" aria-hidden="true">
         <div class="mini"><div class="mini-page"><div class="ph on">资产</div><div class="ph">治理</div><div class="ph">应用</div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/components/medical.html">健康提醒卡</a></h2>
+        <p class="card-desc">医疗提醒信息流：染色图标圆、日期胶囊与危急值三重编码。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-stack">
+          <div class="mini-row"><span style="width:28px;height:28px;border-radius:50%;background:#A8453B;flex-shrink:0"></span><span style="font-size:11px;color:#3F3F46">高心率 <span style="color:#A8453B;font-weight:600">120 BPM</span></span></div>
+          <div class="mini-row"><span style="width:28px;height:28px;border-radius:50%;background:#2A7F8B;flex-shrink:0"></span><span style="font-size:11px;color:#52525B">服药提醒</span></div>
+          <div class="mini-row"><span style="width:28px;height:28px;border-radius:50%;background:#3F8F5C;flex-shrink:0"></span><span style="font-size:11px;color:#52525B">实验室结果已出</span></div>
+        </div></div>
       </div>
     </article>
     <article class="card">

@@ -1,0 +1,195 @@
+/* ============================================================
+   RUNDA Design System · 健康提醒卡（Health Alerts Card）
+   医疗健康场景的提醒信息流，遵循 §0.5 医疗行业使用约定
+   ============================================================ */
+
+/* 卡片容器：ink-100 外描边，圆角 8px，白底 */
+.health-alerts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 12px 12px 0;
+  background: #fff;
+  border: 1px solid #F4F4F5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 头部：标题 + 计数 与 周区间胶囊 两端对齐 */
+.health-alerts-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 4px 0;
+}
+
+.health-alerts-head-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.health-alerts-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #71717A;
+}
+
+/* 提醒信息流：可滚动，底部留白 */
+.health-alerts-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #D4D4D8 transparent;
+}
+
+.health-alerts-feed::-webkit-scrollbar {
+  width: 6px;
+}
+.health-alerts-feed::-webkit-scrollbar-thumb {
+  background: #D4D4D8;
+  border-radius: 999px;
+}
+.health-alerts-feed::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 单条提醒：相对定位，右上角日期胶囊，hover 切 cdx-50 */
+.health-alert-item {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #F4F4F5;
+  border-radius: 6px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.health-alert-item:hover {
+  background: #F0F7F8;
+  border-color: #D9EBED;
+}
+
+/* 染色图标圆 */
+.health-alert-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  flex-shrink: 0;
+}
+.health-alert-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* 图标圆背景色（遵循 RUNDA 状态色语义） */
+.health-alert-icon.bg-danger  { background: #A8453B; }
+.health-alert-icon.bg-warn    { background: #C28A2C; }
+.health-alert-icon.bg-success { background: #3F8F5C; }
+.health-alert-icon.bg-cdx     { background: #2A7F8B; }
+.health-alert-icon.bg-violet  { background: #7C6FB4; }
+
+/* 提醒主体 */
+.health-alert-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-right: 52px; /* 给日期胶囊让位 */
+}
+
+.health-alert-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #18181B;
+}
+
+.health-alert-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #71717A;
+}
+
+/* 危急值标签：红色 + 文字（三重编码之一） */
+.health-alert-crit {
+  display: inline-block;
+  padding: 0 6px;
+  margin-left: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #991B1B;
+  background: #FEF2F2;
+  border-radius: 4px;
+  vertical-align: 1px;
+}
+
+/* 日期胶囊：浮于行右上角 */
+.health-alert-date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 1px 8px;
+  font-size: 11px;
+  font-family: ui-monospace, Menlo, monospace;
+  color: #71717A;
+  background: #FAFAFA;
+  border: 1px solid #F4F4F5;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* 周区间胶囊 */
+.week-range-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  min-width: 151px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-family: ui-monospace, Menlo, monospace;
+  color: #18181B;
+  background: #fff;
+  border: 1px solid #E4E4E7;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.week-range-pill svg {
+  width: 16px;
+  height: 16px;
+  color: #A1A1AA;
+  flex-shrink: 0;
+}
+.week-range-pill span {
+  flex: 1;
+  text-align: center;
+}
+
+/* 顶部滚动淡出遮罩：默认隐藏，滚动后淡入 */
+.health-alerts-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+.health-alerts-fade.is-visible {
+  opacity: 1;
+}

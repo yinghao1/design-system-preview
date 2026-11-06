@@ -34,6 +34,7 @@
     { slug: 'timeline',     title: '时间轴',       group: '数据展示' },
     { slug: 'anchors',      title: '溯源与锚点',   group: '数据展示' },
     { slug: 'page',         title: '页面结构',     group: '业务场景' },
+    { slug: 'medical',      title: '健康提醒卡',   group: '业务场景' },
     { slug: 'workstation',  title: 'EMR 工作台',   group: '业务场景' },
     { slug: 'chat',         title: 'AI 对话系统',  group: '业务场景' }
   ];
