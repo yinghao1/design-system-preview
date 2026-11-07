@@ -349,6 +349,28 @@
       }).join('');
       return '<div class="side-group"><div class="side-label">' + group + '</div>' + links + '</div>';
     }).join('');
+    syncSidebarScroll(el);
+  }
+
+  /* 让侧边栏里的激活项在可视区内：跳转新页后浏览器会恢复旧滚动位置，
+     导致 sticky 侧边栏停在半截、激活项看不见。这里在渲染后把它滚回可视区。 */
+  function syncSidebarScroll(el) {
+    var active = el.querySelector('.side-link.active');
+    if (!active) return;
+    var rAF = window.requestAnimationFrame || function (cb) { setTimeout(cb, 16); };
+    rAF(function () {
+      // 用 getBoundingClientRect 差值计算，避免 offsetTop 依赖 offsetParent 而失准
+      var linkTop = active.getBoundingClientRect().top - el.getBoundingClientRect().top + el.scrollTop;
+      var linkBottom = linkTop + active.offsetHeight;
+      var viewTop = el.scrollTop;
+      var viewBottom = viewTop + el.clientHeight;
+      var margin = 8;
+      if (linkTop < viewTop + margin) {
+        el.scrollTop = linkTop - margin;
+      } else if (linkBottom > viewBottom - margin) {
+        el.scrollTop = linkBottom - el.clientHeight + margin;
+      }
+    });
   }
 
   /* ---------- 文档页 Tab ---------- */
@@ -541,6 +563,7 @@
 
   /* ---------- 初始化 ---------- */
   function init() {
+    initScrollReset();
     initTheme();
     initHeader();
     buildSearch();
@@ -552,6 +575,20 @@
     initCommandTabs();
     initAutoCode();
     initScopeTabs();
+  }
+
+  /* 跳转新页时复位滚动：浏览器默认会恢复上一次的滚动位置，导致侧边栏
+     （sticky + 内部滚动）和正文都停在旧位置、激活项跑出可视区。
+     这里在页面加载时统一回到顶部，激活项自然落在侧边栏顶部附近。
+     仅复位窗口滚动，不影响站内锚点（#preview/#code 等同页跳转由 hash 处理）。 */
+  function initScrollReset() {
+    if ('scrollRestoration' in history) {
+      try { history.scrollRestoration = 'manual'; } catch (e) {}
+    }
+    // 仅当没有锚点目标时回顶；有 hash 的锚点跳转交给浏览器定位到对应章节
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
   }
 
   if (document.readyState === 'loading') {
