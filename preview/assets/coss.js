@@ -5,7 +5,8 @@
 (function () {
   'use strict';
 
-  var ITEMS = [
+  /* B 端（PC）章节 */
+  var B_ITEMS = [
     { slug: 'introduction', title: '介绍',         group: '概述' },
     { slug: 'usage',        title: '使用说明',     group: '概述' },
     { slug: 'guidelines',   title: '设计规范',     group: '概述' },
@@ -39,14 +40,33 @@
     { slug: 'chat',         title: 'AI 对话系统',  group: '业务场景' }
   ];
 
-  var GROUPS = ['概述', '设计基础', '通用组件', '数据展示', '业务场景'];
+  /* C 端（移动）章节 */
+  var C_ITEMS = [
+    { slug: 'c-introduction', title: 'C 端概述',       group: '概述' },
+    { slug: 'c-colors',       title: '色彩系统',       group: '设计基础' },
+    { slug: 'c-typography',   title: '排版与基础规范', group: '设计基础' },
+    { slug: 'c-basics',       title: '基础组件',       group: '通用组件' },
+    { slug: 'c-forms',        title: '表单控件',       group: '通用组件' },
+    { slug: 'c-navigation',   title: '导航',           group: '通用组件' },
+    { slug: 'c-feedback',     title: '反馈',           group: '通用组件' },
+    { slug: 'c-data',         title: '数据展示',       group: '数据与图表' },
+    { slug: 'c-charts',       title: '图表',           group: '数据与图表' },
+    { slug: 'c-business',     title: '业务组件',       group: '业务场景' }
+  ];
+
+  var B_GROUPS = ['概述', '设计基础', '通用组件', '数据展示', '业务场景'];
+  var C_GROUPS = ['概述', '设计基础', '通用组件', '数据与图表', '业务场景'];
 
   var root = document.documentElement;
   var prefix = root.getAttribute('data-prefix') || '';
+  var SET = root.getAttribute('data-set') === 'c' ? 'c' : 'b';
+  var ITEMS = SET === 'c' ? C_ITEMS : B_ITEMS;
+  var GROUPS = SET === 'c' ? C_GROUPS : B_GROUPS;
+  var DOCS_DIR = SET === 'c' ? 'docs/c' : 'docs/components';
 
   function docHref(slug) {
-    // 首页：docs/components/x.html；文档页：x.html
-    return prefix === '' ? 'docs/components/' + slug + '.html' : slug + '.html';
+    // 首页：docs/<dir>/x.html；文档页：同目录 x.html
+    return prefix === '' ? DOCS_DIR + '/' + slug + '.html' : slug + '.html';
   }
 
   /* ---------- 主题 ---------- */
@@ -203,6 +223,7 @@
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>' +
         '</button>' +
       '</div>' +
+      scopeSwitchHtml() +
       GROUPS.map(function (group) {
         var links = ITEMS.filter(function (i) { return i.group === group; }).map(function (item) {
           return '<a class="side-link" href="' + docHref(item.slug) + '">' + item.title + '</a>';
@@ -232,12 +253,20 @@
     });
   }
 
+  /* 端别切换（B 端 PC / C 端移动） */
+  function scopeSwitchHtml() {
+    return '<div class="side-switch" role="tablist" aria-label="端别切换">' +
+      '<a class="side-switch__item' + (SET === 'b' ? ' active' : '') + '" role="tab" aria-selected="' + (SET === 'b') + '" href="' + prefix + 'index.html#b">B 端 PC</a>' +
+      '<a class="side-switch__item' + (SET === 'c' ? ' active' : '') + '" role="tab" aria-selected="' + (SET === 'c') + '" href="' + prefix + 'index.html#c">C 端移动</a>' +
+    '</div>';
+  }
+
   /* ---------- 文档页侧边栏 ---------- */
   function buildSidebar() {
     var el = document.getElementById('ds-sidebar');
     if (!el) return;
     var slug = document.body.getAttribute('data-slug') || '';
-    el.innerHTML = GROUPS.map(function (group) {
+    el.innerHTML = scopeSwitchHtml() + GROUPS.map(function (group) {
       var links = ITEMS.filter(function (i) { return i.group === group; }).map(function (item) {
         var active = item.slug === slug ? ' active' : '';
         var current = item.slug === slug ? ' aria-current="page"' : '';
@@ -374,6 +403,67 @@
     });
   }
 
+  /* ---------- 代码面板：由预览区自动生成，保证文档与实现始终一致 ---------- */
+  function initAutoCode() {
+    document.querySelectorAll('code[data-autocode]').forEach(function (code) {
+      var article = code.closest('.doc') || document;
+      var src = article.querySelector('[data-pane="preview"] .preview-box');
+      if (!src) return;
+      var node = src.querySelector('section') || src;
+      code.textContent = node.outerHTML;
+    });
+  }
+
+  /* ---------- 首页端别切换（B 端 PC / C 端移动） ---------- */
+  function initScopeTabs() {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-scope-tab]'));
+    if (!tabs.length) return;
+    var panes = Array.prototype.slice.call(
+      document.querySelectorAll('[data-scope-pane], [data-scope-only]')
+    );
+
+    function activate(name, persist) {
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-scope-tab') === name;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.setAttribute('tabindex', on ? '0' : '-1');
+      });
+      panes.forEach(function (p) {
+        var key = p.getAttribute('data-scope-pane') || p.getAttribute('data-scope-only');
+        p.hidden = key !== name;
+      });
+      if (persist !== false) {
+        try { localStorage.setItem('runda-scope', name); } catch (e) {}
+      }
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () {
+        activate(tab.getAttribute('data-scope-tab'));
+      });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        e.preventDefault();
+        var step = e.key === 'ArrowRight' ? 1 : tabs.length - 1;
+        var next = tabs[(i + step) % tabs.length];
+        next.focus();
+        activate(next.getAttribute('data-scope-tab'));
+      });
+    });
+
+    var initial = null;
+    if (location.hash === '#c' || location.hash === '#b') initial = location.hash.slice(1);
+    if (!initial) { try { initial = localStorage.getItem('runda-scope'); } catch (e) {} }
+    if (initial !== 'b' && initial !== 'c') initial = 'b';
+    activate(initial, false);
+
+    window.addEventListener('hashchange', function () {
+      var h = location.hash.replace('#', '');
+      if (h === 'b' || h === 'c') activate(h);
+    });
+  }
+
   /* ---------- 初始化 ---------- */
   function init() {
     initTheme();
@@ -385,6 +475,8 @@
     initJumpTabs();
     initCopy();
     initCommandTabs();
+    initAutoCode();
+    initScopeTabs();
   }
 
   if (document.readyState === 'loading') {

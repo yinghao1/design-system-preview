@@ -44,14 +44,24 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container" id="components">
   <section class="hero">
     <h1>组件库</h1>
-    <p>为临床数据产品打造的统一界面语言。从介绍与设计规范，到色彩、排版、表格、健康提醒、工作台与 AI 对话，28 个组件章节覆盖医疗软件核心场景。</p>
-    <div class="hero-actions">
+    <p data-scope-only="b">为临床数据产品打造的统一界面语言。从介绍与设计规范，到色彩、排版、表格、健康提醒、工作台与 AI 对话，28 个组件章节覆盖医疗软件核心场景。</p>
+    <p data-scope-only="c" hidden>RUNDA ToC 移动端设计系统（iOS，390×852pt）。从平台参数、色彩与排版，到表单、导航、数据展示与图表，10 个章节覆盖健康管理 App 的核心场景，与 B 端共享同一套中性色阶与品牌主色。</p>
+    <div class="hero-actions" data-scope-only="b">
       <a class="btn btn-primary" href="docs/components/colors.html">开始使用</a>
       <a class="btn btn-outline" href="docs/components/guidelines.html">设计规范</a>
     </div>
+    <div class="hero-actions" data-scope-only="c" hidden>
+      <a class="btn btn-primary" href="docs/c/c-introduction.html">开始使用</a>
+      <a class="btn btn-outline" href="docs/c/c-typography.html">设计规范</a>
+    </div>
+
+    <div class="scope-switch" role="tablist" aria-label="端别切换">
+      <button class="scope-tab active" type="button" role="tab" aria-selected="true" data-scope-tab="b">B 端 · PC</button>
+      <button class="scope-tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-scope-tab="c">C 端 · 移动</button>
+    </div>
   </section>
 
-  <div class="components-grid">
+  <div class="components-grid" data-scope-pane="b">
     <article class="card">
       <div class="card-head">
         <h2 class="card-title"><a href="docs/components/colors.html">色彩系统</a></h2>
@@ -306,6 +316,170 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
       </div>
       <div class="card-preview" aria-hidden="true">
         <div class="mini"><div class="mini-stack"><div class="mini-bubble ai">已找到 128 例符合入组条件的患者。</div><div class="mini-bubble user">按 12 个月随访筛选</div></div></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="components-grid" data-scope-pane="c" hidden>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-introduction.html">C 端概述</a></h2>
+        <p class="card-desc">iOS 390×852pt、页面结构与六条设计原则。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div class="mp-bar" style="width:60%;background:#D4D4D8"></div>
+          <div class="mp-card"><div class="mp-num">8,420<small style="font-size:7px;font-weight:500;color:#A1A1AA"> 步</small></div><div class="mp-line" style="width:80%"></div><div class="mp-line" style="width:55%"></div></div>
+          <div class="mp-card" style="padding:4px"><div class="mp-line" style="width:70%;margin:0"></div><div class="mp-line" style="width:90%"></div></div>
+          <div class="mp-btn"></div>
+          <div class="mp-tab"><i class="on"></i><i></i><i></i><i></i></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-colors.html">色彩系统</a></h2>
+        <p class="card-desc">品牌青蓝五档、中性灰阶、功能色与图表色板。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div style="display:flex;gap:3px"><span style="flex:1;height:26px;border-radius:4px;background:#EDF6F7"></span><span style="flex:1;height:26px;border-radius:4px;background:#5EBCC9"></span><span style="flex:1;height:26px;border-radius:4px;background:#2A7F8B"></span><span style="flex:1;height:26px;border-radius:4px;background:#15525A"></span><span style="flex:1;height:26px;border-radius:4px;background:#07272B"></span></div>
+          <div style="display:flex;gap:3px"><span style="flex:1;height:18px;border-radius:4px;background:#288A5C"></span><span style="flex:1;height:18px;border-radius:4px;background:#F2AD0C"></span><span style="flex:1;height:18px;border-radius:4px;background:#D83226"></span><span style="flex:1;height:18px;border-radius:4px;background:#2272C3"></span></div>
+          <div class="mp-card" style="margin-top:2px"><div style="display:flex;gap:3px"><span style="flex:1;height:12px;border-radius:3px;background:#4388FF"></span><span style="flex:1;height:12px;border-radius:3px;background:#FEBC41"></span><span style="flex:1;height:12px;border-radius:3px;background:#02C456"></span><span style="flex:1;height:12px;border-radius:3px;background:#A855F7"></span></div></div>
+          <div class="mp-line" style="width:70%"></div><div class="mp-line" style="width:45%"></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-typography.html">排版与基础规范</a></h2>
+        <p class="card-desc">11 级字号阶梯、Manrope 大数字、4pt 网格与圆角阴影。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div style="font-size:26px;font-weight:700;line-height:1.05;letter-spacing:-.03em;color:#18181B">Aa</div>
+          <div style="font-family:Manrope,'Urbanist',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.02em;color:#18181B">874,200</div>
+          <div class="mp-line" style="width:90%"></div><div class="mp-line" style="width:75%"></div><div class="mp-line" style="width:60%"></div>
+          <div style="display:flex;gap:3px;margin-top:4px"><span style="width:14px;height:14px;border-radius:3px;background:#F0F7F8;border:1px solid #B0D6DB"></span><span style="width:14px;height:14px;border-radius:5px;background:#F0F7F8;border:1px solid #B0D6DB"></span><span style="width:14px;height:14px;border-radius:7px;background:#F0F7F8;border:1px solid #B0D6DB"></span><span style="width:14px;height:14px;border-radius:99px;background:#F0F7F8;border:1px solid #B0D6DB"></span></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-basics.html">基础组件</a></h2>
+        <p class="card-desc">按钮六变体、图标按钮、Chip、徽章、头像与分割线。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div style="height:20px;border-radius:6px;background:#2A7F8B;color:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;font-weight:600">主操作</div>
+          <div style="height:20px;border-radius:6px;background:#EDF6F7;color:#15525A;font-size:8px;display:flex;align-items:center;justify-content:center;font-weight:600">次操作</div>
+          <div style="height:20px;border-radius:6px;border:1px solid #E4E4E7;color:#18181B;font-size:8px;display:flex;align-items:center;justify-content:center;font-weight:600">描边</div>
+          <div style="display:flex;gap:3px;margin-top:2px"><span style="height:13px;padding:0 5px;border-radius:99px;background:#EDF6F7;color:#15525A;font-size:7px;display:flex;align-items:center">全部</span><span style="height:13px;padding:0 5px;border-radius:99px;background:#F4F4F5;color:#52525B;font-size:7px;display:flex;align-items:center">用药</span><span style="height:13px;width:13px;border-radius:99px;background:#D83226;color:#fff;font-size:6px;display:flex;align-items:center;justify-content:center">3</span></div>
+          <div style="display:flex;margin-top:2px"><span style="width:15px;height:15px;border-radius:99px;background:#EDF6F7;color:#15525A;font-size:7px;display:flex;align-items:center;justify-content:center;border:1.5px solid #fff">李</span><span style="width:15px;height:15px;border-radius:99px;background:#E8F0FF;color:#1F5FCC;font-size:7px;display:flex;align-items:center;justify-content:center;border:1.5px solid #fff;margin-left:-4px">王</span><span style="width:15px;height:15px;border-radius:99px;background:#F4F4F5;color:#52525B;font-size:7px;display:flex;align-items:center;justify-content:center;border:1.5px solid #fff;margin-left:-4px">+5</span></div>
+          <div class="mp-tab"><i class="on"></i><i></i><i></i></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-forms.html">表单控件</a></h2>
+        <p class="card-desc">输入框四态、搜索框、Switch、复选、单选、分段与滑块。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div style="height:16px;border-radius:6px;background:#F4F4F5;display:flex;align-items:center;padding:0 5px;font-size:7px;color:#A1A1AA">搜索患者、指标</div>
+          <div style="height:20px;border-radius:6px;background:#fff;border:1px solid #E4E4E7;display:flex;align-items:center;padding:0 5px;font-size:8px;color:#18181B">郑宗范</div>
+          <div style="height:20px;border-radius:6px;background:#fff;border:1px solid #2A7F8B;box-shadow:0 0 0 2px rgba(42,127,139,.12);display:flex;align-items:center;padding:0 5px;font-size:8px;color:#18181B">6.4</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:2px"><span style="font-size:8px;color:#52525B">用药提醒</span><span style="width:22px;height:13px;border-radius:99px;background:#288A5C;position:relative"><i style="position:absolute;right:1.5px;top:1.5px;width:10px;height:10px;border-radius:99px;background:#fff"></i></span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:8px;color:#52525B">数据同步</span><span style="width:22px;height:13px;border-radius:99px;background:#E4E4E7;position:relative"><i style="position:absolute;left:1.5px;top:1.5px;width:10px;height:10px;border-radius:99px;background:#fff"></i></span></div>
+          <div style="display:flex;gap:3px;margin-top:2px"><span style="height:12px;padding:0 5px;border-radius:99px;background:#fff;color:#18181B;font-size:7px;display:flex;align-items:center;box-shadow:0 1px 2px rgba(0,0,0,.08)">日</span><span style="height:12px;padding:0 5px;border-radius:99px;background:#F4F4F5;color:#52525B;font-size:7px;display:flex;align-items:center">周</span><span style="height:12px;padding:0 5px;border-radius:99px;background:#F4F4F5;color:#52525B;font-size:7px;display:flex;align-items:center">月</span></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-navigation.html">导航</a></h2>
+        <p class="card-desc">导航栏、Tab 栏、分段/下划线切换、折叠面板与滑动操作。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:3px;border-bottom:1px solid #E4E4E7"><span style="color:#2A7F8B;font-size:9px">‹</span><span style="font-size:8px;font-weight:600">检验报告</span><span style="color:#2A7F8B;font-size:8px">⋯</span></div>
+          <div style="display:flex;gap:4px;margin-top:2px"><span style="flex:1;height:13px;border-radius:4px;background:#fff;font-size:7px;display:flex;align-items:center;justify-content:center;color:#18181B;font-weight:600;box-shadow:0 1px 1px rgba(0,0,0,.06)">全部</span><span style="flex:1;height:13px;border-radius:4px;background:#F4F4F5;font-size:7px;display:flex;align-items:center;justify-content:center;color:#52525B">异常</span></div>
+          <div class="mp-card" style="padding:4px"><div class="mp-line" style="width:60%;margin:0"></div><div class="mp-line" style="width:85%"></div><div class="mp-line" style="width:70%"></div></div>
+          <div style="display:flex;gap:8px;font-size:7px;color:#A1A1AA;margin-top:1px"><span style="color:#2A7F8B;font-weight:600;border-bottom:1.5px solid #2A7F8B;padding-bottom:1px">血常规</span><span>生化</span><span>尿常规</span></div>
+          <div class="mp-tab"><i></i><i class="on"></i><i></i><i></i></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-feedback.html">反馈</a></h2>
+        <p class="card-desc">Toast、Banner、Alert、ActionSheet、Modal、骨架屏与空状态。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div style="height:17px;border-radius:6px;background:rgba(24,24,27,.92);color:#fff;font-size:7px;display:flex;align-items:center;gap:3px;padding:0 5px"><span style="color:#5EE9A4">✓</span>保存成功</div>
+          <div style="height:17px;border-radius:5px;background:#F5FAFF;border-left:2px solid #4388FF;color:#1F5FCC;font-size:7px;display:flex;align-items:center;padding:0 5px">报告已生成</div>
+          <div style="height:17px;border-radius:5px;background:rgba(254,188,65,.16);border-left:2px solid #F2AD0C;color:#8A6100;font-size:7px;display:flex;align-items:center;padding:0 5px">血压偏高</div>
+          <div class="mp-card" style="padding:4px;display:flex;gap:4px;align-items:center"><span style="width:12px;height:12px;border-radius:99px;background:#EDF6F7;border:1.5px solid #EDF6F7"></span><span style="flex:1"><span class="mp-line" style="width:80%;display:block;margin:0"></span><span class="mp-line" style="width:55%;display:block"></span></span></div>
+          <div style="height:14px;border-radius:4px;background:#F4F4F5;margin-top:2px"></div>
+          <div style="height:9px;border-radius:3px;background:#F4F4F5;width:70%"></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-data.html">数据展示</a></h2>
+        <p class="card-desc">卡片、列表项、气泡、进度、时间线、MetricCard 与 InfoTable。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div class="mp-card">
+            <div style="font-size:6.5px;color:#52525B">今日步数</div>
+            <div class="mp-num" style="font-size:15px">8,420</div>
+            <div style="font-size:6.5px;color:#02C456;font-weight:600;margin-top:2px">▲ 12.4%</div>
+            <div style="height:4px;border-radius:99px;background:#F4F4F5;margin-top:4px;overflow:hidden"><span style="display:block;width:68%;height:100%;background:#2A7F8B"></span></div>
+          </div>
+          <div style="display:flex;gap:3px"><span style="height:11px;padding:0 4px;border-radius:99px;background:rgba(2,196,86,.10);color:#1E7B49;font-size:6px;display:flex;align-items:center;gap:2px"><i style="width:3px;height:3px;border-radius:99px;background:currentColor;display:block"></i>正常</span><span style="height:11px;padding:0 4px;border-radius:99px;background:rgba(254,188,65,.16);color:#8A6100;font-size:6px;display:flex;align-items:center;gap:2px"><i style="width:3px;height:3px;border-radius:99px;background:currentColor;display:block"></i>偏高</span></div>
+          <div class="mp-card" style="padding:4px"><div class="mp-line" style="width:90%;margin:0"></div><div class="mp-line" style="width:60%"></div></div>
+          <div class="mp-tab"><i class="on"></i><i></i><i></i></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-charts.html">图表</a></h2>
+        <p class="card-desc">10 色系列板、分类色板、轴网格与五类移动端图表。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen">
+          <div class="mp-card" style="padding:5px">
+            <div style="font-size:7px;color:#18181B;font-weight:600;margin-bottom:3px">空腹血糖 · 7 日</div>
+            <svg viewBox="0 0 100 40" width="100%" height="40" preserveAspectRatio="none"><path d="M2 22 L18 18 L34 24 L50 12 L66 16 L82 8 L98 11 L98 40 L2 40 Z" fill="rgba(42,127,139,.16)"/><path d="M2 22 L18 18 L34 24 L50 12 L66 16 L82 8 L98 11" fill="none" stroke="#2A7F8B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="82" cy="8" r="1.6" fill="#2A7F8B" stroke="#fff" stroke-width="1"/></svg>
+          </div>
+          <div class="mp-card" style="padding:5px">
+            <div style="display:flex;align-items:flex-end;gap:3px;height:26px"><span style="flex:1;height:70%;background:#2A7F8B;border-radius:2px 2px 0 0"></span><span style="flex:1;height:50%;background:#4388FF;border-radius:2px 2px 0 0"></span><span style="flex:1;height:85%;background:#FEBC41;border-radius:2px 2px 0 0"></span><span style="flex:1;height:40%;background:#02C456;border-radius:2px 2px 0 0"></span><span style="flex:1;height:62%;background:#A855F7;border-radius:2px 2px 0 0"></span></div>
+          </div>
+          <div style="display:flex;gap:3px;margin-top:1px"><span style="width:9px;height:9px;border-radius:2px;background:#2A7F8B"></span><span style="width:9px;height:9px;border-radius:2px;background:#4388FF"></span><span style="width:9px;height:9px;border-radius:2px;background:#FEBC41"></span><span style="width:9px;height:9px;border-radius:2px;background:#02C456"></span><span style="width:9px;height:9px;border-radius:2px;background:#A855F7"></span></div>
+        </div></div></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title"><a href="docs/c/c-business.html">业务组件</a></h2>
+        <p class="card-desc">任务卡片、Agent 消息、工具调用、上传、订阅与 FAB。</p>
+      </div>
+      <div class="card-preview" aria-hidden="true">
+        <div class="mini"><div class="mini-phone"><div class="mini-phone-screen" style="position:relative">
+          <div class="mp-card" style="padding:5px">
+            <div style="display:flex;align-items:center;gap:3px"><span style="width:11px;height:11px;border-radius:3px;background:#EDF6F7"></span><span style="font-size:7px;font-weight:600;color:#18181B;flex:1">晨间服药</span><span style="height:9px;padding:0 3px;border-radius:99px;background:rgba(2,196,86,.10);color:#1E7B49;font-size:5.5px;display:flex;align-items:center">已完成</span></div>
+            <div class="mp-line" style="width:75%"></div>
+          </div>
+          <div style="display:flex;gap:3px;align-items:flex-start"><span style="width:12px;height:12px;border-radius:99px;background:#2A7F8B;color:#fff;font-size:5.5px;display:flex;align-items:center;justify-content:center;flex:0 0 auto">AI</span><div class="mp-card" style="padding:4px;flex:1"><div class="mp-line" style="width:85%;margin:0"></div><div class="mp-line" style="width:60%"></div></div></div>
+          <div class="mp-card" style="padding:4px"><div style="height:10px;border-radius:3px;background:#F4F4F5"></div><div class="mp-line" style="width:50%"></div></div>
+          <div style="position:absolute;right:8px;bottom:22px;width:20px;height:20px;border-radius:99px;background:#2A7F8B;box-shadow:0 3px 8px rgba(42,127,139,.32);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px">+</div>
+          <div class="mp-tab"><i class="on"></i><i></i><i></i></div>
+        </div></div></div>
       </div>
     </article>
   </div>

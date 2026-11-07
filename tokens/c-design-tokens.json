@@ -1,0 +1,599 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "name": "RUNDA ToC Design System",
+    "version": "1.5.0",
+    "description": "基于 RUNDA iOS 应用截图逆向提取的设计令牌系统(默认 Light 主题,支持 Dark 主题切换;v1.2 信息展示色板;v1.3 图表色板与 ECharts 集成;v1.4 图表移动端样式适配,所有 series 改为纯色禁用渐变;v1.5 新增饼图分类色板 chart.categorical 用于多分类饼/环图)",
+    "platform": "iOS",
+    "baseUnit": 4,
+    "screenWidth": 390,
+    "density": "3x (1180×2556 → 393×852 逻辑像素)",
+    "defaultTheme": "light"
+  },
+
+  "color": {
+    "primitive": {
+      "black": "#000000",
+      "white": "#FFFFFF",
+      "primary": {
+        "50": "#EDF6F7",
+        "100": "#C7E5E9",
+        "200": "#95D1D9",
+        "300": "#5EBCC9",
+        "400": "#37A0AE",
+        "500": "#2A7F8B",
+        "600": "#1D6770",
+        "700": "#15525A",
+        "800": "#0E3D43",
+        "900": "#07272B"
+      },
+      "neutral": {
+        "_note": "与 B 端 RUNDA ToB Design System ink 色阶保持一致，确保跨产品视觉语言统一",
+        "white": "#FFFFFF",
+        "50":  "#FAFAFA",
+        "100": "#F4F4F5",
+        "200": "#E4E4E7",
+        "300": "#D4D4D8",
+        "400": "#A1A1AA",
+        "500": "#71717A",
+        "600": "#52525B",
+        "700": "#3F3F46",
+        "800": "#27272A",
+        "900": "#18181B",
+        "950": "#09090B"
+      },
+      "amber": {
+        "400": "#EDA62A",
+        "500": "#DC9418",
+        "600": "#B27A19"
+      },
+      "indigo": {
+        "400": "#5266C5",
+        "500": "#3B4EA9",
+        "600": "#2E3F93"
+      },
+      "coral": {
+        "400": "#DE6648",
+        "500": "#D24D2C",
+        "600": "#AB442A"
+      },
+      "green": {
+        "50": "#EDF7F2",
+        "100": "#C7E9D9",
+        "500": "#288A5C",
+        "600": "#1C724A",
+        "700": "#135C3A"
+      },
+      "red": {
+        "50": "#FBEAE9",
+        "100": "#F4CFCC",
+        "500": "#D83226",
+        "600": "#B02E25",
+        "700": "#8E2A23"
+      },
+      "gold": {
+        "50": "#FDF6E6",
+        "100": "#F9E5B8",
+        "500": "#F2AD0C",
+        "600": "#C68F10",
+        "700": "#A06C11"
+      },
+      "info": {
+        "50": "#E9F2FB",
+        "100": "#CCE0F4",
+        "500": "#2272C3",
+        "600": "#21609F"
+      },
+      "infoDisplay": {
+        "_note": "v1.2.0 新增 - 信息展示组件专用色板（来源:健康类APP截图逆向提取）",
+        "vivid": {
+          "blue":     "#4388FF",
+          "blueBg":   "rgba(67, 136, 255, 0.08)",
+          "blueText": "#2D6CD9",
+          "orange":   "#FF9946",
+          "orangeBg": "rgba(255, 153, 70, 0.10)",
+          "amber":    "#FEBC41",
+          "amberBg":  "rgba(254, 188, 65, 0.12)",
+          "amberText":"#E59100",
+          "green":    "#02C456",
+          "greenBg":  "rgba(2, 196, 86, 0.10)",
+          "greenText":"#02955F",
+          "greenSurfaceBg": "#EEFFF5",
+          "lightBlueBg": "#F5FAFF"
+        },
+        "trend": {
+          "up":   "#02C456",
+          "down": "#D83226",
+          "flat": "#71717A"
+        },
+        "tableHead": "rgba(67, 136, 255, 0.04)",
+        "rowAlt":    "#FAFAFA"
+      },
+      "chart": {
+        "_note": "v1.3 新增图表专用色板,v1.4 改为纯色规则:series 仅用纯色,面积/轨道用 seriesSoft 低饱和填充,禁用任何线性/径向渐变",
+        "series": {
+          "primary":    "#2A7F8B",
+          "blue":       "#4388FF",
+          "amber":      "#FEBC41",
+          "orange":     "#FF9946",
+          "green":      "#02C456",
+          "purple":     "#A855F7",
+          "pink":       "#EC4899",
+          "teal":       "#14B8A6",
+          "rose":       "#F43F5E",
+          "indigo":     "#6366F1"
+        },
+        "seriesAlpha": {
+          "_note":   "面积图填充专用,16% 透明度的纯色叠加,替代渐变",
+          "primary": "rgba(42, 127, 139, 0.16)",
+          "blue":    "rgba(67, 136, 255, 0.16)",
+          "amber":   "rgba(254, 188, 65, 0.20)",
+          "green":   "rgba(2, 196, 86, 0.16)"
+        },
+        "seriesSoft": {
+          "_note":   "环形进度轨道、空状态背景专用纯色",
+          "primary": "#E6F1F3",
+          "blue":    "#E8F0FF",
+          "green":   "#E1F8EB",
+          "track":   "#F0F0F2"
+        },
+        "axis": {
+          "line":      "#E4E4E7",
+          "splitLine": "#F4F4F5",
+          "label":     "#71717A",
+          "tickLabel": "#A1A1AA"
+        },
+        "tooltip": {
+          "background": "rgba(24, 24, 27, 0.92)",
+          "text":       "#FFFFFF",
+          "border":     "transparent"
+        },
+        "legend": {
+          "label":  "#52525B",
+          "marker": "8px"
+        },
+        "grid": {
+          "_note":  "v1.4 移动端适配:px 单位 + 紧凑边距",
+          "left":   4,
+          "right":  12,
+          "top":    24,
+          "bottom": 8
+        },
+        "categorical": {
+          "_note":   "v1.5 新增 — 多分类饼/环图专用色板,来源:APP截图逆向提取,ΔE>10 与现有色板无重叠,主色 #2A7F8B 不变",
+          "ochre":      "#BC932F",
+          "coral":      "#FD7548",
+          "olive":      "#2A5B00",
+          "sky":        "#88CDFE",
+          "amberLight": "#F9B868",
+          "violet":     "#847DFF"
+        }
+      }
+    },
+
+    "semantic": {
+      "_note": "默认主题为 Light;主色 #2A7F8B(青蓝色) + B端统一中性色体系(ink)",
+      "background": {
+        "primary": "#FAFAFA",
+        "secondary": "#F4F4F5",
+        "tertiary": "#E4E4E7",
+        "elevated": "#FFFFFF",
+        "overlay": "rgba(0, 0, 0, 0.4)"
+      },
+      "surface": {
+        "default": "#FFFFFF",
+        "raised": "#FFFFFF",
+        "sunken": "#F4F4F5",
+        "interactive": "#FAFAFA",
+        "selected": "rgba(42, 127, 139, 0.08)"
+      },
+      "text": {
+        "primary": "#18181B",
+        "secondary": "#52525B",
+        "tertiary": "#71717A",
+        "disabled": "#A1A1AA",
+        "inverse": "#FFFFFF",
+        "accent": "#2A7F8B",
+        "link": "#2272C3"
+      },
+      "border": {
+        "default": "#E4E4E7",
+        "subtle": "#F4F4F5",
+        "strong": "#D4D4D8",
+        "accent": "#2A7F8B",
+        "focus": "rgba(42, 127, 139, 0.4)"
+      },
+      "accent": {
+        "primary": "#2A7F8B",
+        "primaryHover": "#37A0AE",
+        "primaryPressed": "#1D6770",
+        "secondary": "#15525A",
+        "gradient": {
+          "start": "#2A7F8B",
+          "end": "#37A0AE"
+        }
+      },
+      "status": {
+        "success": "#288A5C",
+        "successBg": "rgba(40, 138, 92, 0.08)",
+        "warning": "#F2AD0C",
+        "warningBg": "rgba(242, 173, 12, 0.08)",
+        "error": "#D83226",
+        "errorBg": "rgba(216, 50, 38, 0.08)",
+        "info": "#2272C3",
+        "infoBg": "rgba(34, 114, 195, 0.08)",
+        "running": "#2A7F8B",
+        "runningBg": "rgba(42, 127, 139, 0.08)",
+        "completed": "#288A5C",
+        "completedBg": "rgba(40, 138, 92, 0.08)",
+        "stopped": "#71717A",
+        "stoppedBg": "rgba(113, 119, 120, 0.08)"
+      },
+      "icon": {
+        "primary": "#18181B",
+        "secondary": "#52525B",
+        "tertiary": "#71717A",
+        "accent": "#2A7F8B",
+        "disabled": "#A1A1AA"
+      }
+    }
+  },
+
+  "themes": {
+    "dark": {
+      "background": {
+        "primary": "#09090B",
+        "secondary": "#18181B",
+        "tertiary": "#27272A",
+        "elevated": "#27272A",
+        "overlay": "rgba(0, 0, 0, 0.6)"
+      },
+      "surface": {
+        "default": "#18181B",
+        "raised": "#27272A",
+        "sunken": "#09090B",
+        "interactive": "#27272A",
+        "selected": "rgba(42, 127, 139, 0.15)"
+      },
+      "text": {
+        "primary": "#FAFAFA",
+        "secondary": "#A1A1AA",
+        "tertiary": "#71717A",
+        "disabled": "#52525B",
+        "inverse": "#18181B",
+        "accent": "#5EBCC9",
+        "link": "#5EBCC9"
+      },
+      "border": {
+        "default": "rgba(255, 255, 255, 0.08)",
+        "subtle": "rgba(255, 255, 255, 0.04)",
+        "strong": "rgba(255, 255, 255, 0.16)",
+        "accent": "#37A0AE",
+        "focus": "rgba(55, 160, 174, 0.5)"
+      }
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "primary": "-apple-system, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif",
+      "mono": "'SF Mono', 'Menlo', 'Monaco', monospace",
+      "chinese": "-apple-system, 'PingFang SC', 'SF Pro SC', sans-serif",
+      "display": "'Manrope', -apple-system, 'Helvetica Neue', sans-serif"
+    },
+    "scale": {
+      "hero": {
+        "fontSize": 34,
+        "lineHeight": 41,
+        "fontWeight": "700",
+        "letterSpacing": 0.37
+      },
+      "title1": {
+        "fontSize": 28,
+        "lineHeight": 34,
+        "fontWeight": "700",
+        "letterSpacing": 0.36
+      },
+      "title2": {
+        "fontSize": 22,
+        "lineHeight": 28,
+        "fontWeight": "700",
+        "letterSpacing": 0.35
+      },
+      "title3": {
+        "fontSize": 20,
+        "lineHeight": 25,
+        "fontWeight": "600",
+        "letterSpacing": 0.38
+      },
+      "headline": {
+        "fontSize": 17,
+        "lineHeight": 22,
+        "fontWeight": "600",
+        "letterSpacing": -0.41
+      },
+      "body": {
+        "fontSize": 17,
+        "lineHeight": 22,
+        "fontWeight": "400",
+        "letterSpacing": -0.41
+      },
+      "bodyMedium": {
+        "fontSize": 16,
+        "lineHeight": 21,
+        "fontWeight": "400",
+        "letterSpacing": -0.32
+      },
+      "callout": {
+        "fontSize": 16,
+        "lineHeight": 21,
+        "fontWeight": "400",
+        "letterSpacing": -0.32
+      },
+      "subheadline": {
+        "fontSize": 15,
+        "lineHeight": 20,
+        "fontWeight": "400",
+        "letterSpacing": -0.24
+      },
+      "footnote": {
+        "fontSize": 13,
+        "lineHeight": 18,
+        "fontWeight": "400",
+        "letterSpacing": -0.08
+      },
+      "caption1": {
+        "fontSize": 12,
+        "lineHeight": 16,
+        "fontWeight": "400",
+        "letterSpacing": 0
+      },
+      "caption2": {
+        "fontSize": 11,
+        "lineHeight": 13,
+        "fontWeight": "400",
+        "letterSpacing": 0.07
+      },
+      "overline": {
+        "fontSize": 10,
+        "lineHeight": 12,
+        "fontWeight": "600",
+        "letterSpacing": 1.5,
+        "textTransform": "uppercase"
+      },
+      "numericHero": {
+        "fontFamily": "display",
+        "fontSize": 56,
+        "lineHeight": 60,
+        "fontWeight": "700",
+        "letterSpacing": -1.5,
+        "fontFeatureSettings": "'tnum' 1, 'lnum' 1"
+      },
+      "numericLarge": {
+        "fontFamily": "display",
+        "fontSize": 34,
+        "lineHeight": 40,
+        "fontWeight": "700",
+        "letterSpacing": -0.5,
+        "fontFeatureSettings": "'tnum' 1, 'lnum' 1"
+      },
+      "numericMedium": {
+        "fontFamily": "display",
+        "fontSize": 24,
+        "lineHeight": 28,
+        "fontWeight": "600",
+        "letterSpacing": -0.3,
+        "fontFeatureSettings": "'tnum' 1, 'lnum' 1"
+      }
+    }
+  },
+
+  "spacing": {
+    "unit": 4,
+    "scale": {
+      "0": 0,
+      "1": 4,
+      "2": 8,
+      "3": 12,
+      "4": 16,
+      "5": 20,
+      "6": 24,
+      "8": 32,
+      "10": 40,
+      "12": 48,
+      "16": 64,
+      "20": 80
+    },
+    "semantic": {
+      "screenPaddingH": 16,
+      "screenPaddingTop": 16,
+      "cardPaddingH": 16,
+      "cardPaddingV": 16,
+      "cardGap": 12,
+      "sectionGap": 24,
+      "listItemGap": 8,
+      "inlineGap": 8,
+      "iconTextGap": 8,
+      "inputPaddingH": 16,
+      "inputPaddingV": 12,
+      "buttonPaddingH": 24,
+      "buttonPaddingV": 14,
+      "chipPaddingH": 12,
+      "chipPaddingV": 6,
+      "safeAreaTop": 59,
+      "safeAreaBottom": 34,
+      "tabBarHeight": 49,
+      "navBarHeight": 44
+    }
+  },
+
+  "borderRadius": {
+    "none": 0,
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 20,
+    "2xl": 24,
+    "3xl": 28,
+    "full": 9999,
+    "semantic": {
+      "button": 12,
+      "buttonSmall": 8,
+      "buttonPill": 9999,
+      "card": 16,
+      "cardLarge": 20,
+      "input": 12,
+      "chip": 9999,
+      "avatar": 9999,
+      "modal": 24,
+      "sheet": 24,
+      "toast": 12,
+      "badge": 9999,
+      "thumbnail": 12,
+      "progressBar": 9999
+    }
+  },
+
+  "shadow": {
+    "_note": "默认 Light 主题阴影使用低不透明度黑;Dark 主题需调整为更深更明显",
+    "none": "none",
+    "sm": {
+      "offsetX": 0,
+      "offsetY": 1,
+      "blur": 2,
+      "spread": 0,
+      "color": "rgba(0, 0, 0, 0.06)"
+    },
+    "md": {
+      "offsetX": 0,
+      "offsetY": 4,
+      "blur": 12,
+      "spread": -2,
+      "color": "rgba(0, 0, 0, 0.08)"
+    },
+    "lg": {
+      "offsetX": 0,
+      "offsetY": 8,
+      "blur": 24,
+      "spread": -4,
+      "color": "rgba(0, 0, 0, 0.10)"
+    },
+    "xl": {
+      "offsetX": 0,
+      "offsetY": 16,
+      "blur": 48,
+      "spread": -8,
+      "color": "rgba(0, 0, 0, 0.14)"
+    },
+    "glow": {
+      "offsetX": 0,
+      "offsetY": 4,
+      "blur": 16,
+      "spread": 0,
+      "color": "rgba(42, 127, 139, 0.25)"
+    },
+    "semantic": {
+      "card": "none",
+      "cardHover": "sm",
+      "modal": "xl",
+      "sheet": "lg",
+      "dropdown": "md",
+      "toast": "md",
+      "fab": "lg",
+      "buttonAccent": "glow"
+    }
+  },
+
+  "effect": {
+    "_note": "与 B 端 RUNDA ToB Design System 共享的背景纹理，确保跨产品视觉语言统一",
+    "grain": {
+      "dot": "rgba(0,0,0,0.018)",
+      "size": "3px 3px",
+      "pattern": "radial-gradient(rgba(0,0,0,0.018) 1px, transparent 1px)",
+      "method": "body-background",
+      "attachment": "fixed"
+    }
+  },
+
+  "motion": {
+    "duration": {
+      "instant": 100,
+      "fast": 200,
+      "normal": 300,
+      "slow": 450,
+      "slower": 600
+    },
+    "easing": {
+      "default": "cubic-bezier(0.25, 0.1, 0.25, 1.0)",
+      "easeIn": "cubic-bezier(0.42, 0, 1.0, 1.0)",
+      "easeOut": "cubic-bezier(0, 0, 0.58, 1.0)",
+      "easeInOut": "cubic-bezier(0.42, 0, 0.58, 1.0)",
+      "spring": "cubic-bezier(0.34, 1.56, 0.64, 1.0)",
+      "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.35)"
+    },
+    "semantic": {
+      "pageTransition": { "duration": 300, "easing": "easeInOut" },
+      "modalPresent": { "duration": 300, "easing": "spring" },
+      "modalDismiss": { "duration": 200, "easing": "easeIn" },
+      "sheetSlide": { "duration": 350, "easing": "spring" },
+      "buttonPress": { "duration": 100, "easing": "easeOut" },
+      "fadeIn": { "duration": 200, "easing": "easeOut" },
+      "fadeOut": { "duration": 150, "easing": "easeIn" },
+      "listItemAppear": { "duration": 300, "easing": "easeOut" },
+      "skeletonPulse": { "duration": 1500, "easing": "easeInOut" },
+      "progressFill": { "duration": 600, "easing": "easeOut" },
+      "toastSlide": { "duration": 250, "easing": "spring" },
+      "ripple": { "duration": 450, "easing": "easeOut" }
+    }
+  },
+
+  "opacity": {
+    "disabled": 0.38,
+    "hover": 0.08,
+    "pressed": 0.16,
+    "focus": 0.12,
+    "overlay": 0.6,
+    "dimmed": 0.5
+  },
+
+  "iconography": {
+    "size": {
+      "xs": 12,
+      "sm": 16,
+      "md": 20,
+      "lg": 24,
+      "xl": 28,
+      "2xl": 32,
+      "3xl": 40,
+      "4xl": 48
+    },
+    "strokeWidth": 1.5,
+    "style": "outlined",
+    "cornerStyle": "rounded"
+  },
+
+  "layout": {
+    "grid": {
+      "columns": 4,
+      "gutter": 16,
+      "margin": 16
+    },
+    "breakpoints": {
+      "compact": 390,
+      "regular": 744,
+      "expanded": 1024
+    },
+    "zIndex": {
+      "base": 0,
+      "card": 1,
+      "sticky": 10,
+      "dropdown": 100,
+      "overlay": 200,
+      "modal": 300,
+      "sheet": 400,
+      "toast": 500,
+      "tooltip": 600
+    }
+  }
+}

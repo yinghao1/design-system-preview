@@ -7,11 +7,29 @@
 
 [![RUNDA Design System 首页：组件库](screenshots/preview-home.png)](https://yinghao1.github.io/design-system-preview/preview/index.html)
 
-**[打开在线预览 →](https://yinghao1.github.io/design-system-preview/preview/index.html)** · 支持明暗主题、⌘K 搜索与 27 个组件详情页
+**[打开在线预览 →](https://yinghao1.github.io/design-system-preview/preview/index.html)** · 支持明暗主题、⌘K 搜索；首页可切换 **B 端 PC（28 章）** 与 **C 端移动（10 章）**
 
 > GitHub 不支持在 README 中嵌入 iframe，这里以首页截图作为入口；点击图片或上方链接可打开可交互的在线站点。
 
 ---
+
+## 双端结构（B 端 PC / C 端移动）
+
+本仓库同时承载两种端形态，共享品牌底座（中性色阶、点状纹理、主色 `#2A7F8B`），各自维护组件契约。
+
+| 端 | 设计基准 | 规范文档 | 令牌 | 预览章节 | 组件样式 |
+|---|---|---|---|---|---|
+| **B 端 · PC** | 1440 宽，24 栅格 | `docs/DESIGN.md` | `tokens/design-tokens.json` | `preview/docs/components/`（28 章） | `preview/assets/design-system.css` |
+| **C 端 · 移动** | 390×852pt，4pt 网格 | `docs/c/DESIGN.md` | `tokens/c-design-tokens.json` | `preview/docs/c/`（10 章） | `preview/assets/c-mobile.css`（`c-` 前缀） |
+
+C 端另有组件契约 `docs/c/COMPONENTS.md` 与强制开发规范 `docs/c/DEVELOPMENT-RULES.md`，索引见 [`docs/c/README.md`](docs/c/README.md)。
+
+### 双端隔离约定
+
+1. **类名不重叠**：C 端统一 `c-` 前缀，B 端沿用既有语义类名，同一页面可并存。
+2. **令牌分立**：两端各自维护 tokens 文件，变更互不影响；共享项（ink 灰阶、主色 500、grain 纹理）保持同值。
+3. **站点外壳共用**：`preview/assets/coss.js` 通过 `<html data-set="c">` 自动切换章节表与路径前缀，无需复制第二套脚本。
+
 
 ## AI 使用规则（必读）
 

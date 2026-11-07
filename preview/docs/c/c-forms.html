@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-prefix="../../" data-set="c">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>表单控件 · C 端 · RUNDA Design System</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../../assets/tw-config.js"></script>
+<link rel="stylesheet" href="../../assets/coss.css" />
+<link rel="stylesheet" href="../../assets/design-system.css" />
+<link rel="stylesheet" href="../../assets/c-mobile.css" />
+</head>
+<body class="site-body" data-slug="c-forms">
+<div class="frame">
+  <span class="corner left" aria-hidden="true"></span>
+  <span class="corner right" aria-hidden="true"></span>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../../index.html"><span>RUNDA</span><span class="logo-dim">DS</span></a>
+    <nav class="header-nav" aria-label="主导航">
+      <a class="nav-link" href="c-introduction.html">组件</a>
+      <a class="nav-link" href="../../changelog.html">更新日志</a>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索组件">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        <span class="search-label">搜索</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <a class="github-link" href="https://github.com/yinghao1/design-system-preview" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="切换明暗主题">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" type="button" data-drawer-open aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="docs-layout">
+  <aside class="sidebar" id="ds-sidebar" aria-label="组件导航"></aside>
+
+  <div class="docs-main">
+    <article class="doc-card doc">
+      <h1>表单控件</h1>
+      <p class="doc-lead">输入框、搜索框与选择类控件。输入框高度 46pt、圆角 12pt、聚焦态使用 3pt 主色光圈；所有开关类控件保持 44pt 触摸热区。</p>
+
+      <div class="doc-actions">
+        <button class="btn btn-sm btn-outline" type="button" data-goto-tab="preview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          预览
+        </button>
+        <button class="btn btn-sm btn-outline" type="button" data-goto-tab="code">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+          代码
+        </button>
+        <a class="btn btn-sm btn-outline" href="../../index.html">返回组件库</a>
+      </div>
+
+      <div class="doc-tabs" data-tabs>
+        <button class="doc-tab active" type="button" data-tab="preview">Preview</button>
+        <button class="doc-tab" type="button" data-tab="code">Code</button>
+      </div>
+
+      <div class="doc-pane active" data-pane="preview" id="preview">
+        <div class="preview-box">
+<section id="forms" class="section">
+    <div class="section-title">05 · FORM · 表单控件</div>
+
+    <div class="demo-sub">TextField · TextArea · SearchBar</div>
+    <div class="c-canvas">
+      <div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
+            <div class="c-navbar">
+              <span class="back"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>
+              <span class="title">新建记录</span>
+              <span class="action" style="font-weight:600">保存</span>
+            </div>
+            <div class="phone-body" style="padding-top:14px">
+              <div class="c-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+                <span>搜索患者、指标或记录</span>
+              </div>
+
+              <div class="c-field" style="margin-top:18px">
+                <label>默认态</label>
+                <input class="c-input" placeholder="请输入内容" />
+              </div>
+
+              <div class="c-field">
+                <label>聚焦态</label>
+                <input class="c-input" value="郑宗范" style="border-color:#2A7F8B;box-shadow:0 0 0 3px rgba(42,127,139,.12)" />
+                <div class="hint">聚焦时主色描边 + 3pt 光圈</div>
+              </div>
+
+              <div class="c-field is-error">
+                <label>错误态</label>
+                <input class="c-input" value="1234" />
+                <div class="hint">手机号格式不正确，请检查后重试</div>
+              </div>
+
+              <div class="c-field">
+                <label>禁用态</label>
+                <input class="c-input" value="系统自动生成" disabled style="background:#F4F4F5;color:#A1A1AA" />
+              </div>
+
+              <div class="c-field">
+                <label>多行输入</label>
+                <textarea class="c-textarea" placeholder="补充症状描述、用药情况…">近两周晨起血压偏高，服药依从性良好。</textarea>
+                <div class="hint">0 / 200</div>
+              </div>
+            </div>
+            <div class="phone-home"></div>
+          </div>
+        </div>
+        <div class="phone-caption">输入框 46pt 高 · 圆角 12pt · 字号 17pt</div>
+      </div>
+
+      <div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
+            <div class="c-navbar"><span class="title">选择类控件</span></div>
+            <div class="phone-body" style="padding-top:14px">
+              <div style="display:flex;justify-content:center;margin-bottom:18px">
+                <div class="c-seg">
+                  <span class="active">日</span><span>周</span><span>月</span>
+                </div>
+              </div>
+
+              <div class="c-card">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid #E4E4E7">
+                  <div><div style="font-size:16px;font-weight:500">用药提醒</div><div style="font-size:13px;color:#52525B">每日 08:00 / 20:00</div></div>
+                  <button class="c-switch on" aria-label="用药提醒开关"></button>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #E4E4E7">
+                  <div><div style="font-size:16px;font-weight:500">数据同步</div><div style="font-size:13px;color:#52525B">仅 Wi-Fi 环境</div></div>
+                  <button class="c-switch" aria-label="数据同步开关"></button>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding-top:12px">
+                  <div><div style="font-size:16px;font-weight:500">紧急联系人</div><div style="font-size:13px;color:#52525B">异常时自动通知</div></div>
+                  <button class="c-switch on" aria-label="紧急联系人开关"></button>
+                </div>
+              </div>
+
+              <div class="c-card">
+                <div class="c-row" style="padding:8px 0">
+                  <span class="c-check on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                  <span class="c-row-text">我已阅读并同意知情同意书</span>
+                </div>
+                <div class="c-row" style="padding:8px 0">
+                  <span class="c-check"></span>
+                  <span class="c-row-text">接收健康周报推送</span>
+                </div>
+                <div style="height:1px;background:#E4E4E7;margin:8px 0"></div>
+                <div class="c-row" style="padding:8px 0">
+                  <span class="c-radio on"></span>
+                  <span class="c-row-text">男</span>
+                </div>
+                <div class="c-row" style="padding:8px 0">
+                  <span class="c-radio"></span>
+                  <span class="c-row-text">女</span>
+                </div>
+              </div>
+
+              <div class="c-card">
+                <div style="display:flex;justify-content:space-between;font-size:14px;color:#52525B;margin-bottom:12px"><span>目标体重</span><span class="c-num" style="font-weight:600;color:#18181B">68 kg</span></div>
+                <div class="c-slider" style="margin-bottom:20px"><i style="width:56%"></i><b style="left:56%"></b></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;color:#A1A1AA"><span>50</span><span>90</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px">
+                  <span style="font-size:15px">每日饮水</span>
+                  <div class="c-stepper"><button>−</button><em class="c-num">8</em><button>+</button></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px">
+                  <span style="font-size:15px">今日体感</span>
+                  <div class="c-rate">★<span class="off">★</span><span class="off">★</span><span class="off">★</span><span class="off">★</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-body" style="padding-top:0"><div class="c-btn c-btn--primary c-btn--block">提交</div></div>
+            <div class="phone-home"></div>
+          </div>
+        </div>
+        <div class="phone-caption">Switch 51×31 · Checkbox 22pt · 滑块轨道 4pt</div>
+      </div>
+    </div>
+  </section>
+        </div>
+      </div>
+
+      <div class="doc-pane" data-pane="code" id="code">
+        <div class="code-box">
+          <button class="code-copy" type="button" aria-label="复制代码">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <pre><code data-autocode="1"></code></pre>
+        </div>
+      </div>
+
+      <section class="doc-section" id="spec">
+        <h2>规格与状态</h2>
+        <table class="c-table" style="border-radius:8px;overflow:hidden;border:1px solid #E4E4E7">
+          <thead><tr><th>组件</th><th>尺寸</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr><td>TextField</td><td>高 46pt，圆角 12pt，内边距 13×16pt</td><td>默认 / 聚焦（主色边 + 3pt 光圈）/ 错误（error 边 + error 提示）/ 禁用</td></tr>
+            <tr><td>TextArea</td><td>最小高 96pt，行高 1.45</td><td>同上，另含字数计数</td></tr>
+            <tr><td>SearchBar</td><td>高 40pt，圆角 10pt，ink.100 底</td><td>空闲 / 输入中 / 无结果</td></tr>
+            <tr><td>Switch</td><td>51×31pt，滑块 27pt</td><td>关（ink.200）/ 开（success）/ 禁用</td></tr>
+            <tr><td>Checkbox</td><td>22pt，圆角 6pt</td><td>未选 / 选中（主色）/ 部分选中 / 禁用</td></tr>
+            <tr><td>Radio</td><td>22pt 正圆，内点 12pt</td><td>未选 / 选中（主色）/ 禁用</td></tr>
+            <tr><td>SegmentedControl</td><td>轨道内边距 3pt，段高 30pt</td><td>选中段白底 + sm 阴影</td></tr>
+            <tr><td>Slider</td><td>轨道 4pt，滑块 26pt</td><td>拖动中放大至 1.1 倍</td></tr>
+            <tr><td>Stepper</td><td>36pt 高，按钮 40pt 宽</td><td>可达上下限时对应按钮禁用</td></tr>
+            <tr><td>Rate</td><td>星标 20pt，间距 4pt</td><td>支持 0.5 步进时可显示半星</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section" id="rules">
+        <h2>使用规则</h2>
+        <ol style="font-size:14px;line-height:1.9;color:#52525B;padding-left:20px">
+          <li>标签置顶（不用浮动标签），错误提示紧贴输入框下方 6pt。</li>
+          <li>错误提示必须说明<b>如何修正</b>，禁止只写「输入有误」。</li>
+          <li>数字键盘使用 <code>inputmode="decimal"</code>；手机号使用 <code>type="tel"</code>。</li>
+          <li>开关类控件点击整行均可切换，不只点开关本体。</li>
+          <li>表单提交按钮固定在安全区之上，并提供 loading 态防止重复提交。</li>
+        </ol>
+      </section>
+    </article>
+  </div>
+
+  <nav class="toc" aria-label="本页目录">
+    <h4>本页目录</h4>
+    <a href="#preview">预览</a>
+    <a href="#code">代码</a>
+    <a href="#spec">规格与状态</a>
+    <a href="#rules">使用规则</a>
+  </nav>
+</main>
+
+</div>
+<script src="../../assets/coss.js"></script>
+</body>
+</html>
