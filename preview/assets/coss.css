@@ -258,7 +258,7 @@ svg { display: block; }
 
 .hero {
   max-width: 672px;
-  padding: 64px 0;
+  padding: 56px 0 0;
 }
 .hero h1 {
   margin: 0;
@@ -276,7 +276,7 @@ svg { display: block; }
 .hero-actions {
   display: flex;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 /* ---------- 按钮 ---------- */
@@ -594,7 +594,7 @@ svg { display: block; }
 /* ---------- 文档页 ---------- */
 .docs-layout {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr) 200px;
+  grid-template-columns: 200px minmax(0, 1fr) 168px;
   gap: 32px;
   padding: 0 32px 80px;
   align-items: start;
@@ -606,7 +606,7 @@ svg { display: block; }
   max-height: calc(100vh - var(--header-h));
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 8px 0 24px;
+  padding: 32px 0 24px;
   scrollbar-width: none;
 }
 .sidebar::-webkit-scrollbar { display: none; }
@@ -644,7 +644,7 @@ svg { display: block; }
   background: var(--card);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   padding: 48px;
-  max-width: 848px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -1013,7 +1013,7 @@ svg { display: block; }
   max-height: calc(100vh - var(--header-h) - 48px);
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 24px 0;
+  padding: 8px 0 32px;
   font-size: 13px;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
@@ -1120,7 +1120,7 @@ svg { display: block; }
 /* ---------- 响应式 ---------- */
 @media (max-width: 1279px) {
   .components-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-  .docs-layout { grid-template-columns: 220px minmax(0, 1fr); }
+  .docs-layout { grid-template-columns: 200px minmax(0, 1fr); }
   .toc { display: none; }
 }
 
@@ -1224,11 +1224,17 @@ svg { display: block; }
   align-items: center;
   justify-content: center;
   height: 30px;
+  padding: 0;
+  border: 0;
   border-radius: 8px;
+  background: transparent;
+  font-family: inherit;
   font-size: 12.5px;
   font-weight: 500;
   color: var(--muted-fg);
   text-decoration: none;
+  cursor: pointer;
+  appearance: none;
   transition: background-color 140ms ease, color 140ms ease;
   white-space: nowrap;
 }
@@ -1242,10 +1248,11 @@ svg { display: block; }
 
 /* 首页端别切换 */
 .scope-switch {
-  display: inline-flex;
+  display: flex;
+  width: max-content;
   gap: 2px;
   padding: 4px;
-  margin: 0 0 28px;
+  margin: 20px 0 0;
   background: var(--muted);
   border-radius: 12px;
 }

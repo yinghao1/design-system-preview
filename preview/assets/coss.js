@@ -253,11 +253,86 @@
     });
   }
 
-  /* 端别切换（B 端 PC / C 端移动） */
+  /* 端别切换（B 端 PC / C 端移动）
+     在详情页点击时就地切到另一端的对应章节，不再回首页 */
+  var C_TO_B = {
+    'c-introduction': 'introduction',
+    'c-typography': 'typography',
+    'c-basics': 'buttons',
+    'c-feedback': 'message',
+    'c-data': 'kpi',
+    'c-charts': 'status',
+    'c-business': 'page'
+  };
+  var B_TO_C = {
+    'introduction': 'c-introduction',
+    'usage': 'c-introduction',
+    'guidelines': 'c-introduction',
+    'buttons': 'c-basics',
+    'form': 'c-forms',
+    'tags': 'c-basics',
+    'cards': 'c-basics',
+    'tables': 'c-data',
+    'overlays': 'c-feedback',
+    'tabs': 'c-navigation',
+    'collapse': 'c-navigation',
+    'descriptions': 'c-data',
+    'layout': 'c-typography',
+    'grid': 'c-typography',
+    'motion': 'c-typography',
+    'datepicker': 'c-forms',
+    'upload': 'c-business',
+    'message': 'c-feedback',
+    'avatar': 'c-basics',
+    'kpi': 'c-data',
+    'status': 'c-data',
+    'timeline': 'c-data',
+    'anchors': 'c-data',
+    'page': 'c-business',
+    'medical': 'c-business',
+    'workstation': 'c-business',
+    'chat': 'c-business'
+  };
+
+  function findItem(list, slug) {
+    for (var i = 0; i < list.length; i++) if (list[i].slug === slug) return list[i];
+    return null;
+  }
+
+  /* 求当前页在另一端对应的章节 slug：显式映射 → 同名章节 → 加上/去掉 c- 前缀 → 该端首章 */
+  function resolveTargetSlug(targetSet) {
+    var slug = document.body.getAttribute('data-slug') || '';
+    var targetItems = targetSet === 'c' ? C_ITEMS : B_ITEMS;
+    var has = function (s) { return !!findItem(targetItems, s); };
+    var map = SET === 'c' ? C_TO_B : B_TO_C;
+    var cands = [];
+    if (map[slug]) cands.push(map[slug]);
+    var cur = findItem(ITEMS, slug);
+    if (cur) {
+      targetItems.forEach(function (it) { if (it.title === cur.title) cands.push(it.slug); });
+    }
+    var bare = slug.replace(/^c-/, '');
+    cands.push(bare);
+    cands.push('c-' + bare);
+    for (var i = 0; i < cands.length; i++) {
+      if (has(cands[i])) return cands[i];
+    }
+    return targetItems[0].slug;
+  }
+
+  function scopeHref(targetSet) {
+    if (!document.body.getAttribute('data-slug')) {
+      return prefix + 'index.html#' + targetSet;   // 首页/无章节上下文：回首页对应端
+    }
+    var slug = resolveTargetSlug(targetSet);
+    var dir = targetSet === 'c' ? '../c/' : '../components/';
+    return dir + slug + '.html';
+  }
+
   function scopeSwitchHtml() {
     return '<div class="side-switch" role="tablist" aria-label="端别切换">' +
-      '<a class="side-switch__item' + (SET === 'b' ? ' active' : '') + '" role="tab" aria-selected="' + (SET === 'b') + '" href="' + prefix + 'index.html#b">B 端 PC</a>' +
-      '<a class="side-switch__item' + (SET === 'c' ? ' active' : '') + '" role="tab" aria-selected="' + (SET === 'c') + '" href="' + prefix + 'index.html#c">C 端移动</a>' +
+      '<a class="side-switch__item' + (SET === 'b' ? ' active' : '') + '" role="tab" aria-selected="' + (SET === 'b') + '" href="' + scopeHref('b') + '">B 端 PC</a>' +
+      '<a class="side-switch__item' + (SET === 'c' ? ' active' : '') + '" role="tab" aria-selected="' + (SET === 'c') + '" href="' + scopeHref('c') + '">C 端移动</a>' +
     '</div>';
   }
 
