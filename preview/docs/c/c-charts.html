@@ -69,13 +69,12 @@
 <section id="charts" class="section">
     <div class="section-title">08 · CHART · 图表</div>
 
+    <div class="demo-sub">Chart · 折线 / 柱状 / 环形 · 多系列与降级</div>
     <div class="c-canvas">
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">趋势</span></div>
-            <div class="phone-body" style="padding-top:12px">
+            <div class="phone-body">
               <div class="c-chart-box" style="margin-bottom:12px">
                 <div class="cb-title">空腹血糖 · 近 7 日</div>
                 <svg viewBox="0 0 320 120" width="100%" height="120" preserveAspectRatio="none">
@@ -121,7 +120,6 @@
                 </div>
               </div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">折线 / 柱状 / 环形 · 全部纯色</div>
@@ -130,9 +128,7 @@
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">多指标对比</span></div>
-            <div class="phone-body" style="padding-top:12px">
+            <div class="phone-body">
               <div class="c-chart-box" style="margin-bottom:12px">
                 <div class="cb-title">血压 · 收缩压 / 舒张压</div>
                 <svg viewBox="0 0 320 120" width="100%" height="120" preserveAspectRatio="none">
@@ -171,7 +167,6 @@
                 <div style="font-size:12px;color:#A1A1AA;margin-top:8px">加载中用骨架占位；无数据用 EmptyState，不画空图表</div>
               </div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">多系列 ≤ 4 条 · Tooltip confine:true</div>
@@ -193,7 +188,7 @@
       <section class="doc-section" id="palette">
         <h2>图表色板</h2>
         <p>系列色 10 档按色相环偏移取色，任意 2 色 ΔE ≥ 30，色盲友好。分类色板仅用于多分类饼图/环图，顺序固定，不随意调换。</p>
-        <table class="c-table" style="border-radius:8px;overflow:hidden;border:1px solid #E4E4E7">
+        <table class="c-table">
           <thead><tr><th>序</th><th>系列色</th><th>HEX</th><th>面积填充（16%）</th></tr></thead>
           <tbody>
             <tr><td>1</td><td>Primary</td><td><code>#2A7F8B</code></td><td><code>rgba(42,127,139,.16)</code></td></tr>
@@ -208,7 +203,7 @@
 
       <section class="doc-section" id="axis">
         <h2>轴与网格</h2>
-        <table class="c-table" style="border-radius:8px;overflow:hidden;border:1px solid #E4E4E7">
+        <table class="c-table">
           <thead><tr><th>元素</th><th>色值</th><th>规格</th></tr></thead>
           <tbody>
             <tr><td>坐标轴线</td><td><code>#E4E4E7</code></td><td>1pt 实线</td></tr>

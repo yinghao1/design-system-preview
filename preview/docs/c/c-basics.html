@@ -69,21 +69,21 @@
 <section id="basics" class="section">
     <div class="section-title">04 · BASE · 基础组件</div>
 
-    <div class="demo-sub">Button · 六种变体</div>
+    <div class="demo-sub">Button / Chip · Badge · Avatar</div>
     <div class="c-canvas">
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">按钮</span></div>
-            <div class="phone-body" style="padding-top:14px">
+            <div class="phone-body">
+              <div class="c-demo-label">Button · 六种变体</div>
               <div class="c-btn c-btn--primary c-btn--block">主操作 · Primary</div>
               <div class="c-btn c-btn--secondary c-btn--block" style="margin-top:10px">次操作 · Secondary</div>
               <div class="c-btn c-btn--outline c-btn--block" style="margin-top:10px">描边 · Outline</div>
               <div class="c-btn c-btn--ghost c-btn--block" style="margin-top:10px">文字按钮 · Ghost</div>
               <div class="c-btn c-btn--danger c-btn--block" style="margin-top:10px">删除 · Danger</div>
               <div class="c-btn c-btn--disabled c-btn--block" style="margin-top:10px">不可用 · Disabled</div>
-              <div class="c-btn-group" style="margin-top:18px">
+              <div class="c-demo-label">Button · 组合与尺寸</div>
+              <div class="c-btn-group">
                 <div class="c-btn c-btn--outline">取消</div>
                 <div class="c-btn c-btn--primary">确认</div>
               </div>
@@ -93,7 +93,6 @@
                 <div class="c-btn c-btn--secondary c-btn--sm">小次要</div>
               </div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">高度 48pt · 圆角 12pt · 字号 17pt 半粗</div>
@@ -102,13 +101,8 @@
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar">
-              <span class="back"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>
-              <span class="title">标签与头像</span>
-              <span class="action"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
-            </div>
-            <div class="phone-body" style="padding-top:14px">
+            <div class="phone-body">
+              <div class="c-demo-label">Chip · 标签</div>
               <div style="display:flex;gap:8px;flex-wrap:wrap">
                 <span class="c-chip c-chip--active">全部</span>
                 <span class="c-chip">用药</span>
@@ -116,7 +110,8 @@
                 <span class="c-chip c-chip--outline">饮食</span>
               </div>
 
-              <div style="display:flex;gap:14px;align-items:center;margin-top:18px">
+              <div class="c-demo-label">Badge · 徽章</div>
+              <div style="display:flex;gap:14px;align-items:center">
                 <span class="c-badge">3</span>
                 <span class="c-badge c-badge--info">12</span>
                 <span class="c-badge c-badge--success">99+</span>
@@ -124,32 +119,34 @@
                 <span class="c-badge c-badge--dot c-badge--success"></span>
               </div>
 
-              <div style="display:flex;gap:12px;align-items:center;margin-top:18px">
+              <div class="c-demo-label">Avatar · 头像四档与群组</div>
+              <div style="display:flex;gap:12px;align-items:center">
                 <span class="c-avatar c-avatar--xs">李</span>
                 <span class="c-avatar c-avatar--sm">李</span>
                 <span class="c-avatar c-avatar--md">李</span>
                 <span class="c-avatar c-avatar--lg">李</span>
               </div>
 
-              <div class="c-avatar-group" style="margin-top:16px">
+              <div class="c-avatar-group" style="margin-top:12px">
                 <span class="c-avatar c-avatar--sm">李</span>
                 <span class="c-avatar c-avatar--sm" style="background:#E8F0FF;color:#1F5FCC">王</span>
                 <span class="c-avatar c-avatar--sm" style="background:#FEF6E4;color:#8A6100">张</span>
                 <span class="c-avatar c-avatar--sm" style="background:#F4F4F5;color:#52525B">+5</span>
               </div>
 
-              <div style="display:flex;gap:10px;align-items:center;margin-top:18px">
+              <div class="c-demo-label">IconButton · 图标按钮</div>
+              <div style="display:flex;gap:10px;align-items:center">
                 <button class="c-iconbtn" aria-label="搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></button>
                 <button class="c-iconbtn" aria-label="分享"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4M12 2v13"/></svg></button>
                 <button class="c-iconbtn c-iconbtn--plain" aria-label="更多"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg></button>
               </div>
 
-              <hr class="c-divider" style="margin-top:22px">
-              <div style="font-size:13px;color:#A1A1AA">分割线 1pt · #E4E4E7</div>
-              <hr class="c-divider c-divider--inset">
-              <div style="font-size:13px;color:#A1A1AA">缩进分割线（列表项内）</div>
+              <div class="c-demo-label">Divider · 分割线</div>
+              <hr class="c-divider" style="margin:0 0 6px">
+              <div class="c-demo-note">通栏 1pt · #E4E4E7</div>
+              <hr class="c-divider c-divider--inset" style="margin:14px 0 6px">
+              <div class="c-demo-note">缩进 16pt（列表项内）</div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">Chip 30pt · 头像四档 · 徽章数字/圆点</div>
@@ -170,7 +167,7 @@
 
       <section class="doc-section" id="spec">
         <h2>规格与状态</h2>
-        <table class="c-table" style="border-radius:8px;overflow:hidden;border:1px solid #E4E4E7">
+        <table class="c-table">
           <thead><tr><th>组件</th><th>尺寸</th><th>状态</th></tr></thead>
           <tbody>
             <tr><td>Button</td><td>高 48pt，圆角 12pt，内边距 14×24pt，字号 17pt/600</td><td>默认 / 按压（scale .96 + 背景加深）/ 禁用（ink.100 底 + ink.400 字）</td></tr>

@@ -69,24 +69,20 @@
 <section id="forms" class="section">
     <div class="section-title">05 · FORM · 表单控件</div>
 
-    <div class="demo-sub">TextField · TextArea · SearchBar</div>
+    <div class="demo-sub">TextField / TextArea / SearchBar · 选择控件</div>
     <div class="c-canvas">
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar">
-              <span class="back"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>
-              <span class="title">新建记录</span>
-              <span class="action" style="font-weight:600">保存</span>
-            </div>
-            <div class="phone-body" style="padding-top:14px">
+            <div class="phone-body">
+              <div class="c-demo-label">SearchBar · 搜索框</div>
               <div class="c-search">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
                 <span>搜索患者、指标或记录</span>
               </div>
 
-              <div class="c-field" style="margin-top:18px">
+              <div class="c-demo-label">TextField · 四种状态</div>
+              <div class="c-field">
                 <label>默认态</label>
                 <input class="c-input" placeholder="请输入内容" />
               </div>
@@ -108,13 +104,13 @@
                 <input class="c-input" value="系统自动生成" disabled style="background:#F4F4F5;color:#A1A1AA" />
               </div>
 
+              <div class="c-demo-label">TextArea · 多行输入</div>
               <div class="c-field">
-                <label>多行输入</label>
+                <label>症状描述</label>
                 <textarea class="c-textarea" placeholder="补充症状描述、用药情况…">近两周晨起血压偏高，服药依从性良好。</textarea>
                 <div class="hint">0 / 200</div>
               </div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">输入框 46pt 高 · 圆角 12pt · 字号 17pt</div>
@@ -123,15 +119,15 @@
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">选择类控件</span></div>
-            <div class="phone-body" style="padding-top:14px">
-              <div style="display:flex;justify-content:center;margin-bottom:18px">
+            <div class="phone-body">
+              <div class="c-demo-label">Seg · 分段控制</div>
+              <div style="display:flex;justify-content:flex-start;margin-bottom:0">
                 <div class="c-seg">
                   <span class="active">日</span><span>周</span><span>月</span>
                 </div>
               </div>
 
+              <div class="c-demo-label">Switch · 开关</div>
               <div class="c-card">
                 <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid #E4E4E7">
                   <div><div style="font-size:16px;font-weight:500">用药提醒</div><div style="font-size:13px;color:#52525B">每日 08:00 / 20:00</div></div>
@@ -147,6 +143,7 @@
                 </div>
               </div>
 
+              <div class="c-demo-label">Checkbox / Radio · 选择</div>
               <div class="c-card">
                 <div class="c-row" style="padding:8px 0">
                   <span class="c-check on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
@@ -167,6 +164,7 @@
                 </div>
               </div>
 
+              <div class="c-demo-label">Slider / Stepper / Rate</div>
               <div class="c-card">
                 <div style="display:flex;justify-content:space-between;font-size:14px;color:#52525B;margin-bottom:12px"><span>目标体重</span><span class="c-num" style="font-weight:600;color:#18181B">68 kg</span></div>
                 <div class="c-slider" style="margin-bottom:20px"><i style="width:56%"></i><b style="left:56%"></b></div>
@@ -180,9 +178,8 @@
                   <div class="c-rate">★<span class="off">★</span><span class="off">★</span><span class="off">★</span><span class="off">★</span></div>
                 </div>
               </div>
+              <div class="c-btn c-btn--primary c-btn--block" style="margin-top:18px">提交</div>
             </div>
-            <div class="phone-body" style="padding-top:0"><div class="c-btn c-btn--primary c-btn--block">提交</div></div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">Switch 51×31 · Checkbox 22pt · 滑块轨道 4pt</div>
@@ -203,7 +200,7 @@
 
       <section class="doc-section" id="spec">
         <h2>规格与状态</h2>
-        <table class="c-table" style="border-radius:8px;overflow:hidden;border:1px solid #E4E4E7">
+        <table class="c-table">
           <thead><tr><th>组件</th><th>尺寸</th><th>状态</th></tr></thead>
           <tbody>
             <tr><td>TextField</td><td>高 46pt，圆角 12pt，内边距 13×16pt</td><td>默认 / 聚焦（主色边 + 3pt 光圈）/ 错误（error 边 + error 提示）/ 禁用</td></tr>

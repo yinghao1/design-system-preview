@@ -69,13 +69,13 @@
 <section id="business" class="section">
     <div class="section-title">10 · BUSINESS · 业务组件</div>
 
+    <div class="demo-sub">Business · TaskCard / AgentMessage / Upload / Pricing / Steps</div>
     <div class="c-canvas">
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">今日任务</span></div>
-            <div class="phone-body" style="padding-top:14px">
+            <div class="phone-body">
+              <div class="c-demo-label">TaskCard · 任务卡</div>
               <div class="c-task" style="margin-bottom:12px">
                 <div class="t-head">
                   <div style="width:36px;height:36px;border-radius:10px;background:#EDF6F7;color:#2A7F8B;display:flex;align-items:center;justify-content:center">
@@ -100,7 +100,7 @@
                 <div class="t-foot"><span style="font-size:13px;color:#A1A1AA">截止 09:00</span><div class="c-btn c-btn--primary c-btn--sm">去记录</div></div>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin:20px 0 10px">AgentMessage · AI 健康助手</div>
+              <div class="c-demo-label">AgentMessage · AI 健康助手</div>
               <div class="c-msg" style="margin-bottom:12px">
                 <div class="avatar">AI</div>
                 <div class="bubble">
@@ -113,7 +113,7 @@
                 </div>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin:20px 0 10px">ToolCallCard · 工具调用</div>
+              <div class="c-demo-label">ToolCallCard · 工具调用</div>
               <div class="c-card" style="padding:12px 14px">
                 <div style="display:flex;align-items:center;gap:8px">
                   <span class="c-status c-status--info">调用中</span>
@@ -122,18 +122,14 @@
                 <div style="font-size:13px;color:#52525B;margin-top:8px;font-family:ui-monospace,Menlo,monospace;background:#F4F4F5;border-radius:8px;padding:8px 10px;line-height:1.6">{ "range": "7d", "metric": "fasting_glucose" }</div>
                 <div style="font-size:12px;color:#A1A1AA;margin-top:8px">耗时 240ms · 返回 7 条记录</div>
               </div>
-            </div>
-            <div style="position:relative">
-              <div class="c-fab" style="position:absolute;right:16px;bottom:84px">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+
+              <div class="c-demo-label">FAB · 悬浮操作按钮 56pt</div>
+              <div style="display:flex;justify-content:flex-end">
+                <div class="c-fab">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                </div>
               </div>
             </div>
-            <div class="c-tabbar">
-              <a class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>首页</span></a>
-              <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>助手</span></a>
-              <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>我的</span></a>
-            </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">TaskCard / AgentMessage / ToolCallCard / FAB</div>
@@ -142,12 +138,8 @@
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar">
-              <span class="back"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>
-              <span class="title">上传与订阅</span>
-            </div>
-            <div class="phone-body" style="padding-top:14px">
+            <div class="phone-body">
+              <div class="c-demo-label">UploadCard · 上传与文件解析</div>
               <div class="c-upload" style="margin-bottom:16px">
                 <div class="u-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4M12 2v13"/></svg></div>
                 <div style="font-weight:600;color:#18181B">上传检查报告</div>
@@ -171,11 +163,12 @@
                 </div>
               </div>
 
+              <div class="c-demo-label">PricingCard · 订阅套餐</div>
               <div class="c-pricing">
                 <span class="c-chip c-chip--active" style="margin-bottom:10px">推荐</span>
                 <div class="p-name">健康守护 · 年付</div>
                 <div class="p-price">¥268<small> /年</small></div>
-                <div style="font-size:13px;color:#A1A1AA">折合 ¥22.3 / 月，随时可取消</div>
+                <div class="c-demo-label">折合 ¥22.3 / 月，随时可取消</div>
                 <ul>
                   <li>不限次 AI 报告解读</li>
                   <li>7×24 指标异常预警</li>
@@ -186,7 +179,8 @@
                 <div style="text-align:center;font-size:12px;color:#A1A1AA;margin-top:10px">订阅即表示同意《服务协议》与《隐私政策》</div>
               </div>
 
-              <div style="margin-top:18px;display:flex;justify-content:center">
+              <div class="c-demo-label">StepIndicator · 步骤指示器</div>
+              <div style="display:flex;justify-content:center">
                 <div class="c-steps" style="width:100%">
                   <div class="done">选择</div>
                   <div class="done">支付</div>
@@ -195,7 +189,6 @@
                 </div>
               </div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">UploadCard / PricingCard / StepIndicator</div>
@@ -216,7 +209,7 @@
 
       <section class="doc-section" id="spec">
         <h2>规格</h2>
-        <table class="c-table" style="border-radius:8px;overflow:hidden;border:1px solid #E4E4E7">
+        <table class="c-table">
           <thead><tr><th>组件</th><th>关键规格</th><th>状态</th></tr></thead>
           <tbody>
             <tr><td>TaskCard</td><td>圆角 16pt，内边距 16pt；图标容器 36pt</td><td>待完成 / 进行中 / 已完成 / 已过期</td></tr>

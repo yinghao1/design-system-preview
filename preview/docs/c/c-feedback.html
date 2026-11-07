@@ -69,14 +69,13 @@
 <section id="feedback" class="section">
     <div class="section-title">09 · FEEDBACK · 反馈</div>
 
+    <div class="demo-sub">Feedback · Toast / Banner / Alert · Modal / Sheet · 状态占位</div>
     <div class="c-canvas">
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">轻提示与横幅</span></div>
-            <div class="phone-body" style="padding-top:14px">
-              <div style="font-size:13px;color:#A1A1AA;margin-bottom:8px">Toast</div>
+            <div class="phone-body">
+              <div class="c-demo-label">Toast</div>
               <div class="c-toast" style="margin-bottom:10px">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5EE9A4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                 <span>保存成功</span>
@@ -86,7 +85,7 @@
                 <span>正在提交…</span>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin-bottom:8px">Notification Banner</div>
+              <div class="c-demo-label">Notification Banner</div>
               <div class="c-banner" style="margin-bottom:8px">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4388FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
                 <div style="flex:1"><div class="bt">检验报告已生成</div><div class="bd">血常规 + 生化共 2 项异常，点击查看解读。</div></div>
@@ -97,13 +96,12 @@
                 <div style="flex:1"><div class="bt">服药提醒已关闭</div><div class="bd">关闭后将不再接收推送通知。</div></div>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin-bottom:8px">Alert · 四种语义</div>
+              <div class="c-demo-label">Alert · 四种语义</div>
               <div class="c-alert" style="margin-bottom:8px">信息：数据同步完成，共 12 条记录。</div>
               <div class="c-alert c-alert--success" style="margin-bottom:8px">成功：身份核验通过。</div>
               <div class="c-alert c-alert--warn" style="margin-bottom:8px">警告：收缩压 142 mmHg 高于参考值。</div>
               <div class="c-alert c-alert--error">错误：网络连接失败，请稍后重试。</div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">Toast 深色 92% · Banner 左侧 3pt 语义条</div>
@@ -112,9 +110,7 @@
       <div>
         <div class="phone">
           <div class="phone-screen" style="position:relative;min-height:600px">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">浮层</span></div>
-            <div class="phone-body" style="padding-top:14px;filter:blur(1px);opacity:.5">
+            <div class="phone-body" style="filter:blur(1px);opacity:.5">
               <div class="c-card"><div class="skeleton" style="height:14px;width:50%;margin-bottom:10px;background:#F4F4F5"></div><div class="skeleton" style="height:14px;width:80%;background:#F4F4F5"></div></div>
               <div class="c-card"><div class="skeleton" style="height:14px;width:60%;background:#F4F4F5"></div></div>
             </div>
@@ -137,20 +133,18 @@
                 <a href="#" class="danger">删除当前附件</a>
                 <a href="#" style="font-weight:600">取消</a>
               </div>
-              <div class="phone-home" style="background:#fff"></div>
             </div>
           </div>
         </div>
         <div class="phone-caption">Modal 宽 270pt 圆角 20pt · Sheet 顶部 24pt</div>
       </div>
 
-      <div>
+      <div style="grid-column:1 / -1">
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">状态占位</span></div>
-            <div class="phone-body" style="padding-top:14px">
-              <div style="font-size:13px;color:#A1A1AA;margin-bottom:8px">Skeleton 骨架屏</div>
+            <div class="phone-body fb-states">
+              <div class="fb-col">
+              <div class="c-demo-label">Skeleton 骨架屏</div>
               <div class="c-card" style="margin-bottom:20px">
                 <div style="display:flex;gap:12px;align-items:center">
                   <div class="c-skeleton" style="width:44px;height:44px;border-radius:999px"></div>
@@ -161,12 +155,14 @@
                 </div>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin-bottom:8px">Spinner 加载指示器</div>
+              <div class="c-demo-label">Spinner 加载指示器</div>
               <div class="c-card" style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
                 <span class="c-spinner"></span><span style="font-size:15px;color:#52525B">加载中…</span>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin-bottom:8px">EmptyState 空状态</div>
+              </div>
+              <div class="fb-col">
+              <div class="c-demo-label">EmptyState 空状态</div>
               <div class="c-card" style="margin-bottom:20px">
                 <div class="c-empty">
                   <div class="ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 7l2-3h14l2 3M9 12h6"/></svg></div>
@@ -176,7 +172,7 @@
                 </div>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin-bottom:8px">ErrorState 错误状态</div>
+              <div class="c-demo-label">ErrorState 错误状态</div>
               <div class="c-card">
                 <div class="c-empty">
                   <div class="ico" style="background:rgba(216,50,38,.08);color:#D83226"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
@@ -185,8 +181,8 @@
                   <div class="c-btn c-btn--outline c-btn--sm" style="margin-top:12px">重新加载</div>
                 </div>
               </div>
+              </div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">骨架 1.4s 扫光 · 图标圆 72pt</div>
@@ -207,7 +203,7 @@
 
       <section class="doc-section" id="spec">
         <h2>规格与层级</h2>
-        <table class="c-table" style="border-radius:8px;overflow:hidden;border:1px solid #E4E4E7">
+        <table class="c-table">
           <thead><tr><th>组件</th><th>z-index</th><th>关键规格</th></tr></thead>
           <tbody>
             <tr><td>Toast</td><td>500</td><td>深色 92%，圆角 12pt，顶部滑入 250ms spring，2s 自动消失</td></tr>

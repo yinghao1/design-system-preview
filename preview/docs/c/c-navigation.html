@@ -69,18 +69,17 @@
 <section id="nav" class="section">
     <div class="section-title">06 · NAVIGATION · 导航</div>
 
-    <div class="demo-sub">NavigationBar · TabBar · 页面骨架</div>
+    <div class="demo-sub">NavigationBar · TabBar / Swipe · 下拉刷新 · 步骤条</div>
     <div class="c-canvas">
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
             <div class="c-navbar">
               <span class="back"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>
               <span class="title">检验报告</span>
               <span class="action"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4M12 2v13"/></svg></span>
             </div>
-            <div class="phone-body" style="padding-top:12px">
+            <div class="phone-body">
               <div class="c-tabgroup" style="margin-bottom:14px">
                 <a class="active">全部</a><a>异常</a><a>已读</a>
               </div>
@@ -103,7 +102,6 @@
                   </details>
                 </div>
               </div>
-              <div style="margin-top:14px;font-size:12px;color:#A1A1AA;text-align:center">下拉可刷新 · 左滑可操作</div>
             </div>
             <div class="c-tabbar">
               <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>首页</span></a>
@@ -111,7 +109,6 @@
               <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>助手</span></a>
               <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>我的</span></a>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">导航栏 44pt · Tab 栏 49pt · 折叠面板</div>
@@ -120,30 +117,24 @@
       <div>
         <div class="phone">
           <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span class="si"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor"/></svg></span></div>
-            <div class="c-navbar"><span class="title">滑动操作</span></div>
-            <div class="phone-body" style="padding-top:14px">
-              <div style="font-size:13px;color:#A1A1AA;margin-bottom:10px">左滑露出操作（Swipe Actions）</div>
-              <div style="border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)">
-                <div style="display:flex">
-                  <div style="flex:1;padding:14px 16px;transform:translateX(-88px)">
-                    <div style="font-size:16px;font-weight:500">08:00 二甲双胍</div>
-                    <div style="font-size:13px;color:#52525B;margin-top:2px">0.5g · 随餐服用</div>
-                  </div>
-                  <div style="display:flex">
-                    <div style="width:88px;background:#F2AD0C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">稍后</div>
-                    <div style="width:88px;background:#D83226;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">删除</div>
-                  </div>
+            <div class="phone-body">
+              <div class="c-demo-label">左滑露出操作（Swipe Actions）</div>
+              <div style="display:flex;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)">
+                <div style="flex:1 1 auto;min-width:0;padding:14px 16px">
+                  <div style="font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">08:00 二甲双胍</div>
+                  <div style="font-size:13px;color:#52525B;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">0.5g · 随餐服用</div>
                 </div>
+                <div style="flex:0 0 88px;background:#D83226;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">删除</div>
               </div>
+              <div class="c-demo-note">单个操作区宽 88pt；两个操作时从右向左依次排布</div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin:22px 0 10px">下拉刷新（Pull to Refresh）</div>
+              <div class="c-demo-label">下拉刷新（Pull to Refresh）</div>
               <div style="border-radius:14px;background:#fff;padding:18px 16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.05)">
                 <div class="c-spinner" style="margin:0 auto 8px"></div>
                 <div style="font-size:13px;color:#52525B">正在同步最新数据…</div>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin:22px 0 10px">步骤指示器（Step Indicator）</div>
+              <div class="c-demo-label">步骤指示器（Step Indicator）</div>
               <div style="border-radius:14px;background:#fff;padding:18px 14px;box-shadow:0 1px 2px rgba(0,0,0,.05)">
                 <div class="c-steps">
                   <div class="done">预约</div>
@@ -153,14 +144,13 @@
                 </div>
               </div>
 
-              <div style="font-size:13px;color:#A1A1AA;margin:22px 0 10px">分段控制器作为筛选器</div>
+              <div class="c-demo-label">分段控制器作为筛选器</div>
               <div class="c-seg" style="display:flex">
                 <span class="active" style="flex:1;text-align:center">本周</span>
                 <span style="flex:1;text-align:center">本月</span>
                 <span style="flex:1;text-align:center">全年</span>
               </div>
             </div>
-            <div class="phone-home"></div>
           </div>
         </div>
         <div class="phone-caption">滑动操作 / 下拉刷新 / 步骤条</div>
@@ -181,7 +171,7 @@
 
       <section class="doc-section" id="spec">
         <h2>规格与状态</h2>
-        <table class="c-table" style="border-radius:8px;overflow:hidden;border:1px solid #E4E4E7">
+        <table class="c-table">
           <thead><tr><th>组件</th><th>尺寸</th><th>行为</th></tr></thead>
           <tbody>
             <tr><td>NavigationBar</td><td>高 44pt；背景 blur(12pt) + 92% 透明度</td><td>滚动超过 8pt 后出现 1pt 底边；返回区 36×36pt</td></tr>
