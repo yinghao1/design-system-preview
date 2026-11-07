@@ -65,9 +65,9 @@
   display: flex;
   flex-direction: column;
 }
-/* 单块演示：宽度不超过 420px（约等于 390pt 设计稿 1:1），
-   窄视口下只剩一列时也不会把面板撑成整栏宽 */
-.c-canvas > div:only-child { max-width: 420px; }
+/* 单块演示：宽度不超过 360px（约等于 390pt 设计稿的 1:1），
+   在宽视口下也不会比两列页面的单列更宽，保持全站单块演示的观感一致 */
+.c-canvas > div:only-child { max-width: 360px; }
 
 .phone {
   width: auto;
@@ -146,8 +146,8 @@ html[data-set="c"] .section > .section-title + .demo-sub,
 
 .c-demo-note {
   font-size: 12px;
-  line-height: 1.6;
-  color: #A1A1AA;
+  line-height: 1.65;
+  color: #71717A;
   margin-top: 8px;
 }
 .c-demo-note--center { text-align: center; }
@@ -670,13 +670,40 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-legend span { display: inline-flex; align-items: center; gap: 5px; }
 .c-legend i { width: 10px; height: 10px; border-radius: 3px; display: block; }
 
-/* 色卡 */
-.c-swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
-.c-swatch { border-radius: 10px; overflow: hidden; border: 1px solid var(--c-line); background: #fff; }
-.c-swatch .chip { height: 46px; }
-.c-swatch .meta { padding: 6px 8px; font-size: 11px; color: var(--c-ink-2); line-height: 1.4; }
-.c-swatch .meta b { display: block; font-size: 12px; color: var(--c-ink); font-weight: 600; }
-.c-swatch .meta code { font-size: 10.5px; color: var(--c-ink-3); }
+/* ============ 色卡 ============
+   结构：色块 + 下方文字。文字区不套卡片边框、不加底色，
+   名称与色值都与色块左缘对齐——避免「卡片一道框 + 色块一道框」的双框观感。 */
+.c-swatch-grid {
+  display: grid;
+  /* 7 列：四套色板（5 / 7 / 4 / 4）都能在单行内排完，
+     不会出现「某套色板第二行只剩一个孤儿色块」的塌陷感 */
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  gap: 18px 10px;
+}
+.c-swatch { background: none; border: 0; border-radius: 0; overflow: visible; }
+.c-swatch .chip {
+  height: 56px;
+  border-radius: 10px;
+  /* 唯一一道发丝内描边：纯白 #FFFFFF 与近白 #FAFAFA 色块也能看清边界，
+     与色块外框不叠加（此前白卡同时有卡片边框 + 内描边，等于描了两道） */
+  box-shadow: inset 0 0 0 1px rgba(24, 24, 27, .07);
+}
+.c-swatch .meta { padding: 10px 0 0; font-size: 11px; color: var(--c-ink-2); line-height: 1.45; }
+.c-swatch .meta b { display: block; font-size: 12px; font-weight: 600; letter-spacing: .01em; color: var(--c-ink); }
+/* 色值：纯文字，不带灰底胶囊，左缘与名称对齐 */
+.c-swatch .meta code {
+  display: block;
+  margin-top: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: .02em;
+  color: #71717A;
+}
+.c-swatch-grid + .c-demo-note { margin-top: 12px; }
 
 /* ============ 分组演示：状态类组件通铺两列 ============
    Feedback 页第三块（Skeleton / Spinner / EmptyState / ErrorState）内容偏窄，
