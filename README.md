@@ -5,7 +5,7 @@
 
 ## 在线预览
 
-[![RUNDA Design System 首页：组件库](screenshots/preview-home.png)](https://yinghao1.github.io/design-system-preview/preview/index.html)
+[![RUNDA Design System 首页：组件库](screenshots/preview-home.webp)](https://yinghao1.github.io/design-system-preview/preview/index.html)
 
 **[打开在线预览 →](https://yinghao1.github.io/design-system-preview/preview/index.html)** · 支持明暗主题、⌘K 搜索；首页可切换 **B 端 PC（28 章）** 与 **C 端移动（10 章）**
 
@@ -156,7 +156,7 @@ design-system/
 │   ├── icons/empty-state.svg          ← RUNDA 标准空状态插画
 │   └── fonts/                         ← Cal Sans / Urbanist Medium 字体源文件
 └── screenshots/
-    ├── preview-home.png               ← README 首页预览截图（可点击进入在线站点）
+    ├── preview-home.webp              ← README 首页预览截图（可点击进入在线站点）
     ├── pages/                         ← 全部页面完整截图（11 张）
     ├── states/                        ← 不同状态截图（6 张）
     └── interactions/                  ← 交互状态截图（3 张）
@@ -416,7 +416,7 @@ Preview / Code 双 Tab、安装与使用说明。全站支持 ⌘K 搜索、明�
 
 | 页面 | 文件 |
 |------|------|
-| 组件库首页（README 在线预览封面） | [preview-home.png](screenshots/preview-home.png) |
+| 组件库首页（README 在线预览封面） | [preview-home.webp](screenshots/preview-home.webp) |
 
 ### 页面截图（默认状态）
 
