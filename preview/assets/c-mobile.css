@@ -46,30 +46,37 @@
 /* ============ 演示面板 · 组件展示容器 ============
    参照 HeroUI Docs 的展示方式：组件直接呈现在单层演示面板上，
    不套 iPhone 外框、不显示状态栏与 Home 条、面板顶部不放假导航栏。
-   面板底色取应用背景 #FAFAFA，白色卡片自然浮于其上，观感与真机一致。 */
+   面板底色取应用背景 #FAFAFA，白色卡片自然浮于其上，观感与真机一致。
+
+   间距体系（4pt 网格）：
+   · 面板内边距 20 · 面板内元素 12 / 16 · 面板之间 20
+   · 分组标注 上 32 / 下 12 · 面板与其说明 10 */
 .c-canvas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* auto-fill 而非 auto-fit：空轨道保留，单块演示的宽度等于两列页面的单列宽度（约 355px）。
+     用 auto-fit 时空轨道会被折叠，唯一子项被拉到整栏宽——即「今日概览」面板自动拉宽的根因。 */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 0;
   align-items: start;
-  justify-content: stretch;
 }
 .c-canvas > div {
   min-width: 0;
   display: flex;
   flex-direction: column;
 }
-.c-canvas > div:only-child { grid-column: 1 / -1; }
+/* 单块演示：宽度不超过 420px（约等于 390pt 设计稿 1:1），
+   窄视口下只剩一列时也不会把面板撑成整栏宽 */
+.c-canvas > div:only-child { max-width: 420px; }
 
 .phone {
   width: auto;
   min-width: 0;
   max-width: 100%;
   background: var(--c-bg);
-  border: 1px solid #EDEDF0;
+  border: 1px solid var(--c-line);
   border-radius: 14px;
-  padding: 18px;
+  padding: 20px;
   box-shadow: none;
   font-family: 'SF Pro Text', 'PingFang SC', 'Noto Sans SC', system-ui, sans-serif;
   color: var(--c-ink);
@@ -90,41 +97,53 @@
 .phone-body > *:last-child { margin-bottom: 0; }
 .phone-body .c-field:last-child { margin-bottom: 0; }
 
+/* 页面级演示（导航栏 + 内容 + Tab 栏）：三段之间留出间距，
+   避免卡片紧贴导航栏、Tab 栏紧贴末尾按钮 */
+.phone-screen > .c-navbar + .phone-body { margin-top: 12px; }
+.phone-screen > .phone-body + .c-tabbar { margin-top: 16px; }
+
 /* 演示说明：置于面板下方，左对齐，与面板同宽 */
 .phone-caption {
   text-align: left;
   font-size: 12px;
   line-height: 1.6;
   color: #71717A;
-  margin: 8px 0 0;
-  padding-left: 2px;
+  margin: 10px 0 0;
+  padding-left: 0;
   letter-spacing: .01em;
 }
-
-/* 分组间距：demo-sub 与上一组演示之间留出呼吸空间 */
-.c-canvas + .demo-sub,
-.phone-caption + .demo-sub { margin-top: 32px; }
 
 /* C 端页面里沿用 B 端的 .demo-box 时，统一成 C 端演示面板的外观，
    避免同一页面出现两套容器样式（圆角、底色、描边不一致） */
 html[data-set="c"] .demo-box {
-  background: #FAFAFA;
-  border: 1px solid #EDEDF0;
+  background: var(--c-bg);
+  border: 1px solid var(--c-line);
   border-radius: 14px;
-  padding: 18px;
+  padding: 20px;
   margin-bottom: 0;
 }
 
-/* 面板内的小节标题与辅助说明：统一字号、字重与上下节奏，
-   替代原先各页零散的内联 font-size / color 写法 */
+/* ---------- 演示标注：统一的 eyebrow ----------
+   页面级分组标注（.demo-sub）与面板内子分组标注（.c-demo-label）
+   共用一套字体/字重/字距，只有上下间距分级（组 32/12、子组 24/10），
+   避免同一页面出现「11px 等宽大写」与「12px 无衬线」两种标注风格。 */
+html[data-set="c"] .demo-sub,
 .c-demo-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  color: #A1A1AA;
-  margin: 22px 0 10px;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #71717A;
 }
+html[data-set="c"] .demo-sub { margin: 32px 0 12px; }
+.c-demo-label { margin: 24px 0 10px; }
+/* 首个可见元素不额外留白：section-title 在预览区内被隐藏，单独处理其后的标注 */
+html[data-set="c"] .section > .demo-sub:first-child,
+html[data-set="c"] .section > .section-title + .demo-sub,
 .c-demo-label:first-child { margin-top: 0; }
+
 .c-demo-note {
   font-size: 12px;
   line-height: 1.6;
@@ -133,9 +152,50 @@ html[data-set="c"] .demo-box {
 }
 .c-demo-note--center { text-align: center; }
 
+/* ---------- 设计原则网格（概述页） ----------
+   替代原先逐项写死的内联 font-size / color / grid 样式 */
+.c-principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px 24px;
+}
+.c-principles > div > b {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--c-primary-700);
+}
+.c-principles > div > span {
+  display: block;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--c-ink-2);
+  margin-top: 6px;
+}
+/* 文档语境下的原则网格：白底、无面板描边，改用发丝线分组，
+   与预览面板区分开——面板只留给真正的组件演示 */
+.c-principles--doc {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 24px 32px;
+}
+.c-principles--doc > div {
+  padding-top: 12px;
+  border-top: 1px solid var(--c-line);
+}
+
+/* ---------- 文档区表格（预览面板之外）----------
+   预览面板外的规格表按「文档表格」放宽内边距，行高更舒展；
+   面板内的组件表格保持移动端紧凑规格（10 / 12）。 */
+html[data-set="c"] .doc-card .c-table th { padding: 12px 16px; }
+html[data-set="c"] .doc-card .c-table td { padding: 13px 16px; }
+html[data-set="c"] .doc-card .phone .c-table th { padding: 10px 12px; }
+html[data-set="c"] .doc-card .phone .c-table td { padding: 12px; }
+html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
+
 @media (max-width: 520px) {
   .c-canvas { grid-template-columns: 1fr; }
-  .phone { padding: 12px; border-radius: 12px; }
+  .phone { padding: 14px; border-radius: 12px; }
 }
 
 /* 数值字体（Manrope） */
