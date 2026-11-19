@@ -76,7 +76,7 @@
   width: auto;
   min-width: 0;
   max-width: 100%;
-  background: var(--c-bg);
+  background: #ffffff;
   border: 1px solid var(--c-line);
   border-radius: 14px;
   padding: 20px;
@@ -438,9 +438,21 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-cell {
   display: flex; align-items: center; gap: 12px;
   background: #fff; padding: 14px 16px;
-  border-bottom: 1px solid var(--c-line);
+  position: relative;
 }
-.c-cell:last-child { border-bottom: 0; }
+/* 分割线左右预留 16pt 安全边距（与内容 16pt 内边距对齐），不顶到卡片边缘；
+   颜色用浅一档的 --c-bg-2(#F4F4F5)，比 --c-line(#E4E4E7) 更柔和 */
+.c-cell:not(:last-child)::after {
+  content: ''; position: absolute; left: 16px; right: 16px; bottom: 0;
+  height: 1px; background: var(--c-bg-2);
+}
+/* 通用内缩分割线：供非 .c-cell 的手写列表行复用（如 Switch 设置列表），
+   与 .c-cell 的分割线保持同一内缩距离与浅色梯度 */
+.c-divider-inset { position: relative; }
+.c-divider-inset:not(:last-child)::after {
+  content: ''; position: absolute; left: 16px; right: 16px; bottom: 0;
+  height: 1px; background: var(--c-bg-2);
+}
 .c-cell .c-cell-main { flex: 1; min-width: 0; }
 .c-cell .c-cell-title { font-size: 16px; font-weight: 500; }
 .c-cell .c-cell-sub { font-size: 13px; color: var(--c-ink-2); margin-top: 2px; }
@@ -467,18 +479,44 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   font-size: 12px; color: var(--c-ink-2);
 }
 
-.c-timeline { position: relative; padding-left: 22px; }
+/* ============ 时间线 Timeline（HeroUI Stepper 纵向风格）============
+   轴线 track/fill 分层，节点完成态实心+白勾、当前态主色+浅色光环、未来态灰空心；
+   与横向步骤指示器 .c-steps 使用同一套视觉语言。HTML 只需 <li class="done"> / <li>。 */
+.c-timeline { position: relative; padding-left: 30px; counter-reset: tlstep; }
 .c-timeline::before {
-  content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px;
+  content: ''; position: absolute; left: 7px; top: 8px; bottom: 12px;
   width: 2px; background: var(--c-line);
 }
-.c-timeline > li { position: relative; list-style: none; padding-bottom: 16px; font-size: 15px; }
-.c-timeline > li::before {
-  content: ''; position: absolute; left: -21px; top: 5px;
-  width: 12px; height: 12px; border-radius: 999px;
-  background: #fff; border: 2px solid var(--c-primary-300);
+/* 已完成段轴线叠主色 fill：每条已完成 li 从节点中心向下画到本条底部 */
+.c-timeline > li.done::after {
+  content: ''; position: absolute; left: -23px; top: 14px; bottom: -2px;
+  width: 2px; background: var(--c-primary);
 }
-.c-timeline > li.done::before { background: var(--c-primary); border-color: var(--c-primary); }
+.c-timeline > li {
+  position: relative; list-style: none; padding-bottom: 18px; font-size: 15px;
+  counter-increment: tlstep;
+}
+.c-timeline > li:last-child { padding-bottom: 0; }
+/* 节点：未来=灰空心+灰序号 */
+.c-timeline > li::before {
+  content: counter(tlstep);
+  box-sizing: border-box; display: flex; align-items: center; justify-content: center;
+  position: absolute; left: -30px; top: 1px;
+  width: 16px; height: 16px; border-radius: 999px;
+  background: #fff; border: 2px solid var(--c-line);
+  font-size: 10px; font-weight: 600; color: var(--c-ink-3);
+}
+/* 完成：主色实心 + 白色对勾 */
+.c-timeline > li.done::before {
+  content: '✓'; font-size: 11px;
+  background: var(--c-primary); border-color: var(--c-primary); color: #fff;
+}
+/* 当前：第一条未完成项，主色实心 + 白色序号 + 浅主色光环 */
+.c-timeline > li:not(.done):first-of-type::before,
+.c-timeline > li.done + li:not(.done)::before {
+  background: var(--c-primary); border-color: var(--c-primary); color: #fff;
+  box-shadow: 0 0 0 4px var(--c-primary-50);
+}
 
 .c-metric .c-metric-label { font-size: 13px; color: var(--c-ink-2); }
 .c-metric .c-metric-value { font-size: 34px; font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }

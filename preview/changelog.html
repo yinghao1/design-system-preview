@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.7.6</span>
+      <span class="changelog-pill">最新 v2.7.7</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,26 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.7.7</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-doc">规范</span>
+          <span class="changelog-tag is-new">新增</span>
+        </div>
+        <h3 class="changelog-title">C 端列表、时间线与预览框细节优化</h3>
+        <ul class="changelog-list">
+          <li><b>列表项分隔线</b>左右各内缩 16pt，与内容内边距对齐，不再顶到卡片边缘；颜色降低一档至 <code>#F4F4F5</code>，更柔和。</li>
+          <li><b>Timeline 时间线</b>对齐 HeroUI Stepper 纵向形态：完成态主色实心 + 白勾、当前态主色 + 序号 + 光环、未来态灰空心；轴线分 track/fill 两层，序号自动生成。</li>
+          <li><b>基础组件预览框</b> <code>.phone</code> 底色改为纯白 <code>#FFFFFF</code>。</li>
+          <li>同步更新组件规格文档、属性表与所有使用页内联样式，保持全局一致。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.7.6</h2>
