@@ -373,7 +373,7 @@ svg { display: block; }
 }
 .card-title {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.005em;
   color: var(--fg-strong);
