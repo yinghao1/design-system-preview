@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.7.9</span>
+      <span class="changelog-pill">最新 v2.8.0</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,26 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.8.0</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-doc">规范</span>
+          <span class="changelog-tag is-new">修复</span>
+        </div>
+        <h3 class="changelog-title">C 端 Toast / ActionSheet / Accordion 细节修正</h3>
+        <ul class="changelog-list">
+          <li><b>Toast</b> 阴影由 <code>shadow-lg</code> 调到最小档 <code>shadow-sm</code>，去掉过重的悬浮感，保留 1pt 描边层次。</li>
+          <li><b>ActionSheet</b> 「取消」按钮去掉加粗，全部选项统一 400 常规字重；选项间分割线改用浅灰 <code>#F4F4F5</code>，与列表分割线一致。</li>
+          <li><b>Accordion</b> 项间分割线改用浅灰 <code>#F4F4F5</code>；收起/展开箭头改为同一个 chevron 字符 + <code>rotate(180deg)</code>，两态字形完全一致。</li>
+          <li>同步更新组件规格文档，保持全局一致。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.7.9</h2>

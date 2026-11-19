@@ -423,7 +423,7 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-tabsline > a.active { color: var(--c-primary); border-bottom-color: var(--c-primary); font-weight: 600; }
 
 .c-accordion { background: #fff; border-radius: 16px; overflow: hidden; }
-.c-accordion > details { border-bottom: 1px solid var(--c-line); }
+.c-accordion > details { border-bottom: 1px solid var(--c-bg-2); }
 .c-accordion > details:last-child { border-bottom: 0; }
 .c-accordion summary {
   list-style: none; cursor: pointer;
@@ -431,8 +431,13 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   padding: 14px 16px; font-size: 16px; font-weight: 500;
 }
 .c-accordion summary::-webkit-details-marker { display: none; }
-.c-accordion summary::after { content: '⌄'; color: var(--c-ink-3); font-size: 14px; }
-.c-accordion details[open] summary::after { content: '⌃'; }
+/* 收起/展开用同一个 chevron 字符 + rotate(180deg)，保证两态字形完全一致；
+   仅方向不同，200ms 平滑旋转 */
+.c-accordion summary::after {
+  content: '⌄'; color: var(--c-ink-3); font-size: 16px; line-height: 1;
+  transition: transform 200ms ease;
+}
+.c-accordion details[open] summary::after { transform: rotate(180deg); }
 .c-accordion .acc-body { padding: 0 16px 14px; font-size: 15px; color: var(--c-ink-2); line-height: 1.5; }
 
 /* ============ 4. 数据展示 ============ */
@@ -601,7 +606,7 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
   display: flex; align-items: center; gap: 8px;
   background: #fff; color: var(--c-ink);
   padding: 12px 16px; border-radius: 12px; border: 1px solid var(--c-line);
-  font-size: 15px; box-shadow: var(--c-shadow-lg);
+  font-size: 15px; box-shadow: var(--c-shadow-sm);
 }
 .c-alert {
   display: flex; gap: 10px; padding: 14px 16px;
@@ -621,7 +626,8 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
 .c-sheet > a {
   display: block; text-align: center; padding: 15px 16px;
   font-size: 15px; color: var(--c-ink); text-decoration: none;
-  border-top: 1px solid var(--c-line);
+  font-weight: 400;
+  border-top: 1px solid var(--c-bg-2);
 }
 .c-sheet > a.danger { color: var(--c-error); }
 
