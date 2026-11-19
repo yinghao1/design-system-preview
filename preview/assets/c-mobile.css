@@ -213,6 +213,24 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 /* 数值字体（Urbanist，与 PC 端统一） */
 .c-num { font-family: 'Urbanist', 'PingFang SC', sans-serif; font-variant-numeric: tabular-nums; }
 
+/* ============ Lucide 图标（全局，来自 lucide.dev，本地库 vendor/lucide.min.js）============
+   C 端所有图标统一由 Lucide 提供：HTML 用 <i data-lucide="名称"></i> 声明，
+   页面底部 lucide.createIcons() 渲染为内联 SVG。默认 18pt、描边 1.8、currentColor 继承文字色。
+   需要特殊尺寸/描边/颜色时，在 <i> 上写 width/height/stroke-width/style=color 即可（createIcons 会继承）。 */
+/* createIcons 渲染后，class/width/height/stroke-width/style 都会继承到 <svg> 上。
+   默认 18pt；带 width 属性的图标用其自身尺寸（CSS 不再覆盖），保证大小分档可控。 */
+.lucide-icon { flex: none; vertical-align: -3px; }
+.lucide-icon:not([width]) { width: 18px; height: 18px; }
+[data-lucide].lucide { stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Accordion 箭头：Lucide chevron-down，展开时旋转 180°，字形/粗细两态完全一致 */
+.c-accordion summary::after { content: none; }
+.c-accordion summary .acc-arrow {
+  width: 18px; height: 18px; color: var(--c-ink-3);
+  transition: transform 200ms ease;
+}
+.c-accordion details[open] summary .acc-arrow { transform: rotate(180deg); }
+
 /* ============ 1. 基础组件 ============ */
 .c-btn {
   display: inline-flex;
@@ -431,13 +449,6 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   padding: 14px 16px; font-size: 16px; font-weight: 500;
 }
 .c-accordion summary::-webkit-details-marker { display: none; }
-/* 收起/展开用同一个 chevron 字符 + rotate(180deg)，保证两态字形完全一致；
-   仅方向不同，200ms 平滑旋转 */
-.c-accordion summary::after {
-  content: '⌄'; color: var(--c-ink-3); font-size: 16px; line-height: 1;
-  transition: transform 200ms ease;
-}
-.c-accordion details[open] summary::after { transform: rotate(180deg); }
 .c-accordion .acc-body { padding: 0 16px 14px; font-size: 15px; color: var(--c-ink-2); line-height: 1.5; }
 
 /* ============ 4. 数据展示 ============ */
@@ -520,11 +531,18 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   background: var(--c-white); border: 2px solid var(--c-line);
   font-size: 10px; font-weight: 600; color: var(--c-ink-3);
 }
-/* 完成：主色实心 + 白色对勾 */
+/* 完成：主色实心圆 + Lucide 白色对勾（勾由节点内 <i data-lucide="check"> 渲染） */
 .c-timeline > li.done::before {
-  content: '✓'; font-size: 11px;
+  content: ''; font-size: 0;
   background: var(--c-primary); border-color: var(--c-primary); color: var(--c-white);
 }
+/* 步骤条/时间线圆点内的白色对勾：绝对定位到圆心，覆盖序号 */
+.c-steps > div.done .node-check, .c-timeline > li.done .node-check {
+  position: absolute; z-index: 3; color: var(--c-white); pointer-events: none;
+}
+.c-steps > div.done .node-check { top: 5px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; }
+.c-timeline > li.done .node-check { top: 1px; left: -27px; width: 12px; height: 12px; }
+[data-lucide].node-check { stroke-width: 2.6; }
 /* 当前：第一条未完成项，主色实心 + 白色序号 + 浅主色光环 */
 .c-timeline > li:not(.done):first-of-type::before,
 .c-timeline > li.done + li:not(.done)::before {
@@ -701,9 +719,9 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
   font-size: 12px; font-weight: 600; color: var(--c-ink-3);
   position: relative; z-index: 2;
 }
-/* 已完成：主色实心 + 白色对勾 */
+/* 已完成：主色实心圆 + Lucide 白色对勾（勾由节点内 <i data-lucide="check"> 渲染） */
 .c-steps > div.done::before {
-  content: '✓'; font-size: 15px;
+  content: ''; font-size: 0;
   background: var(--c-primary); border-color: var(--c-primary); color: #fff;
 }
 /* 当前：主色实心 + 白色序号 + 柔和光环（与完成时靠「对勾/序号 + 光环」区分） */
@@ -727,8 +745,8 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
 .c-pricing .p-price { font-family: 'Urbanist', sans-serif; font-size: 34px; font-weight: 700; margin: 6px 0 2px; }
 .c-pricing .p-price small { font-size: 14px; font-weight: 500; color: var(--c-ink-3); }
 .c-pricing ul { list-style: none; padding: 0; margin: 14px 0 0; font-size: 14px; color: var(--c-ink-2); }
-.c-pricing li { display: flex; gap: 8px; padding: 5px 0; }
-.c-pricing li::before { content: '✓'; color: var(--c-success); font-weight: 700; }
+.c-pricing li { display: flex; gap: 8px; padding: 5px 0; align-items: center; }
+.c-pricing li .lucide-icon { color: var(--c-success); stroke-width: 2.4; }
 
 .c-upload {
   border: 1.5px dashed var(--c-line); border-radius: 16px;

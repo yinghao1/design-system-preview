@@ -1382,3 +1382,10 @@ svg { display: block; }
   background: #E4E4E7;
 }
 .mini-phone-screen .mp-tab i.on { background: #2A7F8B; }
+
+/* Lucide 图标（lucide.dev，本地库 vendor/lucide.min.js）：
+   <i data-lucide="名称"> 经 createIcons() 渲染为内联 SVG，class/尺寸/描边会继承。
+   默认 18pt；带 width 属性或容器 CSS（如 .search-btn svg）已指定尺寸的不覆盖。 */
+.lucide-icon { flex: none; vertical-align: -3px; }
+.lucide-icon:not([width]) { width: 18px; height: 18px; }
+[data-lucide].lucide { stroke-linecap: round; stroke-linejoin: round; }

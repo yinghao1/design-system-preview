@@ -21,6 +21,13 @@
 4. **完整开发流程与验收标准**  
    详见 **[`DEVELOPMENT-RULES.md`](./DEVELOPMENT-RULES.md)** — 包含组件选型流程、禁止行为清单、视觉验收流程。
 
+5. **图标统一使用 Lucide**  
+   所有 C 端图标来自开源库 **[Lucide](https://lucide.dev/icons/)**（ISC 许可），已本地化到 `preview/assets/vendor/lucide.min.js`，不依赖外网 CDN。  
+   - **用法**：HTML 写 `<i data-lucide="图标名"></i>`，页面底部 `lucide.createIcons()` 自动渲染为内联 SVG；图标名用 kebab-case（如 `chevron-down`、`circle-alert`），完整清单见 lucide.dev。  
+   - **尺寸**：默认 18pt；需在 `<i>` 上写 `width`/`height` 指定分档（12/14/16/18/20/22/24pt）。描边默认 1.8，可写 `stroke-width` 覆盖。颜色继承 `currentColor`，特殊色用 `style="color:#..."`。  
+   - **禁止**：不得再用字符符号（✓/⌄/› 等）或手写内联 SVG 充当图标；展开/收起类箭头统一用 `chevron-*` + `rotate(180deg)` 过渡，保证两态字形一致。  
+   - **许可证**：见 `preview/assets/vendor/LUCIDE-LICENSE.txt`。
+
 ---
 
 ## 组件库索引
@@ -1542,7 +1549,7 @@ const chart = echarts.init(dom, 'runda-toc');
 |------|-----|
 | 标题高度 | 44pt（最小触摸目标） |
 | 标题字号 | 15pt Semibold |
-| 箭头图标 | 16pt，收起/展开同一个 chevron 字符 + `rotate(180deg)`，两态字形一致，200ms ease |
+| 箭头图标 | Lucide `chevron-down` 18pt，展开 `rotate(180deg)`，两态字形一致，200ms ease |
 | 内容区 | 高度动画展开，300ms ease-out |
 | 分割线 | 浅灰 `#F4F4F5`，与列表分割线同一浅色梯度 |
 

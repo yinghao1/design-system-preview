@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.8.0</span>
+      <span class="changelog-pill">最新 v2.8.1</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,26 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.8.1</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-new">新增</span>
+          <span class="changelog-tag is-doc">规范</span>
+        </div>
+        <h3 class="changelog-title">C 端图标全面接入 Lucide 开源图标库</h3>
+        <ul class="changelog-list">
+          <li>接入 Lucide v0.468.0（ISC 许可），本地化到 <code>assets/vendor/lucide.min.js</code>，不依赖外网 CDN；所有 C 端页面与首页在底部调用 <code>lucide.createIcons()</code>。</li>
+          <li>C 端全部内联图标统一改为 <code>&lt;i data-lucide="名称"&gt;</code> 声明（30 种图标、117+ 处），尺寸/描边/颜色由全局规则统一：默认 18pt、描边 1.8、继承 currentColor。</li>
+          <li>清除所有字符符号图标：Accordion 的 <code>⌄</code> 改为 Lucide <code>chevron-down</code> + 平滑旋转，步骤条/时间线/价格列表的 <code>✓</code> 改为 Lucide <code>check</code>，列表 <code>›</code> 改为 <code>chevron-right</code>；折叠箭头两态字形完全一致。</li>
+          <li>首页缩略预览的迷你图标（心电、药丸、烧瓶、toast 对勾、日历箭头）同步换为 Lucide。</li>
+          <li>更新组件规范：新增「图标统一使用 Lucide」强制条款与用法说明，Accordion 箭头规格同步。</li>
+        </ul>
+      </div>
+    </section>
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.8.0</h2>
