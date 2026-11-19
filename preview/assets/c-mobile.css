@@ -541,10 +541,11 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-stacked > i { display: block; height: 100%; }
 
 /* ============ 5. 反馈组件 ============ */
+/* Toast：白色系（与 §5.1 文档 #FFFFFF 规范一致），细边框 + 阴影保证浅色页面上的层次 */
 .c-toast {
   display: flex; align-items: center; gap: 8px;
-  background: rgba(24,24,27,.92); color: #fff;
-  padding: 12px 16px; border-radius: 12px;
+  background: #fff; color: var(--c-ink);
+  padding: 12px 16px; border-radius: 12px; border: 1px solid var(--c-line);
   font-size: 15px; box-shadow: var(--c-shadow-lg);
 }
 .c-alert {
@@ -561,10 +562,10 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   padding: 8px 0 12px; box-shadow: 0 -8px 32px rgba(0,0,0,.12);
 }
 .c-sheet .grab { width: 36px; height: 5px; border-radius: 999px; background: var(--c-line); margin: 6px auto 10px; }
-.c-sheet .sheet-title { text-align: center; font-size: 13px; color: var(--c-ink-2); padding: 4px 16px 10px; }
+.c-sheet .sheet-title { text-align: center; font-size: 11px; color: var(--c-ink-2); padding: 4px 16px 10px; }
 .c-sheet > a {
   display: block; text-align: center; padding: 15px 16px;
-  font-size: 18px; color: var(--c-primary); text-decoration: none;
+  font-size: 15px; color: var(--c-ink); text-decoration: none;
   border-top: 1px solid var(--c-line);
 }
 .c-sheet > a.danger { color: var(--c-error); }
@@ -620,21 +621,42 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-msg .avatar { width: 30px; height: 30px; border-radius: 999px; background: var(--c-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: 0 0 auto; }
 .c-msg .bubble { flex: 1; background: #fff; border-radius: 14px; padding: 12px 14px; font-size: 15px; line-height: 1.5; }
 
-.c-steps { display: flex; align-items: flex-start; }
-.c-steps > div { flex: 1; text-align: center; position: relative; font-size: 12px; color: var(--c-ink-3); }
-.c-steps > div::before {
-  content: ''; display: block; width: 22px; height: 22px; margin: 0 auto 6px;
-  border-radius: 999px; background: #fff; border: 2px solid var(--c-line);
+/* ============ 步骤指示器 Step Indicator（HeroUI 风格横向步骤条）============
+   参考 HeroUI Stepper 的横向形态：圆形 indicator + 连接线 separator。
+   序号用 CSS counter 自动生成，HTML 只需 <div class="c-steps"><div class="done|now|">标签</div>…，
+   任意步数都自动编号，页面端不需要手写数字。 */
+.c-steps { display: flex; align-items: flex-start; counter-reset: cstep; }
+.c-steps > div {
+  flex: 1; text-align: center; position: relative;
+  font-size: 12px; color: var(--c-ink-3);
+  counter-increment: cstep;
 }
-.c-steps > div.done::before { background: var(--c-primary); border-color: var(--c-primary); }
-.c-steps > div.now::before { background: var(--c-primary-50); border-color: var(--c-primary); box-shadow: 0 0 0 4px rgba(42,127,139,.10); }
+/* 圆形节点：未完成=灰空心 + 灰序号 */
+.c-steps > div::before {
+  content: counter(cstep);
+  box-sizing: border-box; display: flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; margin: 0 auto 8px;
+  border-radius: 999px; background: #fff; border: 2px solid var(--c-line);
+  font-size: 12px; font-weight: 600; color: var(--c-ink-3);
+  position: relative; z-index: 2;
+}
+/* 已完成：主色实心 + 白色对勾 */
+.c-steps > div.done::before {
+  content: '✓'; font-size: 15px;
+  background: var(--c-primary); border-color: var(--c-primary); color: #fff;
+}
+/* 当前：主色实心 + 白色序号 + 柔和光环（与完成时靠「对勾/序号 + 光环」区分） */
+.c-steps > div.now::before {
+  background: var(--c-primary); border-color: var(--c-primary); color: #fff;
+  box-shadow: 0 0 0 4px var(--c-primary-50);
+}
+/* 标签：完成/当前加深强调，未完成保持次级灰 */
 .c-steps > div.done, .c-steps > div.now { color: var(--c-ink); font-weight: 600; }
-/* 步骤之间的连接线：让四步形成一条连续流程，而不是四个孤立圆点 */
-.c-steps > div { position: relative; }
+/* 连接线：灰色 track 打底，已完成段叠主色 fill；置于节点下层 */
 .c-steps > div:not(:last-child)::after {
-  content: ''; position: absolute; top: 11px;
-  left: calc(50% + 16px); right: calc(-50% + 16px);
-  height: 2px; background: var(--c-line);
+  content: ''; position: absolute; top: 12px;
+  left: calc(50% + 15px); right: calc(-50% + 15px);
+  height: 2px; background: var(--c-line); z-index: 1;
 }
 .c-steps > div.done:not(:last-child)::after { background: var(--c-primary); }
 

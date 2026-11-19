@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.7.5</span>
+      <span class="changelog-pill">最新 v2.7.6</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,26 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.7.6</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-doc">规范</span>
+          <span class="changelog-tag is-new">新增</span>
+        </div>
+        <h3 class="changelog-title">C 端反馈与导航组件视觉优化</h3>
+        <ul class="changelog-list">
+          <li><b>步骤指示器</b>重设计为 HeroUI 风格横向步骤条：完成态主色实心 + 白勾、当前态主色实心 + 白色序号 + 光环、未完成灰空心 + 序号；序号由 CSS counter 自动生成，任意步数免手写。</li>
+          <li><b>Toast</b> 底色由深色 92% 改为白色系（1pt 描边 + 阴影），文字深色；成功勾与加载圈同步换为适配浅底的语义色。</li>
+          <li><b>ActionSheet</b> 文字整体缩小两档（选项 18→15pt、标题 13→11pt），除危险项保留红色外，其余文字统一为黑色系。</li>
+          <li>同步更新组件规格文档、首页缩略预览与规格表，全部关联文件保持一致。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.7.5</h2>
