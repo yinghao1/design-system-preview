@@ -80,19 +80,19 @@
                 <div class="c-metric">
                   <div class="c-metric-label">步数</div>
                   <div class="c-metric-value c-num">8,420<small>步</small></div>
-                  <div style="margin-top:6px"><span class="c-trend c-trend--up">▲ 12.4%</span><span style="font-size:12px;color:#A1A1AA;margin-left:6px">较昨日</span></div>
+                  <div style="margin-top:6px"><span class="c-trend c-trend--up">▲ 12.4%</span><span style="font-size:12px;color:var(--c-ink-3);margin-left:6px">较昨日</span></div>
                 </div>
                 <div class="c-kpi" style="margin-top:14px">
                   <div><div class="v c-num">7.2</div><div class="k">睡眠 h</div></div>
-                  <div><div class="v c-num" style="color:#02C456">68</div><div class="k">静息心率</div></div>
-                  <div><div class="v c-num" style="color:#FEBC41">6.4</div><div class="k">空腹血糖</div></div>
+                  <div><div class="v c-num" style="color:var(--c-green)">68</div><div class="k">静息心率</div></div>
+                  <div><div class="v c-num" style="color:var(--c-amber)">6.4</div><div class="k">空腹血糖</div></div>
                 </div>
               </div>
 
               <div class="c-card">
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-                  <div style="font-size:16px;font-weight:600">指标状态</div>
-                  <span style="font-size:13px;color:#2A7F8B">全部 <i data-lucide="chevron-right" class="lucide-icon" style="width:13px;height:13px;vertical-align:-2px"></i></span>
+                  <div class="c-card-title">指标状态</div>
+                  <span style="font-size:14px;color:var(--c-primary)">全部 <i data-lucide="chevron-right" class="lucide-icon" style="width:13px;height:13px;vertical-align:-2px"></i></span>
                 </div>
                 <div style="display:flex;gap:8px;flex-wrap:wrap">
                   <span class="c-status c-status--ok">血压正常</span>
@@ -109,26 +109,26 @@
                       <circle cx="48" cy="48" r="42" fill="none" stroke="#F0F0F2" stroke-width="8"/>
                       <circle cx="48" cy="48" r="42" fill="none" stroke="#2A7F8B" stroke-width="8" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="79"/>
                     </svg>
-                    <div class="c-ring-label"><span class="c-num" style="font-size:22px;font-weight:700;color:#18181B">70%</span><span>目标完成</span></div>
+                    <div class="c-ring-label"><span class="c-num" style="font-size:22px;font-weight:700;color:var(--c-ink)">70%</span><span>目标完成</span></div>
                   </div>
                   <div style="flex:1">
-                    <div style="font-size:15px;font-weight:600;margin-bottom:8px">周目标 56,000 步</div>
-                    <div style="font-size:13px;color:#52525B;line-height:1.6">已完成 39,200 步<br>还差 16,800 步（约 2 天）</div>
+                    <div style="font-size:16px;font-weight:500;margin-bottom:8px">周目标 56,000 步</div>
+                    <div style="font-size:14px;color:var(--c-ink-3);line-height:1.6">已完成 39,200 步<br>还差 16,800 步（约 2 天）</div>
                   </div>
                 </div>
               </div>
 
               <div class="c-card">
-                <div style="font-size:16px;font-weight:600;margin-bottom:12px">进度分段</div>
-                <div class="c-stacked"><i style="width:42%;background:#2A7F8B"></i><i style="width:26%;background:#4388FF"></i><i style="width:20%;background:#FEBC41"></i><i style="width:12%;background:#02C456"></i></div>
-                <div class="c-legend"><span><i style="background:#2A7F8B"></i>有氧</span><span><i style="background:#4388FF"></i>力量</span><span><i style="background:#FEBC41"></i>拉伸</span><span><i style="background:#02C456"></i>日常</span></div>
+                <div class="c-card-title" style="margin-bottom:12px">进度分段</div>
+                <div class="c-stacked"><i style="width:42%;background:var(--c-primary)"></i><i style="width:26%;background:var(--c-blue)"></i><i style="width:20%;background:#FEBC41"></i><i style="width:12%;background:var(--c-green)"></i></div>
+                <div class="c-legend"><span><i style="background:var(--c-primary)"></i>有氧</span><span><i style="background:var(--c-blue)"></i>力量</span><span><i style="background:#FEBC41"></i>拉伸</span><span><i style="background:var(--c-green)"></i>日常</span></div>
               </div>
 
-              <div style="margin-top:14px"><span class="c-capsule">HbA1c 5.8%</span> <span class="c-capsule" style="background:#EEFFF5;color:#1E7B49">LDL 已达标</span></div>
+              <div style="margin-top:14px"><span class="c-capsule">HbA1c 5.8%</span> <span class="c-capsule" style="background:var(--c-face-green);color:#1E7B49">LDL 已达标</span></div>
             </div>
           </div>
         </div>
-        <div class="phone-caption">MetricCard 数值 34pt · GroupKPI 24pt</div>
+        <div class="phone-caption">MetricCard 数值 34pt/600 · GroupKPI 24pt/600</div>
       </div>
 
       <div>
@@ -149,24 +149,24 @@
                   <i data-lucide="chevron-right" class="lucide-icon cell-chev"></i>
                 </div>
                 <div class="c-cell">
-                  <span class="c-avatar c-avatar--sm" style="background:#F4F4F5;color:#52525B">张</span>
+                  <span class="c-avatar c-avatar--sm" style="background:var(--c-bg-2);color:var(--c-ink-2)">张</span>
                   <div class="c-cell-main"><div class="c-cell-title">张伟</div><div class="c-cell-sub">检验报告待解读</div></div>
-                  <i data-lucide="chevron-right" class="lucide-icon cell-chev" style="color:#A1A1AA"></i>
+                  <i data-lucide="chevron-right" class="lucide-icon cell-chev" style="color:var(--c-ink-3)"></i>
                 </div>
               </div>
 
               <div class="c-card">
-                <div style="font-size:16px;font-weight:600;margin-bottom:14px">近期动态</div>
+                <div class="c-card-title" style="margin-bottom:14px">近期动态</div>
                 <ul class="c-timeline">
-                  <li class="done"><i data-lucide="check" class="node-check"></i><div style="font-weight:500">血压记录 142/90</div><div style="font-size:13px;color:#52525B;margin-top:2px">今天 08:12 · 偏高</div></li>
-                  <li class="done"><i data-lucide="check" class="node-check"></i><div style="font-weight:500">服药 二甲双胍 0.5g</div><div style="font-size:13px;color:#52525B;margin-top:2px">今天 08:00 · 依从</div></li>
-                  <li><div style="font-weight:500">晨间体重 70.2 kg</div><div style="font-size:13px;color:#52525B;margin-top:2px">今天 07:30</div></li>
-                  <li><div style="font-weight:500">检验报告已出</div><div style="font-size:13px;color:#52525B;margin-top:2px">昨天 16:40 · 2 项异常</div></li>
+                  <li class="done"><i data-lucide="check" class="node-check"></i><div style="font-weight:500">血压记录 142/90</div><div style="font-size:14px;color:var(--c-ink-3);margin-top:2px">今天 08:12 · 偏高</div></li>
+                  <li class="done"><i data-lucide="check" class="node-check"></i><div style="font-weight:500">服药 二甲双胍 0.5g</div><div style="font-size:14px;color:var(--c-ink-3);margin-top:2px">今天 08:00 · 依从</div></li>
+                  <li><div style="font-weight:500">晨间体重 70.2 kg</div><div style="font-size:14px;color:var(--c-ink-3);margin-top:2px">今天 07:30</div></li>
+                  <li><div style="font-weight:500">检验报告已出</div><div style="font-size:14px;color:var(--c-ink-3);margin-top:2px">昨天 16:40 · 2 项异常</div></li>
                 </ul>
               </div>
 
               <div class="c-card">
-                <div style="font-size:16px;font-weight:600;margin-bottom:10px">对话气泡</div>
+                <div class="c-card-title" style="margin-bottom:10px">对话气泡</div>
                 <div class="c-bubble c-bubble--in">我这周空腹血糖 6.4，需要调整用药吗？</div>
                 <div class="c-bubble c-bubble--out" style="margin-top:10px">单次 6.4 尚不需调整。建议连续记录 7 天空腹值，若均值 &gt; 7.0 请复诊。</div>
               </div>
@@ -190,7 +190,7 @@
           <tr><td>收缩压</td><td class="em">142 mmHg</td><td>&lt; 140</td><td><span class="c-status c-status--warn">偏高</span></td></tr>
         </tbody>
       </table>
-      <p style="font-size:12px;color:#A1A1AA;margin-top:10px">移动端表格最多 4 列；超出时改为「键值对列表」或横向滚动（需保留首列固定）。表格数字用默认字体，异常值以红色 + 文字（偏高/超标）双重标注。</p>
+      <p style="font-size:12px;color:var(--c-ink-3);margin-top:10px">移动端表格最多 4 列；超出时改为「键值对列表」或横向滚动（需保留首列固定）。表格数字用默认字体，异常值以红色 + 文字（偏高/超标）双重标注。</p>
     </div>
   </section>
         </div>
@@ -216,12 +216,12 @@
             <tr><td>ProgressBar</td><td>高 8pt（细 4pt），圆角 full</td><td>填充 600ms ease-out</td></tr>
             <tr><td>ProgressRing</td><td>直径 96pt，描边 8pt</td><td>中心放主数值 + 辅助文字</td></tr>
             <tr><td>Timeline</td><td>轴线 2pt，节点 16pt（HeroUI 风格）</td><td>完成实心主色+白勾，当前实心+序号+光环，未来灰空心</td></tr>
-            <tr><td>MetricCard</td><td>数值 34pt/700，标签 13pt</td><td>数值用 Urbanist + tabular-nums</td></tr>
+            <tr><td>MetricCard</td><td>数值 34pt/600，标签 12pt</td><td>数值用 Urbanist + tabular-nums</td></tr>
             <tr><td>GroupKPI</td><td>数值 24pt/600，标签 12pt</td><td>2–3 个等宽分栏，不换行</td></tr>
             <tr><td>StatusBadge</td><td>高 24pt，圆点 6pt</td><td>四态：ok / warn / bad / info</td></tr>
             <tr><td>InfoTable</td><td>行高 44pt，表头 12pt</td><td>表格数字用默认字体，异常值红色标注 + 状态文字</td></tr>
-            <tr><td>InfoCapsule</td><td>高 30pt，圆角 full</td><td>浅蓝底 + 蓝色数值，用于摘要指标</td></tr>
-            <tr><td>AdviceTip</td><td>圆角 12pt，内边距 12×14pt</td><td>浅绿底 + 绿勾/灯泡图标</td></tr>
+            <tr><td>InfoCapsule</td><td>高 28pt，圆角 16pt</td><td>浅蓝底 + 蓝色数值，用于摘要指标</td></tr>
+            <tr><td>AdviceTip</td><td>圆角 14pt，内边距 12×14pt</td><td>浅绿底 + 绿勾/灯泡图标</td></tr>
             <tr><td>SectionTitle</td><td>字号 19pt/700，装饰条 3×16pt</td><td>左侧主色竖条</td></tr>
           </tbody>
         </table>
@@ -229,7 +229,7 @@
 
       <section class="doc-section" id="rules">
         <h2>使用规则</h2>
-        <ol style="font-size:14px;line-height:1.9;color:#52525B;padding-left:20px">
+        <ol style="font-size:14px;line-height:1.9;color:var(--c-ink-2);padding-left:20px">
           <li>任何检验数值<b>必须同时给出单位与参考区间</b>，缺一不可。</li>
           <li>异常值不得只靠颜色区分，必须叠加文字（偏高/超标）或图标。</li>
           <li>趋势色遵循「好为绿、坏为红」，指标方向相反的（血糖、血压）需反转语义。</li>

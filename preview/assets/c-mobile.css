@@ -14,7 +14,14 @@
 }
 
 /* 令牌作用域：面板内与整个 C 端页面都要生效，
-   否则面板外的组件（色卡、规格表等）拿不到 --c-* 变量，border/颜色会静默失效 */
+   否则面板外的组件（色卡、规格表等）拿不到 --c-* 变量，border/颜色会静默失效。
+   ─────────────────────────────────────────────────────────────
+   视觉语言对齐 HeroUI Native（heroui.com/en/docs/native）：
+   · 前景三档取自其 foreground / muted，比原生黑更柔和，长文更耐看
+   · 灰阶分三级 surface（白 → #F4F4F5 → #EDEDEE）承载层次
+   · 圆角按 --radius(8px) 基准等比展开：xs4 / sm6 / lg8 / xl12 / 2xl16 / 3xl24 / 4xl32
+   · 阴影用其 surface / overlay 双层极柔阴影，替代原来的单层硬投影
+   品牌主色仍为青绿 #2A7F8B（accent 语义位），不改品牌资产。 */
 .c-scope, .phone, [data-set="c"] {
   --c-primary: #2A7F8B;
   --c-primary-50: #EDF6F7;
@@ -22,12 +29,15 @@
   --c-primary-700: #15525A;
   --c-primary-900: #07272B;
   --c-press: #1D6770;
-  --c-ink: #18181B;
-  --c-ink-2: #52525B;
-  --c-ink-3: #A1A1AA;
+  /* 文字三档（HeroUI foreground / 次级 / muted） */
+  --c-ink: #2C2C2E;
+  --c-ink-2: #5F5F66;
+  --c-ink-3: #7C7C82;
+  /* 表面 / 背景分层 */
   --c-bg: #FAFAFA;
   --c-bg-2: #F4F4F5;
-  --c-line: #E4E4E7;
+  --c-bg-3: #EDEDEE;
+  --c-line: #E1E1E3;
   --c-white: #FFFFFF;
   --c-warm: #F3E9D4;
   --c-success: #288A5C;
@@ -40,11 +50,38 @@
   --c-green: #02C456;
   --c-face-blue: #F5FAFF;
   --c-face-green: #EEFFF5;
+  /* 圆角 scale（HeroUI Native --radius = 8px 等比） */
+  --c-r-xs: 4px;
+  --c-r-sm: 6px;
+  --c-r-lg: 8px;
+  --c-r-xl: 12px;
+  --c-r-2xl: 16px;
+  --c-r-3xl: 24px;
+  --c-r-4xl: 32px;
+  /* 阴影：surface 用于卡片等非浮层，overlay 用于弹层/浮层 */
+  --c-shadow-surface: 0 2px 4px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06), 0 0 1px rgba(0,0,0,.06);
+  --c-shadow-overlay: 0 2px 8px rgba(0,0,0,.02), 0 -6px 12px rgba(0,0,0,.01), 0 14px 28px rgba(0,0,0,.03);
   --c-shadow-sm: 0 1px 2px rgba(0,0,0,.05);
-  --c-shadow-md: 0 4px 12px rgba(0,0,0,.08);
-  --c-shadow-lg: 0 8px 24px rgba(0,0,0,.10);
+  --c-shadow-md: var(--c-shadow-surface);
+  --c-shadow-lg: var(--c-shadow-overlay);
   --c-ease-spring: cubic-bezier(.34,1.56,.64,1);
 }
+
+/* ============ 字级系统（HeroUI Native Typography）============
+   h1 36/40 · h2 30/36 · h3 24/32 · h4 20/28 · h5 18/28 · h6 16/24，统一 600 + 紧字距；
+   body 16/24 · body-sm 14/20 · body-xs 12/16，400。
+   页面里需要语义标题/正文时用这些类，避免到处散写 font-size。 */
+/* 卡片内标题：对齐 HeroUI Native card label —— 18/28、字重 500（不是 600） */
+.c-card-title { font-size: 18px; line-height: 28px; font-weight: 500; letter-spacing: -.01em; }
+.c-h1 { font-size: 36px; line-height: 40px; font-weight: 600; letter-spacing: -.02em; }
+.c-h2 { font-size: 30px; line-height: 36px; font-weight: 600; letter-spacing: -.02em; }
+.c-h3 { font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: -.02em; }
+.c-h4 { font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: -.02em; }
+.c-h5 { font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.02em; }
+.c-h6 { font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: -.01em; }
+.c-body { font-size: 16px; line-height: 24px; font-weight: 400; }
+.c-body-sm { font-size: 14px; line-height: 20px; font-weight: 400; }
+.c-body-xs { font-size: 12px; line-height: 16px; font-weight: 400; }
 
 /* ============ 演示面板 · 组件展示容器 ============
    参照 HeroUI Docs 的展示方式：组件直接呈现在单层演示面板上，
@@ -219,7 +256,9 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
    需要特殊尺寸/描边/颜色时，在 <i> 上写 width/height/stroke-width/style=color 即可（createIcons 会继承）。 */
 /* createIcons 渲染后，class/width/height/stroke-width/style 都会继承到 <svg> 上。
    默认 18pt；带 width 属性的图标用其自身尺寸（CSS 不再覆盖），保证大小分档可控。 */
-.lucide-icon { flex: none; vertical-align: -3px; }
+/* 文档站全局有 `svg { display: block }` 重置，会把行内图标挤到下一行；
+   这里统一改回 inline-block，图标才能跟着文字走（flex 容器内会自动块化，不受影响）。 */
+.lucide-icon { display: inline-block; flex: none; vertical-align: -3px; }
 .lucide-icon:not([width]) { width: 18px; height: 18px; }
 [data-lucide].lucide { stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -232,16 +271,18 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-accordion details[open] summary .acc-arrow { transform: rotate(180deg); }
 
 /* ============ 1. 基础组件 ============ */
+/* 按钮：对齐 HeroUI Native size-md —— 高 48、圆角 24(3xl)、字号 16、字重 500、左右内距 16。
+   大圆角 + 中等字重是 HeroUI 视觉「圆润不笨重」的核心，勿改回 600/12px 圆角。 */
 .c-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   height: 48px;
-  padding: 0 24px;
-  border-radius: 12px;
-  font-size: 17px;
-  font-weight: 600;
+  padding: 0 16px;
+  border-radius: var(--c-r-3xl);
+  font-size: 16px;
+  font-weight: 500;
   border: 1px solid transparent;
   cursor: pointer;
   transition: background 100ms ease, transform 100ms var(--c-ease-spring), opacity 100ms;
@@ -257,7 +298,8 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-btn--danger { background: var(--c-error); color: #fff; }
 .c-btn--disabled { background: var(--c-bg-2); color: var(--c-ink-3); cursor: not-allowed; }
 .c-btn--pill { border-radius: 999px; }
-.c-btn--sm { height: 36px; padding: 0 16px; font-size: 15px; border-radius: 10px; }
+/* sm：HeroUI size-sm —— 高 40、左右内距 14、字号 14，圆角同为 24 */
+.c-btn--sm { height: 40px; padding: 0 14px; font-size: 14px; border-radius: var(--c-r-3xl); }
 .c-btn--block { display: flex; width: 100%; }
 .c-btn-group { display: flex; gap: 12px; }
 .c-btn-group > .c-btn { flex: 1; }
@@ -272,10 +314,12 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-iconbtn--plain { border-color: transparent; background: transparent; }
 .c-iconbtn svg { width: 22px; height: 22px; }
 
+/* 筛选 chip：HeroUI chip size-md 的形态 —— 高 28、左右内距 12、圆角 16(2xl)、字重 500。
+   字号保持 12（设计规范硬性约束：标签类字号 ≤12）。 */
 .c-chip {
   display: inline-flex; align-items: center; gap: 4px;
-  height: 30px; padding: 0 12px;
-  border-radius: 999px;
+  height: 28px; padding: 0 12px;
+  border-radius: var(--c-r-2xl);
   font-size: 12px; font-weight: 500;
   background: var(--c-bg-2); color: var(--c-ink-2);
   border: 1px solid transparent;
@@ -314,39 +358,41 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 /* ============ 2. 表单组件 ============ */
 .c-field { display: block; margin-bottom: 16px; }
 .c-field > label {
-  display: block; font-size: 13px; font-weight: 600;
-  color: var(--c-ink-2); margin-bottom: 6px; letter-spacing: .02em;
+  display: block; font-size: 14px; font-weight: 500;
+  color: var(--c-ink-2); margin-bottom: 6px;
 }
+/* 输入框：HeroUI Native field 形态 —— 无描边、靠灰底填充区分（field-radius 14），
+   聚焦时转白底 + 主色描边 + 柔和光环。比原来的「1px 硬边框」更轻、更现代。 */
 .c-input,
 .c-textarea {
   width: 100%; box-sizing: border-box;
-  background: #fff; border: 1px solid var(--c-line);
-  border-radius: 12px; padding: 13px 16px;
-  font-size: 17px; color: var(--c-ink);
+  background: var(--c-bg-2); border: 1px solid transparent;
+  border-radius: 14px; padding: 11px 14px;
+  font-size: 16px; line-height: 24px; color: var(--c-ink);
   font-family: inherit;
-  transition: border-color 200ms, box-shadow 200ms;
+  transition: background 160ms, border-color 160ms, box-shadow 160ms;
 }
 .c-input::placeholder, .c-textarea::placeholder { color: var(--c-ink-3); }
 .c-input:focus, .c-textarea:focus {
-  outline: none; border-color: var(--c-primary);
+  outline: none; background: #fff; border-color: var(--c-primary);
   box-shadow: 0 0 0 3px rgba(42,127,139,.12);
 }
 .c-textarea { min-height: 96px; resize: none; line-height: 1.45; }
-.c-field .hint { font-size: 13px; color: var(--c-ink-3); margin-top: 6px; }
+.c-field .hint { font-size: 12px; line-height: 16px; color: var(--c-ink-3); margin-top: 6px; }
 .c-field.is-error .c-input { border-color: var(--c-error); }
 .c-field.is-error .hint { color: var(--c-error); }
 
 .c-search {
   display: flex; align-items: center; gap: 8px;
-  height: 40px; padding: 0 12px;
-  background: var(--c-bg-2); border-radius: 10px;
+  height: 44px; padding: 0 14px;
+  background: var(--c-bg-2); border-radius: 14px;
   color: var(--c-ink-3); font-size: 16px;
 }
 .c-search svg { width: 18px; height: 18px; flex: 0 0 auto; }
 
 .c-switch {
   position: relative; width: 51px; height: 31px;
-  border-radius: 999px; background: #E4E4E7;
+  border-radius: 999px; background: var(--c-line);
   border: 0; cursor: pointer; flex: 0 0 auto;
   transition: background 200ms;
 }
@@ -378,14 +424,14 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-radio.on::after { content: ''; width: 12px; height: 12px; border-radius: 999px; background: var(--c-primary); }
 
 .c-row { display: flex; align-items: center; gap: 10px; }
-.c-row .c-row-text { flex: 1; font-size: 17px; }
+.c-row .c-row-text { flex: 1; font-size: 16px; }
 
 .c-seg {
-  display: inline-flex; padding: 3px;
-  background: var(--c-bg-2); border-radius: 10px; gap: 2px;
+  display: inline-flex; padding: 4px;
+  background: var(--c-bg-2); border-radius: 14px; gap: 2px;
 }
 .c-seg > span {
-  padding: 6px 16px; border-radius: 8px;
+  padding: 7px 16px; border-radius: 10px;
   font-size: 14px; font-weight: 500; color: var(--c-ink-2);
   cursor: pointer; transition: background 200ms, color 200ms;
 }
@@ -399,12 +445,12 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   display: block;
 }
 
-.c-stepper { display: inline-flex; align-items: center; gap: 0; border: 1px solid var(--c-line); border-radius: 10px; overflow: hidden; background: #fff; }
-.c-stepper > * { width: 40px; height: 36px; display: inline-flex; align-items: center; justify-content: center; font-size: 17px; color: var(--c-ink); background: #fff; border: 0; }
+.c-stepper { display: inline-flex; align-items: center; gap: 0; border: 1px solid var(--c-line); border-radius: 14px; overflow: hidden; background: #fff; }
+.c-stepper > * { width: 40px; height: 38px; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; color: var(--c-ink); background: #fff; border: 0; }
 .c-stepper > em { width: 48px; font-style: normal; font-weight: 600; border-left: 1px solid var(--c-line); border-right: 1px solid var(--c-line); }
 
 .c-rate { display: inline-flex; gap: 4px; color: var(--c-amber); font-size: 20px; letter-spacing: 1px; }
-.c-rate .off { color: #E4E4E7; }
+.c-rate .off { color: var(--c-line); }
 
 /* ============ 3. 导航组件 ============ */
 .c-navbar {
@@ -415,8 +461,8 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   border-bottom: 1px solid transparent;
 }
 .c-navbar .back { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; color: var(--c-primary); }
-.c-navbar .title { flex: 1; text-align: center; font-size: 17px; font-weight: 600; }
-.c-navbar .action { min-width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; color: var(--c-primary); font-size: 15px; }
+.c-navbar .title { flex: 1; text-align: center; font-size: 16px; font-weight: 600; }
+.c-navbar .action { min-width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; color: var(--c-primary); font-size: 14px; }
 
 .c-tabbar {
   display: flex; height: 49px; background: rgba(255,255,255,.94);
@@ -429,40 +475,48 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-tabbar > a.active { color: var(--c-primary); }
 .c-tabbar svg { width: 23px; height: 23px; }
 
-.c-tabgroup { display: flex; gap: 4px; padding: 4px; background: var(--c-bg-2); border-radius: 10px; }
-.c-tabgroup > a { flex: 1; text-align: center; padding: 7px 0; border-radius: 8px; font-size: 14px; color: var(--c-ink-2); text-decoration: none; }
+.c-tabgroup { display: flex; gap: 4px; padding: 4px; background: var(--c-bg-2); border-radius: 14px; }
+.c-tabgroup > a { flex: 1; text-align: center; padding: 7px 0; border-radius: 10px; font-size: 14px; color: var(--c-ink-2); text-decoration: none; }
 .c-tabgroup > a.active { background: #fff; color: var(--c-ink); font-weight: 600; box-shadow: var(--c-shadow-sm); }
 
 .c-tabsline { display: flex; gap: 24px; border-bottom: 1px solid var(--c-line); }
 .c-tabsline > a {
-  padding: 10px 0; font-size: 15px; color: var(--c-ink-2); text-decoration: none;
+  padding: 10px 0; font-size: 14px; color: var(--c-ink-2); text-decoration: none;
   border-bottom: 2px solid transparent; margin-bottom: -1px;
 }
 .c-tabsline > a.active { color: var(--c-primary); border-bottom-color: var(--c-primary); font-weight: 600; }
 
-.c-accordion { background: #fff; border-radius: 16px; overflow: hidden; }
-.c-accordion > details { border-bottom: 1px solid var(--c-bg-2); }
-.c-accordion > details:last-child { border-bottom: 0; }
+/* 折叠面板：HeroUI Native accordion surface 变体 —— 圆角 24(3xl)、白底、surface 阴影；
+   trigger 上下 16 / 左右 20，内容同内距。分割线保持用户指定的浅灰 --c-bg-2。 */
+.c-accordion { background: #fff; border-radius: var(--c-r-3xl); overflow: hidden; box-shadow: var(--c-shadow-surface); }
+/* 项间分割线内缩 20（与 trigger/content 的左右内距一致），不顶到卡片边缘 */
+.c-accordion > details { position: relative; }
+.c-accordion > details:not(:last-child)::after {
+  content: ''; position: absolute; left: 20px; right: 20px; bottom: 0;
+  height: 1px; background: var(--c-bg-2);
+}
 .c-accordion summary {
   list-style: none; cursor: pointer;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 16px; font-size: 16px; font-weight: 500;
+  padding: 16px 20px; font-size: 16px; line-height: 24px; font-weight: 500;
 }
 .c-accordion summary::-webkit-details-marker { display: none; }
-.c-accordion .acc-body { padding: 0 16px 14px; font-size: 15px; color: var(--c-ink-2); line-height: 1.5; }
+.c-accordion .acc-body { padding: 0 20px 16px; font-size: 14px; line-height: 1.5; color: var(--c-ink-2); }
 
 /* ============ 4. 数据展示 ============ */
+/* 卡片：HeroUI Native surface —— 圆角 16(2xl)、白底、三层极柔阴影（不再用单层硬投影） */
 .c-card {
-  background: #fff; border-radius: 16px; padding: 16px;
-  box-shadow: var(--c-shadow-sm);
+  background: #fff; border-radius: var(--c-r-2xl); padding: 16px;
+  box-shadow: var(--c-shadow-surface);
 }
 .c-card--flat { box-shadow: none; border: 1px solid var(--c-line); }
 .c-card--warm { background: var(--c-warm); box-shadow: none; }
 .c-card + .c-card { margin-top: 12px; }
 
+/* 列表项：HeroUI list-group item —— 上下左右均 16 内距、图标/内容间距 12 */
 .c-cell {
   display: flex; align-items: center; gap: 12px;
-  background: #fff; padding: 14px 16px;
+  background: #fff; padding: 16px;
   position: relative;
 }
 /* 分割线左右预留 16pt 安全边距（与内容 16pt 内边距对齐），不顶到卡片边缘；
@@ -479,8 +533,10 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   height: 1px; background: var(--c-bg-2);
 }
 .c-cell .c-cell-main { flex: 1; min-width: 0; }
-.c-cell .c-cell-title { font-size: 16px; font-weight: 500; }
-.c-cell .c-cell-sub { font-size: 13px; color: var(--c-ink-2); margin-top: 2px; }
+/* 标题 16/500、描述 14/muted —— 与 HeroUI list-group title/description 一致 */
+.c-cell .c-cell-title { font-size: 16px; line-height: 24px; font-weight: 500; }
+/* 描述默认单行省略：列表右侧常有状态徽章/箭头，多行会把文字挤成两行；需要多行时在行内覆盖 white-space */
+.c-cell .c-cell-sub { font-size: 14px; line-height: 20px; color: var(--c-ink-3); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .c-cell .c-cell-value { font-size: 15px; color: var(--c-ink-2); }
 .c-cell .chev { color: var(--c-ink-3); font-size: 15px; }
 .c-list { background: #fff; border-radius: 16px; overflow: hidden; }
@@ -553,18 +609,18 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   box-shadow: 0 0 0 4px var(--c-primary-50);
 }
 
-.c-metric .c-metric-label { font-size: 13px; color: var(--c-ink-2); }
-.c-metric .c-metric-value { font-size: 34px; font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
+.c-metric .c-metric-label { font-size: 12px; line-height: 16px; color: var(--c-ink-3); }
+.c-metric .c-metric-value { font-size: 34px; font-weight: 600; line-height: 1.15; letter-spacing: -.02em; }
 .c-metric .c-metric-value small { font-size: 15px; font-weight: 500; color: var(--c-ink-3); margin-left: 4px; }
-.c-trend { font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 3px; }
+.c-trend { font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 3px; }
 .c-trend--up { color: var(--c-green); }
 .c-trend--down { color: var(--c-error); }
 .c-trend--flat { color: #71717A; }
 
 .c-kpi { display: flex; gap: 8px; }
-.c-kpi > div { flex: 1; background: #fff; border-radius: 14px; padding: 12px; text-align: center; }
+.c-kpi > div { flex: 1; background: #fff; border-radius: var(--c-r-2xl); padding: 12px; text-align: center; }
 .c-kpi .v { font-family: 'Urbanist', sans-serif; font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; }
-.c-kpi .k { font-size: 12px; color: var(--c-ink-2); margin-top: 2px; }
+.c-kpi .k { font-size: 12px; line-height: 16px; color: var(--c-ink-3); margin-top: 2px; }
 
 .c-status {
   display: inline-flex; align-items: center; gap: 4px;
@@ -584,7 +640,7 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   font-size: 14px;
   background: #fff;
   border: 1px solid var(--c-line);
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
 }
 .c-table th {
@@ -606,16 +662,17 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
 .c-capsule {
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--c-face-blue); color: #1F5FCC;
-  border-radius: 999px; padding: 6px 12px;
-  font-size: 12px; font-weight: 600;
+  border-radius: var(--c-r-2xl); padding: 6px 12px;
+  font-size: 12px; line-height: 16px; font-weight: 600;
 }
 .c-advice {
   display: flex; gap: 8px;
   background: var(--c-face-green); color: #1E7B49;
-  border-radius: 12px; padding: 12px 14px; font-size: 14px; line-height: 1.45;
+  border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.5;
 }
 
-.c-section-title { display: flex; align-items: center; gap: 8px; font-size: 19px; font-weight: 700; }
+/* 区块标题：HeroUI h5 语义（18/600 + 紧字距），左侧主色竖条保留品牌识别 */
+.c-section-title { display: flex; align-items: center; gap: 8px; font-size: 18px; line-height: 28px; font-weight: 600; letter-spacing: -.02em; }
 .c-section-title::before { content: ''; width: 3px; height: 16px; border-radius: 2px; background: var(--c-primary); }
 
 .c-stacked { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: var(--c-bg-2); }
@@ -626,12 +683,12 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
 .c-toast {
   display: flex; align-items: center; gap: 8px;
   background: #fff; color: var(--c-ink);
-  padding: 12px 16px; border-radius: 12px; border: 1px solid var(--c-line);
-  font-size: 15px; box-shadow: var(--c-shadow-sm);
+  padding: 12px 16px; border-radius: var(--c-r-2xl); border: 1px solid var(--c-line);
+  font-size: 14px; line-height: 20px; box-shadow: var(--c-shadow-sm);
 }
 .c-alert {
   display: flex; gap: 10px; padding: 14px 16px;
-  border-radius: 12px; font-size: 15px; line-height: 1.45;
+  border-radius: 14px; font-size: 14px; line-height: 1.5;
   background: var(--c-face-blue); color: #1F5FCC;
 }
 .c-alert--warn { background: rgba(254,188,65,.16); color: #8A6100; }
@@ -640,28 +697,28 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
 
 .c-sheet {
   background: #fff; border-radius: 24px 24px 0 0;
-  padding: 8px 0 12px; box-shadow: 0 -8px 32px rgba(0,0,0,.12);
+  padding: 8px 0 12px; box-shadow: var(--c-shadow-overlay);
 }
 .c-sheet .grab { width: 36px; height: 5px; border-radius: 999px; background: var(--c-line); margin: 6px auto 10px; }
-.c-sheet .sheet-title { text-align: center; font-size: 11px; color: var(--c-ink-2); padding: 4px 16px 10px; }
+.c-sheet .sheet-title { text-align: center; font-size: 12px; color: var(--c-ink-3); padding: 4px 16px 10px; }
 .c-sheet > a {
-  display: block; text-align: center; padding: 15px 16px;
-  font-size: 15px; color: var(--c-ink); text-decoration: none;
+  display: block; text-align: center; padding: 16px;
+  font-size: 16px; color: var(--c-ink); text-decoration: none;
   font-weight: 400;
   border-top: 1px solid var(--c-bg-2);
 }
 .c-sheet > a.danger { color: var(--c-error); }
 
 .c-modal {
-  background: #fff; border-radius: 20px; overflow: hidden;
-  box-shadow: var(--c-shadow-lg); text-align: center;
+  background: #fff; border-radius: var(--c-r-3xl); overflow: hidden;
+  box-shadow: var(--c-shadow-overlay); text-align: center;
   max-width: 270px;
 }
 .c-modal .m-body { padding: 20px 18px 0; }
-.c-modal .m-title { font-size: 17px; font-weight: 600; }
-.c-modal .m-text { font-size: 14px; color: var(--c-ink-2); margin-top: 6px; line-height: 1.45; }
+.c-modal .m-title { font-size: 16px; line-height: 24px; font-weight: 600; }
+.c-modal .m-text { font-size: 14px; line-height: 20px; color: var(--c-ink-2); margin-top: 6px; }
 .c-modal .m-actions { display: flex; border-top: 1px solid var(--c-line); margin-top: 18px; }
-.c-modal .m-actions > * { flex: 1; padding: 13px 0; font-size: 17px; color: var(--c-primary); background: none; border: 0; cursor: pointer; }
+.c-modal .m-actions > * { flex: 1; padding: 14px 0; font-size: 16px; color: var(--c-primary); background: none; border: 0; cursor: pointer; }
 .c-modal .m-actions > * + * { border-left: 1px solid var(--c-line); }
 
 .c-skeleton { background: linear-gradient(90deg,#F4F4F5 25%,#EDEDEF 37%,#F4F4F5 63%); background-size: 400% 100%; animation: c-shimmer 1.4s ease infinite; border-radius: 6px; }
@@ -686,22 +743,24 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
 .c-banner {
   display: flex; align-items: flex-start; gap: 10px;
   background: #fff; border-left: 3px solid var(--c-blue);
-  border-radius: 10px; padding: 12px 14px;
-  box-shadow: var(--c-shadow-sm); font-size: 14px;
+  border-radius: 14px; padding: 12px 14px;
+  box-shadow: var(--c-shadow-surface); font-size: 14px;
 }
 .c-banner .bt { font-weight: 600; }
-.c-banner .bd { color: var(--c-ink-2); margin-top: 2px; font-size: 13px; }
+.c-banner .bd { color: var(--c-ink-2); margin-top: 2px; font-size: 12px; line-height: 16px; }
 
 /* ============ 6. 业务组件 ============ */
-.c-task { background: #fff; border-radius: 16px; padding: 16px; box-shadow: var(--c-shadow-sm); }
+.c-task { background: #fff; border-radius: var(--c-r-2xl); padding: 16px; box-shadow: var(--c-shadow-surface); }
 .c-task .t-head { display: flex; align-items: center; gap: 10px; }
-.c-task .t-title { font-size: 17px; font-weight: 600; flex: 1; }
+.c-task .t-title { font-size: 16px; line-height: 24px; font-weight: 600; flex: 1; }
 .c-task .t-desc { font-size: 14px; color: var(--c-ink-2); margin-top: 8px; line-height: 1.5; }
-.c-task .t-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
+.c-task .t-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; }
+/* 底栏文字/图标不换行，避免「查看详情 ›」在窄卡里把箭头挤到下一行 */
+.c-task .t-foot > span { white-space: nowrap; }
 
 .c-msg { display: flex; gap: 10px; }
 .c-msg .avatar { width: 30px; height: 30px; border-radius: 999px; background: var(--c-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: 0 0 auto; }
-.c-msg .bubble { flex: 1; background: #fff; border-radius: 14px; padding: 12px 14px; font-size: 15px; line-height: 1.5; }
+.c-msg .bubble { flex: 1; background: #fff; border-radius: 14px; padding: 12px 14px; font-size: 16px; line-height: 24px; }
 
 /* ============ 步骤指示器 Step Indicator（HeroUI 风格横向步骤条）============
    参考 HeroUI Stepper 的横向形态：圆形 indicator + 连接线 separator。
@@ -743,9 +802,9 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
 }
 .c-steps > div.done:not(:last-child)::after { background: var(--c-primary); }
 
-.c-pricing { background: #fff; border-radius: 20px; padding: 18px; box-shadow: var(--c-shadow-md); }
-.c-pricing .p-name { font-size: 15px; color: var(--c-ink-2); }
-.c-pricing .p-price { font-family: 'Urbanist', sans-serif; font-size: 34px; font-weight: 700; margin: 6px 0 2px; }
+.c-pricing { background: #fff; border-radius: var(--c-r-3xl); padding: 18px; box-shadow: var(--c-shadow-surface); }
+.c-pricing .p-name { font-size: 14px; line-height: 20px; color: var(--c-ink-3); }
+.c-pricing .p-price { font-family: 'Urbanist', sans-serif; font-size: 34px; font-weight: 600; letter-spacing: -.02em; margin: 6px 0 2px; }
 .c-pricing .p-price small { font-size: 14px; font-weight: 500; color: var(--c-ink-3); }
 .c-pricing ul { list-style: none; padding: 0; margin: 14px 0 0; font-size: 14px; color: var(--c-ink-2); }
 .c-pricing li { display: flex; gap: 8px; padding: 5px 0; align-items: center; }
@@ -770,7 +829,7 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
 }
 
 /* ============ 图表占位 ============ */
-.c-chart-box { background: #fff; border-radius: 16px; padding: 14px; box-shadow: var(--c-shadow-sm); }
+.c-chart-box { background: #fff; border-radius: var(--c-r-2xl); padding: 14px; box-shadow: var(--c-shadow-surface); }
 .c-chart-box .cb-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
 .c-bars { display: flex; align-items: flex-end; gap: 10px; height: 88px; }
 .c-bars > i { flex: 1; border-radius: 4px 4px 0 0; background: var(--c-primary); display: block; }

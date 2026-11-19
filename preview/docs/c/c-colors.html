@@ -83,10 +83,11 @@
       <div class="c-swatch"><div class="chip" style="background:#FFFFFF"></div><div class="meta"><b>white</b><code>#FFFFFF</code></div></div>
       <div class="c-swatch"><div class="chip" style="background:#FAFAFA"></div><div class="meta"><b>ink.50</b><code>#FAFAFA</code></div></div>
       <div class="c-swatch"><div class="chip" style="background:#F4F4F5"></div><div class="meta"><b>ink.100</b><code>#F4F4F5</code></div></div>
-      <div class="c-swatch"><div class="chip" style="background:#E4E4E7"></div><div class="meta"><b>ink.200</b><code>#E4E4E7</code></div></div>
-      <div class="c-swatch"><div class="chip" style="background:#A1A1AA"></div><div class="meta"><b>ink.400</b><code>#A1A1AA</code></div></div>
-      <div class="c-swatch"><div class="chip" style="background:#52525B"></div><div class="meta"><b>ink.600</b><code>#52525B</code></div></div>
-      <div class="c-swatch"><div class="chip" style="background:#18181B"></div><div class="meta"><b>ink.900</b><code>#18181B</code></div></div>
+      <div class="c-swatch"><div class="chip" style="background:#EDEDEE"></div><div class="meta"><b>ink.150</b><code>#EDEDEE</code></div></div>
+      <div class="c-swatch"><div class="chip" style="background:#E1E1E3"></div><div class="meta"><b>ink.200</b><code>#E1E1E3</code></div></div>
+      <div class="c-swatch"><div class="chip" style="background:#7C7C82"></div><div class="meta"><b>ink.400</b><code>#7C7C82</code></div></div>
+      <div class="c-swatch"><div class="chip" style="background:#5F5F66"></div><div class="meta"><b>ink.600</b><code>#5F5F66</code></div></div>
+      <div class="c-swatch"><div class="chip" style="background:#2C2C2E"></div><div class="meta"><b>ink.900</b><code>#2C2C2E</code></div></div>
     </div>
 
     <div class="demo-sub">Functional · 功能色</div>
@@ -115,8 +116,8 @@
               <div class="c-card">
                 <div class="c-metric">
                   <div class="c-metric-label">空腹血糖</div>
-                  <div class="c-metric-value c-num" style="color:#18181B">6.4<small>mmol/L</small></div>
-                  <div style="margin-top:8px"><span class="c-trend c-trend--down">▲ 0.6</span><span style="font-size:12px;color:#A1A1AA;margin-left:6px">高于参考 3.9–6.1</span></div>
+                  <div class="c-metric-value c-num" style="color:var(--c-ink)">6.4<small>mmol/L</small></div>
+                  <div style="margin-top:8px"><span class="c-trend c-trend--down">▲ 0.6</span><span style="font-size:12px;color:var(--c-ink-3);margin-left:6px">高于参考 3.9–6.1</span></div>
                 </div>
                 <div class="c-stacked" style="margin-top:16px">
                   <i style="width:42%;background:#2A7F8B"></i><i style="width:26%;background:#4388FF"></i><i style="width:20%;background:#FF9946"></i><i style="width:12%;background:#02C456"></i>
@@ -164,10 +165,11 @@
             <tr><td>次级背景</td><td><code>#F4F4F5</code></td><td>列表底色、分区</td></tr>
             <tr><td>卡片 / 容器</td><td><code>#FFFFFF</code></td><td>通过阴影区分层级</td></tr>
             <tr><td>暖色面</td><td><code>#F3E9D4</code></td><td>品牌相关区域</td></tr>
-            <tr><td>主文字</td><td><code>#18181B</code></td><td>标题、正文</td></tr>
-            <tr><td>次要文字</td><td><code>#52525B</code></td><td>描述、时间戳</td></tr>
-            <tr><td>占位 / 禁用</td><td><code>#A1A1AA</code></td><td>输入提示</td></tr>
-            <tr><td>分割线</td><td><code>#E4E4E7</code></td><td>列表分隔</td></tr>
+            <tr><td>三级背景</td><td><code>#EDEDEE</code></td><td>输入框底、内嵌分区（--c-bg-3）</td></tr>
+            <tr><td>主文字</td><td><code>#2C2C2E</code></td><td>标题、正文（--c-ink）</td></tr>
+            <tr><td>次要文字</td><td><code>#5F5F66</code></td><td>描述、时间戳（--c-ink-2）</td></tr>
+            <tr><td>占位 / 禁用</td><td><code>#7C7C82</code></td><td>输入提示、辅助说明（--c-ink-3）</td></tr>
+            <tr><td>分割线</td><td><code>#E1E1E3</code></td><td>列表分隔、描边（--c-line）</td></tr>
             <tr><td>强调 / CTA</td><td><code>#2A7F8B</code></td><td>按钮、链接、进度</td></tr>
             <tr><td>按压态</td><td><code>#1D6770</code></td><td>按钮按下</td></tr>
             <tr><td>选中背景</td><td><code>rgba(42,127,139,.08)</code></td><td>Tab 选中、列表高亮</td></tr>
@@ -177,7 +179,7 @@
 
       <section class="doc-section" id="rules">
         <h2>使用规则</h2>
-        <ol style="font-size:14px;line-height:1.9;color:#52525B;padding-left:20px">
+        <ol style="font-size:14px;line-height:1.9;color:var(--c-ink-2);padding-left:20px">
           <li><b>60-30-10 法则</b>：60% 暖灰背景 + 30% 白色面与深色文字 + 10% 蓝色强调。</li>
           <li><b>对比度</b>：主文字与背景 ≥ 7:1（AAA）；次要文字 ≥ 4.5:1（AA）。</li>
           <li><b>状态色不做大面积背景填充</b>，仅用于小标签、图标、进度条。</li>

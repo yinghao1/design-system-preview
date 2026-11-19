@@ -28,6 +28,14 @@
    - **禁止**：不得再用字符符号（✓/⌄/› 等）或手写内联 SVG 充当图标；展开/收起类箭头统一用 `chevron-*` + `rotate(180deg)` 过渡，保证两态字形一致。  
    - **许可证**：见 `preview/assets/vendor/LUCIDE-LICENSE.txt`。
 
+6. **视觉基准统一对齐 HeroUI Native**  
+   全部 C 端组件的圆角、阴影、字级、配色以 **[HeroUI Native](https://heroui.com/en/docs/native/components/text)** 为基准，权威数值见 `DESIGN.md` §2（色彩）、§3.4（语义字级）、§5（圆角）、§6（阴影）。实现集中在 `preview/assets/c-mobile.css` 的 token 层（`--c-r-*` / `--c-shadow-surface` / `--c-shadow-overlay` / `--c-ink` 三档）。  
+   - **按钮**圆角 24pt、字重 500、字号 16pt（不是旧版的 12pt / 600 / 17pt）  
+   - **卡片**圆角 16pt + `--c-shadow-surface` 多层柔阴影；**折叠面板**圆角 24pt 独立成卡  
+   - **输入框**无描边、用 `--c-bg-2` 填充，圆角 14pt，聚焦转白底 + 主色描边  
+   - **Chip / Capsule** 圆角 16pt（圆角矩形，不再全胶囊），字号 ≤12pt  
+   - 本文档中若出现与上述冲突的旧数值（如「按钮 12pt」「圆角 full」），以 `DESIGN.md` 与本条为准。
+
 ---
 
 ## 组件库索引
@@ -62,14 +70,13 @@
 
 #### 1.1.2 尺寸
 
-| 尺寸 | 高度 | 内边距 | 字号 | 圆角 | 图标 |
+> 对齐 HeroUI Native Button：定高 + 水平内距，字号/字重随尺寸走 `14 / 16 / 18` + `font-medium`。
+
+| 尺寸 | 高度 | 内边距 | 字号 / 字重 | 圆角 | 图标 |
 |------|------|--------|------|------|------|
-| **xs** | 28pt | 12pt × 4pt | 12pt | 8pt | 12pt |
-| **sm** | 36pt | 16pt × 8pt | 14pt | 10pt | 16pt |
-| **md** | 44pt | 24pt × 12pt | 16pt | 12pt | 20pt |
-| **lg** | 52pt | 24pt × 14pt | 17pt | 12pt | 20pt |
-| **xl** | 60pt | 32pt × 18pt | 18pt | 16pt | 24pt |
-| **pill** | 40pt | 20pt × 10pt | 14pt | 9999pt | 16pt |
+| **sm** | 40pt | 0 × 14pt | 14pt / 500 | 24pt | 16pt |
+| **md**（默认） | 48pt | 0 × 16pt | 16pt / 500 | 24pt | 20pt |
+| **pill** | 40pt | 0 × 14pt | 14pt / 500 | full | 16pt |
 
 #### 1.1.3 状态
 
@@ -130,7 +137,7 @@ Default → Hover → Pressed → Loading → Disabled
 | 类型 | 表现 |
 |------|------|
 | **Dot** | 8×8pt 红色圆点，无文字 |
-| **Number** | 高度 16pt，最小宽度 16pt，背景 `#D83226`，白字 11pt，圆角 full |
+| **Number** | 高度 16pt，最小宽度 16pt，背景 `#D83226`，白字 12pt，圆角 full |
 | **Text** | 高度 18pt，背景按状态色，圆角 full，padding 6pt |
 
 - **位置**：相对于父元素右上角偏移 -4pt × -4pt
@@ -172,7 +179,7 @@ Default → Hover → Pressed → Loading → Disabled
 
 ```
 ┌────────────────────────────────────┐
-│  Label (可选, 13pt, 次要色)         │
+│  Label (可选, 14pt, 次要色)         │
 │  ┌──────────────────────────────┐ │
 │  │ [icon] Placeholder...   [×]  │ │  ← 高度 48pt
 │  └──────────────────────────────┘ │
@@ -188,7 +195,7 @@ Default → Hover → Pressed → Loading → Disabled
 | 背景 | `#F4F4F5`（在白色页面）/ `#FFFFFF`（在灰色卡片内） |
 | 边框 | 默认 1pt `rgba(0,0,0,0.08)`；focus 时 `#2A7F8B` 1.5pt |
 | 字号 | 16pt（防 iOS 缩放） |
-| 占位文字 | `#A1A1AA` |
+| 占位文字 | `#7C7C82` |
 | 图标 | 左侧前缀 20pt，右侧清除按钮 16pt |
 
 #### 状态
@@ -197,7 +204,7 @@ Default → Hover → Pressed → Loading → Disabled
 |------|------|------|
 | Default | 无 | — |
 | Focus | 1.5pt `#2A7F8B` | — |
-| Filled | 无 | `#18181B` |
+| Filled | 无 | `#2C2C2E` |
 | Error | 1.5pt `#D83226` | helper 变红 |
 | Disabled | 无，背景 `rgba(0,0,0,0.03)` | 透明度 0.38 |
 | Read-only | 无 | 文字 `rgba(26,26,26,0.65)` |
@@ -277,7 +284,7 @@ Default → Hover → Pressed → Loading → Disabled
 
 - **容器**：背景 `rgba(0,0,0,0.05)`，圆角 9pt
 - **选中段**：背景 `#FFFFFF`，圆角 7pt，阴影 sm
-- **文字**：13pt 中性；选中后 600 字重
+- **文字**：14pt 中性；选中后 600 字重
 - **切换动画**：滑块 250ms easeInOut
 
 ---
@@ -305,14 +312,14 @@ Default → Hover → Pressed → Loading → Disabled
 |------|-----|
 | 高度 | 44pt（不含状态栏） |
 | 背景 | 滚动前透明；滚动后 `#FFFFFF` + 1pt 底边 `rgba(0,0,0,0.08)` |
-| 标题字号 | 17pt Semibold（小）/ 28pt Bold（大标题） |
+| 标题字号 | 16pt Semibold（小）/ 30pt Semibold（大标题） |
 | 返回按钮 | 28pt 触摸区，箭头 16pt + 文字（可选） |
 | 右侧操作 | 最多 2 个 IconButton 或 1 个文字按钮 |
 
 #### Large Title 模式（iOS 11+）
 
 - **未滚动时**：标题 28pt，紧贴左边 16pt，下方占据 52pt 高
-- **滚动时**：渐隐变为 17pt 居中，导航栏出现底边
+- **滚动时**：渐隐变为 16pt 居中，导航栏出现底边
 
 ---
 
@@ -350,7 +357,7 @@ Default → Hover → Pressed → Loading → Disabled
 
 - **高度** 44pt
 - **下划线** 2pt `#2A7F8B`，宽度 = 文字宽度
-- **文字**：默认 15pt 次要色，选中 15pt 600 主色
+- **文字**：默认 14pt 次要色，选中 14pt 600 主色
 - **滑动指示器**切换：250ms easeOut
 - **横向滚动**：超过 4 项时可横向滚动
 
@@ -367,8 +374,8 @@ Default → Hover → Pressed → Loading → Disabled
 | 内边距 | 16pt 四周 |
 | 边框 | 1pt `rgba(0,0,0,0.06)` + 阴影 sm |
 | 卡片间距 | 12pt（垂直） |
-| 标题 | 17pt Semibold |
-| 副标题 | 13pt 次要色 |
+| 标题 | 16pt Semibold |
+| 副标题 | 14pt 次要色 |
 
 #### 卡片变体
 
@@ -397,9 +404,9 @@ Default → Hover → Pressed → Loading → Disabled
 | 双行高度 | 72pt |
 | 内边距 | 16pt × 12pt |
 | 左侧图标 | 24pt，距文字 12pt |
-| 主标题 | 17pt Regular |
-| 副标题 | 13pt 次要色，距主标题 2pt |
-| 右侧 | 文字（次要色 15pt）/ Switch / 箭头 ›（16pt） |
+| 主标题 | 16pt Regular |
+| 副标题 | 14pt 次要色，距主标题 2pt |
+| 右侧 | 文字（次要色 14pt）/ Switch / 箭头 ›（16pt） |
 | 分隔线 | 左右各内缩 16pt（与内容内边距对齐），1pt `#F4F4F5`，不顶到卡片边缘 |
 | 按压态 | 背景 `rgba(0,0,0,0.03)` |
 
@@ -423,7 +430,7 @@ Default → Hover → Pressed → Loading → Disabled
 | 属性 | 值 |
 |------|-----|
 | 背景 | `#FFFFFF` |
-| 文字 | `#18181B` 15pt |
+| 文字 | `#2C2C2E` 14pt |
 | 圆角 | 16pt |
 | 内边距 | 12pt × 16pt |
 | 边框 | 1pt `rgba(0,0,0,0.08)` |
@@ -436,15 +443,15 @@ Default → Hover → Pressed → Loading → Disabled
 | 属性 | 值 |
 |------|-----|
 | 背景 | 无（透明，直接显示在对话区域纹理背景上） |
-| 文字 | `#18181B` 15pt，行高 1.6 |
+| 文字 | `#2C2C2E` 14pt，行高 1.6 |
 | 内边距 | 4pt × 0 |
 | 最大宽度 | 屏宽的 90% |
 | 头像 | 无 |
 
 #### 时间戳与状态
 
-- 时间戳 11pt 次要色，居中显示在消息组之上，间隔超过 5 分钟才显示
-- 已读/已发状态在用户消息右下角 11pt
+- 时间戳 12pt 次要色，居中显示在消息组之上，间隔超过 5 分钟才显示
+- 已读/已发状态在用户消息右下角 12pt
 - 流式输出：底部显示「⋯」三点闪烁动画（500ms 间隔）
 
 ---
@@ -535,9 +542,9 @@ Default → Hover → Pressed → Loading → Disabled
 | 背景 | `#FFFFFF`（白色系，1pt 描边 `#E4E4E7`） |
 | 圆角 | 12pt |
 | 阴影 | lg |
-| 文字 | 深色 `#18181B`；成功勾用 `#288A5C`，加载圈用主色 |
+| 文字 | 深色 `#2C2C2E`；成功勾用 `#288A5C`，加载圈用主色 |
 | 图标 | 20pt，左侧，按类型染色 |
-| 文字 | 15pt 主色 |
+| 文字 | 16pt 主色 |
 | 持续时间 | 成功 2s / 错误 4s |
 | 进入 | 250ms 从顶部滑入 + 淡入 |
 | 退出 | 200ms 向上滑出 + 淡出 |
@@ -558,7 +565,7 @@ Default → Hover → Pressed → Loading → Disabled
 
 - **遮罩**：`rgba(0,0,0,0.6)`
 - **容器**：宽 270pt，背景 `#FFFFFF`，圆角 14pt
-- **结构**：标题（17pt 600） + 描述（13pt 次要） + 按钮组
+- **结构**：标题（16pt 500） + 描述（14pt 次要） + 按钮组
 - **按钮**：横向并排（最多 2 个）/ 纵向堆叠（3 个+）
 - **分隔**：按钮间 0.5pt `rgba(0,0,0,0.12)`
 - **危险按钮**：文字 `#D83226`
@@ -571,8 +578,8 @@ Default → Hover → Pressed → Loading → Disabled
 
 - **从底部弹出**
 - **背景** `#FFFFFF`，顶部圆角 24pt
-- **每项**：高 56pt，居中文字 15pt；标题 11pt
-- **文字色**：除危险项外全部黑色系 `#18181B`（含取消）
+- **每项**：高 56pt，居中文字 14pt；标题 12pt
+- **文字色**：除危险项外全部黑色系 `#2C2C2E`（含取消）
 - **字重**：全部 400 常规（含取消按钮，不加粗）
 - **危险项**：红色文字 `#D83226`
 - **分组**：组间 8pt 间距 `#F4F4F5`
@@ -660,7 +667,7 @@ Default → Hover → Pressed → Loading → Disabled
 │              ○                   │  ← 插图 96pt
 │                                   │
 │         暂无内容                   │  ← Title 3
-│      创建第一个任务开始             │  ← 13pt 次要
+│      创建第一个任务开始             │  ← 14pt 次要
 │                                   │
 │         [创建任务]                 │  ← 主按钮
 └──────────────────────────────────┘
@@ -668,8 +675,8 @@ Default → Hover → Pressed → Loading → Disabled
 
 - **垂直居中**于剩余空间
 - **插图** 96pt，单色线性图标，色 `rgba(255,255,255,0.3)`
-- **标题** 17pt 600
-- **描述** 13pt 次要色，最多 2 行
+- **标题** 16pt 500
+- **描述** 14pt 次要色，最多 2 行
 - **CTA**（可选）距描述 24pt
 
 ---
@@ -701,8 +708,8 @@ Default → Hover → Pressed → Loading → Disabled
 | 区域 | 规则 |
 |------|------|
 | 容器 | 背景 `#18181B`，圆角 16pt，padding 16pt |
-| 头部 | 24pt 类型图标 + 17pt 600 标题 |
-| 描述 | 13pt 次要色，最多 2 行截断 |
+| 头部 | 24pt 类型图标 + 16pt 500 标题 |
+| 描述 | 14pt 次要色，最多 2 行截断 |
 | 步骤指示 | Timeline 横向变体 |
 | 底部 | Tags（左） + 状态（中） + 时间（右） |
 | 状态色 | 进行中蓝 / 完成绿 / 失败红 / 暂停灰 |
@@ -724,11 +731,11 @@ Default → Hover → Pressed → Loading → Disabled
 └──────────────────────────────────┘
 ```
 
-- **头部**：24pt 头像 + 名称 17pt 600 + 时间 11pt 次要 + 状态
+- **头部**：24pt 头像 + 名称 16pt 500 + 时间 12pt 次要 + 状态
 - **工具调用列表**：每行 32pt，前缀状态图标 16pt + 描述
 - **状态图标**：进行中（蓝色脉冲圆）、完成（绿勾）、失败（红叉）
 - **Markdown 渲染**：
-  - 段落 17pt，间距 12pt
+  - 段落 16pt，间距 12pt
   - 列表项缩进 16pt
   - 引用左侧 3pt 蓝色边
   - 内联代码：`#27272A` 背景，圆角 4pt，padding 2pt × 6pt
@@ -749,7 +756,7 @@ Default → Hover → Pressed → Loading → Disabled
 - **连接线**：2pt 高，已完成段主色 `#2A7F8B`，未来段灰色 `#E4E4E7`；track 在下、fill 在上；线端伸入节点 1pt 由圆点盖住，不留断缝
 - **节点间距**：均分剩余宽度
 - **标签**：节点下方 8pt，字号 12pt
-- **标签字色**：完成/当前为深色 `#18181B` + 600 字重，未来为次级灰 `#A1A1AA`
+- **标签字色**：完成/当前为深色 `#2C2C2E` + 600 字重，未来为次级灰 `#7C7C82`
 - **实现**：`preview/assets/c-mobile.css` 的 `.c-steps`（单一全局规则，覆盖所有使用页）
 
 ---
@@ -766,7 +773,7 @@ Default → Hover → Pressed → Loading → Disabled
 ```
 
 - **头部**：图标 + 工具名 + 状态徽章 + 展开/收起按钮
-- **参数区**：背景 `#0F0F0F`（更深）、SF Mono 13pt、padding 12pt
+- **参数区**：背景 `#0F0F0F`（更深）、SF Mono 14pt、padding 12pt
 - **状态徽章**：运行中蓝、成功绿、失败红，胶囊形
 - **可点击展开/收起**，箭头 200ms 旋转
 
@@ -792,10 +799,10 @@ Default → Hover → Pressed → Loading → Disabled
 └────────────────────────────────────┘
 ```
 
-- **推荐角标**：右上角，蓝色背景，白字 11pt 600，圆角 4pt
+- **推荐角标**：右上角，蓝色背景，白字 12pt 600，圆角 4pt
 - **套餐名**：22pt 700
-- **金额**：34pt 700，单位 13pt 次要色，紧贴金额，**字族 `display`（Urbanist · Bold 700）**
-- **特权列表**：✓ `#288A5C` 16pt + 文字 15pt，行间 12pt
+- **金额**：34pt 600，单位 14pt 次要色，紧贴金额，**字族 `display`（Urbanist · Semibold 600）**
+- **特权列表**：✓ `#288A5C` 16pt + 文字 14pt，行间 12pt
 - **CTA**：满宽 Gradient 按钮，52pt 高，glow 阴影
 
 ---
@@ -810,9 +817,9 @@ Default → Hover → Pressed → Loading → Disabled
 └──────────────────────────────────┘
 ```
 
-- 高 72pt，圆角 12pt，背景 `#18181B`
+- 高 72pt，圆角 16pt，背景 `#18181B`
 - 左侧 40pt 文件类型图标（带渐变背景圆角 8pt）
-- 文件名 15pt，限 1 行；副信息 12pt 次要色
+- 文件名 16pt，限 1 行；副信息 12pt 次要色
 - 进度条 2pt 高，圆角 full
 - 状态：上传中（百分比+蓝）/ 完成（绿勾+绿条）/ 失败（红叉+红条+重试按钮）
 - 删除按钮：右上 IconButton 16pt
@@ -978,7 +985,7 @@ Default → Hover → Pressed → Loading → Disabled
 - 外层卡片同 MetricCard
 - 内部 3 列等宽网格，间距 8pt
 - 每个 KPI 单元：12pt 内边距，12pt 圆角，背景为 alpha=0.08~0.12 的对应主题色
-- 数值 24pt 600，标签 11pt secondary，**数值字族 `display`（Urbanist · SemiBold 600）**
+- 数值 24pt 600，标签 12pt secondary，**数值字族 `display`（Urbanist · Semibold 600）**
 
 **色彩方案（来源自截图实测）：**
 - Blue 数据：背景 `rgba(67,136,255,.08)` / 文字 `#4388FF`
@@ -1017,8 +1024,8 @@ Default → Hover → Pressed → Loading → Disabled
 | `accentCol` | number | 高亮列索引（红色加粗） |
 
 **视觉规则：**
-- 表头：背景 `rgba(67,136,255,.04)`，11pt 600，字间距 0.04em
-- 单元格：12pt 内边距，13pt 字号，**默认字体**（表格内数字不使用 Urbanist 等特殊数字字族）
+- 表头：背景 `rgba(67,136,255,.04)`，12pt 600，字间距 0.04em
+- 单元格：13pt × 16pt 内边距，14pt 字号，**默认字体**（表格内数字不使用 Urbanist 等特殊数字字族）
 - 行交替：偶数行 `#FAFAFA`
 - 异常值（偏高/超标）：`#D83226` 红色 + 600 字重；正常值用默认文字色，不额外高亮
 
@@ -1096,7 +1103,7 @@ Default → Hover → Pressed → Loading → Disabled
 - 高度 38pt（含上下 12pt padding）
 - 装饰条：3×14pt 主色 `#2A7F8B` + 圆角 4pt
 - 底部 1pt `#E4E4E7` 分隔线
-- 标题 15pt 600
+- 标题 16pt 500
 
 ---
 
@@ -1157,7 +1164,7 @@ const dsTokens = {
   green: '#02C456',   greenSoft:   '#E1F8EB',
   red: '#D83226',     track: '#F0F0F2',
   axisLine: '#E4E4E7', splitLine: '#F4F4F5',
-  axisLabel: '#71717A', tickLabel: '#A1A1AA',
+  axisLabel: '#5F5F66', tickLabel: '#7C7C82',
   tooltipBg: 'rgba(24, 24, 27, 0.92)',
   fontFamily: '-apple-system, "PingFang SC", sans-serif'
 };
@@ -1408,8 +1415,8 @@ const chart = echarts.init(dom, 'runda-toc');
 |------|-----|
 | 行高 | 44pt |
 | 选中背景 | `rgba(42,127,139,0.08)` |
-| 选中文字 | `#18181B` 17pt Semibold |
-| 非选中文字 | `#A1A1AA` 15pt |
+| 选中文字 | `#2C2C2E` 16pt Semibold |
+| 非选中文字 | `#7C7C82` 14pt |
 | 渐隐遮罩 | 上下各 80pt 线性透明 |
 
 #### 18.3.2 日历网格（月视图）
@@ -1427,7 +1434,7 @@ const chart = echarts.init(dom, 'runda-toc');
 | 选中 | 背景 `#2A7F8B`，白字，圆角 full |
 | 范围内 | 背景 `rgba(42,127,139,0.10)` |
 | 范围端点 | 半圆背景 + 实心圆 |
-| 禁用 | 文字 `#A1A1AA`，不可点 |
+| 禁用 | 文字 `#7C7C82`，不可点 |
 
 **交互**：单选 / 范围选（两次点击）/ 快捷选（本周、本月）。
 
@@ -1452,10 +1459,10 @@ const chart = echarts.init(dom, 'runda-toc');
 
 | 属性 | 值 |
 |------|-----|
-| 按钮尺寸 | 44×44pt，圆角 12pt |
+| 按钮尺寸 | 44×44pt，圆角 full（正圆） |
 | 按钮背景 | `#F4F4F5` |
-| 按钮图标 | 20pt，`#18181B` |
-| 数值框 | 56pt 宽，居中，17pt Semibold |
+| 按钮图标 | 20pt，`#2C2C2E` |
+| 数值框 | 56pt 宽，居中，16pt Semibold |
 | 禁用态 | 按钮透明度 0.38 |
 | 长按 | 500ms 后连续步进，间隔 100ms |
 
@@ -1548,7 +1555,7 @@ const chart = echarts.init(dom, 'runda-toc');
 | 属性 | 值 |
 |------|-----|
 | 标题高度 | 44pt（最小触摸目标） |
-| 标题字号 | 15pt Semibold |
+| 标题字号 | 16pt Semibold |
 | 箭头图标 | Lucide `chevron-down` 18pt，展开 `rotate(180deg)`，两态字形一致，200ms ease |
 | 内容区 | 高度动画展开，300ms ease-out |
 | 分割线 | 浅灰 `#F4F4F5`，与列表分割线同一浅色梯度 |
@@ -1608,9 +1615,9 @@ const chart = echarts.init(dom, 'runda-toc');
 | 背景 | `#FFFFFF`，`shadow-lg` |
 | 圆角 | 16pt |
 | 内边距 | 12pt × 16pt |
-| 图标 | 40×40pt，圆角 10pt |
+| 图标 | 40×40pt，圆角 12pt |
 | 标题 | 14pt Semibold |
-| 副标题 | 12pt，`#71717A` |
+| 副标题 | 12pt，`#7C7C82` |
 | 出现 | 从顶部滑入，350ms spring |
 | 消失 | 4s 后自动，或上滑关闭 |
 
@@ -1693,10 +1700,10 @@ const chart = echarts.init(dom, 'runda-toc');
 
 | 属性 | 值 |
 |------|-----|
-| 字号 | 13pt |
-| 当前页 | `#18181B` Semibold |
+| 字号 | 14pt |
+| 当前页 | `#2C2C2E` Semibold |
 | 父级 | `#2A7F8B`，可点击 |
-| 分隔符 | `/` 或 `›`，`#A1A1AA` |
+| 分隔符 | `/` 或 `›`，`#7C7C82` |
 | 超出截断 | 中间层折叠为 `...`，点击展开 |
 
 ---
@@ -1717,7 +1724,7 @@ const chart = echarts.init(dom, 'runda-toc');
 | 待完成 | `#E4E4E7` 空心 + 序号 | `#E4E4E7` |
 
 - **节点直径**：24pt
-- **字号**：节点内 12pt，标题 12pt，副标题 12pt `#71717A`
+- **字号**：节点内 12pt，标题 12pt，副标题 12pt `#7C7C82`
 
 ---
 
@@ -1739,7 +1746,7 @@ const chart = echarts.init(dom, 'runda-toc');
 | 激活背景 | `rgba(42,127,139,0.10)` |
 | 激活文字 | `#1D6770` |
 | 激活边框 | 1pt `#2A7F8B` |
-| 字号 | 13pt |
+| 字号 | 14pt |
 | 内边距 | 0 × 16pt |
 | 图标 | 12pt SVG 图标（下箭头/更多），间距 8pt，描边 2pt，圆角端点 |
 | 横向滚动 | 超出时可滚动，左右渐隐 |
@@ -1767,8 +1774,8 @@ const chart = echarts.init(dom, 'runda-toc');
 | 属性 | 值 |
 |------|-----|
 | 行高 | 44pt |
-| Key 字号 | 15pt，`#71717A` |
-| Value 字号 | 15pt，`#18181B` |
+| Key 字号 | 14pt，`#7C7C82` |
+| Value 字号 | 14pt，`#2C2C2E` |
 | 分割线 | Hairline，仅行间 |
 | Value 对齐 | 右对齐 |
 | 可复制 | 长按 Value 弹出复制菜单 |
@@ -1832,8 +1839,8 @@ const chart = echarts.init(dom, 'runda-toc');
 | 圆角 | 14pt |
 | 阴影 | `shadow-xl` |
 | 行高 | 44pt |
-| 图标 | 20pt，`#18181B` |
-| 文字 | 15pt，`#18181B` |
+| 图标 | 20pt，`#2C2C2E` |
+| 文字 | 14pt，`#2C2C2E` |
 | 危险项文字 | `#D83226` |
 | 分割线 | Hairline |
 | 出现动效 | 缩放 0.8→1.0 + 淡入，200ms spring |

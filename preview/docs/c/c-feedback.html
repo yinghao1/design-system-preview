@@ -77,7 +77,7 @@
             <div class="phone-body">
               <div class="c-demo-label">Toast</div>
               <div class="c-toast" style="margin-bottom:10px">
-                <i data-lucide="check" height="18" stroke-width="2.4" class="lucide-icon" style="color:#288A5C"></i>
+                <i data-lucide="check" height="18" stroke-width="2.4" class="lucide-icon" style="color:var(--c-success)"></i>
                 <span>保存成功</span>
               </div>
               <div class="c-toast" style="margin-bottom:20px">
@@ -87,12 +87,12 @@
 
               <div class="c-demo-label">Notification Banner</div>
               <div class="c-banner" style="margin-bottom:8px">
-                <i data-lucide="info" width="18" height="18" stroke-width="18" class="lucide-icon" style="color:#4388FF"></i>
+                <i data-lucide="info" width="18" height="18" class="lucide-icon" style="color:var(--c-blue)"></i>
                 <div style="flex:1"><div class="bt">检验报告已生成</div><div class="bd">血常规 + 生化共 2 项异常，点击查看解读。</div></div>
-                <i data-lucide="chevron-right" class="lucide-icon" style="color:#A1A1AA;width:16px;height:16px"></i>
+                <i data-lucide="chevron-right" class="lucide-icon" style="color:var(--c-ink-3);width:16px;height:16px"></i>
               </div>
-              <div class="c-banner" style="border-left-color:#F2AD0C;margin-bottom:20px">
-                <i data-lucide="circle-alert" width="18" height="18" stroke-width="18" class="lucide-icon" style="color:#F2AD0C"></i>
+              <div class="c-banner" style="border-left-color:var(--c-warning);margin-bottom:20px">
+                <i data-lucide="circle-alert" width="18" height="18" class="lucide-icon" style="color:var(--c-warning)"></i>
                 <div style="flex:1"><div class="bt">服药提醒已关闭</div><div class="bd">关闭后将不再接收推送通知。</div></div>
               </div>
 
@@ -104,23 +104,24 @@
             </div>
           </div>
         </div>
-        <div class="phone-caption">Toast 白底 12pt 圆角 · Banner 左侧 3pt 语义条</div>
+        <div class="phone-caption">Toast 白底 16pt 圆角 · Banner 左侧 3pt 语义条</div>
       </div>
 
       <div>
         <div class="phone">
-          <div class="phone-screen" style="position:relative;min-height:600px">
-            <div class="phone-body" style="filter:blur(1px);opacity:.5">
-              <div class="c-card"><div class="skeleton" style="height:14px;width:50%;margin-bottom:10px;background:#F4F4F5"></div><div class="skeleton" style="height:14px;width:80%;background:#F4F4F5"></div></div>
-              <div class="c-card"><div class="skeleton" style="height:14px;width:60%;background:#F4F4F5"></div></div>
+          <div class="phone-screen" style="position:relative;min-height:660px">
+            <div class="phone-body" style="filter:blur(1.5px);opacity:.45">
+              <div class="c-card"><div class="skeleton" style="height:14px;width:50%;margin-bottom:10px;background:var(--c-bg-2)"></div><div class="skeleton" style="height:14px;width:80%;background:var(--c-bg-2)"></div></div>
+              <div class="c-card"><div class="skeleton" style="height:14px;width:60%;background:var(--c-bg-2)"></div></div>
             </div>
-            <div style="position:absolute;inset:0;background:rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,.28)"></div>
+            <div style="position:absolute;left:0;right:0;top:56px;display:flex;justify-content:center">
               <div class="c-modal">
                 <div class="m-body">
                   <div class="m-title">删除这条记录？</div>
                   <div class="m-text">删除后无法恢复，相关趋势数据将重新计算。</div>
                 </div>
-                <div class="m-actions"><button>取消</button><button style="color:#D83226;font-weight:600">删除</button></div>
+                <div class="m-actions"><button>取消</button><button style="color:var(--c-error);font-weight:600">删除</button></div>
               </div>
             </div>
             <div style="position:absolute;left:0;right:0;bottom:0">
@@ -136,7 +137,7 @@
             </div>
           </div>
         </div>
-        <div class="phone-caption">Modal 宽 270pt 圆角 20pt · Sheet 顶部 24pt</div>
+        <div class="phone-caption">Modal 宽 270pt 圆角 24pt（上）· ActionSheet 顶部圆角 24pt（下）</div>
       </div>
 
       <div style="grid-column:1 / -1">
@@ -157,7 +158,7 @@
 
               <div class="c-demo-label">Spinner 加载指示器</div>
               <div class="c-card" style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
-                <span class="c-spinner"></span><span style="font-size:15px;color:#52525B">加载中…</span>
+                <span class="c-spinner"></span><span style="font-size:14px;color:var(--c-ink-2)">加载中…</span>
               </div>
 
               </div>
@@ -165,7 +166,7 @@
               <div class="c-demo-label">EmptyState 空状态</div>
               <div class="c-card" style="margin-bottom:20px">
                 <div class="c-empty">
-                  <div class="ico"><i data-lucide="inbox" width="34" height="34" stroke-width="34" class="lucide-icon"></i></div>
+                  <div class="ico"><i data-lucide="inbox" width="34" height="34" class="lucide-icon"></i></div>
                   <div class="t">暂无记录</div>
                   <div class="d">还没有上传任何检查报告</div>
                   <div class="c-btn c-btn--secondary c-btn--sm" style="margin-top:12px">立即上传</div>
@@ -175,7 +176,7 @@
               <div class="c-demo-label">ErrorState 错误状态</div>
               <div class="c-card">
                 <div class="c-empty">
-                  <div class="ico" style="background:rgba(216,50,38,.08);color:#D83226"><i data-lucide="circle-alert" width="34" height="34" stroke-width="34" class="lucide-icon"></i></div>
+                  <div class="ico" style="background:rgba(216,50,38,.08);color:var(--c-error)"><i data-lucide="circle-alert" width="34" height="34" class="lucide-icon"></i></div>
                   <div class="t">加载失败</div>
                   <div class="d">网络连接异常，请检查后重试</div>
                   <div class="c-btn c-btn--outline c-btn--sm" style="margin-top:12px">重新加载</div>
@@ -206,8 +207,8 @@
         <table class="c-table">
           <thead><tr><th>组件</th><th>z-index</th><th>关键规格</th></tr></thead>
           <tbody>
-            <tr><td>Toast</td><td>500</td><td>白色系 + 1pt 描边，圆角 12pt，顶部滑入 250ms spring，2s 自动消失</td></tr>
-            <tr><td>Alert / Banner</td><td>内联</td><td>左侧 3pt 语义色条，圆角 10–12pt</td></tr>
+            <tr><td>Toast</td><td>500</td><td>白色系 + 1pt 描边，圆角 16pt，顶部滑入 250ms spring，2s 自动消失</td></tr>
+            <tr><td>Alert / Banner</td><td>内联</td><td>左侧 3pt 语义色条，圆角 14pt</td></tr>
             <tr><td>ActionSheet</td><td>400</td><td>每项 15pt 黑色系文字，危险项红色，末项「取消」加粗</td></tr>
             <tr><td>BottomSheet</td><td>400</td><td>顶部两角 24pt，grab 36×5pt，350ms 弹性上滑</td></tr>
             <tr><td>Modal</td><td>300</td><td>宽 270pt，圆角 20pt，按钮均分 50pt 高</td></tr>
@@ -221,7 +222,7 @@
 
       <section class="doc-section" id="rules">
         <h2>使用规则</h2>
-        <ol style="font-size:14px;line-height:1.9;color:#52525B;padding-left:20px">
+        <ol style="font-size:14px;line-height:1.9;color:var(--c-ink-2);padding-left:20px">
           <li>Toast 只用于<b>短暂、无需决策</b>的反馈；需要用户确认的一律用 Modal。</li>
           <li>同一时刻只允许一个 Toast，连续触发时覆盖而非堆叠。</li>
           <li>Modal 的破坏性操作按钮必须红色且位于右侧，取消在左。</li>

@@ -67,20 +67,23 @@
 
 ### 2.2 语义色彩映射（默认 Light 主题）
 
-| 用途 | 色值 | 说明 |
-|------|------|------|
-| 页面背景 | `#FAFAFA` | 暖灰底色，主屏幕背景 |
-| 次级背景 | `#F4F4F5` | 列表底色、分区 |
-| 卡片/容器背景 | `#FFFFFF` | 内容承载面（通过阴影/边框区分层级） |
-| 暖色面 | `#F3E9D4` | 特殊卡片、品牌区域 |
-| 抬升面（弹窗/Sheet） | `#FFFFFF` | 浮层背景 + 阴影 |
-| 主文字 | `#18181B` | 标题、正文 |
-| 次要文字 | `#52525B` | 描述、时间戳 |
-| 占位/禁用文字 | `#A1A1AA` | 输入提示 |
-| 分割线 | `#E4E4E7` | 列表分隔 |
-| 强调/CTA | `#2A7F8B` | 按钮、链接、进度、选中态 |
-| 强调按压态 | `#1D6770` | 按钮按下 |
-| 选中背景 | `rgba(42,127,139,0.08)` | Tab 选中、列表高亮 |
+> 文字三档与灰阶已对齐 **HeroUI Native**（foreground / muted / surface-secondary / surface-tertiary），比旧版更柔和、层次更清晰。
+
+| 用途 | Token | 色值 | 说明 |
+|------|-------|------|------|
+| 页面背景 | `--c-bg` | `#FAFAFA` | 主屏幕背景、预览面板底 |
+| 次级面（surface-2） | `--c-bg-2` | `#F4F4F5` | 输入框填充、列表底色、分段控件槽 |
+| 三级面（surface-3） | `--c-bg-3` | `#EDEDEE` | 更深的分区、Skeleton |
+| 卡片/容器背景 | `--c-white` | `#FFFFFF` | 内容承载面 |
+| 暖色面 | `--c-warm` | `#F3E9D4` | 特殊卡片、品牌区域 |
+| 主文字（foreground） | `--c-ink` | `#2C2C2E` | 标题、正文（柔和黑，非纯黑） |
+| 次要文字 | `--c-ink-2` | `#5F5F66` | 次级正文 |
+| 弱化文字（muted） | `--c-ink-3` | `#7C7C82` | 描述、时间戳、占位、未完成态 |
+| 边框（border） | `--c-line` | `#E1E1E3` | 卡片描边、输入框聚焦前 |
+| 分割线（separator） | `--c-bg-2` | `#F4F4F5` | 列表/折叠项之间，左右内缩 |
+| 强调/CTA | `--c-primary` | `#2A7F8B` | 按钮、链接、进度、选中态 |
+| 强调按压态 | `--c-press` | `#1D6770` | 按钮按下 |
+| 选中背景 | `--c-primary-50` | `#EDF6F7` | Tab 选中、浅色强调底 |
 
 ### 2.3 色彩使用规则
 
@@ -136,22 +139,23 @@ background-attachment: fixed;
 
 ### 3.2 字号阶梯
 
+> 字体栈沿用 §3.1；字号阶梯已按 **HeroUI Native Typography** 重建（h1=`--text-4xl` … h6=`--text-base`，body 三档），旧版 iOS 11 级阶梯（Hero 34 / Title 28 …）不再使用。
+
 | 名称 | 大小 | 行高 | 字重 | 字族 | 用途 |
 |------|------|------|------|------|------|
-| Hero | 34pt | 41pt | Bold | primary | 启动页大标题 |
-| Title 1 | 28pt | 34pt | Bold | primary | 页面主标题 |
-| Title 2 | 22pt | 28pt | Bold | primary | 区块标题 |
-| Title 3 | 20pt | 25pt | Semibold | primary | 卡片标题 |
-| Headline | 17pt | 22pt | Semibold | primary | 列表项标题 |
-| Body | 17pt | 22pt | Regular | primary | 正文内容 |
-| Callout | 16pt | 21pt | Regular | primary | 辅助正文 |
-| Subheadline | 15pt | 20pt | Regular | primary | 次要信息 |
-| Footnote | 13pt | 18pt | Regular | primary | 时间戳/标签 |
-| Caption 1 | 12pt | 16pt | Regular | primary | 角标/徽章 |
-| Caption 2 | 11pt | 13pt | Regular | primary | 最小文字 |
-| **Numeric Hero** | **56pt** | **60pt** | **Bold 700** | **display (Urbanist)** | **大数字展示（计时器/步数/大 KPI）** |
-| **Numeric Large** | **34pt** | **40pt** | **Bold 700** | **display (Urbanist)** | **MetricCard 主数值 / PricingCard 金额** |
-| **Numeric Medium** | **24pt** | **28pt** | **SemiBold 600** | **display (Urbanist)** | **GroupKPI 数值** |
+| H1 | 36pt | 40pt | Semibold 600 | primary | 启动页 / 结果页大标题（`--text-4xl`） |
+| H2 | 30pt | 36pt | Semibold 600 | primary | 页面主标题（`--text-3xl`） |
+| H3 | 24pt | 32pt | Semibold 600 | primary | 区块标题（`--text-2xl`） |
+| H4 | 20pt | 28pt | Semibold 600 | primary | 分组标题（`--text-xl`） |
+| H5 | 18pt | 28pt | Semibold 600 | primary | 大区块标题（`--text-lg`） |
+| Card Title | 18pt | 28pt | Medium 500 | primary | 卡片内标题（HeroUI card label） |
+| H6 | 16pt | 24pt | Semibold 600 | primary | 小节标题（`--text-base`） |
+| Body | 16pt | 24pt | Regular 400 | primary | 正文内容 |
+| Body SM | 14pt | 20pt | Regular 400 | primary | 描述、次级信息、列表副标题 |
+| Body XS | 12pt | 16pt | Regular 400 | primary | 时间戳、角标、标签 |
+| **Numeric Hero** | **56pt** | **60pt** | **Semibold 600** | **display (Urbanist)** | **大数字展示（计时器/步数/大 KPI）** |
+| **Numeric Large** | **34pt** | **40pt** | **Semibold 600** | **display (Urbanist)** | **MetricCard 主数值 / PricingCard 金额** |
+| **Numeric Medium** | **24pt** | **28pt** | **Semibold 600** | **display (Urbanist)** | **GroupKPI 数值** |
 
 ### 3.3 排版规则
 
@@ -160,6 +164,27 @@ background-attachment: fixed;
 - **中英混排**时英文使用 SF Pro，中文自动回退 PingFang SC
 - **数字/金额**使用等宽数字特性（Tabular Figures），大数字展示组件使用 `typography.scale.numeric*` token（Urbanist 字族，与 PC 端统一）
 - **代码块**使用 SF Mono 14pt，行高 20pt，背景 `#121212`
+
+### 3.4 HeroUI 语义字级（推荐用法）
+
+上表的字号在 CSS 里以工具类形式提供（定义在 `preview/assets/c-mobile.css`），组件内一律用类名，不要写行内字号：
+
+| 类名 | 字号 / 行高 | 字重 | 对应 HeroUI | 用途 |
+|------|------------|------|-------------|------|
+| `.c-h1` | 36 / 40 | 600 + 紧字距 | `type="h1"` | 页面主标题 |
+| `.c-h2` | 30 / 36 | 600 + 紧字距 | `h2` | 大区块标题 |
+| `.c-h3` | 24 / 32 | 600 + 紧字距 | `h3` | 区块标题 |
+| `.c-h4` | 20 / 28 | 600 + 紧字距 | `h4` | 小节标题 |
+| `.c-h5` | 18 / 28 | 600 + 紧字距 | `h5` | 强调标题 |
+| `.c-h6` | 16 / 24 | 600 + 紧字距 | `h6` | 列表/卡片标题 |
+| `.c-card-title` | 18 / 28 | **500** | card label | **卡片内标题**（注意是 500 不是 600） |
+| `.c-body` | 16 / 24 | 400 | `body` | 正文 |
+| `.c-body-sm` | 14 / 20 | 400 | `body-sm` | 次级正文 / 列表描述 |
+| `.c-body-xs` | 12 / 16 | 400 | `body-xs` | 说明文字 / 时间戳 |
+
+- **卡片内标题用 `.c-card-title`（18/500）**，不要用 `.c-h6`（16/600）——HeroUI 的 card label 就是 18pt medium
+- **列表标题 16/500、描述 14/muted**，对应 HeroUI list-group
+- 不要再在 HTML 里散写 `font-size`，优先用这些类
 
 ---
 
@@ -201,42 +226,48 @@ background-attachment: fixed;
 
 ## 5. 圆角系统
 
-| 名称 | 值 | 应用场景 |
+> 对齐 **HeroUI Native**：以 `--radius: 8px` 为基准等比展开（token：`--c-r-*`）。整体比旧版更大、更圆润，这是当前视觉语言的核心特征。
+
+| Token | 值 | 应用场景 |
 |------|-----|----------|
-| xs | 4pt | 小标签、代码块 |
-| sm | 8pt | 小按钮、输入框内嵌元素 |
-| md | 12pt | 按钮、输入框、Toast |
-| lg | 16pt | 卡片、缩略图 |
-| xl | 20pt | 大卡片 |
-| 2xl | 24pt | 弹窗、底部 Sheet |
-| full | 9999pt | 胶囊按钮、头像、Chip、进度条 |
+| `--c-r-xs` | 4pt | 极小元素、色块内描边 |
+| `--c-r-sm` | 6pt | 代码块、骨架屏 |
+| `--c-r-lg` | 8pt | 小内嵌元素 |
+| `--c-r-xl` | 12pt | 分段控件内部项、Tab 组内部项 |
+| `--c-r-2xl` | 16pt | 卡片、Chip、Capsule、Toast、列表容器 |
+| `--c-r-3xl` | 24pt | **按钮**、折叠面板、弹窗、底部 Sheet |
+| `--c-r-4xl` | 32pt | 大号按钮（size-lg） |
+| field | 14pt | **输入框 / 文本域 / 搜索框**（对应 HeroUI `--field-radius`） |
+| full | 9999pt | 头像、状态点、开关、进度条 |
 
 ### 圆角规则
 
-- **卡片统一 16pt**，不混用不同圆角值
-- **按钮默认 12pt**，胶囊型用 full
-- **嵌套圆角**：内层圆角 = 外层圆角 - 内边距（如卡片 16pt 内的按钮用 12pt）
+- **按钮统一 24pt**（HeroUI `radius-3xl`）——大圆角 + 500 字重是「圆润不笨重」的关键，不要改回 12pt
+- **卡片 16pt、折叠面板 24pt**，二者不同层级，不要混用
+- **Chip / Capsule 用 16pt 圆角矩形**，不再用全胶囊
+- **输入框 14pt**，与 HeroUI `field-radius` 一致
+- **头像 / 状态点 / 开关 / 进度条**始终 full（正圆 / 全胶囊）
 - **底部 Sheet** 仅顶部两角圆角 24pt
-- **头像/状态点**始终 full（正圆）
+- **嵌套圆角**：内层圆角 = 外层圆角 - 内边距（如卡片 16pt 内的按钮用 12pt）
 
 ---
 
 ## 6. 阴影系统
 
-浅色主题下阴影是区分层级的主要手段，使用柔和低透明度黑色：
+> 对齐 **HeroUI Native**：只用 `surface` / `overlay` 两套**多层极柔**阴影（token：`--c-shadow-surface` / `--c-shadow-overlay`），不再用单层硬投影。多层叠加让边缘过渡自然，避免「一圈灰边」的廉价感。
 
-| 层级 | 阴影 | 边框 | 背景 | 场景 |
-|------|------|------|------|------|
-| 基础层 | 无 | 无 | `#FFFFFF` | 页面背景 |
-| 内容层 | sm | `rgba(0,0,0,0.06)` | `#FFFFFF` | 卡片 |
-| 浮动层 | md | 无 | `#FFFFFF` | 下拉菜单 |
-| 遮罩层 | lg | 无 | `#FFFFFF` | 弹窗/Sheet |
-| 最高层 | xl | 无 | `#FFFFFF` | Toast/Tooltip |
+| Token | 值 | 场景 |
+|------|-----|------|
+| `--c-shadow-surface` | `0 2px 4px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06), 0 0 1px rgba(0,0,0,.06)` | 卡片、折叠面板、任务卡、图表卡、价格卡、Banner |
+| `--c-shadow-overlay` | `0 2px 8px rgba(0,0,0,.02), 0 -6px 12px rgba(0,0,0,.01), 0 14px 28px rgba(0,0,0,.03)` | 弹窗、底部 Sheet、浮层 |
+| `--c-shadow-sm` | `0 1px 2px rgba(0,0,0,.05)` | 极轻层次（Toast、分段控件选中项） |
 
-### 特殊阴影
+### 使用规则
 
-- **强调按钮发光**：`0 4px 16px rgba(255,149,0,0.30)` — 仅用于主 CTA
-- **卡片悬浮态**：`0 4px 12px rgba(0,0,0,0.08)`
+- **卡片类一律用 surface**，不要再用旧的 `0 4px 12px rgba(0,0,0,.08)` 单层阴影
+- **弹层一律用 overlay**，阴影上下分布（上方也有回光），更接近真实浮起
+- **同层不叠两层阴影**：accordion 自己做卡片时，外层不要再套带阴影的 c-card
+- **KPI 小块不加阴影**，避免多个小块阴影造成视觉噪声，靠白底与 `--c-bg` 灰底区分
 
 ---
 

@@ -45,7 +45,7 @@
   <div class="docs-main">
     <article class="doc-card doc">
       <h1>表单控件</h1>
-      <p class="doc-lead">输入框、搜索框与选择类控件。输入框高度 46pt、圆角 12pt、聚焦态使用 3pt 主色光圈；所有开关类控件保持 44pt 触摸热区。</p>
+      <p class="doc-lead">输入框、搜索框与选择类控件。输入框高 48pt、圆角 14pt、灰底无描边，聚焦态使用 3pt 主色光圈；所有开关类控件保持 44pt 触摸热区。</p>
 
       <div class="doc-actions">
         <button class="btn btn-sm btn-outline" type="button" data-goto-tab="preview">
@@ -89,7 +89,7 @@
 
               <div class="c-field">
                 <label>聚焦态</label>
-                <input class="c-input" value="郑宗范" style="border-color:#2A7F8B;box-shadow:0 0 0 3px rgba(42,127,139,.12)" />
+                <input class="c-input" value="郑宗范" style="border-color:var(--c-primary);box-shadow:0 0 0 3px rgba(42,127,139,.12)" />
                 <div class="hint">聚焦时主色描边 + 3pt 光圈</div>
               </div>
 
@@ -101,7 +101,7 @@
 
               <div class="c-field">
                 <label>禁用态</label>
-                <input class="c-input" value="系统自动生成" disabled style="background:#F4F4F5;color:#A1A1AA" />
+                <input class="c-input" value="系统自动生成" disabled style="background:var(--c-bg-2);color:var(--c-ink-3)" />
               </div>
 
               <div class="c-demo-label">TextArea · 多行输入</div>
@@ -113,7 +113,7 @@
             </div>
           </div>
         </div>
-        <div class="phone-caption">输入框 46pt 高 · 圆角 12pt · 字号 17pt</div>
+        <div class="phone-caption">输入框 48pt 高 · 圆角 14pt · 字号 16pt</div>
       </div>
 
       <div>
@@ -130,15 +130,15 @@
               <div class="c-demo-label">Switch · 开关</div>
               <div class="c-card">
                 <div class="c-divider-inset" style="display:flex;align-items:center;justify-content:space-between;padding:0 16px 12px">
-                  <div><div style="font-size:16px;font-weight:500">用药提醒</div><div style="font-size:13px;color:#52525B">每日 08:00 / 20:00</div></div>
+                  <div><div style="font-size:16px;font-weight:500">用药提醒</div><div style="font-size:14px;color:var(--c-ink-3)">每日 08:00 / 20:00</div></div>
                   <button class="c-switch on" aria-label="用药提醒开关"></button>
                 </div>
                 <div class="c-divider-inset" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px">
-                  <div><div style="font-size:16px;font-weight:500">数据同步</div><div style="font-size:13px;color:#52525B">仅 Wi-Fi 环境</div></div>
+                  <div><div style="font-size:16px;font-weight:500">数据同步</div><div style="font-size:14px;color:var(--c-ink-3)">仅 Wi-Fi 环境</div></div>
                   <button class="c-switch" aria-label="数据同步开关"></button>
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px">
-                  <div><div style="font-size:16px;font-weight:500">紧急联系人</div><div style="font-size:13px;color:#52525B">异常时自动通知</div></div>
+                  <div><div style="font-size:16px;font-weight:500">紧急联系人</div><div style="font-size:14px;color:var(--c-ink-3)">异常时自动通知</div></div>
                   <button class="c-switch on" aria-label="紧急联系人开关"></button>
                 </div>
               </div>
@@ -153,7 +153,7 @@
                   <span class="c-check"></span>
                   <span class="c-row-text">接收健康周报推送</span>
                 </div>
-                <div style="height:1px;background:#E4E4E7;margin:8px 0"></div>
+                <div style="height:1px;background:var(--c-line);margin:8px 0"></div>
                 <div class="c-row" style="padding:8px 0">
                   <span class="c-radio on"></span>
                   <span class="c-row-text">男</span>
@@ -166,15 +166,15 @@
 
               <div class="c-demo-label">Slider / Stepper / Rate</div>
               <div class="c-card">
-                <div style="display:flex;justify-content:space-between;font-size:14px;color:#52525B;margin-bottom:12px"><span>目标体重</span><span class="c-num" style="font-weight:600;color:#18181B">68 kg</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:14px;color:var(--c-ink-2);margin-bottom:12px"><span>目标体重</span><span class="c-num" style="font-weight:600;color:var(--c-ink)">68 kg</span></div>
                 <div class="c-slider" style="margin-bottom:20px"><i style="width:56%"></i><b style="left:56%"></b></div>
-                <div style="display:flex;justify-content:space-between;font-size:12px;color:#A1A1AA"><span>50</span><span>90</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--c-ink-3)"><span>50</span><span>90</span></div>
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px">
-                  <span style="font-size:15px">每日饮水</span>
+                  <span style="font-size:16px">每日饮水</span>
                   <div class="c-stepper"><button>−</button><em class="c-num">8</em><button>+</button></div>
                 </div>
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px">
-                  <span style="font-size:15px">今日体感</span>
+                  <span style="font-size:16px">今日体感</span>
                   <div class="c-rate">★<span class="off">★</span><span class="off">★</span><span class="off">★</span><span class="off">★</span></div>
                 </div>
               </div>
@@ -203,7 +203,7 @@
         <table class="c-table">
           <thead><tr><th>组件</th><th>尺寸</th><th>状态</th></tr></thead>
           <tbody>
-            <tr><td>TextField</td><td>高 46pt，圆角 12pt，内边距 13×16pt</td><td>默认 / 聚焦（主色边 + 3pt 光圈）/ 错误（error 边 + error 提示）/ 禁用</td></tr>
+            <tr><td>TextField</td><td>高 48pt，圆角 14pt，内边距 12×14pt，灰底无描边</td><td>默认 / 聚焦（主色边 + 3pt 光圈）/ 错误（error 边 + error 提示）/ 禁用</td></tr>
             <tr><td>TextArea</td><td>最小高 96pt，行高 1.45</td><td>同上，另含字数计数</td></tr>
             <tr><td>SearchBar</td><td>高 40pt，圆角 10pt，ink.100 底</td><td>空闲 / 输入中 / 无结果</td></tr>
             <tr><td>Switch</td><td>51×31pt，滑块 27pt</td><td>关（ink.200）/ 开（success）/ 禁用</td></tr>
@@ -219,7 +219,7 @@
 
       <section class="doc-section" id="rules">
         <h2>使用规则</h2>
-        <ol style="font-size:14px;line-height:1.9;color:#52525B;padding-left:20px">
+        <ol style="font-size:14px;line-height:1.9;color:var(--c-ink-2);padding-left:20px">
           <li>标签置顶（不用浮动标签），错误提示紧贴输入框下方 6pt。</li>
           <li>错误提示必须说明<b>如何修正</b>，禁止只写「输入有误」。</li>
           <li>数字键盘使用 <code>inputmode="decimal"</code>；手机号使用 <code>type="tel"</code>。</li>

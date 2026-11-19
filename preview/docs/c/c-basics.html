@@ -89,13 +89,13 @@
               </div>
               <div style="display:flex;gap:10px;margin-top:18px;align-items:center">
                 <div class="c-btn c-btn--primary c-btn--sm">小号</div>
-                <div class="c-btn c-btn--primary c-btn--pill" style="height:40px;padding:0 20px;font-size:15px">胶囊</div>
+                <div class="c-btn c-btn--primary c-btn--pill" style="height:40px;padding:0 14px;font-size:14px">胶囊</div>
                 <div class="c-btn c-btn--secondary c-btn--sm">小次要</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="phone-caption">高度 48pt · 圆角 12pt · 字号 17pt 半粗</div>
+        <div class="phone-caption">高度 48pt · 圆角 24pt · 字号 16pt 中黑</div>
       </div>
 
       <div>
@@ -131,7 +131,7 @@
                 <span class="c-avatar c-avatar--sm">李</span>
                 <span class="c-avatar c-avatar--sm" style="background:#E8F0FF;color:#1F5FCC">王</span>
                 <span class="c-avatar c-avatar--sm" style="background:#FEF6E4;color:#8A6100">张</span>
-                <span class="c-avatar c-avatar--sm" style="background:#F4F4F5;color:#52525B">+5</span>
+                <span class="c-avatar c-avatar--sm" style="background:var(--c-bg-2);color:var(--c-ink-2)">+5</span>
               </div>
 
               <div class="c-demo-label">IconButton · 图标按钮</div>
@@ -143,13 +143,13 @@
 
               <div class="c-demo-label">Divider · 分割线</div>
               <hr class="c-divider" style="margin:0 0 6px">
-              <div class="c-demo-note">通栏 1pt · #E4E4E7</div>
+              <div class="c-demo-note">通栏 1pt · #E1E1E3</div>
               <hr class="c-divider c-divider--inset" style="margin:14px 0 6px">
               <div class="c-demo-note">缩进 16pt（列表项内）</div>
             </div>
           </div>
         </div>
-        <div class="phone-caption">Chip 30pt · 头像四档 · 徽章数字/圆点</div>
+        <div class="phone-caption">Chip 28pt · 头像四档 · 徽章数字/圆点</div>
       </div>
     </div>
   </section>
@@ -170,19 +170,19 @@
         <table class="c-table">
           <thead><tr><th>组件</th><th>尺寸</th><th>状态</th></tr></thead>
           <tbody>
-            <tr><td>Button</td><td>高 48pt，圆角 12pt，内边距 14×24pt，字号 17pt/600</td><td>默认 / 按压（scale .96 + 背景加深）/ 禁用（ink.100 底 + ink.400 字）</td></tr>
+            <tr><td>Button</td><td>高 48pt（小号 40pt），圆角 24pt，内边距 16pt，字号 16pt/500（小号 14pt）</td><td>默认 / 按压（scale .96 + 背景加深）/ 禁用（ink.100 底 + ink.400 字）</td></tr>
             <tr><td>IconButton</td><td>44×44pt，圆形，图标 22pt</td><td>默认 / 按压 / 禁用</td></tr>
-            <tr><td>Chip</td><td>高 30pt，圆角 full，内边距 0×12pt，字号 13pt/500</td><td>默认灰底 / 选中（primary.50 + primary.300 边）/ 描边</td></tr>
+            <tr><td>Chip</td><td>高 28pt，圆角 16pt，内边距 0×12pt，字号 12pt/500</td><td>默认灰底 / 选中（primary.50 + primary.300 边）/ 描边</td></tr>
             <tr><td>Badge</td><td>数字最小 18pt 高；圆点 8pt</td><td>error（默认）/ info / success</td></tr>
             <tr><td>Avatar</td><td>24 / 32 / 44 / 64pt，始终正圆</td><td>文字首字 / 图片 / 群组（-10pt 重叠 + 2pt 白边）</td></tr>
-            <tr><td>Divider</td><td>1pt，#E4E4E7</td><td>通栏 / 缩进 16pt</td></tr>
+            <tr><td>Divider</td><td>1pt，--c-line（#E1E1E3）</td><td>通栏 / 缩进 16pt</td></tr>
           </tbody>
         </table>
       </section>
 
       <section class="doc-section" id="rules">
         <h2>使用规则</h2>
-        <ol style="font-size:14px;line-height:1.9;color:#52525B;padding-left:20px">
+        <ol style="font-size:14px;line-height:1.9;color:var(--c-ink-2);padding-left:20px">
           <li>一个屏幕内<b>只允许一个主按钮</b>；同级操作使用次要/描边按钮。</li>
           <li>破坏性操作使用 Danger，且必须在二次确认弹窗中再次出现。</li>
           <li>按钮文案不超过 8 个汉字，避免换行。</li>

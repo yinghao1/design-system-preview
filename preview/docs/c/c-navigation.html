@@ -75,9 +75,9 @@
         <div class="phone">
           <div class="phone-screen">
             <div class="c-navbar">
-              <span class="back"><i data-lucide="chevron-left" width="22" height="22" stroke-width="22" class="lucide-icon"></i></span>
+              <span class="back"><i data-lucide="chevron-left" width="22" height="22" class="lucide-icon"></i></span>
               <span class="title">检验报告</span>
-              <span class="action"><i data-lucide="download" width="20" height="20" stroke-width="20" class="lucide-icon"></i></span>
+              <span class="action"><i data-lucide="download" width="20" height="20" class="lucide-icon"></i></span>
             </div>
             <div class="phone-body">
               <div class="c-tabgroup" style="margin-bottom:14px">
@@ -86,8 +86,7 @@
               <div class="c-tabsline" style="margin-bottom:14px">
                 <a class="active">血常规</a><a>生化</a><a>尿常规</a>
               </div>
-              <div class="c-card" style="padding:0;overflow:hidden">
-                <div class="c-accordion" style="border-radius:0">
+              <div class="c-accordion">
                   <details open>
                     <summary>基本信息<i data-lucide="chevron-down" class="acc-arrow"></i></summary>
                     <div class="acc-body">患者 郑宗范 · 男 · 52 岁<br>采集时间 2026-11-06 07:20 · 空腹</div>
@@ -100,7 +99,6 @@
                     <summary>报告说明<i data-lucide="chevron-down" class="acc-arrow"></i></summary>
                     <div class="acc-body">本报告仅对本次样本负责，如有疑问请咨询临床医师。</div>
                   </details>
-                </div>
               </div>
             </div>
             <div class="c-tabbar">
@@ -119,23 +117,23 @@
           <div class="phone-screen">
             <div class="phone-body">
               <div class="c-demo-label">左滑露出操作（Swipe Actions）</div>
-              <div style="display:flex;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)">
+              <div style="display:flex;border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--c-shadow-surface)">
                 <div style="flex:1 1 auto;min-width:0;padding:14px 16px">
                   <div style="font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">08:00 二甲双胍</div>
-                  <div style="font-size:13px;color:#52525B;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">0.5g · 随餐服用</div>
+                  <div style="font-size:14px;color:var(--c-ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">0.5g · 随餐服用</div>
                 </div>
-                <div style="flex:0 0 88px;background:#D83226;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">删除</div>
+                <div style="flex:0 0 88px;background:var(--c-error);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">删除</div>
               </div>
               <div class="c-demo-note">单个操作区宽 88pt；两个操作时从右向左依次排布</div>
 
               <div class="c-demo-label">下拉刷新（Pull to Refresh）</div>
-              <div style="border-radius:14px;background:#fff;padding:18px 16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.05)">
+              <div style="border-radius:16px;background:#fff;padding:18px 16px;text-align:center;box-shadow:var(--c-shadow-surface)">
                 <div class="c-spinner" style="margin:0 auto 8px"></div>
-                <div style="font-size:13px;color:#52525B">正在同步最新数据…</div>
+                <div style="font-size:14px;color:var(--c-ink-3)">正在同步最新数据…</div>
               </div>
 
               <div class="c-demo-label">步骤指示器（Step Indicator）</div>
-              <div style="border-radius:14px;background:#fff;padding:18px 14px;box-shadow:0 1px 2px rgba(0,0,0,.05)">
+              <div style="border-radius:16px;background:#fff;padding:18px 14px;box-shadow:var(--c-shadow-surface)">
                 <div class="c-steps">
                   <div class="done">预约<i data-lucide="check" class="node-check"></i></div>
                   <div class="done">签到<i data-lucide="check" class="node-check"></i></div>
@@ -187,7 +185,7 @@
 
       <section class="doc-section" id="rules">
         <h2>使用规则</h2>
-        <ol style="font-size:14px;line-height:1.9;color:#52525B;padding-left:20px">
+        <ol style="font-size:14px;line-height:1.9;color:var(--c-ink-2);padding-left:20px">
           <li>导航栏标题不超过 8 字，居中显示；左侧返回、右侧最多一个操作。</li>
           <li>Tab 栏始终常驻，切页不重建，保留各页滚动位置。</li>
           <li>同一页面内<b>只使用一种</b>页内切换形态（分段 or 下划线 or 折叠），不叠加。</li>

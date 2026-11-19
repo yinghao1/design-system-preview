@@ -85,19 +85,19 @@
                   <path d="M8 72 L58 60 L108 66 L158 48 L208 56 L258 40 L312 44" fill="none" stroke="#2A7F8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <circle cx="258" cy="40" r="4" fill="#2A7F8B" stroke="#fff" stroke-width="2"/>
                 </svg>
-                <div style="display:flex;justify-content:space-between;font-size:10px;color:#71717A;margin-top:4px"><span>11/01</span><span>11/03</span><span>11/05</span><span>11/07</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--c-ink-2);margin-top:4px"><span>11/01</span><span>11/03</span><span>11/05</span><span>11/07</span></div>
               </div>
 
               <div class="c-chart-box" style="margin-bottom:12px">
                 <div class="cb-title">睡眠构成（小时）</div>
                 <div class="c-bars">
-                  <i style="height:68%;background:#2A7F8B"></i>
-                  <i style="height:52%;background:#4388FF"></i>
+                  <i style="height:68%;background:var(--c-primary)"></i>
+                  <i style="height:52%;background:var(--c-blue)"></i>
                   <i style="height:80%;background:#FEBC41"></i>
-                  <i style="height:44%;background:#02C456"></i>
+                  <i style="height:44%;background:var(--c-green)"></i>
                   <i style="height:62%;background:#A855F7"></i>
                 </div>
-                <div style="display:flex;justify-content:space-between;font-size:10px;color:#71717A;margin-top:6px"><span>周一</span><span>周二</span><span>周三</span><span>周四</span><span>周五</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--c-ink-2);margin-top:6px"><span>周一</span><span>周二</span><span>周三</span><span>周四</span><span>周五</span></div>
               </div>
 
               <div class="c-chart-box">
@@ -138,7 +138,7 @@
                   <path d="M8 50 L62 44 L116 56 L170 38 L224 46 L278 34 L312 42" fill="none" stroke="#2A7F8B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M8 84 L62 80 L116 88 L170 76 L224 82 L278 72 L312 78" fill="none" stroke="#4388FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <div class="c-legend"><span><i style="background:#2A7F8B"></i>收缩压</span><span><i style="background:#4388FF"></i>舒张压</span></div>
+                <div class="c-legend"><span><i style="background:var(--c-primary)"></i>收缩压</span><span><i style="background:var(--c-blue)"></i>舒张压</span></div>
               </div>
 
               <div class="c-chart-box" style="margin-bottom:12px">
@@ -151,7 +151,7 @@
                     </svg>
                     <div class="c-ring-label"><span class="c-num" style="font-size:18px;font-weight:700">80%</span></div>
                   </div>
-                  <div style="font-size:13px;color:#52525B;line-height:1.7">7 天中 5 天达标<br>未达标：11/03、11/06</div>
+                  <div style="font-size:14px;color:var(--c-ink-3);line-height:1.7">7 天中 5 天达标<br>未达标：11/03、11/06</div>
                 </div>
               </div>
 
@@ -164,7 +164,7 @@
                   <div class="c-skeleton" style="flex:1;height:78%"></div>
                   <div class="c-skeleton" style="flex:1;height:34%"></div>
                 </div>
-                <div style="font-size:12px;color:#A1A1AA;margin-top:8px">加载中用骨架占位；无数据用 EmptyState，不画空图表</div>
+                <div style="font-size:12px;color:var(--c-ink-3);margin-top:8px">加载中用骨架占位；无数据用 EmptyState，不画空图表</div>
               </div>
             </div>
           </div>
@@ -206,10 +206,10 @@
         <table class="c-table">
           <thead><tr><th>元素</th><th>色值</th><th>规格</th></tr></thead>
           <tbody>
-            <tr><td>坐标轴线</td><td><code>#E4E4E7</code></td><td>1pt 实线</td></tr>
+            <tr><td>坐标轴线</td><td><code>#E1E1E3</code></td><td>1pt 实线</td></tr>
             <tr><td>网格分割线</td><td><code>#F4F4F5</code></td><td>1pt 虚线</td></tr>
             <tr><td>主轴标签</td><td><code>#71717A</code></td><td>10px（移动端）</td></tr>
-            <tr><td>次轴标签</td><td><code>#A1A1AA</code></td><td>10px</td></tr>
+            <tr><td>次轴标签</td><td><code>#7C7C82</code></td><td>10px</td></tr>
             <tr><td>Tooltip 背景</td><td><code>rgba(24,24,27,.92)</code></td><td>圆角 8pt，<code>confine:true</code></td></tr>
             <tr><td>Tooltip 文字</td><td><code>#FFFFFF</code></td><td>11px</td></tr>
             <tr><td>环形轨道</td><td><code>#F0F0F2</code></td><td>seriesSoft.track</td></tr>
@@ -219,7 +219,7 @@
 
       <section class="doc-section" id="rules">
         <h2>使用原则</h2>
-        <ol style="font-size:14px;line-height:1.9;color:#52525B;padding-left:20px">
+        <ol style="font-size:14px;line-height:1.9;color:var(--c-ink-2);padding-left:20px">
           <li><b>禁用渐变</b>：series / area / ring / bar 全部纯色，需要层次感时用透明度。</li>
           <li><b>主色优先</b>：单系列图表强制使用 <code>#2A7F8B</code>。</li>
           <li><b>色彩有意义</b>：涨绿跌红，仅在「数值越大越好」语义下成立。</li>

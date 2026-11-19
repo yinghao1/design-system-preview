@@ -45,7 +45,7 @@
   <div class="docs-main">
     <article class="doc-card doc">
       <h1>排版与基础规范</h1>
-      <p class="doc-lead">基于 iOS 系统字体的 11 级字号阶梯，叠加 Urbanist 可变字体承担大数字展示，与 PC 端共用同一数字字体。间距遵循 4pt 网格，圆角分 7 档，阴影承担浅色主题下的层级区分。</p>
+      <p class="doc-lead">字号阶梯对齐 HeroUI Native 的文字预设（H1–H6 + Body 三档），叠加 Urbanist 可变字体承担大数字展示，与 PC 端共用同一数字字体。间距遵循 4pt 网格，圆角按 8pt 基准等比分 9 档，阴影承担浅色主题下的层级区分。</p>
 
       <div class="doc-actions">
         <button class="btn btn-sm btn-outline" type="button" data-goto-tab="preview">
@@ -69,47 +69,45 @@
 <section id="typography" class="section">
     <div class="section-title">03 · TYPOGRAPHY · 字号阶梯</div>
 
-    <div class="demo-sub">Type Scale · 11 级字号阶梯</div>
+    <div class="demo-sub">Type Scale · 对齐 HeroUI Native 文字预设</div>
     <div class="c-canvas">
       <div>
         <div class="phone">
           <div class="phone-screen">
             <div class="phone-body">
-              <div style="font-size:34px;line-height:41px;font-weight:700;letter-spacing:-.02em">Hero 34</div>
-              <div style="font-size:28px;line-height:34px;font-weight:700;margin-top:10px">Title 1 · 28</div>
-              <div style="font-size:22px;line-height:28px;font-weight:700;margin-top:10px">Title 2 · 22</div>
-              <div style="font-size:20px;line-height:25px;font-weight:600;margin-top:10px">Title 3 · 20</div>
-              <div style="font-size:17px;line-height:22px;font-weight:600;margin-top:10px">Headline 17 · 列表项标题</div>
-              <div style="font-size:17px;line-height:22px;margin-top:8px;color:#18181B">Body 17 · 正文内容，用于主要阅读区域。</div>
-              <div style="font-size:16px;line-height:21px;margin-top:8px;color:#52525B">Callout 16 · 辅助正文</div>
-              <div style="font-size:15px;line-height:20px;margin-top:8px;color:#52525B">Subheadline 15 · 次要信息</div>
-              <div style="font-size:13px;line-height:18px;margin-top:8px;color:#71717A">Footnote 13 · 时间戳与标签</div>
-              <div style="font-size:12px;line-height:16px;margin-top:8px;color:#A1A1AA">Caption 1 · 12 角标</div>
-              <div style="font-size:11px;line-height:13px;margin-top:8px;color:#A1A1AA">Caption 2 · 11 最小文字</div>
-              <div style="height:1px;background:#E4E4E7;margin:18px 0"></div>
+              <div class="c-h1">H1 · 36</div>
+              <div class="c-h2" style="margin-top:12px">H2 · 30</div>
+              <div class="c-h3" style="margin-top:10px">H3 · 24</div>
+              <div class="c-h4" style="margin-top:10px">H4 · 20</div>
+              <div class="c-card-title" style="margin-top:10px">Card Title · 18</div>
+              <div class="c-h6" style="margin-top:10px">H6 · 16</div>
+              <div class="c-body" style="margin-top:10px">Body · 16 正文内容，主要阅读区域。</div>
+              <div class="c-body-sm" style="margin-top:8px;color:var(--c-ink-2)">Body SM · 14 描述与次级信息</div>
+              <div class="c-body-xs" style="margin-top:8px;color:var(--c-ink-3)">Body XS · 12 时间戳与角标</div>
+              <div style="height:1px;background:var(--c-line);margin:18px 0"></div>
               <div class="c-demo-label">Numeric · Urbanist</div>
-              <div class="c-num" style="font-size:56px;line-height:60px;font-weight:700;letter-spacing:-.02em">12,480</div>
-              <div class="c-num" style="font-size:34px;line-height:40px;font-weight:700;margin-top:8px">96.7<span style="font-size:15px;color:#A1A1AA;font-weight:500">%</span></div>
-              <div class="c-num" style="font-size:24px;line-height:28px;font-weight:600;margin-top:8px;color:#52525B">7h 12m</div>
+              <div class="c-num" style="font-size:56px;line-height:60px;font-weight:600;letter-spacing:-.02em">12,480</div>
+              <div class="c-num" style="font-size:34px;line-height:40px;font-weight:600;margin-top:8px">96.7<span style="font-size:16px;color:var(--c-ink-3);font-weight:500">%</span></div>
+              <div class="c-num" style="font-size:24px;line-height:28px;font-weight:600;margin-top:8px;color:var(--c-ink-2)">7h 12m</div>
             </div>
           </div>
         </div>
-        <div class="phone-caption">11 级字号阶梯 + Urbanist 三档大数字</div>
+        <div class="phone-caption">H1–H6 + Body 三档 + Urbanist 三档大数字</div>
       </div>
     </div>
 
     <div class="demo-sub">Spacing · 4pt 网格与语义间距</div>
     <div class="demo-box">
       <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;margin-bottom:24px">
-        <div style="text-align:center"><div style="width:4px;height:4px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">4</div></div>
-        <div style="text-align:center"><div style="width:8px;height:8px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">8</div></div>
-        <div style="text-align:center"><div style="width:12px;height:12px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">12</div></div>
-        <div style="text-align:center"><div style="width:16px;height:16px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">16</div></div>
-        <div style="text-align:center"><div style="width:20px;height:20px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">20</div></div>
-        <div style="text-align:center"><div style="width:24px;height:24px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">24</div></div>
-        <div style="text-align:center"><div style="width:32px;height:32px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">32</div></div>
-        <div style="text-align:center"><div style="width:48px;height:48px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">48</div></div>
-        <div style="text-align:center"><div style="width:64px;height:64px;background:#2A7F8B;border-radius:1px"></div><div style="font-size:11px;color:#A1A1AA;margin-top:6px">64</div></div>
+        <div style="text-align:center"><div style="width:4px;height:4px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">4</div></div>
+        <div style="text-align:center"><div style="width:8px;height:8px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">8</div></div>
+        <div style="text-align:center"><div style="width:12px;height:12px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">12</div></div>
+        <div style="text-align:center"><div style="width:16px;height:16px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">16</div></div>
+        <div style="text-align:center"><div style="width:20px;height:20px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">20</div></div>
+        <div style="text-align:center"><div style="width:24px;height:24px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">24</div></div>
+        <div style="text-align:center"><div style="width:32px;height:32px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">32</div></div>
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">48</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary);border-radius:1px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:6px">64</div></div>
       </div>
       <table class="c-table">
         <thead><tr><th>场景</th><th>取值</th><th>说明</th></tr></thead>
@@ -119,32 +117,33 @@
           <tr><td>卡片间距</td><td>12pt</td><td>垂直方向</td></tr>
           <tr><td>区块间距</td><td>24pt</td><td>不同功能区</td></tr>
           <tr><td>列表项间距</td><td>8pt</td><td>同类列表项</td></tr>
-          <tr><td>按钮内边距</td><td>14 × 24pt</td><td>垂直 × 水平</td></tr>
+          <tr><td>按钮内边距</td><td>0 × 16pt</td><td>高度 48pt 定高，水平内距 16pt</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="demo-sub">Radius · 圆角七档</div>
+    <div class="demo-sub">Radius · 圆角九档（HeroUI --radius 8pt 等比）</div>
     <div class="demo-box">
       <div style="display:flex;flex-wrap:wrap;gap:16px">
-        <div style="text-align:center"><div style="width:64px;height:64px;background:#F0F7F8;border:1px solid #B0D6DB;border-radius:4px"></div><div style="font-size:11px;color:#71717A;margin-top:8px">xs 4</div></div>
-        <div style="text-align:center"><div style="width:64px;height:64px;background:#F0F7F8;border:1px solid #B0D6DB;border-radius:8px"></div><div style="font-size:11px;color:#71717A;margin-top:8px">sm 8</div></div>
-        <div style="text-align:center"><div style="width:64px;height:64px;background:#F0F7F8;border:1px solid #B0D6DB;border-radius:12px"></div><div style="font-size:11px;color:#71717A;margin-top:8px">md 12</div></div>
-        <div style="text-align:center"><div style="width:64px;height:64px;background:#F0F7F8;border:1px solid #B0D6DB;border-radius:16px"></div><div style="font-size:11px;color:#71717A;margin-top:8px">lg 16</div></div>
-        <div style="text-align:center"><div style="width:64px;height:64px;background:#F0F7F8;border:1px solid #B0D6DB;border-radius:20px"></div><div style="font-size:11px;color:#71717A;margin-top:8px">xl 20</div></div>
-        <div style="text-align:center"><div style="width:64px;height:64px;background:#F0F7F8;border:1px solid #B0D6DB;border-radius:24px"></div><div style="font-size:11px;color:#71717A;margin-top:8px">2xl 24</div></div>
-        <div style="text-align:center"><div style="width:64px;height:64px;background:#F0F7F8;border:1px solid #B0D6DB;border-radius:999px"></div><div style="font-size:11px;color:#71717A;margin-top:8px">full</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:4px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">xs 4</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:6px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">sm 6</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:8px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">lg 8</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:12px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">xl 12</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:14px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">field 14</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:16px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">2xl 16</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:24px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">3xl 24</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:32px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">4xl 32</div></div>
+        <div style="text-align:center"><div style="width:64px;height:64px;background:var(--c-primary-50);border:1px solid var(--c-primary-300);border-radius:999px"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:8px">full</div></div>
       </div>
-      <p style="font-size:13px;color:#52525B;margin-top:20px;line-height:1.7">卡片统一 16pt；按钮默认 12pt，胶囊型用 full；嵌套圆角 = 外层圆角 − 内边距；底部 Sheet 仅顶部两角 24pt。</p>
+      <p style="font-size:14px;color:var(--c-ink-2);margin-top:20px;line-height:1.7">按钮 24pt、卡片 16pt、折叠面板 24pt、输入框 14pt、Chip / Capsule 16pt、头像与开关 full；嵌套圆角 = 外层圆角 − 内边距；底部 Sheet 仅顶部两角 24pt。</p>
     </div>
 
-    <div class="demo-sub">Shadow · 五层阴影</div>
-    <div class="demo-box">
+    <div class="demo-sub">Shadow · 三层阴影（surface / overlay 复合）</div>
+    <div class="demo-box" style="background:var(--c-bg)">
       <div style="display:flex;flex-wrap:wrap;gap:28px">
-        <div style="text-align:center"><div style="width:96px;height:56px;background:#fff;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.05)"></div><div style="font-size:11px;color:#71717A;margin-top:10px">sm · 卡片</div></div>
-        <div style="text-align:center"><div style="width:96px;height:56px;background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.08)"></div><div style="font-size:11px;color:#71717A;margin-top:10px">md · 浮层</div></div>
-        <div style="text-align:center"><div style="width:96px;height:56px;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.10)"></div><div style="font-size:11px;color:#71717A;margin-top:10px">lg · 弹窗</div></div>
-        <div style="text-align:center"><div style="width:96px;height:56px;background:#fff;border-radius:10px;box-shadow:0 12px 32px rgba(0,0,0,.14)"></div><div style="font-size:11px;color:#71717A;margin-top:10px">xl · Toast</div></div>
+        <div style="text-align:center"><div style="width:112px;height:60px;background:#fff;border-radius:16px;box-shadow:var(--c-shadow-sm)"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:10px">sm · 内嵌小块</div></div>
+        <div style="text-align:center"><div style="width:112px;height:60px;background:#fff;border-radius:16px;box-shadow:var(--c-shadow-surface)"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:10px">surface · 卡片</div></div>
+        <div style="text-align:center"><div style="width:112px;height:60px;background:#fff;border-radius:16px;box-shadow:var(--c-shadow-overlay)"></div><div style="font-size:11px;color:var(--c-ink-3);margin-top:10px">overlay · 弹层 / Toast</div></div>
       </div>
     </div>
   </section>
@@ -165,19 +164,19 @@
         <table class="c-table">
           <thead><tr><th>名称</th><th>大小 / 行高</th><th>字重</th><th>用途</th></tr></thead>
           <tbody>
-            <tr><td>Hero</td><td>34 / 41</td><td>Bold</td><td>启动页大标题</td></tr>
-            <tr><td>Title 1</td><td>28 / 34</td><td>Bold</td><td>页面主标题</td></tr>
-            <tr><td>Title 2</td><td>22 / 28</td><td>Bold</td><td>区块标题</td></tr>
-            <tr><td>Title 3</td><td>20 / 25</td><td>Semibold</td><td>卡片标题</td></tr>
-            <tr><td>Headline</td><td>17 / 22</td><td>Semibold</td><td>列表项标题</td></tr>
-            <tr><td>Body</td><td>17 / 22</td><td>Regular</td><td>正文</td></tr>
-            <tr><td>Callout</td><td>16 / 21</td><td>Regular</td><td>辅助正文</td></tr>
-            <tr><td>Subheadline</td><td>15 / 20</td><td>Regular</td><td>次要信息</td></tr>
-            <tr><td>Footnote</td><td>13 / 18</td><td>Regular</td><td>时间戳、标签</td></tr>
-            <tr><td>Caption 1 / 2</td><td>12 / 16 · 11 / 13</td><td>Regular</td><td>角标、最小文字</td></tr>
-            <tr><td>Numeric Hero</td><td>56 / 60</td><td>Bold 700</td><td>计时器、步数、大 KPI</td></tr>
-            <tr><td>Numeric Large</td><td>34 / 40</td><td>Bold 700</td><td>MetricCard 主数值</td></tr>
-            <tr><td>Numeric Medium</td><td>24 / 28</td><td>SemiBold 600</td><td>GroupKPI 数值</td></tr>
+            <tr><td>H1 <code>.c-h1</code></td><td>36 / 40</td><td>Semibold 600</td><td>启动页、结果页大标题（--text-4xl）</td></tr>
+            <tr><td>H2 <code>.c-h2</code></td><td>30 / 36</td><td>Semibold 600</td><td>页面主标题（--text-3xl）</td></tr>
+            <tr><td>H3 <code>.c-h3</code></td><td>24 / 32</td><td>Semibold 600</td><td>区块标题（--text-2xl）</td></tr>
+            <tr><td>H4 <code>.c-h4</code></td><td>20 / 28</td><td>Semibold 600</td><td>分组标题（--text-xl）</td></tr>
+            <tr><td>H5 <code>.c-h5</code></td><td>18 / 28</td><td>Semibold 600</td><td>大区块标题（--text-lg）</td></tr>
+            <tr><td>Card Title <code>.c-card-title</code></td><td>18 / 28</td><td>Medium 500</td><td>卡片内标题（HeroUI card label）</td></tr>
+            <tr><td>H6 <code>.c-h6</code></td><td>16 / 24</td><td>Semibold 600</td><td>小节标题（--text-base）</td></tr>
+            <tr><td>Body <code>.c-body</code></td><td>16 / 24</td><td>Regular 400</td><td>正文</td></tr>
+            <tr><td>Body SM <code>.c-body-sm</code></td><td>14 / 20</td><td>Regular 400</td><td>描述、次级信息、列表副标题</td></tr>
+            <tr><td>Body XS <code>.c-body-xs</code></td><td>12 / 16</td><td>Regular 400</td><td>时间戳、角标、标签</td></tr>
+            <tr><td>Numeric Hero</td><td>56 / 60</td><td>Semibold 600</td><td>计时器、步数、大 KPI（Urbanist）</td></tr>
+            <tr><td>Numeric Large</td><td>34 / 40</td><td>Semibold 600</td><td>MetricCard 主数值（Urbanist）</td></tr>
+            <tr><td>Numeric Medium</td><td>24 / 28</td><td>Semibold 600</td><td>GroupKPI 数值（Urbanist）</td></tr>
           </tbody>
         </table>
       </section>

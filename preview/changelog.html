@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.8.2</span>
+      <span class="changelog-pill">最新 v2.9.0</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,31 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.9.0</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-new">重构</span>
+          <span class="changelog-tag is-doc">规范</span>
+        </div>
+        <h3 class="changelog-title">C 端视觉语言整体对齐 HeroUI Native</h3>
+        <ul class="changelog-list">
+          <li><strong>Token 层重建</strong>：文字改为 foreground / 次级 / muted 三档（<code>#2C2C2E</code> / <code>#5F5F66</code> / <code>#7C7C82</code>，比旧版纯黑更柔和）；新增三级灰阶 surface（<code>#FAFAFA</code> → <code>#F4F4F5</code> → <code>#EDEDEE</code>）；边框收敛为 <code>#E1E1E3</code>。</li>
+          <li><strong>圆角系统</strong>：按 HeroUI <code>--radius: 8px</code> 基准展开 <code>--c-r-xs~4xl</code>（4/6/8/12/16/24/32）。按钮 12→<strong>24</strong>、折叠面板 16→<strong>24</strong>、Chip/Capsule 全胶囊→<strong>16 圆角矩形</strong>、输入框→<strong>14</strong>。</li>
+          <li><strong>阴影系统</strong>：改用 HeroUI 的 surface / overlay 两套多层极柔阴影，替代原单层硬投影（<code>0 4px 12px rgba(0,0,0,.08)</code>）；卡片、图表卡、任务卡、价格卡、Banner 统一 surface。</li>
+          <li><strong>字级系统</strong>：新增 <code>.c-h1~.c-h6</code> / <code>.c-body</code> / <code>.c-body-sm</code> / <code>.c-body-xs</code> / <code>.c-card-title</code> 语义类；按钮字号 17→16、字重 600→<strong>500</strong>（HeroUI 均为 medium）；列表标题 16/500、描述 13→<strong>14/muted</strong>；卡片标题 16/600→<strong>18/500</strong>。</li>
+          <li><strong>组件细节</strong>：输入框由「1px 硬边框」改为「灰底填充 + 聚焦白底描边」；折叠面板成为独立 24pt 圆角卡片、项间分割线内缩 20pt；导航/Tab 组、分段控件、弹窗、Sheet、Toast 圆角与字级同步。</li>
+          <li><strong>一致性清理</strong>：把 115 处 HTML 内联硬编码色值（<code>#52525B</code> / <code>#A1A1AA</code> / <code>#2A7F8B</code> 等）改为 CSS 变量，从此跟随 token 变化；移除折叠面板的内联 <code>border-radius:0</code> 覆盖。</li>
+          <li><strong>字号阶梯重建</strong>：废弃旧 iOS 11 级阶梯（Hero 34 / Title 28 / Body 17 …），改按 HeroUI Text 预设展开 H1 36 / H2 30 / H3 24 / H4 20 / H5 18 / H6 16 + Body 16/14/12；大数字三档统一 Semibold 600。</li>
+          <li><strong>预览页同步</strong>：字号页演示与表格、圆角演示（7 档→9 档）、阴影演示（4 档硬投影→3 档 HeroUI 复合阴影）全部按新体系重绘；色彩页中性色阶补 <code>ink.150 #EDEDEE</code> 并更新语义映射；各页残留的 <code>46pt/17pt/15pt/13pt</code> 规格文案与圆角、分割线色值说明同步为实测值。</li>
+          <li>同步更新 <code>DESIGN.md</code> §2 色彩 / §3.2 字号阶梯 / §3.4 语义字级 / §5 圆角 / §6 阴影，与 <code>COMPONENTS.md</code> 开发规范第 6 条及逐组件字号说明。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.8.2</h2>
