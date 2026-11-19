@@ -260,6 +260,12 @@ svg { display: block; }
   max-width: 672px;
   padding: 56px 0 0;
 }
+/* 首页 Hero 撑满容器：文案与下方四列卡片网格同宽，避免 1440 及以上视口
+   文字全部堆在左侧、右半屏留白。窄栏页面（如更新日志，正文 880px）继续
+   沿用上面的 672px，保持与下方列表同一垂直轴线。 */
+.hero--wide {
+  max-width: none;
+}
 .hero h1 {
   margin: 0;
   font-size: 48px;
