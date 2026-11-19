@@ -411,6 +411,26 @@ svg { display: block; }
 .mini { width: 100%; display: flex; align-items: center; justify-content: center; }
 .mini-stack { display: flex; flex-direction: column; gap: 10px; width: 100%; }
 .mini-row { display: flex; align-items: center; gap: 8px; }
+/* 卡片预览里的染色图标圆：与详情页 .health-alert-icon 同构，
+   背景色由调用处按语义色编码，图标统一白色描边。任意预览卡可复用。 */
+.mini-icon-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #fff;
+}
+.mini-icon-dot svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .mini-swatches { display: flex; gap: 8px; width: 100%; }
 .mini-swatch { flex: 1; height: 64px; border-radius: 8px; border: 1px solid rgba(0,0,0,.06); }
 .mini-type { text-align: left; width: 100%; }
