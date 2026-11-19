@@ -26,7 +26,7 @@
 |------|--------|----------|
 | 01 概述 | `preview/docs/c/c-introduction.html` | 平台参数、六条原则、页面结构、跨端一致性 |
 | 02 色彩 | `preview/docs/c/c-colors.html` | 品牌五档、中性灰阶、功能色、鲜艳数据色、图表与分类色板 |
-| 03 排版与基础规范 | `preview/docs/c/c-typography.html` | 11 级字号、Manrope 数字、4pt 网格、圆角、阴影、动效 |
+| 03 排版与基础规范 | `preview/docs/c/c-typography.html` | 11 级字号、Urbanist 数字（与 PC 端统一）、4pt 网格、圆角、阴影、动效 |
 | 04 基础组件 | `preview/docs/c/c-basics.html` | Button / IconButton / Chip / Badge / Avatar / Divider |
 | 05 表单控件 | `preview/docs/c/c-forms.html` | TextField / TextArea / SearchBar / Switch / Check / Radio / Segmented / Slider / Stepper / Rate |
 | 06 导航 | `preview/docs/c/c-navigation.html` | NavigationBar / TabBar / TabGroup / TabsLine / Accordion / Swipe / PullRefresh |
@@ -74,6 +74,6 @@
 | 设计基准 | 1440 宽栅格，24 栅格系统 | 390 × 852pt，4pt 网格 |
 | 圆角 | 6–14pt | 4–24pt（卡片 16pt） |
 | 主交互尺寸 | 32–36pt 高控件 | 44–48pt 高，最小触摸 44×44pt |
-| 数字字体 | Urbanist | Manrope（可变 200–800） |
+| 数字字体 | Urbanist | Urbanist（可变 100–900，与 PC 端统一） |
 | 层级表达 | 边框 + 阴影 | 阴影为主（浅色主题） |
 | 图表 | PC 图表规范 | 移动适配：轴标签 10px、Tooltip 11px、禁渐变 |

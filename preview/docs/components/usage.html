@@ -194,7 +194,7 @@ node bin/rundad.js list</code></pre>
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
         </div>
-        <div class="doc-callout"><strong>目录要求：</strong><code>design-system.css</code> 通过相对路径引用 <code>fonts/Urbanist-Medium.ttf</code>。移动文件时，请保持 <code>assets/design-system.css</code> 与 <code>assets/fonts/</code> 的相对位置不变，否则大数字会回退到系统字体。</div>
+        <div class="doc-callout"><strong>目录要求：</strong><code>design-system.css</code> 通过相对路径引用 <code>fonts/Urbanist-Variable.woff2</code>。移动文件时，请保持 <code>assets/design-system.css</code> 与 <code>assets/fonts/</code> 的相对位置不变，否则大数字会回退到系统字体。</div>
       </section>
 
       <section class="doc-section" id="tailwind">
@@ -317,7 +317,7 @@ module.exports = {
               <tr><td><code>design-system/tokens/design-tokens.json</code></td><td>唯一设计源：颜色、字体、间距、组件规格</td><td>设计 / 多端必需</td></tr>
               <tr><td><code>design-system/tokens/tailwind.config.js</code></td><td>浏览器可直接加载的 Tailwind token 配置</td><td>使用 Tailwind 时必需</td></tr>
               <tr><td><code>design-system/assets/design-system.css</code></td><td>组件样式、状态层、数字字体</td><td>必需</td></tr>
-              <tr><td><code>design-system/assets/fonts/Urbanist-Medium.ttf</code></td><td>大数字字体，必须与 CSS 保持相对位置</td><td>必需</td></tr>
+              <tr><td><code>design-system/assets/fonts/Urbanist-Variable.woff2</code></td><td>大数字字体，必须与 CSS 保持相对位置</td><td>必需</td></tr>
               <tr><td><code>design-system/components/</code></td><td><code>rundad add</code> 生成的组件片段与预览页</td><td>按需</td></tr>
               <tr><td><code>preview/assets/coss.js</code></td><td>预览站交互脚本，可作为组件事件参考</td><td>仅预览站 / 参考</td></tr>
               <tr><td><code>docs/DESIGN.md</code></td><td>完整设计规范与反模式</td><td>阅读即可</td></tr>
@@ -337,7 +337,7 @@ module.exports = {
         <h3>大数字没有使用 Urbanist</h3>
         <ul>
           <li>确认元素带有 <code>font-num</code> 类，或使用 <code>font-family: var(--font-numeric)</code>。</li>
-          <li>确认 <code>assets/fonts/Urbanist-Medium.ttf</code> 存在，且与 <code>design-system.css</code> 的相对路径一致。</li>
+          <li>确认 <code>assets/fonts/Urbanist-Variable.woff2</code> 存在，且与 <code>design-system.css</code> 的相对路径一致。</li>
           <li>控制台执行 <code>document.fonts.check('16px "Urbanist"')</code> 应返回 <code>true</code>。</li>
         </ul>
         <h3>表格、开关样式缺失</h3>

@@ -13,11 +13,11 @@
   font-style: normal;
   font-display: swap;
 }
-/* 大数字字体：Urbanist Medium */
+/* 大数字字体：Urbanist 可变字体（与 C 端、CLI 共用同一份文件，100–900） */
 @font-face {
   font-family: "Urbanist";
-  src: url("fonts/Urbanist-Medium.ttf") format("truetype");
-  font-weight: 400 700;
+  src: url("fonts/Urbanist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -1350,7 +1350,7 @@ svg { display: block; }
   box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
 }
 .mini-phone-screen .mp-num {
-  font-family: 'Manrope', 'Urbanist', sans-serif;
+  font-family: 'Urbanist', 'PingFang SC', sans-serif;
   font-size: 13px;
   font-weight: 700;
   color: #18181B;

@@ -778,7 +778,7 @@ Default → Hover → Pressed → Loading → Disabled
 
 - **推荐角标**：右上角，蓝色背景，白字 11pt 600，圆角 4pt
 - **套餐名**：22pt 700
-- **金额**：34pt 700，单位 13pt 次要色，紧贴金额，**字族 `display`（Manrope · Bold 700）**
+- **金额**：34pt 700，单位 13pt 次要色，紧贴金额，**字族 `display`（Urbanist · Bold 700）**
 - **特权列表**：✓ `#288A5C` 16pt + 文字 15pt，行间 12pt
 - **CTA**：满宽 Gradient 按钮，52pt 高，glow 阴影
 
@@ -923,7 +923,7 @@ Default → Hover → Pressed → Loading → Disabled
 **视觉规则：**
 - 容器：`#fff` + 1pt `#E4E4E7` 边框 + `shadow-sm`，圆角 16pt
 - 内边距 16pt，垂直间距 10pt
-- 数值字号 32pt 700，等宽数字（tabular-nums），**字族 `display`（Manrope · Bold 700）**
+- 数值字号 32pt 700，等宽数字（tabular-nums），**字族 `display`（Urbanist · Bold 700）**
 - 趋势徽章 12pt 600，up=绿、down=红、flat=灰
 
 **示例代码（HTML）：**
@@ -962,7 +962,7 @@ Default → Hover → Pressed → Loading → Disabled
 - 外层卡片同 MetricCard
 - 内部 3 列等宽网格，间距 8pt
 - 每个 KPI 单元：12pt 内边距，12pt 圆角，背景为 alpha=0.08~0.12 的对应主题色
-- 数值 24pt 600，标签 11pt secondary，**数值字族 `display`（Manrope · SemiBold 600）**
+- 数值 24pt 600，标签 11pt secondary，**数值字族 `display`（Urbanist · SemiBold 600）**
 
 **色彩方案（来源自截图实测）：**
 - Blue 数据：背景 `rgba(67,136,255,.08)` / 文字 `#4388FF`
@@ -1658,11 +1658,11 @@ const chart = echarts.init(dom, 'runda-toc');
 
 | 变体 | 样式 |
 |------|------|
-| **Inline** | `05:30` 文字，Manrope Numeric Medium 24pt，`#2A7F8B` |
+| **Inline** | `05:30` 文字，Urbanist Numeric Medium 24pt，`#2A7F8B` |
 | **Ring** | 环形进度 + 中心数字，RingProgress 组件复用 |
 | **Block** | 分块显示「时 : 分 : 秒」，每块独立卡片 |
 
-- **数字字族**：`typography.scale.numericMedium`（Manrope 700）
+- **数字字族**：`typography.scale.numericMedium`（Urbanist 700）
 - **颜色变化**：剩余 < 10% 时切换为 `#D83226`（red.500）
 
 ---

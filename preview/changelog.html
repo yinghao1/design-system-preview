@@ -44,14 +44,33 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.7.4</span>
-      <span class="changelog-pill">2026-11-01</span>
+      <span class="changelog-pill">最新 v2.7.5</span>
+      <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
     <p>RUNDA DS 的每次迭代都记录在这里：新增组件、修复问题、规范调整与文档更新。按版本倒序排列。</p>
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.7.5</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-doc">规范</span>
+          <span class="changelog-tag is-new">新增</span>
+        </div>
+        <h3 class="changelog-title">C 端数字字体统一为 Urbanist</h3>
+        <ul class="changelog-list">
+          <li>C 端大数字字体由 Manrope 切换为 <code>Urbanist</code>，与 PC 端共用同一字族，消除双端数字字形不一致。</li>
+          <li>本地引入 Urbanist 可变字体（100–900，OFL 1.1）：<code>fonts/Urbanist-Variable.woff2</code>，许可证见 <code>fonts/Urbanist-OFL.txt</code>；600/700 使用真实字重而非浏览器合成。</li>
+          <li>同步更新 C 端 token、预览样式、组件文档与首页预览卡片文案。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.7.4</h2>

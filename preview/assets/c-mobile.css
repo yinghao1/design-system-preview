@@ -3,10 +3,13 @@
    令牌来源：tokens/c-design-tokens.json；规范：docs/c/DESIGN.md、docs/c/COMPONENTS.md
    命名前缀：c-（组件）/ phone（演示外壳），不与 B 端类名冲突。 */
 
+/* 大数字字体与 PC 端统一为 Urbanist（Google Fonts，OFL 1.1）。
+   使用可变字体 100–900：C 端 numeric 三档含 600/700，需真实字重而非浏览器合成。
+   许可证见 fonts/Urbanist-OFL.txt。 */
 @font-face {
-  font-family: 'Manrope';
-  src: url('fonts/Manrope-Variable.woff2') format('woff2-variations');
-  font-weight: 200 800;
+  font-family: 'Urbanist';
+  src: url('fonts/Urbanist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -198,8 +201,8 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   .phone { padding: 14px; border-radius: 12px; }
 }
 
-/* 数值字体（Manrope） */
-.c-num { font-family: 'Manrope', 'PingFang SC', sans-serif; font-variant-numeric: tabular-nums; }
+/* 数值字体（Urbanist，与 PC 端统一） */
+.c-num { font-family: 'Urbanist', 'PingFang SC', sans-serif; font-variant-numeric: tabular-nums; }
 
 /* ============ 1. 基础组件 ============ */
 .c-btn {
@@ -487,7 +490,7 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 
 .c-kpi { display: flex; gap: 8px; }
 .c-kpi > div { flex: 1; background: #fff; border-radius: 14px; padding: 12px; text-align: center; }
-.c-kpi .v { font-family: 'Manrope', sans-serif; font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.c-kpi .v { font-family: 'Urbanist', sans-serif; font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .c-kpi .k { font-size: 12px; color: var(--c-ink-2); margin-top: 2px; }
 
 .c-status {
@@ -637,7 +640,7 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 
 .c-pricing { background: #fff; border-radius: 20px; padding: 18px; box-shadow: var(--c-shadow-md); }
 .c-pricing .p-name { font-size: 15px; color: var(--c-ink-2); }
-.c-pricing .p-price { font-family: 'Manrope', sans-serif; font-size: 34px; font-weight: 700; margin: 6px 0 2px; }
+.c-pricing .p-price { font-family: 'Urbanist', sans-serif; font-size: 34px; font-weight: 700; margin: 6px 0 2px; }
 .c-pricing .p-price small { font-size: 14px; font-weight: 500; color: var(--c-ink-3); }
 .c-pricing ul { list-style: none; padding: 0; margin: 14px 0 0; font-size: 14px; color: var(--c-ink-2); }
 .c-pricing li { display: flex; gap: 8px; padding: 5px 0; }

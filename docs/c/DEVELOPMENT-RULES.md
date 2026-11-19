@@ -67,7 +67,7 @@
 #### 2.2.4 排版规范
 - [ ] 标题使用 SF Pro Display Bold
 - [ ] 正文使用 SF Pro Text Regular
-- [ ] 大数字使用 Manrope（`typography.scale.numeric*`）
+- [ ] 大数字使用 Urbanist（`typography.scale.numeric*`），与 PC 端统一
 - [ ] 字号符合 `DESIGN.md` §3.2 字号阶梯
 - [ ] 行高 = 字号 × 1.4
 

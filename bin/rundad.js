@@ -163,7 +163,8 @@ function usageReadme() {
     'design-system/',
     '├── assets/',
     '│   ├── design-system.css',
-    '│   └── fonts/Urbanist-Medium.ttf',
+    '│   ├── fonts/Urbanist-Variable.woff2',
+    '│   └── fonts/Urbanist-OFL.txt',
     '├── components/          # rundad add 生成',
     '├── tokens/',
     '│   ├── design-tokens.json',
@@ -192,7 +193,7 @@ function usageReadme() {
     '',
     '## 说明',
     '',
-    '- `design-system.css` 通过相对路径引用 `assets/fonts/Urbanist-Medium.ttf`，移动文件时保持两者相对位置。',
+    '- `design-system.css` 通过相对路径引用 `assets/fonts/Urbanist-Variable.woff2`（Urbanist 可变字体，OFL 1.1），移动文件时保持两者相对位置；许可证见 `assets/fonts/Urbanist-OFL.txt`。',
     '- 带状态的组件（Tabs、折叠面板、下拉、日期、上传、弹窗）需要自行绑定事件，可参考仓库中的 `preview/assets/coss.js`。',
     ''
   ].join('\n');
@@ -268,7 +269,8 @@ function initProject(target, options) {
   var root = path.join(target, 'design-system');
   var sources = [
     ['preview/assets/design-system.css', 'assets/design-system.css'],
-    ['preview/assets/fonts/Urbanist-Medium.ttf', 'assets/fonts/Urbanist-Medium.ttf'],
+    ['preview/assets/fonts/Urbanist-Variable.woff2', 'assets/fonts/Urbanist-Variable.woff2'],
+    ['preview/assets/fonts/Urbanist-OFL.txt', 'assets/fonts/Urbanist-OFL.txt'],
     ['tokens/tailwind.config.js', 'tokens/tailwind.config.js'],
     ['tokens/design-tokens.json', 'tokens/design-tokens.json']
   ];
@@ -295,7 +297,7 @@ function initProject(target, options) {
   fs.mkdirSync(path.join(root, 'components'), { recursive: true });
 
   info('已初始化 ' + displayPath(root) + '/');
-  console.log('  ' + dim('assets/design-system.css · assets/fonts/Urbanist-Medium.ttf'));
+  console.log('  ' + dim('assets/design-system.css · assets/fonts/Urbanist-Variable.woff2'));
   console.log('  ' + dim('tokens/tailwind.config.js · tokens/design-tokens.json'));
   console.log('  ' + dim('example.html · README.md'));
   if (skipped) {

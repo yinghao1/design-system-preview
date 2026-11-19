@@ -130,9 +130,9 @@ background-attachment: fixed;
 | 2 | SF Pro Text | 正文（<20pt） |
 | 3 | SF Mono | 代码/技术内容 |
 | 4 | PingFang SC | 中文回退 |
-| 5 | **Manrope**（OFL 1.1） | **大数字展示组件**（MetricCard / GroupKPI / PricingCard 数值） |
+| 5 | **Urbanist**（OFL 1.1） | **大数字展示组件**（MetricCard / GroupKPI / PricingCard 数值），与 PC 端统一 |
 
-> Manrope 为可变字体（weight 200–800），通过 Google Fonts CDN 或本地 `fonts/manrope-variable.woff2` 引入。仅用于 `typography.scale.numeric*` 三档 token，不替换正文字体栈。
+> Urbanist 为可变字体（weight 100–900），与 PC 端共用同一字体；本地引入 `fonts/Urbanist-Variable.woff2`（许可证 `fonts/Urbanist-OFL.txt`）。仅用于 `typography.scale.numeric*` 三档 token，不替换正文字体栈。
 
 ### 3.2 字号阶梯
 
@@ -149,16 +149,16 @@ background-attachment: fixed;
 | Footnote | 13pt | 18pt | Regular | primary | 时间戳/标签 |
 | Caption 1 | 12pt | 16pt | Regular | primary | 角标/徽章 |
 | Caption 2 | 11pt | 13pt | Regular | primary | 最小文字 |
-| **Numeric Hero** | **56pt** | **60pt** | **Bold 700** | **display (Manrope)** | **大数字展示（计时器/步数/大 KPI）** |
-| **Numeric Large** | **34pt** | **40pt** | **Bold 700** | **display (Manrope)** | **MetricCard 主数值 / PricingCard 金额** |
-| **Numeric Medium** | **24pt** | **28pt** | **SemiBold 600** | **display (Manrope)** | **GroupKPI 数值** |
+| **Numeric Hero** | **56pt** | **60pt** | **Bold 700** | **display (Urbanist)** | **大数字展示（计时器/步数/大 KPI）** |
+| **Numeric Large** | **34pt** | **40pt** | **Bold 700** | **display (Urbanist)** | **MetricCard 主数值 / PricingCard 金额** |
+| **Numeric Medium** | **24pt** | **28pt** | **SemiBold 600** | **display (Urbanist)** | **GroupKPI 数值** |
 
 ### 3.3 排版规则
 
 - **标题不超过 2 行**，超出截断加省略号
 - **正文段落行间距** = 字号 × 1.4（已含在 lineHeight 中）
 - **中英混排**时英文使用 SF Pro，中文自动回退 PingFang SC
-- **数字/金额**使用等宽数字特性（Tabular Figures），大数字展示组件使用 `typography.scale.numeric*` token（Manrope 字族）
+- **数字/金额**使用等宽数字特性（Tabular Figures），大数字展示组件使用 `typography.scale.numeric*` token（Urbanist 字族，与 PC 端统一）
 - **代码块**使用 SF Mono 14pt，行高 20pt，背景 `#121212`
 
 ---
@@ -557,3 +557,4 @@ background-attachment: fixed;
 | v1.5 | 2026-05-28 | 新增 `chart.categorical` 分类色板（6 色）；来源：APP 截图逆向提取，ΔE76 去重，主色不变 |
 | v1.6 | 2026-05-28 | 嵌入 Manrope 可变字体（OFL 1.1）；新增 `fontFamily.display` token；新增 `numericHero`（56pt）/ `numericLarge`（34pt）/ `numericMedium`（24pt）三档大数字展示 scale |
 | v1.6 | 2026-05-28 | 系统性审查后补充 14 个组件（Tooltip/Accordion/Stepper/Rate/Breadcrumb/KeyValuePair/Callout/AvatarGroup/SegmentedProgress/SwipeActions/NotificationBanner/ContextMenu/FilterBar/StepsHorizontal）；按既有分类（表单/数据展示/导航/反馈/基础）合并到对应组件章节，不再独立分组 |
+| v1.7 | 2026-11-19 | 大数字字体由 Manrope 切换为 Urbanist 可变字体（100–900，OFL 1.1），与 PC 端统一；字体文件本地化到 `fonts/Urbanist-Variable.woff2`；同步更新 token、预览样式与文档 |

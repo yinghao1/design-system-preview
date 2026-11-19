@@ -279,7 +279,7 @@
       "primary": "-apple-system, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif",
       "mono": "'SF Mono', 'Menlo', 'Monaco', monospace",
       "chinese": "-apple-system, 'PingFang SC', 'SF Pro SC', sans-serif",
-      "display": "'Manrope', -apple-system, 'Helvetica Neue', sans-serif"
+      "display": "'Urbanist', -apple-system, 'Helvetica Neue', sans-serif"
     },
     "scale": {
       "hero": {

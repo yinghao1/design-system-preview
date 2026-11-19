@@ -8,7 +8,8 @@
   "files": [
     "bin",
     "preview/assets/design-system.css",
-    "preview/assets/fonts/Urbanist-Medium.ttf",
+    "preview/assets/fonts/Urbanist-Variable.woff2",
+    "preview/assets/fonts/Urbanist-OFL.txt",
     "preview/assets/coss.js",
     "preview/docs/components",
     "tokens",

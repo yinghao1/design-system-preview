@@ -322,10 +322,10 @@ font-family-mono: "JetBrains Mono", ui-monospace,
                    SFMono-Regular, Menlo, monospace;
 ```
 
-> **大数字字体（Urbanist Medium）**
+> **大数字字体（Urbanist 可变字体）**
 > 所有 KPI、Hero Number、卡片主数值等大字号数字统一使用 `font-num`（`--font-numeric`），
-> 并开启 `tabular-nums`，保证多行数字纵向对齐。字族声明 400–700，任意字重均按 Medium 字形渲染（无伪粗体）。字体文件位于 `assets/fonts/Urbanist-Medium.ttf`
-> （预览站为 `preview/assets/fonts/Urbanist-Medium.ttf`），已在 `design-system.css` 顶部通过
+> 并开启 `tabular-nums`，保证多行数字纵向对齐。PC 端与 C 端共用同一份 Urbanist 可变字体（字重 100–900），600/700 使用真实字重而非合成。字体文件位于 `assets/fonts/Urbanist-Variable.woff2`
+> （预览站为 `preview/assets/fonts/Urbanist-Variable.woff2`），许可证见 `Urbanist-OFL.txt`（OFL 1.1），已在 `design-system.css` 顶部通过
 > `@font-face` 内嵌，无需额外引入。等宽字体只用于代码、ID 与技术标识，不再用于大数字。
 
 ### 2.2 B 端展示型字号阶梯（9 级）[B 端]

@@ -1,13 +1,14 @@
 /* RUNDA Design System · 组件样式（提取自统一预览，供文档页复用） */
 /* 页面外壳样式见 coss.css，此处只保留组件与演示容器样式。 */
 
-/* ---------- 大数字展示字体（Urbanist Medium） ----------
-   Urbanist Medium 收录为设计系统标准数字字体：所有 KPI / Hero / 卡片主数值统一使用。
-   字族声明 400–700，确保任意字重都按 Medium 字形渲染，避免浏览器伪粗体。 */
+/* ---------- 大数字展示字体（Urbanist 可变字体） ----------
+   Urbanist 为设计系统标准数字字体，PC 端与 C 端共用同一份文件。
+   采用可变字体（weight 100–900），600/700 使用真实字重而非浏览器合成。
+   来源：Google Fonts（OFL 1.1），许可证见 fonts/Urbanist-OFL.txt。 */
 @font-face {
   font-family: "Urbanist";
-  src: url("fonts/Urbanist-Medium.ttf") format("truetype");
-  font-weight: 400 700;
+  src: url("fonts/Urbanist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
