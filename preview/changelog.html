@@ -42,9 +42,9 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 </header>
 
 <main class="page-container">
-  <section class="hero">
+  <section class="hero hero--wide">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.9.1</span>
+      <span class="changelog-pill">最新 v2.9.2</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,23 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.9.2</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-fix">修复</span>
+        </div>
+        <h3 class="changelog-title">更新日志页排版撑满容器</h3>
+        <ul class="changelog-list">
+          <li><strong>内容区不再堆在左侧</strong>：<code>.changelog</code> 去掉 <code>max-width: 880px</code> 的硬限制，随 <code>.page-container</code> 撑满可用宽度；标题区改用 <code>.hero--wide</code>，与下方版本条目保持同一条左轴线和同一右边界。1440 视口下右侧不再空出半屏。</li>
+          <li><strong>窄屏溢出</strong>：720px 断点下 <code>grid-template-columns: 1fr</code> 的最小尺寸是 max-content，长类名会把整列撑出视口；改为 <code>minmax(0, 1fr)</code>，并给 <code>.changelog-list</code> 加 <code>overflow-wrap: anywhere</code>、行内 <code>code</code> 加 <code>word-break: break-word</code>。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.9.1</h2>

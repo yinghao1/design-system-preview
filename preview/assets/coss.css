@@ -261,8 +261,8 @@ svg { display: block; }
   padding: 56px 0 0;
 }
 /* 首页 Hero 撑满容器：文案与下方四列卡片网格同宽，避免 1440 及以上视口
-   文字全部堆在左侧、右半屏留白。窄栏页面（如更新日志，正文 880px）继续
-   沿用上面的 672px，保持与下方列表同一垂直轴线。 */
+   文字全部堆在左侧、右半屏留白。更新日志同样使用 .hero--wide，
+   与下方 100% 宽的版本条目保持同一条垂直轴线。 */
 .hero--wide {
   max-width: none;
 }
@@ -1079,7 +1079,8 @@ svg { display: block; }
 .doc-pane .section { margin-bottom: 0; }
 
 /* ---------- 更新日志 ---------- */
-.changelog { max-width: 880px; padding: 8px 0 96px; }
+/* 更新日志列表撑满容器（原先 max-width:880px 左对齐，1440 视口下右半屏全空）。 */
+.changelog { padding: 8px 0 96px; }
 .changelog-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
 .changelog-pill {
   display: inline-flex;
@@ -1140,6 +1141,7 @@ svg { display: block; }
   line-height: 1.75;
   color: var(--fg);
   list-style: disc;
+  overflow-wrap: anywhere;   /* 长类名 / 色值 / 行内 code 在窄屏不撑破容器 */
 }
 .changelog-list li { margin: 4px 0; }
 .changelog-list li::marker { color: var(--muted-fg); }
@@ -1149,10 +1151,12 @@ svg { display: block; }
   background: var(--muted);
   font-family: var(--font-mono);
   font-size: 0.92em;
+  word-break: break-word;
 }
 .changelog-note { margin-top: 12px; font-size: 13px; color: var(--muted-fg); }
 @media (max-width: 720px) {
-  .changelog-item { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
+  /* minmax(0,1fr) 而不是 1fr：1fr 的最小尺寸是 max-content，长 code 会把整列撑出视口 */
+  .changelog-item { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 24px 0; }
 }
 
 /* ---------- 响应式 ---------- */
