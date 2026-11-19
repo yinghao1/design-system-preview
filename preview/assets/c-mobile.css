@@ -49,11 +49,14 @@
 /* ============ 演示面板 · 组件展示容器 ============
    参照 HeroUI Docs 的展示方式：组件直接呈现在单层演示面板上，
    不套 iPhone 外框、不显示状态栏与 Home 条、面板顶部不放假导航栏。
-   面板底色取应用背景 #FAFAFA，白色卡片自然浮于其上，观感与真机一致。
 
    间距体系（4pt 网格）：
    · 面板内边距 20 · 面板内元素 12 / 16 · 面板之间 20
-   · 分组标注 上 32 / 下 12 · 面板与其说明 10 */
+   · 分组标注 上 32 / 下 12 · 面板与其说明 10
+
+   面板底色：默认用灰阶最低档 --c-bg(#FAFAFA)，让白色卡片自然浮起、
+   不与文档白底融合；基础组件页（按钮/徽标等，本身没有白底卡片）
+   在 <body> 上标记 data-preview-surface="solid" 保持纯白面板。 */
 .c-canvas {
   display: grid;
   /* auto-fill 而非 auto-fit：空轨道保留，单块演示的宽度等于两列页面的单列宽度（约 355px）。
@@ -76,7 +79,7 @@
   width: auto;
   min-width: 0;
   max-width: 100%;
-  background: #ffffff;
+  background: var(--c-bg);
   border: 1px solid var(--c-line);
   border-radius: 14px;
   padding: 20px;
@@ -124,6 +127,12 @@ html[data-set="c"] .demo-box {
   border-radius: 14px;
   padding: 20px;
   margin-bottom: 0;
+}
+/* 基础组件（按钮/徽标/头像等本身无白底容器）用语义标记保留纯白面板，
+   其余所有组件页面沿用默认的灰阶最低档 #FAFAFA */
+html[data-set="c"] [data-preview-surface="solid"] .phone,
+html[data-set="c"][data-preview-surface="solid"] .demo-box {
+  background: var(--c-white);
 }
 
 /* ---------- 演示标注：统一的 eyebrow ----------
@@ -480,41 +489,41 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 }
 
 /* ============ 时间线 Timeline（HeroUI Stepper 纵向风格）============
-   轴线 track/fill 分层，节点完成态实心+白勾、当前态主色+浅色光环、未来态灰空心；
-   与横向步骤指示器 .c-steps 使用同一套视觉语言。HTML 只需 <li class="done"> / <li>。 */
+   参考 HeroUI Stepper 的 Separator 规则：轴线只连接相邻两个节点，
+   最后一步不画线；track/fill 分层，完成态实心+白勾、当前态主色+浅色光环、
+   未来态灰空心。轴线与节点的圆心严格对齐，交接点落在节点边缘，不穿节点。 */
 .c-timeline { position: relative; padding-left: 30px; counter-reset: tlstep; }
-.c-timeline::before {
-  content: ''; position: absolute; left: 7px; top: 8px; bottom: 12px;
-  width: 2px; background: var(--c-line);
-}
-/* 已完成段轴线叠主色 fill：每条已完成 li 从节点中心向下画到本条底部 */
-.c-timeline > li.done::after {
-  content: ''; position: absolute; left: -23px; top: 14px; bottom: -2px;
-  width: 2px; background: var(--c-primary);
-}
 .c-timeline > li {
   position: relative; list-style: none; padding-bottom: 18px; font-size: 15px;
   counter-increment: tlstep;
 }
 .c-timeline > li:last-child { padding-bottom: 0; }
-/* 节点：未来=灰空心+灰序号 */
+/* 连接线：节点底(17px) → 下一项节点顶(li 底 +1px)，中心与节点的圆心同在 x=-22px。
+   最后一项不画线，避免尾部拖出一段悬空灰线。 */
+.c-timeline > li:not(:last-child)::after {
+  content: ''; position: absolute; left: -23px; top: 17px; bottom: -1px;
+  width: 2px; background: var(--c-line); z-index: 0;
+}
+/* 已完成段叠主色 fill：只有当前节点已完成时，它到下一节点的连线才变主色 */
+.c-timeline > li.done:not(:last-child)::after { background: var(--c-primary); }
+/* 节点：未来=灰空心+灰序号；z-index 1 压住连接线，线不会从圆点中间穿过 */
 .c-timeline > li::before {
   content: counter(tlstep);
   box-sizing: border-box; display: flex; align-items: center; justify-content: center;
-  position: absolute; left: -30px; top: 1px;
+  position: absolute; left: -30px; top: 1px; z-index: 1;
   width: 16px; height: 16px; border-radius: 999px;
-  background: #fff; border: 2px solid var(--c-line);
+  background: var(--c-white); border: 2px solid var(--c-line);
   font-size: 10px; font-weight: 600; color: var(--c-ink-3);
 }
 /* 完成：主色实心 + 白色对勾 */
 .c-timeline > li.done::before {
   content: '✓'; font-size: 11px;
-  background: var(--c-primary); border-color: var(--c-primary); color: #fff;
+  background: var(--c-primary); border-color: var(--c-primary); color: var(--c-white);
 }
 /* 当前：第一条未完成项，主色实心 + 白色序号 + 浅主色光环 */
 .c-timeline > li:not(.done):first-of-type::before,
 .c-timeline > li.done + li:not(.done)::before {
-  background: var(--c-primary); border-color: var(--c-primary); color: #fff;
+  background: var(--c-primary); border-color: var(--c-primary); color: var(--c-white);
   box-shadow: 0 0 0 4px var(--c-primary-50);
 }
 
@@ -690,10 +699,11 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 }
 /* 标签：完成/当前加深强调，未完成保持次级灰 */
 .c-steps > div.done, .c-steps > div.now { color: var(--c-ink); font-weight: 600; }
-/* 连接线：灰色 track 打底，已完成段叠主色 fill；置于节点下层 */
+/* 连接线：灰色 track 打底，已完成段叠主色 fill；置于节点下层。
+   ±12px 让线端伸入 26px 节点 1px，由 z-index 2 的圆点盖住，避免两端出现 2px 断缝 */
 .c-steps > div:not(:last-child)::after {
   content: ''; position: absolute; top: 12px;
-  left: calc(50% + 15px); right: calc(-50% + 15px);
+  left: calc(50% + 12px); right: calc(-50% + 12px);
   height: 2px; background: var(--c-line); z-index: 1;
 }
 .c-steps > div.done:not(:last-child)::after { background: var(--c-primary); }

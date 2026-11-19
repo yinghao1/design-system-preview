@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.7.7</span>
+      <span class="changelog-pill">最新 v2.7.8</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,26 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.7.8</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-doc">规范</span>
+          <span class="changelog-tag is-new">修复</span>
+        </div>
+        <h3 class="changelog-title">C 端预览框底色、时间线轴线与步骤条细节修正</h3>
+        <ul class="changelog-list">
+          <li><b>预览框底色</b>：除基础组件（按钮/徽标等本身无白底卡片，继续用纯白）外，其余所有 C 端组件页的 <code>.phone</code> 与 <code>.demo-box</code> 统一改为灰阶最低档 <code>#FAFAFA</code>，白色卡片浮于灰底，不再与文档白底融合；通过 <code>data-preview-surface="solid"</code> 语义标记实现全局规则。</li>
+          <li><b>Timeline 时间线</b>：轴线改为逐段连接相邻节点，最后一项不再拖出悬空灰线；节点提升层级压住轴线，线不再从圆点中间穿过，完成段与未来段在节点边缘交接。</li>
+          <li><b>横向 StepIndicator</b>：连接线两端各伸入节点 1pt 并由圆点盖住，消除原来 2pt 的视觉断缝。</li>
+          <li>全量排查 10 个 C 端组件页的预览框、卡片、分割线与步骤条样式，HeroUI 视觉语言保持全局一致。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.7.7</h2>
