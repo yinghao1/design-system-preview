@@ -276,7 +276,7 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   display: inline-flex; align-items: center; gap: 4px;
   height: 30px; padding: 0 12px;
   border-radius: 999px;
-  font-size: 13px; font-weight: 500;
+  font-size: 12px; font-weight: 500;
   background: var(--c-bg-2); color: var(--c-ink-2);
   border: 1px solid transparent;
 }
@@ -489,7 +489,8 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
   max-width: 78%; padding: 10px 14px;
   border-radius: 18px; font-size: 16px; line-height: 1.45;
 }
-.c-bubble--in { background: #fff; color: var(--c-ink); border-bottom-left-radius: 6px; }
+/* 收到的气泡用灰阶最浅档 --c-bg(#FAFAFA) 包裹，与白卡形成轻微层次，不再融进背景 */
+.c-bubble--in { background: var(--c-bg); color: var(--c-ink); border-bottom-left-radius: 6px; }
 .c-bubble--out { background: var(--c-primary); color: #fff; border-bottom-right-radius: 6px; margin-left: auto; }
 
 .c-progress { height: 8px; border-radius: 999px; background: var(--c-bg-2); overflow: hidden; }
@@ -517,7 +518,7 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 /* 连接线：节点底(17px) → 下一项节点顶(li 底 +1px)，中心与节点的圆心同在 x=-22px。
    最后一项不画线，避免尾部拖出一段悬空灰线。 */
 .c-timeline > li:not(:last-child)::after {
-  content: ''; position: absolute; left: -23px; top: 17px; bottom: -1px;
+  content: ''; position: absolute; left: -21px; top: 17px; bottom: -1px;
   width: 2px; background: var(--c-line); z-index: 0;
 }
 /* 已完成段叠主色 fill：只有当前节点已完成时，它到下一节点的连线才变主色 */
@@ -526,7 +527,7 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-timeline > li::before {
   content: counter(tlstep);
   box-sizing: border-box; display: flex; align-items: center; justify-content: center;
-  position: absolute; left: -30px; top: 1px; z-index: 1;
+  position: absolute; left: -28px; top: 1px; z-index: 1;
   width: 16px; height: 16px; border-radius: 999px;
   background: var(--c-white); border: 2px solid var(--c-line);
   font-size: 10px; font-weight: 600; color: var(--c-ink-3);
@@ -540,8 +541,10 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 .c-steps > div.done .node-check, .c-timeline > li.done .node-check {
   position: absolute; z-index: 3; color: var(--c-white); pointer-events: none;
 }
-.c-steps > div.done .node-check { top: 5px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; }
-.c-timeline > li.done .node-check { top: 1px; left: -27px; width: 12px; height: 12px; }
+/* 26px 圆心在 13px；14×14 勾精确居中 → top=13-7=6 */
+.c-steps > div.done .node-check { top: 6px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; }
+/* 圆心相对 li = (-20, 9)px；12×12 勾精确居中 → left=-20-6=-26, top=9-6=3 */
+.c-timeline > li.done .node-check { top: 3px; left: -26px; width: 12px; height: 12px; }
 [data-lucide].node-check { stroke-width: 2.6; }
 /* 当前：第一条未完成项，主色实心 + 白色序号 + 浅主色光环 */
 .c-timeline > li:not(.done):first-of-type::before,
@@ -604,7 +607,7 @@ html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--c-face-blue); color: #1F5FCC;
   border-radius: 999px; padding: 6px 12px;
-  font-size: 14px; font-weight: 600;
+  font-size: 12px; font-weight: 600;
 }
 .c-advice {
   display: flex; gap: 8px;

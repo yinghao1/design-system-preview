@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.8.1</span>
+      <span class="changelog-pill">最新 v2.8.2</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,26 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.8.2</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-fix">修复</span>
+          <span class="changelog-tag is-doc">规范</span>
+        </div>
+        <h3 class="changelog-title">时间线对齐纠错、气泡浅灰底与标签字号统一</h3>
+        <ul class="changelog-list">
+          <li>修复 C 端「近期动态」纵向时间线错位：竖线与节点中心右移 2pt，与卡片标题左边缘精确对齐；完成态圆点内的 Lucide 对勾垂直/水平双向精确居中（不再偏上）。步骤条圆点内对勾同步居中。</li>
+          <li>对话气泡（<code>c-bubble--in</code>）底色由纯白改为灰阶最浅档 <code>--c-bg</code>（#FAFAFA），在白色卡片上浮出轻微层次，不再与背景融合。</li>
+          <li>标签类组件字号统一 ≤12pt：<code>c-capsule</code> 14→12pt、<code>c-chip</code> 13→12pt，与规格文档「标签 12pt」一致；清理业务组件页的冗余内联字号声明。</li>
+          <li>更新组件规格文档与视觉规范，保持预览、代码、文档三处一致。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.8.1</h2>
