@@ -276,13 +276,25 @@ svg { display: block; }
 }
 .hero p {
   margin: 8px 0 0;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--muted-fg);
 }
 .hero-actions {
   display: flex;
   gap: 8px;
   margin-top: 20px;
+}
+/* Hero 内通用分割线：上下各 32px 留白。跟随作用域机制，任意页面可复用。 */
+.hero-divider {
+  width: 100%;
+  height: 0;
+  margin: 32px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+/* 切换器自身带 20px 上边距，紧邻分割线时清零，避免下方变成 52px。 */
+.hero-divider + .scope-switch {
+  margin-top: 0;
 }
 
 /* ---------- 按钮 ---------- */
