@@ -31,7 +31,7 @@
 6. **视觉基准统一对齐 HeroUI Native**  
    全部 C 端组件的圆角、阴影、字级、配色以 **[HeroUI Native](https://heroui.com/en/docs/native/components/text)** 为基准，权威数值见 `DESIGN.md` §2（色彩）、§3.4（语义字级）、§5（圆角）、§6（阴影）。实现集中在 `preview/assets/c-mobile.css` 的 token 层（`--c-r-*` / `--c-shadow-surface` / `--c-shadow-overlay` / `--c-ink` 三档）。  
    - **按钮**圆角 24pt、字重 500、字号 16pt（不是旧版的 12pt / 600 / 17pt）  
-   - **卡片**圆角 16pt + `--c-shadow-surface` 多层柔阴影；**折叠面板**圆角 24pt 独立成卡  
+   - **卡片**圆角 16pt + `--c-shadow-surface` 复合柔阴影（已整体降一档，调档只改 token）；**折叠面板**圆角 24pt 独立成卡  
    - **输入框**无描边、用 `--c-bg-2` 填充，圆角 14pt，聚焦转白底 + 主色描边  
    - **Chip / Capsule** 圆角 16pt（圆角矩形，不再全胶囊），字号 ≤12pt  
    - 本文档中若出现与上述冲突的旧数值（如「按钮 12pt」「圆角 full」），以 `DESIGN.md` 与本条为准。
@@ -518,8 +518,10 @@ Default → Hover → Pressed → Loading → Disabled
 - **节点直径**：16pt
 - **连接线**：2pt，灰色 track 打底，已完成段叠主色 fill `#2A7F8B`；**只连接相邻两个节点，最后一项不画线**，线端在节点边缘交接，不穿过圆点、不在尾部留下悬空线段
 - **节点状态**：完成（主色实心 + 白勾）→ 当前（主色实心 + 白序号 + 4pt 浅主色光环）→ 未来（灰空心 + 灰序号）
-- **节点与文字间距**：14pt
+- **节点与文字间距**：8pt（节点右缘 → 文案左缘）
+- **节点不得溢出卡片**：容器 `padding-left: 30pt`，节点 `left: -24pt`，节点左缘落在卡片内容区**内侧 6pt**（当前态 4pt 光环也完整在内）。整列必须包在卡片内边距里，禁止把节点推到卡片外或贴边
 - **实现**：`preview/assets/c-mobile.css` 的 `.c-timeline`（单一全局规则，轴线由每个 `li` 的 `::after` 逐段绘制）
+  - 选择器写作 `.c-timeline, ul.c-timeline`：文档预览页的 `.doc ul { padding-left: 20pt }`（特异性 0,1,1）会覆盖单类规则（0,1,0），导致节点被推出卡片——这是已修过的回归点，别改回单类
 
 ---
 

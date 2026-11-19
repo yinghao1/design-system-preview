@@ -254,13 +254,15 @@ background-attachment: fixed;
 
 ## 6. 阴影系统
 
-> 对齐 **HeroUI Native**：只用 `surface` / `overlay` 两套**多层极柔**阴影（token：`--c-shadow-surface` / `--c-shadow-overlay`），不再用单层硬投影。多层叠加让边缘过渡自然，避免「一圈灰边」的廉价感。
+> 以 **HeroUI Native** 的 `surface` / `overlay` 两套复合阴影为起点，**整体再降一档**（模糊半径收一级、alpha 压低约四成）。浅灰底上的白卡依旧能分层，但不会出现可见的「灰边」，也不会抢内容的注意力。
 
 | Token | 值 | 场景 |
 |------|-----|------|
-| `--c-shadow-surface` | `0 2px 4px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06), 0 0 1px rgba(0,0,0,.06)` | 卡片、折叠面板、任务卡、图表卡、价格卡、Banner |
-| `--c-shadow-overlay` | `0 2px 8px rgba(0,0,0,.02), 0 -6px 12px rgba(0,0,0,.01), 0 14px 28px rgba(0,0,0,.03)` | 弹窗、底部 Sheet、浮层 |
-| `--c-shadow-sm` | `0 1px 2px rgba(0,0,0,.05)` | 极轻层次（Toast、分段控件选中项） |
+| `--c-shadow-surface` | `0 1px 2px rgba(0,0,0,.03), 0 1px 1px rgba(0,0,0,.03)` | 卡片、折叠面板、任务卡、图表卡、价格卡、Banner |
+| `--c-shadow-overlay` | `0 2px 6px rgba(0,0,0,.015), 0 -4px 8px rgba(0,0,0,.008), 0 10px 20px rgba(0,0,0,.02)` | 弹窗、底部 Sheet、浮层 |
+| `--c-shadow-sm` | `0 1px 1px rgba(0,0,0,.025)` | 极轻层次（Toast、分段控件选中项） |
+
+> 降档记录：2026-11-19 全站卡片阴影统一降一档（原 surface 为 `0 2px 4px .04 + 0 1px 2px .06 + 0 0 1px .06` 三层）。调档只改 token，不要在组件里写内联阴影。
 
 ### 使用规则
 

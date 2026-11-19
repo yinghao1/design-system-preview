@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.9.0</span>
+      <span class="changelog-pill">最新 v2.9.1</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,26 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.9.1</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-fix">修复</span>
+          <span class="changelog-tag is-doc">规范</span>
+        </div>
+        <h3 class="changelog-title">时间线节点收进卡片内 · 卡片投影整体降一档</h3>
+        <ul class="changelog-list">
+          <li><strong>时间线节点溢出卡片（修复）</strong>：文档预览页的 <code>.doc ul { padding-left: 20pt }</code>（特异性 0,1,1）盖掉了单类 <code>.c-timeline</code>（0,1,0）的 30pt 缩进，节点被推到卡片内边距之外 8pt。选择器改为 <code>.c-timeline, ul.c-timeline</code> 提权，节点 <code>left: -28 → -24</code>，左缘现在落在卡片内容区<strong>内侧 6pt</strong>，当前态 4pt 光环也完整在内；轴线中心与圆点中心、白勾中心仍逐像素对齐。</li>
+          <li><strong>卡片投影降一档</strong>：<code>--c-shadow-surface</code> 由三层（<code>0 2px 4px .04 + 0 1px 2px .06 + 0 0 1px .06</code>）收为两层 <code>0 1px 2px rgba(0,0,0,.03), 0 1px 1px rgba(0,0,0,.03)</code>；<code>--c-shadow-overlay</code>、<code>--c-shadow-sm</code> 同步压低。卡片、折叠面板、任务卡、图表卡、价格卡、Banner、Toast 全部跟随 token，不再有可见灰边。</li>
+          <li><strong>字级微调</strong>：时间线条目字号 15→16pt，与 Body 对齐；节点与文字间距规范为 8pt。</li>
+          <li>同步 <code>DESIGN.md</code> §6 阴影表与降档记录、<code>COMPONENTS.md</code> §4.7 时间线（新增「节点不得溢出卡片」与双选择器防回归说明）。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.9.0</h2>

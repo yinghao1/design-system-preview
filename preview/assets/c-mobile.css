@@ -58,10 +58,12 @@
   --c-r-2xl: 16px;
   --c-r-3xl: 24px;
   --c-r-4xl: 32px;
-  /* 阴影：surface 用于卡片等非浮层，overlay 用于弹层/浮层 */
-  --c-shadow-surface: 0 2px 4px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06), 0 0 1px rgba(0,0,0,.06);
-  --c-shadow-overlay: 0 2px 8px rgba(0,0,0,.02), 0 -6px 12px rgba(0,0,0,.01), 0 14px 28px rgba(0,0,0,.03);
-  --c-shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+  /* 阴影：surface 用于卡片等非浮层，overlay 用于弹层/浮层。
+     整体比 HeroUI 原生再降一档（模糊半径收一级、alpha 压低约四成），
+     浅灰底上的白卡仍能分层，但不会出现可见的「灰边」。 */
+  --c-shadow-surface: 0 1px 2px rgba(0,0,0,.03), 0 1px 1px rgba(0,0,0,.03);
+  --c-shadow-overlay: 0 2px 6px rgba(0,0,0,.015), 0 -4px 8px rgba(0,0,0,.008), 0 10px 20px rgba(0,0,0,.02);
+  --c-shadow-sm: 0 1px 1px rgba(0,0,0,.025);
   --c-shadow-md: var(--c-shadow-surface);
   --c-shadow-lg: var(--c-shadow-overlay);
   --c-ease-spring: cubic-bezier(.34,1.56,.64,1);
@@ -565,25 +567,29 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
    参考 HeroUI Stepper 的 Separator 规则：轴线只连接相邻两个节点，
    最后一步不画线；track/fill 分层，完成态实心+白勾、当前态主色+浅色光环、
    未来态灰空心。轴线与节点的圆心严格对齐，交接点落在节点边缘，不穿节点。 */
-.c-timeline { position: relative; padding-left: 30px; counter-reset: tlstep; }
+/* 用双选择器提高特异性：文档页的 `.doc ul { padding-left: 20px }`（0,1,1）
+   会盖掉单类 `.c-timeline`（0,1,0），导致节点被推到卡片内边距之外。 */
+.c-timeline,
+ul.c-timeline { position: relative; padding-left: 30px; counter-reset: tlstep; }
 .c-timeline > li {
-  position: relative; list-style: none; padding-bottom: 18px; font-size: 15px;
+  position: relative; list-style: none; padding-bottom: 18px; font-size: 16px;
   counter-increment: tlstep;
 }
 .c-timeline > li:last-child { padding-bottom: 0; }
-/* 连接线：节点底(17px) → 下一项节点顶(li 底 +1px)，中心与节点的圆心同在 x=-22px。
+/* 连接线：节点底(17px) → 下一项节点顶(li 底 +1px)，中心与节点的圆心同在 x=-16px。
    最后一项不画线，避免尾部拖出一段悬空灰线。 */
 .c-timeline > li:not(:last-child)::after {
-  content: ''; position: absolute; left: -21px; top: 17px; bottom: -1px;
+  content: ''; position: absolute; left: -17px; top: 17px; bottom: -1px;
   width: 2px; background: var(--c-line); z-index: 0;
 }
 /* 已完成段叠主色 fill：只有当前节点已完成时，它到下一节点的连线才变主色 */
 .c-timeline > li.done:not(:last-child)::after { background: var(--c-primary); }
-/* 节点：未来=灰空心+灰序号；z-index 1 压住连接线，线不会从圆点中间穿过 */
+/* 节点：未来=灰空心+灰序号；z-index 1 压住连接线，线不会从圆点中间穿过。
+   left=-24 + 容器 padding 28 → 圆点左边缘落在卡片内边距内 4px，不再溢出卡片。 */
 .c-timeline > li::before {
   content: counter(tlstep);
   box-sizing: border-box; display: flex; align-items: center; justify-content: center;
-  position: absolute; left: -28px; top: 1px; z-index: 1;
+  position: absolute; left: -24px; top: 1px; z-index: 1;
   width: 16px; height: 16px; border-radius: 999px;
   background: var(--c-white); border: 2px solid var(--c-line);
   font-size: 10px; font-weight: 600; color: var(--c-ink-3);
@@ -599,8 +605,8 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 }
 /* 26px 圆心在 13px；14×14 勾精确居中 → top=13-7=6 */
 .c-steps > div.done .node-check { top: 6px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; }
-/* 圆心相对 li = (-20, 9)px；12×12 勾精确居中 → left=-20-6=-26, top=9-6=3 */
-.c-timeline > li.done .node-check { top: 3px; left: -26px; width: 12px; height: 12px; }
+/* 圆心相对 li = (-16, 9)px；12×12 勾精确居中 → left=-16-6=-22, top=9-6=3 */
+.c-timeline > li.done .node-check { top: 3px; left: -22px; width: 12px; height: 12px; }
 [data-lucide].node-check { stroke-width: 2.6; }
 /* 当前：第一条未完成项，主色实心 + 白色序号 + 浅主色光环 */
 .c-timeline > li:not(.done):first-of-type::before,
