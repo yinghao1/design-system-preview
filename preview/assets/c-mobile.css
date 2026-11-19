@@ -567,7 +567,15 @@ html[data-set="c"] .doc-section > .c-table { margin-top: 16px; }
 }
 .c-table td { padding: 12px; border-bottom: 1px solid var(--c-line); }
 .c-table tr:last-child td { border-bottom: 0; }
-.c-table .em { color: var(--c-blue); font-weight: 600; }
+/* 表格内的数字一律使用默认字体（与正文同族），不套 Urbanist 等特殊数字字族；
+   凡是放进表格的数字，无论带哪种数值类，都强制回退到默认字体。
+   表格外的 KPI / 大数字仍保留 Urbanist，两者互不影响。 */
+html[data-set="c"] .c-table :is(.c-num, .v, .p-price, .mp-num) {
+  font-family: inherit;
+  font-variant-numeric: normal;
+}
+/* 异常指标（偏高/超标）用红色标注，不再用蓝色 */
+.c-table .em { color: var(--c-error); font-weight: 600; }
 
 .c-capsule {
   display: inline-flex; align-items: center; gap: 6px;

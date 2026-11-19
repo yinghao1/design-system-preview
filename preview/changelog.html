@@ -44,7 +44,7 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
 <main class="page-container">
   <section class="hero">
     <div class="changelog-top">
-      <span class="changelog-pill">最新 v2.7.8</span>
+      <span class="changelog-pill">最新 v2.7.9</span>
       <span class="changelog-pill">2026-11-19</span>
     </div>
     <h1>更新日志</h1>
@@ -52,6 +52,25 @@ tailwind.config={theme:{extend:{colors:{ink:{50:'#FAFAFA',100:'#F4F4F5',200:'#E4
   </section>
 
   <div class="changelog">
+    <section class="changelog-item">
+      <div>
+        <h2 class="changelog-version">v2.7.9</h2>
+        <div class="changelog-date">2026-11-19</div>
+      </div>
+      <div>
+        <div class="changelog-tags">
+          <span class="changelog-tag is-doc">规范</span>
+          <span class="changelog-tag is-new">修复</span>
+        </div>
+        <h3 class="changelog-title">C 端表格数字字体与异常值颜色修正</h3>
+        <ul class="changelog-list">
+          <li><b>表格数字</b>统一使用默认字体：全量排查 C 端所有组件页，表格内的数字不再使用 Urbanist 等特殊数字字族；新增全局规则 <code>.c-table :is(.c-num, .v, …)</code>，任何放进表格的数值都自动回退默认字体。表格外的 KPI / 大数值仍保留 Urbanist，互不影响。</li>
+          <li><b>异常值高亮</b>由蓝色 <code>#4388FF</code> 改为红色 <code>#D83226</code>，与「偏高 / 超标」状态徽章的语义一致；正常值保持默认文字色，不额外高亮。</li>
+          <li>同步更新组件规格文档、数据展示页导语与说明文案，保持全局一致。</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="changelog-item">
       <div>
         <h2 class="changelog-version">v2.7.8</h2>

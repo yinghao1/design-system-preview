@@ -45,7 +45,7 @@
   <div class="docs-main">
     <article class="doc-card doc">
       <h1>数据展示</h1>
-      <p class="doc-lead">卡片、列表项、气泡、进度、时间线与信息展示组件。数值一律使用 Urbanist 等宽数字，与 PC 端共用同一字体，配合趋势色与状态徽章，保证多行对齐与语义可读。</p>
+      <p class="doc-lead">卡片、列表项、气泡、进度、时间线与信息展示组件。KPI 大数值使用 Urbanist 等宽数字，与 PC 端共用同一字体；表格内的数字使用默认字体，异常值以红色标注，配合趋势色与状态徽章，保证语义可读。</p>
 
       <div class="doc-actions">
         <button class="btn btn-sm btn-outline" type="button" data-goto-tab="preview">
@@ -184,13 +184,13 @@
       <table class="c-table">
         <thead><tr><th>指标</th><th>本次</th><th>参考区间</th><th>状态</th></tr></thead>
         <tbody>
-          <tr><td>空腹血糖</td><td class="em c-num">6.4 mmol/L</td><td>3.9 – 6.1</td><td><span class="c-status c-status--warn">偏高</span></td></tr>
-          <tr><td>糖化血红蛋白</td><td class="c-num">5.8 %</td><td>4.0 – 6.0</td><td><span class="c-status c-status--ok">正常</span></td></tr>
-          <tr><td>低密度脂蛋白</td><td class="em c-num">4.2 mmol/L</td><td>&lt; 3.4</td><td><span class="c-status c-status--bad">超标</span></td></tr>
-          <tr><td>收缩压</td><td class="c-num">142 mmHg</td><td>&lt; 140</td><td><span class="c-status c-status--warn">偏高</span></td></tr>
+          <tr><td>空腹血糖</td><td class="em">6.4 mmol/L</td><td>3.9 – 6.1</td><td><span class="c-status c-status--warn">偏高</span></td></tr>
+          <tr><td>糖化血红蛋白</td><td>5.8 %</td><td>4.0 – 6.0</td><td><span class="c-status c-status--ok">正常</span></td></tr>
+          <tr><td>低密度脂蛋白</td><td class="em">4.2 mmol/L</td><td>&lt; 3.4</td><td><span class="c-status c-status--bad">超标</span></td></tr>
+          <tr><td>收缩压</td><td class="em">142 mmHg</td><td>&lt; 140</td><td><span class="c-status c-status--warn">偏高</span></td></tr>
         </tbody>
       </table>
-      <p style="font-size:12px;color:#A1A1AA;margin-top:10px">移动端表格最多 4 列；超出时改为「键值对列表」或横向滚动（需保留首列固定）。数值列右对齐并使用等宽数字。</p>
+      <p style="font-size:12px;color:#A1A1AA;margin-top:10px">移动端表格最多 4 列；超出时改为「键值对列表」或横向滚动（需保留首列固定）。表格数字用默认字体，异常值以红色 + 文字（偏高/超标）双重标注。</p>
     </div>
   </section>
         </div>
@@ -219,7 +219,7 @@
             <tr><td>MetricCard</td><td>数值 34pt/700，标签 13pt</td><td>数值用 Urbanist + tabular-nums</td></tr>
             <tr><td>GroupKPI</td><td>数值 24pt/600，标签 12pt</td><td>2–3 个等宽分栏，不换行</td></tr>
             <tr><td>StatusBadge</td><td>高 24pt，圆点 6pt</td><td>四态：ok / warn / bad / info</td></tr>
-            <tr><td>InfoTable</td><td>行高 44pt，表头 12pt</td><td>数值列右对齐 + 等宽数字</td></tr>
+            <tr><td>InfoTable</td><td>行高 44pt，表头 12pt</td><td>表格数字用默认字体，异常值红色标注 + 状态文字</td></tr>
             <tr><td>InfoCapsule</td><td>高 30pt，圆角 full</td><td>浅蓝底 + 蓝色数值，用于摘要指标</td></tr>
             <tr><td>AdviceTip</td><td>圆角 12pt，内边距 12×14pt</td><td>浅绿底 + 绿勾/灯泡图标</td></tr>
             <tr><td>SectionTitle</td><td>字号 19pt/700，装饰条 3×16pt</td><td>左侧主色竖条</td></tr>
